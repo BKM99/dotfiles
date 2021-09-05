@@ -1,6 +1,21 @@
-- clean: ['~']
+- defaults:
+          link:
+                  create: true
+                  force: true
+
+- clean: ["~"]
 
 - link:
-    ~/.gitconfig: gitconfig
-
-
+          ~/.antigen: antigen
+          ~/.bashrc: bash/.bashrc
+          ~/.bash_profile: bash/.bash_profile
+          ~/.aliases: environment/.aliases
+          ~/.hushlogin: environment/.hushlogin
+          ~/.gitconfig: git/.gitconfig
+          ~/.gitignore_global: git/.gitignore_global
+          ~/.tmux.conf: tmux/.tmux.conf
+          ~/.vim: vim/.vim
+          ~/.vimrc: vim/.vimrc
+          ~/.antigen.zsh: zsh/.antigen.zsh
+          ~/.p10k.zsh: zsh/.p10k.zsh
+          ~/.zshrc: zsh/.zshrc
