@@ -6,7 +6,6 @@
 - clean: ["~"]
 
 - link:
-          ~/.antigen: antigen
           ~/.bashrc: bash/.bashrc
           ~/.bash_profile: bash/.bash_profile
           ~/.aliases: environment/.aliases
