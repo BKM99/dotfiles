@@ -48,6 +48,10 @@ set noshowmode
 set laststatus=2
 set noshowcmd  " to get rid of display of last command
 set shortmess+=F  " to get rid of the file name displayed in the command line bar
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
 
 " Sensible stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
