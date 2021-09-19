@@ -1,12 +1,14 @@
+if command -v java &> /dev/null
+then
+    alias java13="export JAVA_HOME=`/usr/libexec/java_home -v 13`; java -version"
+    alias java12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
+    alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
+    alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`; java -version"
+fi
+
 alias clean='rm -rf ~/.Trash/*; rm -rf ~/Downloads/*'
 alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 alias jn='jupyter notebook'
-
-alias java13="export JAVA_HOME=`/usr/libexec/java_home -v 13`; java -version"
-alias java12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
-alias java11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
-alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0`; java -version"
-
 
 # function to mkdir and cd into it
 function mkcd() {

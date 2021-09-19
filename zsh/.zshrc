@@ -1,5 +1,7 @@
 ZSH_BASE=$HOME/dotfiles # Base directory for ZSH configuration
 
+export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL
+
 source $ZSH_BASE/zsh/.antigen.zsh # Load Antigen
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
