@@ -43,7 +43,8 @@ set t_Co=256
 set background=dark
 set number              " show line numbers
 set mouse+=a            " A necessary evil, mouse support
-set linebreak           " Have lines wrap instead of continue off-screen
+set nowrap              " text is not wrapped
+"set linebreak           " Have lines wrap instead of continue off-screen
 set noshowmode
 set laststatus=2
 set noshowcmd  " to get rid of display of last command
