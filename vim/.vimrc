@@ -1,5 +1,9 @@
+set timeoutlen=1000 ttimeoutlen=0 " pressing esc takes too long
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+" ============================================================================================================
+" Start of Vundle Stuff
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,14 +23,51 @@ Plugin 'VundleVim/Vundle.vim'
 " ... other plugins
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'dense-analysis/ale'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'airblade/vim-rooter'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 if s:bootstrap
         silent PluginInstall
+        silent PluginUpdate
+        silent PLuginClean
         quit
 end
 filetype plugin indent on    " required
+" End of Vundle Stuff
+" ============================================================================================================
+
+" lightline layout
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
+" fzf laylout
+let g:fzf_layout = { 'down': '~20%' }
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" NERDTree Settings 
+let NERDTreeShowHidden=1 
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+" closes NERDTree if it is the only buffer open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Linter Stuff
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -39,20 +80,16 @@ set expandtab       " tabs are spaces, mainly because of python
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on               " enable syntax processing
 colorscheme dracula
+set scrolloff=4
 set t_Co=256
 set background=dark
 set number              " show line numbers
 set mouse+=a            " A necessary evil, mouse support
 set nowrap              " text is not wrapped
-"set linebreak           " Have lines wrap instead of continue off-screen
 set noshowmode
 set laststatus=2
-set noshowcmd  " to get rid of display of last command
-set shortmess+=F  " to get rid of the file name displayed in the command line bar
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
+set noshowcmd           " to get rid of display of last command
+set shortmess+=F        " to get rid of the file name displayed in the command line bar
 
 " Sensible stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,8 +105,20 @@ set smartcase           " But make it case sensitive if an uppercase is entered
 
 " Key Binds"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=" "       " leader is space
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
-nmap <Leader>wq :wq<CR>
-nmap <Leader>Q :q!<CR>
+let mapleader="\<Space>"       " leader is space
+nmap <leader>w :w<CR>
+
+" No arrow keys --- force yourself to use the home row
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+"fzf key remap
+map <leader>f :Files<CR>
+nmap <leader>; :Buffers<CR>
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+" keybind to open NERDTree
+nnoremap <leader>t :NERDTreeToggle<Enter>
