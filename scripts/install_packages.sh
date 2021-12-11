@@ -1,3 +1,4 @@
+# download homebrew if it is not installed
 if ! command -v brew &> /dev/null
 then
     echo "brew could not be found"
@@ -9,7 +10,8 @@ fi
 echo "installing packages..."
 
 brew install tmux
-brew install bat 
 brew install git
+brew install neovim
+brew install --cask alacritty
 
 echo "Done installing packages!"
