@@ -28,13 +28,14 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'airblade/vim-rooter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-
+Plugin 'yunlingz/ci_dark'
+Plugin 'jiangmiao/auto-pairs'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 if s:bootstrap
         silent PluginInstall
         silent PluginUpdate
-        silent PLuginClean
+        silent PluginClean
         quit
 end
 filetype plugin indent on    " required
@@ -43,7 +44,7 @@ filetype plugin indent on    " required
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'ci_dark',
       \ }
 
 " fzf laylout
@@ -56,8 +57,8 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" NERDTree Settings 
-let NERDTreeShowHidden=1 
+" NERDTree Settings
+let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
@@ -68,6 +69,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Linter Stuff
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
+let g:ale_linters = {'python': ['flake8']}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'python': ['black','isort']
+\}
+
+let g:ale_fix_on_save = 1
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,8 +87,9 @@ set expandtab       " tabs are spaces, mainly because of python
 
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set termguicolors
 syntax on               " enable syntax processing
-colorscheme dracula
+colorscheme ci_dark
 set scrolloff=4
 set t_Co=256
 set background=dark
