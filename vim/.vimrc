@@ -30,6 +30,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'yunlingz/ci_dark'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'rust-lang/rust.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 if s:bootstrap
