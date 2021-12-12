@@ -1,4 +1,4 @@
-ZSH_BASE=$HOME/dotfiles # Base directory for ZSH configuration
+ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 
 export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL
 
