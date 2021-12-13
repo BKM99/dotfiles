@@ -1,3 +1,6 @@
+#env:
+#  TERM: xterm-256color
+
 # Window Customization
 window:
   live_config_reload: true
@@ -41,36 +44,41 @@ cursor:
     blinking: off
     blink-interval: 750
     unfocused_hollow: true
-
-# Base16 Gruvbox dark, hard - alacritty color config
-# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+# Base16 PaperColor Dark 256 - alacritty color config
+# Jon Leopard (http://github.com/jonleopard) based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
 colors:
-  name: Atelierdune (dark)
-  author: Chris Kempson
+  # Default colors
   primary:
-    background: "#20201d"
-    foreground: "#a6a28c"
-  cursor:
-    text: "#20201d"
-    cursor: "#a6a28c"
-  normal:
-    black: "#20201d"
-    red: "#d73737"
-    green: "#60ac39"
-    yellow: "#cfb017"
-    blue: "#6684e1"
-    magenta: "#b854d4"
-    cyan: "#1fad83"
-    white: "#a6a28c"
-  bright:
-    black: "#7d7a68"
-    red: "#d73737"
-    green: "#60ac39"
-    yellow: "#cfb017"
-    blue: "#6684e1"
-    magenta: "#b854d4"
-    cyan: "#1fad83"
-    white: "#fefbec"
+    background: '#011627'
+    foreground: '#acb4c2'
 
-draw_bold_text_with_bright_colors: false
-theme: Atelierdune.dark
+  cursor:
+    text: '#fafafa'
+    cursor: '#9ca1aa'
+
+  selection:
+    text: '#080808'
+    background: '#b2ceee'
+
+  # Normal colors
+  normal:
+    black: '#1d3b53'
+    red: '#fc514e'
+    green: '#a1cd5e'
+    yellow: '#e3d18a'
+    blue: '#82aaff'
+    magenta: '#c792ea'
+    cyan: '#7fdbca'
+    white: '#a1aab8'
+
+  # Bright colors
+  bright:
+    black: '#7c8f8f'
+    red: '#ff5874'
+    green: '#21c7a8'
+    yellow: '#ecc48d'
+    blue: '#82aaff'
+    magenta: '#ae81ff'
+    cyan: '#7fdbca'
+    white: '#d6deeb'
+theme: Nightfly
