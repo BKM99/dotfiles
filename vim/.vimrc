@@ -31,6 +31,11 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'rust-lang/rust.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'frazrepo/vim-rainbow'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mileszs/ack.vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 if s:bootstrap
@@ -45,7 +50,7 @@ filetype plugin indent on    " required
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'selenized_black',
+      \ 'colorscheme': 'seoul256',
       \ }
 
 " fzf laylout
@@ -73,7 +78,6 @@ let g:ale_lint_on_save = 1
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
 \   'python': ['black','isort']
 \}
 
@@ -108,6 +112,12 @@ set shortmess+=F        " to get rid of the file name displayed in the command l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=indent,eol,start     " Make backspace behave in a more intuitive way
 set noswapfile
+set ttyfast
+set lazyredraw
+
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
 
 "Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -122,16 +132,17 @@ let mapleader="\<Space>"       " leader is space
 nmap <leader>w :w<CR>
 
 " No arrow keys --- force yourself to use the home row
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
 "fzf key remap
 map <leader>f :Files<CR>
 nmap <leader>; :Buffers<CR>
+
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
+
 " keybind to open NERDTree
 nnoremap <leader>t :NERDTreeToggle<Enter>

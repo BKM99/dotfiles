@@ -5,6 +5,3 @@ source ~/.vimrc
 "=====================================
 "These Settings only work in NeoVim
 "=====================================
-"Persistant undo
-set undodir = ~/.vimUndoDir
-set undofile
