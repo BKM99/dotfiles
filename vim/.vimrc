@@ -20,20 +20,34 @@ endtry
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" ... other plugins
-Plugin 'itchyny/lightline.vim'
+" Must have plugins
 Plugin 'scrooloose/nerdtree'
-Plugin 'dense-analysis/ale'
 Plugin 'machakann/vim-highlightedyank'
-Plugin 'airblade/vim-rooter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'rust-lang/rust.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'frazrepo/vim-rainbow'
 Plugin 'tpope/vim-fugitive'
+
+" Themes
+Plugin 'kaicataldo/material.vim'
+Plugin 'bluz71/vim-nightfly-guicolors'
+Plugin 'chriskempson/base16-vim'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'itchyny/lightline.vim'
+
+" Language/Syntax Stuff
+Plugin 'vim-python/python-syntax'
+Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plugin 'rust-lang/rust.vim'
+Plugin 'dense-analysis/ale'
+Plugin 'pangloss/vim-javascript'
+Plugin 'yuezk/vim-js'
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'jiangmiao/auto-pairs'
+
+" Other
+Plugin 'frazrepo/vim-rainbow'
 Plugin 'mileszs/ack.vim'
+Plugin 'airblade/vim-rooter'
 
 
 " All of your Plugins must be added before the following line
@@ -50,7 +64,7 @@ filetype plugin indent on    " required
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'wombat',
       \ }
 
 " fzf laylout
@@ -89,16 +103,14 @@ set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " Insert 4 spaces on a tab
 set expandtab       " tabs are spaces, mainly because of python
+set autoindent
 
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('termguicolors')
-  set termguicolors
-endif
-
-syntax on               " enable syntax processing
-colorscheme base16-atelier-dune
-set scrolloff=4
+set termguicolors
+colorscheme nightfly
+syntax enable           " enable syntax processing
+set scrolloff=6
 set background=dark
 set number              " show line numbers
 set mouse+=a            " A necessary evil, mouse support
@@ -112,12 +124,8 @@ set shortmess+=F        " to get rid of the file name displayed in the command l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backspace=indent,eol,start     " Make backspace behave in a more intuitive way
 set noswapfile
-set ttyfast
-set lazyredraw
-
-" Permanent undo
-set undodir=~/.vimdid
-set undofile
+set encoding=utf-8
+set fileformat=unix
 
 "Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,6 +138,7 @@ set smartcase           " But make it case sensitive if an uppercase is entered
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader="\<Space>"       " leader is space
 nmap <leader>w :w<CR>
+
 
 " No arrow keys --- force yourself to use the home row
 noremap <Up> <Nop>
@@ -146,3 +155,7 @@ nnoremap <leader><leader> <c-^>
 
 " keybind to open NERDTree
 nnoremap <leader>t :NERDTreeToggle<Enter>
+
+" makes copy and paste work better, uses control not command key
+vnoremap <C-c> "*y
+map <C-v> "+P
