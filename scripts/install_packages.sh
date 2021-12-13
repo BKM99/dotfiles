@@ -13,6 +13,5 @@ brew install tmux
 brew install git
 brew install neovim
 brew install --cask alacritty
-brew install iterm2
 
 echo "Done installing packages!"

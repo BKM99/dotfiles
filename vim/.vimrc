@@ -28,9 +28,9 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'airblade/vim-rooter'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'yunlingz/ci_dark'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'rust-lang/rust.vim'
+Plugin 'chriskempson/base16-vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 if s:bootstrap
@@ -45,7 +45,7 @@ filetype plugin indent on    " required
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'ci_dark',
+      \ 'colorscheme': 'selenized_black',
       \ }
 
 " fzf laylout
@@ -88,11 +88,13 @@ set expandtab       " tabs are spaces, mainly because of python
 
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
+
 syntax on               " enable syntax processing
-colorscheme ci_dark
+colorscheme base16-atelier-dune
 set scrolloff=4
-set t_Co=256
 set background=dark
 set number              " show line numbers
 set mouse+=a            " A necessary evil, mouse support
@@ -115,7 +117,7 @@ set ignorecase          " Ignore case in searches by default
 set smartcase           " But make it case sensitive if an uppercase is entered
 
 " Key Binds"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader="\<Space>"       " leader is space
 nmap <leader>w :w<CR>
 
