@@ -33,10 +33,10 @@ Plugin 'bluz71/vim-nightfly-guicolors'
 Plugin 'chriskempson/base16-vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'itchyny/lightline.vim'
+Plugin 'sainnhe/sonokai'
+Plugin 'morhetz/gruvbox'
 
 " Language/Syntax Stuff
-Plugin 'vim-python/python-syntax'
-Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plugin 'rust-lang/rust.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'pangloss/vim-javascript'
@@ -64,7 +64,7 @@ filetype plugin indent on    " required
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'one',
       \ }
 
 " fzf laylout
@@ -97,6 +97,8 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save = 1
 
+
+let python_highlight_all=1
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tabstop=4       " number of visual spaces per TAB
@@ -108,7 +110,7 @@ set autoindent
 " UI Config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set termguicolors
-colorscheme nightfly
+colorscheme gruvbox
 syntax enable           " enable syntax processing
 set scrolloff=6
 set background=dark
@@ -156,6 +158,5 @@ nnoremap <leader><leader> <c-^>
 " keybind to open NERDTree
 nnoremap <leader>t :NERDTreeToggle<Enter>
 
-" makes copy and paste work better, uses control not command key
-vnoremap <C-c> "*y
-map <C-v> "+P
+" control-c to copy, then use 'p' or whatever to paste
+vnoremap <C-c> "*y :let @+=@*<CR>
