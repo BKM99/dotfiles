@@ -1,8 +1,11 @@
-This repo conatins my dotfiles/configurations 
+# My dotfiles/configurations
+The install script will overwrite dotfiles/configuration files in the home directory. 
 
-NOTE: The folder "scripts" contains scripts to install apps/packages via homebrew
+### How to install/setup:
 
-How to install/setup:
-1. cd $HOME 
-2. run "git clone https://github.com/BKM99/configs && cd configs && ./install"
-3. restart terminal
+```
+cd $HOME
+git clone https://github.com/BKM99/configs && cd configs && ./install
+```
+
+NOTE: restart terminal for changes to take effect
