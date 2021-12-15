@@ -14,9 +14,8 @@
           ~/.gitconfig: git/.gitconfig
           ~/.gitignore_global: git/.gitignore_global
           ~/.tmux.conf: tmux/.tmux.conf
-          ~/.vim: vim/.vim
           ~/.vimrc: vim/.vimrc
           ~/.antigen.zsh: zsh/.antigen.zsh
           ~/.p10k.zsh: zsh/.p10k.zsh
           ~/.zshrc: zsh/.zshrc
-          ~/.config/nvim/init.vim: neovim/.config/nvim/init.vim
+          ~/.config/nvim/init.vim: neovim/nvim/init.vim
