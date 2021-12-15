@@ -13,5 +13,6 @@ brew install tmux
 brew install git
 brew install neovim
 brew install --cask alacritty
+brew install peco
 
 echo "Done installing packages!"

@@ -5,10 +5,6 @@
 # Log file
 *.log
 
-# BlueJ files
-*.ctxt
-*.bluej
-
 # Eclipse files
 *.metadata
 *.classpath
@@ -19,9 +15,6 @@
 out
 bin
 *.idea
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
 # Package Files #
 *.war
@@ -91,7 +84,6 @@ cover/
 
 # Django stuff:
 *.log
-local_settings.py
 db.sqlite3
 db.sqlite3-journal
 

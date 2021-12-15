@@ -22,19 +22,21 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-fugitive'
 
 " Language Support
-Plug 'rust-lang/rust.vim'
+"Plug 'rust-lang/rust.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'sheerun/vim-polyglot'
 
-" Themes
+" Makes stuff look nice
+Plug 'chriskempson/base16-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
-
-" Other
 Plug 'mhinz/vim-startify'
-
+Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 " ==================================================================================
 
@@ -44,7 +46,7 @@ nmap <leader>w :w<CR>
 
 "fzf key remap
 map <leader>f :Files<CR>
-nmap <leader>; :Buffers<CR>
+nmap <leader>b :Buffers<CR>
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
@@ -56,17 +58,30 @@ nnoremap <leader>t :NERDTreeToggle<Enter>
 vnoremap <C-c> "*y :let @+=@*<CR>
 
 " Left and right can switch buffers
-nnoremap <left> :bp<CR>
+nnoremap <1> :bp<CR>
 nnoremap <right> :bn<CR>
 " ==================================================================================
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileencoding', 'filetype' ] ],
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename'
+      \ },
       \ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
 
 " fzf laylout
-let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_layout = { 'down': '~25%' }
 
 " NERDTree Settings
 let NERDTreeShowHidden=1
@@ -85,7 +100,7 @@ set expandtab       " tabs are spaces, mainly because of python
 set autoindent
 
 " Color/Theme setup
-colorscheme dracula
+colorscheme onedark 
 set background=dark
 syntax on
 set termguicolors
@@ -98,7 +113,7 @@ set gdefault
 
 set backspace=indent,eol,start     " Make backspace behave in a more intuitive way
 set noswapfile
-set encoding=utf-8
+set encoding=UTF-8
 set number              " show line numbers
 set mouse=a             " A necessary evil, mouse support
 set nowrap              " text is not wrapped
@@ -107,6 +122,15 @@ set scrolloff=6
 set hidden
 set lazyredraw
 set timeoutlen=300
+set laststatus=2
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+" Better display for messages
+set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
 
 " LSP config (the mappings used in the default file don't quite work right)
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
@@ -117,35 +141,3 @@ nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-
-" auto-format
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-
-lua << EOF
-require'lspconfig'.pyright.setup{}
-
-local nvim_lsp = require'lspconfig'
-local on_attach = function(client)
-    require'completion'.on_attach(client)
-end
-
-nvim_lsp.rust_analyzer.setup({
-    on_attach=on_attach,
-    settings = {
-        ["rust-analyzer"] = {
-            assist = {
-                importGranularity = "module",
-                importPrefix = "by_self",
-            },
-            cargo = {
-                loadOutDirsFromCheck = true
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
-})
-EOF

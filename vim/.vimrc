@@ -30,6 +30,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Other
 Plug 'mhinz/vim-startify'
+
 call plug#end()
 " ==================================================================================
 
@@ -57,7 +58,7 @@ nnoremap <right> :bn<CR>
 
 " lightline layout
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'wombat',
       \ }
 
 " fzf laylout
@@ -102,3 +103,4 @@ set scrolloff=6
 set hidden
 set lazyredraw
 set timeoutlen=300
+set laststatus=2
