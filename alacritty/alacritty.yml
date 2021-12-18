@@ -1,6 +1,6 @@
 # Window Customization
 window:
-  live_config_reload: true
+  dynamic_title: true
   dimensions:
     columns: 140
     lines: 40
@@ -8,10 +8,10 @@ window:
     x: 4
     y: 4
   decorations: full
+  
 scrolling:
   history: 10000
   multiplier: 3
-window.dynamic_title: true
 
 # Font Customization
 font:
@@ -40,6 +40,12 @@ cursor:
     shape: Beam
     blinking: off
     blink-interval: 750
+
+# Fixes opt+key not working on Mac
+alt_send_esc: false
+
+# Reload Alacritty if the configuration changes
+live_config_reload: true
 
 # Base16 PaperColor Dark 256 - alacritty color config
 # Jon Leopard (http://github.com/jonleopard) based on PaperColor Theme (https://github.com/NLKNguyen/papercolor-theme)
