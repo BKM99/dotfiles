@@ -18,4 +18,4 @@
           ~/.antigen.zsh: zsh/.antigen.zsh
           ~/.p10k.zsh: zsh/.p10k.zsh
           ~/.zshrc: zsh/.zshrc
-          ~/.config/nvim/init.vim: neovim/nvim/init.vim     
+          ~/.config/nvim: nvim
