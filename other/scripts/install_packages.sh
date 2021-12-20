@@ -14,15 +14,23 @@ brew install tmux
 brew install git
 brew install neovim
 brew install peco
+brew install openjdk@8
+sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
 brew install jenv
+brew install mysql
 brew install --cask zoom
 brew install --cask alacritty
 brew install --cask spotify
 brew install --cask discord
 brew install --cask slack
+brew install --cask the-unarchiver
 brew install --cask google-chrome
 brew install --cask intellij-idea-ce
 brew install --cask visual-studio-code
+brew install --cask miniconda
+conda init "$(basename "${SHELL}")"
+brew install --cask rstudio
+brew install r
 
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font 
