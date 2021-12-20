@@ -24,6 +24,16 @@ Plug 'justinmk/vim-sneak'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'onsails/lspkind-nvim'
+
 call plug#end()
 
 lua require "impatient"
@@ -33,6 +43,8 @@ lua require "user.lualine"
 lua require "user.autocommands"
 lua require "user.indent"
 lua require "user.fzf"
+lua require "user.cmp"
+lua require "user.lsp"
 
 " Spaces & Tabs
 set tabstop=4       " number of visual spaces per TAB
@@ -54,19 +66,19 @@ set ignorecase
 set smartcase
 set gdefault
 
-set backspace=indent,eol,start     " Make backspace behave in a more intuitive way
+set backspace=indent,eol,start
 set noswapfile
 set encoding=UTF-8
-set number              " show line numbers
-set mouse=a             " A necessary evil, mouse support
-set nowrap              " text is not wrapped
+set number
+set mouse=a
+set nowrap
 set noshowmode
 set scrolloff=6
 set hidden
 set lazyredraw
 set timeoutlen=300
 set laststatus=2
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,menuone,noinsert,noselect
 set cmdheight=2
 set updatetime=300
 set undodir=~/.vimUndoDir
