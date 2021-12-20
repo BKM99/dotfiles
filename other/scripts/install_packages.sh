@@ -17,4 +17,7 @@ brew install --cask alacritty
 brew install peco
 brew install jenv
 
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font 
+
 echo "Done installing packages!"
