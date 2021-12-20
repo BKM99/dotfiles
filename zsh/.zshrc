@@ -14,9 +14,6 @@ fi
 # Use oh-my-zsh
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-#antigen bundle git
-
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
@@ -34,14 +31,14 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/brandonmorimoto/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/brandonmorimoto/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/brandonmorimoto/opt/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/brandonmorimoto/opt/miniconda3/bin:$PATH"
+        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
