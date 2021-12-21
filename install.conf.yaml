@@ -19,3 +19,4 @@
           ~/.p10k.zsh: zsh/.p10k.zsh
           ~/.zshrc: zsh/.zshrc
           ~/.config/nvim: nvim
+          ~/.condarc: conda/.condarc

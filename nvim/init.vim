@@ -19,22 +19,22 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" Themes
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-
-" Snippets
+" Snippets (need snippets for cmp to work)
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
+
+" Syntax Highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
 
-" Syntax Highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Make Stuff Pretty
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Useful
 Plug 'dstein64/vim-startuptime'
@@ -45,6 +45,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'kyazdani42/nvim-tree.lua'
 
 call plug#end()
 
@@ -57,6 +58,7 @@ lua require "user.indent"
 lua require "user.fzf"
 lua require "user.cmp"
 lua require "user.lsp"
+lua require "user.nvim-tree"
 
 " Spaces & Tabs
 set tabstop=4       " number of visual spaces per TAB
