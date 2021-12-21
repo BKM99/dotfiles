@@ -12,27 +12,39 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'lewis6991/impatient.nvim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'justinmk/vim-sneak'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'jiangmiao/auto-pairs'
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
+" Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+
+" Themes
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
+" Snippets
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
+
+" Syntax Highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Useful
+Plug 'dstein64/vim-startuptime'
+Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'lewis6991/impatient.nvim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 

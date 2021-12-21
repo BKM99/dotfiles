@@ -9,6 +9,6 @@ nmap <leader>b :Buffers<CR>
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
 
-" Use Control-c to copy to system clipboard
-vnoremap <C-c> "*y :let @+=@*<CR>
+" Use Alt-c to copy to system clipboard
+vnoremap <M-c> "*y :let @+=@*<CR>
 ]])
