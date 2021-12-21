@@ -57,8 +57,8 @@ lua require "user.autocommands"
 lua require "user.indent"
 lua require "user.fzf"
 lua require "user.cmp"
-lua require "user.lsp"
 lua require "user.nvim-tree"
+lua require "user.lsp"
 
 " Spaces & Tabs
 set tabstop=4       " number of visual spaces per TAB
@@ -97,3 +97,4 @@ set cmdheight=2
 set updatetime=300
 set undodir=~/.vimUndoDir
 set undofile
+

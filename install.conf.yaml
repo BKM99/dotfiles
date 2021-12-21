@@ -7,14 +7,11 @@
 
 - link:
           ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
-          # ~/.bashrc: bash/.bashrc
-          # ~/.bash_profile: bash/.bash_profile
           ~/.aliases: other/.aliases
           ~/.hushlogin: other/.hushlogin
           ~/.gitconfig: git/.gitconfig
           ~/.gitignore_global: git/.gitignore_global
           ~/.tmux.conf: tmux/.tmux.conf
-          # ~/.vimrc: vim/.vimrc
           ~/.antigen.zsh: zsh/.antigen.zsh
           ~/.p10k.zsh: zsh/.p10k.zsh
           ~/.zshrc: zsh/.zshrc
