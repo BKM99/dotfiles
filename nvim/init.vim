@@ -42,6 +42,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'lewis6991/impatient.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 Plug 'justinmk/vim-sneak'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'jiangmiao/auto-pairs'
@@ -97,4 +98,4 @@ set cmdheight=2
 set updatetime=300
 set undodir=~/.vimUndoDir
 set undofile
-
+set cursorline

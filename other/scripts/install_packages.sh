@@ -14,9 +14,6 @@ brew install tmux
 brew install git
 brew install neovim
 brew install peco
-brew install openjdk@8
-sudo ln -sfn /usr/local/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
-brew install jenv
 brew install mysql
 brew install --cask zoom
 brew install --cask alacritty
@@ -31,10 +28,14 @@ brew install --cask miniconda
 conda init "$(basename "${SHELL}")"
 brew install --cask rstudio
 brew install r
-
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font 
 
+echo "installing rust..."
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+
+echo "installing sdkman..."
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 echo "done installing apps!"
