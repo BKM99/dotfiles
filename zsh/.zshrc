@@ -1,3 +1,9 @@
+# Starts tmux automatically
+if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
+  # Create session 'main' or attach to 'main' if already exists.
+  tmux new-session -A -s main
+fi
+
 ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 
 export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL
@@ -8,7 +14,7 @@ source $ZSH_BASE/zsh/.antigen.zsh # Load Antigen
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Use oh-my-zsh
@@ -26,7 +32,7 @@ antigen apply
 
 # Aliases
 if [ -f ~/.aliases ]; then
-        source ~/.aliases
+    source ~/.aliases
 fi
 
 # >>> conda initialize >>>
