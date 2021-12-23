@@ -38,12 +38,10 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Useful
 Plug 'dstein64/vim-startuptime'
-Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'lewis6991/impatient.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-Plug 'justinmk/vim-sneak'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kyazdani42/nvim-tree.lua'
