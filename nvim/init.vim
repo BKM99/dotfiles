@@ -1,14 +1,14 @@
 " Install vim-plug if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.config/nvim/'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-  \| PlugInstall --sync | source $MYVIMRC
-\| endif
+            \| PlugInstall --sync | source $MYVIMRC
+            \| endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
@@ -32,9 +32,9 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
 
 " Make Stuff Pretty
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Useful
 Plug 'dstein64/vim-startuptime'
@@ -66,12 +66,13 @@ set shiftwidth=4    " Insert 4 spaces on a tab
 set expandtab       " tabs are spaces, mainly because of python
 set autoindent
 
-" Color/Theme setup
-colorscheme tokyonight
-let g:tokyonight_style = "storm"
-set background=dark
-syntax on
-set termguicolors
+" true color
+if exists("&termguicolors") && exists("&winblend")
+    syntax enable
+    set termguicolors
+    set background=dark
+    colorscheme PaperColor
+endif
 
 " Proper search
 set incsearch
