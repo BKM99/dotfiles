@@ -7,7 +7,7 @@ endif
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-            \| PlugInstall --sync | source $MYVIMRC
+            \| PlugInstall --sync
             \| endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
@@ -34,30 +34,34 @@ Plug 'onsails/lspkind-nvim'
 " Make Stuff Pretty
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " Useful
 Plug 'dstein64/vim-startuptime'
 Plug 'lewis6991/impatient.nvim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'McAuleyPenney/tidy.nvim'
+Plug 'numToStr/Comment.nvim'
 
 call plug#end()
 
 lua require "impatient"
 lua require "user.keymaps"
 lua require "user.treesitter"
-lua require "user.lualine" 
+lua require "user.lualine"
 lua require "user.autocommands"
 lua require "user.indent"
 lua require "user.fzf"
 lua require "user.cmp"
 lua require "user.nvim-tree"
 lua require "user.lsp"
+lua require "Comment".setup()
 
 " Spaces & Tabs
 set tabstop=4       " number of visual spaces per TAB
@@ -66,12 +70,11 @@ set shiftwidth=4    " Insert 4 spaces on a tab
 set expandtab       " tabs are spaces, mainly because of python
 set autoindent
 
-" true color
-if exists("&termguicolors") && exists("&winblend")
-    syntax enable
+if (has("termguicolors"))
     set termguicolors
     set background=dark
-    colorscheme PaperColor
+    colorscheme nvcode
+    syntax on
 endif
 
 " Proper search
@@ -80,6 +83,7 @@ set ignorecase
 set smartcase
 set gdefault
 
+" Other Settings
 set backspace=indent,eol,start
 set noswapfile
 set encoding=UTF-8

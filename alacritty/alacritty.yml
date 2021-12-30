@@ -129,32 +129,31 @@ key_bindings:
   - { key: Backslash, mods: Alt|Shift, chars: "\e|" }
   # Alt + |
 
-
 colors:
-  name: Google (dark)
-  author: Chris Kempson
+  name: vscode (dark)
+  author: senpai-10
   primary:
-    background: "#1d1f21"
-    foreground: "#c5c8c6"
+    background: "#1E1E1E"
+    foreground: "#D4D4D4"
   cursor:
     text: "#1d1f21"
-    cursor: "#c5c8c6"
+    cursor: "#cccccc"
   normal:
-    black: "#1d1f21"
-    red: "#cc342b"
-    green: "#198844"
-    yellow: "#fba922"
-    blue: "#3971ed"
-    magenta: "#a36ac7"
-    cyan: "#3971ed"
-    white: "#c5c8c6"
+    black: "#000000"
+    red: "#cd3131"
+    green: "#0dbc79"
+    yellow: "#e5e510"
+    blue: "#2472c8"
+    magenta: "#bc3fbc"
+    cyan: "#11a8cd"
+    white: "#e5e5e5"
   bright:
-    black: "#969896"
-    red: "#cc342b"
-    green: "#198844"
-    yellow: "#fba922"
-    blue: "#3971ed"
-    magenta: "#a36ac7"
-    cyan: "#3971ed"
-    white: "#ffffff"
-theme: Google.dark
+    black: "#666666"
+    red: "#f14c4c"
+    green: "#23d18b"
+    yellow: "#f5f543"
+    blue: "#3b8eea"
+    magenta: "#d670d6"
+    cyan: "#29b8db"
+    white: "#e5e5e5"
+theme: vscode.dark

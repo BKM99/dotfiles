@@ -1,8 +1,8 @@
-# Starts tmux automatically
-if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
-  # Create session 'main' or attach to 'main' if already exists.
-  tmux new-session -A -s main
-fi
+## Starts tmux automatically
+#if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
+#  # Create session 'main' or attach to 'main' if already exists.
+#  tmux new-session -A -s main
+#fi
 
 ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 

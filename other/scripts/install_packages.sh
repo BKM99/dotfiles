@@ -15,6 +15,8 @@ brew install git
 brew install neovim
 brew install peco
 brew install mysql
+brew install fzf
+brew install bat
 brew install --cask zoom
 brew install --cask alacritty
 brew install --cask spotify
@@ -29,7 +31,7 @@ conda init "$(basename "${SHELL}")"
 brew install --cask rstudio
 brew install r
 brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font 
+brew install --cask font-hack-nerd-font
 
 echo "installing rust..."
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
