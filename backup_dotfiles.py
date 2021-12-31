@@ -4,8 +4,8 @@ from time import time
 from shutil import copy2, copytree
 
 chdir(expanduser('~'))
-files_to_copy = ['.config','.bashrc','.bash_profile','.gitconfig','.gitignore_global',
-                '.aliases','.hushlogin','.tmux.conf','.vimrc','.antigen.zsh','.p10k.zsh','.zshrc']
+files_to_copy = ['.config', '.condarc', '.bashrc','.bash_profile','.gitconfig','.gitignore_global',
+                '.aliases','.hushlogin','.tmux.conf', '.tmux.conf.local', '.vimrc','.antigen.zsh','.p10k.zsh','.zshrc']
 
 backup_name = "dotfile-backup-" + str(time())
 mkdir(backup_name)
@@ -19,4 +19,4 @@ for file in files_to_copy:
     else:
         copytree(file, backup_name + '/' + file)
 
-print('dotfiles backed up to', backup_name)
+print('dotfiles backed up to ~/' + backup_name)
