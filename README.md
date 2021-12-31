@@ -7,8 +7,9 @@ The python script "backup_dotfiles.py" copies affected files to a new folder in 
 
 ```
 cd $HOME
+git clone https://github.com/BKM99/configs && cd configs
 python3 backup_dotfiles.py
-git clone https://github.com/BKM99/configs && cd configs && ./install
+./install
 ```
 
 NOTE: restart terminal for changes to take effect
