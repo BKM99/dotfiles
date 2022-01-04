@@ -77,6 +77,7 @@ set shiftwidth=4    " Insert 4 spaces on a tab
 set expandtab       " tabs are spaces, mainly because of python
 set autoindent
 
+" Colors
 if (has("termguicolors"))
     set termguicolors
     set background=dark
@@ -91,7 +92,7 @@ set smartcase
 set gdefault
 set backspace=indent,eol,start
 set noswapfile
-set encoding=UTF-8
+set encoding=utf-8
 set number
 set mouse=a
 set nowrap
@@ -107,3 +108,4 @@ set updatetime=300
 set undodir=~/.vimUndoDir
 set undofile
 set cursorline
+set clipboard=unnamedplus
