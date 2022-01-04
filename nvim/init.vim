@@ -12,6 +12,11 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'onsails/lspkind-nvim'
+
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -23,31 +28,31 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
-" Syntax Highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'onsails/lspkind-nvim'
+" Better Coding Experience
+Plug 'windwp/nvim-ts-autotag'
+Plug 'windwp/nvim-autopairs'
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Make Stuff Pretty
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'McAuleyPenney/tidy.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Useful
-Plug 'dstein64/vim-startuptime'
-Plug 'lewis6991/impatient.nvim'
+" Files Search
 Plug 'airblade/vim-rooter'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'windwp/nvim-ts-autotag'
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'McAuleyPenney/tidy.nvim'
-Plug 'numToStr/Comment.nvim'
+Plug 'kyazdani42/nvim-tree.lua'
+
+" Other
+Plug 'dstein64/vim-startuptime'
+Plug 'lewis6991/impatient.nvim'
+Plug 'nvim-lua/plenary.nvim'
 
 call plug#end()
 
@@ -61,7 +66,9 @@ lua require "user.fzf"
 lua require "user.cmp"
 lua require "user.nvim-tree"
 lua require "user.lsp"
-lua require "Comment".setup()
+lua require "user.autopairs"
+lua require "user.comment"
+lua require "user.gitsigns"
 
 " Spaces & Tabs
 set tabstop=4       " number of visual spaces per TAB
@@ -77,13 +84,11 @@ if (has("termguicolors"))
     syntax on
 endif
 
-" Proper search
+" Settings
 set incsearch
 set ignorecase
 set smartcase
 set gdefault
-
-" Other Settings
 set backspace=indent,eol,start
 set noswapfile
 set encoding=UTF-8
