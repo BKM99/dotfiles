@@ -109,3 +109,4 @@ set undodir=~/.vimUndoDir
 set undofile
 set cursorline
 set clipboard=unnamedplus
+set signcolumn=yes
