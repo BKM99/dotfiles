@@ -81,7 +81,7 @@ set autoindent
 if (has("termguicolors"))
     set termguicolors
     set background=dark
-    colorscheme nvcode
+    colorscheme onedark
     syntax on
 endif
 

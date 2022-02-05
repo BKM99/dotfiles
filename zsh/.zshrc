@@ -1,9 +1,3 @@
-## Starts tmux automatically
-#if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
-#  # Create session 'main' or attach to 'main' if already exists.
-#  tmux new-session -A -s main
-#fi
-
 ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 
 export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL
@@ -56,3 +50,7 @@ unset __conda_setup
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+source ~/zsh-prompt-benchmark/zsh-prompt-benchmark.plugin.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/configs/zsh/.p10k.zsh.
+[[ ! -f ~/configs/zsh/.p10k.zsh ]] || source ~/configs/zsh/.p10k.zsh
