@@ -1,4 +1,4 @@
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 # Window Customization
 window:
   dynamic_title: true
@@ -129,6 +129,7 @@ key_bindings:
   - { key: Backslash, mods: Alt|Shift, chars: "\e|" }
   # Alt + |
 
+# Catppuccin!
 colors:
   # Default colors
   primary:

@@ -19,6 +19,9 @@ nmap <leader>b :Buffers<CR>
 " Nvim Tree toggle
 nmap <leader>t :NvimTreeToggle<CR>
 
+" pressing esc will get rid of the highlight after searching with /
+nnoremap <silent> <Esc> <Esc>:noh<CR>
+
 ]])
 
 -- Better window navigation

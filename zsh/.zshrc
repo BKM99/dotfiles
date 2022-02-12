@@ -1,3 +1,8 @@
+if command -v pfetch &> /dev/null
+then
+    pfetch
+fi
+
 ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 
 export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL

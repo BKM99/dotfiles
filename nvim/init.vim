@@ -42,6 +42,7 @@ Plug 'christianchiarulli/nvcode-color-schemes.vim'
 Plug 'McAuleyPenney/tidy.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Files Search
 Plug 'airblade/vim-rooter'
