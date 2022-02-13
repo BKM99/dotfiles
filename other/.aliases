@@ -2,8 +2,8 @@ alias clean='rm -rf ~/.Trash/*; rm -rf ~/Downloads/*'
 alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 alias jn='jupyter notebook'
 alias vim=nvim
-alias lc='ls | choose'
-
+alias grep='grep --color=auto'
+alias rm='rm -i'
 # function to mkdir and cd into it
 function mkcd() {
     mkdir -p $1

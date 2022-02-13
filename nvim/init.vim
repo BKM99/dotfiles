@@ -35,6 +35,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'abecodes/tabout.nvim'
+Plug 'tpope/vim-fugitive'
 
 " Make Stuff Pretty
 Plug 'nvim-lualine/lualine.nvim'
