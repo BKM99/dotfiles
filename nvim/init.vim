@@ -46,6 +46,7 @@ Plug 'airblade/vim-gitgutter'
 
 " Colorschemes
 Plug 'sainnhe/gruvbox-material'
+Plug 'chriskempson/base16-vim'
 
 " Files Management
 Plug 'airblade/vim-rooter'
@@ -91,7 +92,7 @@ endif
 
 " Colors
 set background=dark
-colorscheme gruvbox-material
+colorscheme base16-gruvbox-dark-hard
 syntax on
 
 " Settings
