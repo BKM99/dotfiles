@@ -13,8 +13,8 @@ nmap <leader>w :w<CR>
 nnoremap <leader><leader> <c-^>
 
 "fzf key remap
-map <leader>f :Files<CR>
-nmap <leader>b :Buffers<CR>
+map <leader>f :FzfLua files<CR>
+nmap <leader>b :FzfLua buffers<CR>
 
 " Nvim Tree toggle
 nmap <leader>t :NvimTreeToggle<CR>
