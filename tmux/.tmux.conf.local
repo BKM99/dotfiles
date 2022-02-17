@@ -39,7 +39,6 @@ tmux_conf_new_session_prompt=false
 
 
 # -- display -------------------------------------------------------------------
-
 # RGB 24-bit colour support (tmux >= 2.2), possible values are:
 #  - true
 #  - false (default)
@@ -325,6 +324,10 @@ tmux_conf_copy_to_os_clipboard=false
 
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
+
+# MAKING THE COLORS WORK!!
+set -s default-terminal xterm-256color
+set -sa terminal-overrides ",*-256color:Tc"
 
 # remap prefix from 'C-b' to 'M-d'
 unbind C-b

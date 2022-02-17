@@ -74,13 +74,6 @@ lua require "user.autopairs"
 lua require "user.comment"
 lua require "user.tabout"
 
-" You might have to force true color when using regular vim inside tmux as the
-" colorscheme can appear to be grayscale with "termguicolors" option enabled.
-if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-
 " Colors
 set termguicolors
 colorscheme base16-gruvbox-dark-hard
