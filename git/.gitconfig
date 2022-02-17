@@ -4,6 +4,8 @@
     find = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
 	last = log -1 HEAD --stat
     s = status
+    c = commit
+    co = checkout
 [user]
 	name = Brandon Morimoto
 	email = bmorimoto99@gmail.com
@@ -16,3 +18,4 @@
     ui = auto
 [core]
 	excludesfile = /Users/brandonmorimoto/.gitignore_global
+    editor = nvim
