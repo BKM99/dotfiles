@@ -3,11 +3,11 @@ draw_bold_text_with_bright_colors: false
 window:
   dynamic_title: true
   dimensions:
-    columns: 140
-    lines: 40
+    columns: 120
+    lines: 45
   padding:
-    x: 4
-    y: 4
+    x: 2
+    y: 2
   decorations: none
 
 scrolling:

@@ -32,7 +32,9 @@ brew install --cask rstudio
 brew install r
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
-brew install choose-gui
+brew install autojump
+brew install exa
+brew install lolcat
 
 echo "installing rust..."
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh

@@ -1,7 +1,9 @@
-if command -v pfetch &> /dev/null
+if command -v pfetch lolcat &> /dev/null
 then
-    pfetch
+    pfetch | lolcat -S 3 -t
 fi
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 
