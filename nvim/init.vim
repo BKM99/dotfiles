@@ -12,21 +12,22 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'onsails/lspkind-nvim'
+ " LSP
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'williamboman/nvim-lsp-installer'
+" Plug 'onsails/lspkind-nvim'
 
-" Autocomplete
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
+" " Autocomplete
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/nvim-cmp'
 
-" Snippets (need snippets for cmp to work)
-Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'L3MON4D3/LuaSnip'
+" " Snippets (need snippets for cmp to work)
+" Plug 'saadparwaiz1/cmp_luasnip'
+" Plug 'L3MON4D3/LuaSnip'
 
 " Better Coding Experience
 Plug 'windwp/nvim-ts-autotag'
@@ -67,12 +68,13 @@ lua require "user.lualine"
 lua require "user.autocommands"
 lua require "user.indent"
 lua require "user.fzf"
-lua require "user.cmp"
+" lua require "user.cmp"
+" lua require "user.lsp"
 lua require "user.nvim-tree"
-lua require "user.lsp"
 lua require "user.autopairs"
 lua require "user.comment"
 lua require "user.tabout"
+source $HOME/configs/nvim/coc-keybinds.vim
 
 " Colors
 set termguicolors
@@ -105,6 +107,9 @@ set undofile
 set cursorline
 set clipboard=unnamedplus
 set signcolumn=yes
+set nobackup
+set nowritebackup
+set shortmess+=c
 
 " Spaces and Tabs
 set tabstop=4       " number of visual spaces per TAB

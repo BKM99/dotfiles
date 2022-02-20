@@ -57,7 +57,6 @@ unset __conda_setup
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-source ~/zsh-prompt-benchmark/zsh-prompt-benchmark.plugin.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/configs/zsh/.p10k.zsh.
 [[ ! -f ~/configs/zsh/.p10k.zsh ]] || source ~/configs/zsh/.p10k.zsh
