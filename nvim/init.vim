@@ -28,10 +28,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " " Snippets (need snippets for cmp to work)
 " Plug 'saadparwaiz1/cmp_luasnip'
 " Plug 'L3MON4D3/LuaSnip'
-
+Plug 'rust-lang/rust.vim'
 " Better Coding Experience
 Plug 'windwp/nvim-ts-autotag'
-Plug 'windwp/nvim-autopairs'
+" Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -71,7 +71,7 @@ lua require "user.fzf"
 " lua require "user.cmp"
 " lua require "user.lsp"
 lua require "user.nvim-tree"
-lua require "user.autopairs"
+" lua require "user.autopairs"
 lua require "user.comment"
 lua require "user.tabout"
 source $HOME/configs/nvim/coc-keybinds.vim
@@ -83,6 +83,7 @@ syntax on
 set background=dark
 
 " Settings
+filetype plugin indent on
 set incsearch
 set ignorecase
 set smartcase

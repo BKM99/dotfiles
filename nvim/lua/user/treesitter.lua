@@ -7,10 +7,10 @@ require'nvim-treesitter.configs'.setup {
     autotag = {
         enable = true -- This is for autotag plugin
     },
-    autopairs = {
-        enable = true
-    },
-    indent = { enable = true, disable = { "yaml", "python" } },
+    -- autopairs = {
+    --     enable = true
+    -- },
+    indent = { enable = false, disable = { "yaml", "python", "rust" } },
     context_commentstring = {
         enable = true,
         enable_autocmd = false,
