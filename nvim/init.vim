@@ -14,6 +14,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
  " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'rust-lang/rust.vim'
 " Plug 'neovim/nvim-lspconfig'
 " Plug 'williamboman/nvim-lsp-installer'
 " Plug 'onsails/lspkind-nvim'
@@ -28,7 +29,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " " Snippets (need snippets for cmp to work)
 " Plug 'saadparwaiz1/cmp_luasnip'
 " Plug 'L3MON4D3/LuaSnip'
-Plug 'rust-lang/rust.vim'
+
 " Better Coding Experience
 Plug 'windwp/nvim-ts-autotag'
 " Plug 'windwp/nvim-autopairs'
@@ -46,7 +47,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'airblade/vim-gitgutter'
 
 " Colorschemes
-Plug 'sainnhe/gruvbox-material'
 Plug 'chriskempson/base16-vim'
 
 " Files Management
@@ -56,7 +56,6 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'ibhagwan/fzf-lua'
 
 " Other
-Plug 'dstein64/vim-startuptime'
 Plug 'lewis6991/impatient.nvim'
 
 call plug#end()
