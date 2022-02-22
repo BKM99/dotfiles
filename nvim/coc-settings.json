@@ -1,6 +1,0 @@
-{
-    "diagnostic.checkCurrentLine": true,
-    "rust-analyzer.inlayHints.typeHints": false,
-    "rust-analyzer.diagnostics.enableExperimental": false,
-    "Lua.telemetry.enable": false
-}

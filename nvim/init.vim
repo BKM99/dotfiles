@@ -12,31 +12,28 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
- " LSP
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'rust-lang/rust.vim'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'williamboman/nvim-lsp-installer'
-" Plug 'onsails/lspkind-nvim'
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+Plug 'onsails/lspkind-nvim'
 
-" " Autocomplete
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'hrsh7th/cmp-cmdline'
-" Plug 'hrsh7th/nvim-cmp'
+" Autocomplete
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
-" " Snippets (need snippets for cmp to work)
-" Plug 'saadparwaiz1/cmp_luasnip'
-" Plug 'L3MON4D3/LuaSnip'
+" Snippets (need snippets for cmp to work)
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
 
 " Better Coding Experience
 Plug 'windwp/nvim-ts-autotag'
-" Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'abecodes/tabout.nvim'
 Plug 'tpope/vim-fugitive'
 
 " Make Stuff Pretty
@@ -67,13 +64,12 @@ lua require "user.lualine"
 lua require "user.autocommands"
 lua require "user.indent"
 lua require "user.fzf"
-" lua require "user.cmp"
-" lua require "user.lsp"
+lua require "user.cmp"
 lua require "user.nvim-tree"
-" lua require "user.autopairs"
+lua require "user.autopairs"
 lua require "user.comment"
-lua require "user.tabout"
-source $HOME/configs/nvim/coc-keybinds.vim
+lua require "user.lsp"
+lua require "user.lsp-installer"
 
 " Colors
 set termguicolors
