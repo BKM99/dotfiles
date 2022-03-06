@@ -1,3 +1,5 @@
+export WORKSPACE=$HOME/workspace
+export JDTLS_HOME=$HOME/.local/share/nvim/lsp_servers/jdtls
 if command -v pfetch lolcat &> /dev/null
 then
     pfetch | lolcat -S 3 -t

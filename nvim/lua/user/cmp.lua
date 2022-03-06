@@ -9,8 +9,8 @@ cmp.setup({
     },
 
     mapping = {
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<C-j>"] = cmp.mapping.select_next_item(),
+        ["<S-TAB>"] = cmp.mapping.select_prev_item(),
+        ["<TAB>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
@@ -19,7 +19,7 @@ cmp.setup({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
-        ['<TAB>'] = cmp.mapping.confirm({ select = true }),
+        ['<cr>'] = cmp.mapping.confirm({ select = true }),
     },
 
     sources = cmp.config.sources({
@@ -32,7 +32,7 @@ cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
             with_text = true,
-            maxwidth = 50,
+            maxwidth = 70,
         })
     },
 

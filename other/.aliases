@@ -3,9 +3,17 @@ alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 alias jn='jupyter notebook'
 alias vim=nvim
 alias grep='grep --color=auto'
-alias rm='rm -i'
+
 # function to mkdir and cd into it
 function mkcd() {
     mkdir -p $1
     cd $1
 }
+
+if command -v exa &> /dev/null
+then
+    alias l='exa'
+    alias ls='exa'
+    alias ll='exa -ll'
+    alias la='exa -la'
+fi
