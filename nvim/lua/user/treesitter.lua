@@ -2,7 +2,7 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = "all",
     highlight = {
         enable = true,      -- false will disable the whole extension
-        additional_vim_regex_highlighting = true,
+        additional_vim_regex_highlighting = false,
     },
     autotag = {
         enable = true -- This is for autotag plugin
@@ -10,7 +10,7 @@ require'nvim-treesitter.configs'.setup {
     autopairs = {
         enable = true
     },
-    indent = { enable = false, disable = { "yaml", "python", "rust" } },
+    indent = { enable = true, disable = { "yaml", "python", "rust" } },
     context_commentstring = {
         enable = true,
         enable_autocmd = false,
