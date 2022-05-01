@@ -58,4 +58,4 @@ require'nvim-tree'.setup {
         cmd = "trash",
         require_confirm = true
     },
-} 
+}

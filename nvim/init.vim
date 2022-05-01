@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
+Plug 'glepnir/lspsaga.nvim'
 
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -70,6 +71,7 @@ lua require "user.autopairs"
 lua require "user.comment"
 lua require "user.lsp"
 lua require "user.lsp-installer"
+lua require "user.lspsaga"
 
 " Colors
 set termguicolors
