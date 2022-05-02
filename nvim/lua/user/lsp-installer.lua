@@ -11,16 +11,20 @@ lsp_installer.on_server_ready(function(server)
     -- end
 
     if server.name == "sumneko_lua" then
-        opts.root_dir = function()
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        -- Get the language server to recognize the `vim` global
-                        globals = {'vim'},
+        Settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.stdpath("config") .. "/lua"] = true,
                     },
                 },
-            }
-        end
+            },
+        }
+
     end
 
     -- This setup() function will take the provided server configuration and decorate it with the necessary properties

@@ -13,8 +13,9 @@ nmap <leader>w :w<CR>
 nnoremap <leader><leader> <c-^>
 
 "fzf key remap
-map <leader>f :FzfLua files<CR>
-nmap <leader>b :FzfLua buffers<CR>
+nmap <leader>f :Telescope find_files theme=ivy<CR>
+nmap <leader>b :Telescope buffers theme=dropdown previewer=false<CR>
+nmap <leader>g :Telescope live_grep<CR>
 
 " Nvim Tree toggle
 nmap <leader>t :NvimTreeToggle<CR>

@@ -49,12 +49,12 @@ Plug 'chriskempson/base16-vim'
 
 " Files Management
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " This is to install fzf binary
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'ibhagwan/fzf-lua'
 
 " Other
 Plug 'lewis6991/impatient.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -64,7 +64,6 @@ lua require "user.treesitter"
 lua require "user.lualine"
 lua require "user.autocommands"
 lua require "user.indent"
-lua require "user.fzf"
 lua require "user.cmp"
 lua require "user.nvim-tree"
 lua require "user.autopairs"
