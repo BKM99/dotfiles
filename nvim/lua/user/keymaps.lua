@@ -6,24 +6,24 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd([[
-nmap <leader>w :w<CR>
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
-" <leader><leader> toggles between buffers
-nnoremap <leader><leader> <c-^>
+-- Better saving
+keymap("n", "<leader>w", ":w<CR>", opts)
 
-"fzf key remap
-nmap <leader>f :Telescope find_files theme=ivy<CR>
-nmap <leader>b :Telescope buffers theme=dropdown previewer=false<CR>
-nmap <leader>g :Telescope live_grep<CR>
+-- Nvim Tree toggle
+keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
-" Nvim Tree toggle
-nmap <leader>t :NvimTreeToggle<CR>
-
-" pressing esc will get rid of the highlight after searching with /
-nnoremap <silent> <Esc> <Esc>:noh<CR>
-
-]])
+-- Telescope
+keymap("n", "<leader>f", ":Telescope find_files theme=ivy<CR>", opts)
+keymap("n", "<leader>b", ":Telescope buffers theme=dropdown previewer=false<CR>", opts)
+keymap("n", "<leader>g", ":Telescope live_grep <CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -34,3 +34,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+
+-- Toggle between buffers
+keymap("n", "<leader><leader>", "<c-^>", opts)

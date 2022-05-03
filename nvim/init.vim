@@ -77,6 +77,7 @@ set background=dark
 
 " Settings
 filetype plugin indent on
+set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
