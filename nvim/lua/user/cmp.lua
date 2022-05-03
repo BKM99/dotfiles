@@ -31,6 +31,7 @@ cmp.setup({
 
     formatting = {
         format = lspkind.cmp_format({
+            mode = 'symbol',
             with_text = true,
             maxwidth = 70,
         })

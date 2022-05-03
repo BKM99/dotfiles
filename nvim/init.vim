@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
-Plug 'tami5/lspsaga.nvim'
 
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -50,11 +49,11 @@ Plug 'chriskempson/base16-vim'
 " Files Management
 Plug 'airblade/vim-rooter'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Other
 Plug 'lewis6991/impatient.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -69,8 +68,6 @@ lua require "user.nvim-tree"
 lua require "user.autopairs"
 lua require "user.comment"
 lua require "user.lsp"
-lua require "user.lsp-installer"
-lua require "user.lspsaga"
 
 " Colors
 set termguicolors
@@ -107,8 +104,6 @@ set signcolumn=yes
 set nobackup
 set nowritebackup
 set shortmess+=c
-
-" Spaces and Tabs
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " Insert 4 spaces on a tab
