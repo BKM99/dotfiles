@@ -11,8 +11,8 @@
           ~/.hushlogin: other/.hushlogin
           ~/.gitconfig: git/.gitconfig
           ~/.gitignore_global: git/.gitignore_global
-          ~/.tmux.conf: tmux/.tmux.conf
-          ~/.tmux.conf.local: tmux/.tmux.conf.local
+          ~/.tmux.conf: tmux/.tmux_simple.conf
+          # ~/.tmux.conf.local: tmux/.tmux.conf.local
           ~/.antigen.zsh: zsh/.antigen.zsh
           ~/.p10k.zsh: zsh/.p10k.zsh
           ~/.zshrc: zsh/.zshrc
