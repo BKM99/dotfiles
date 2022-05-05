@@ -37,3 +37,6 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Toggle between buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
+
+-- Turn off highlight after searching
+keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)

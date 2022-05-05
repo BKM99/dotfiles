@@ -74,10 +74,10 @@ set termguicolors
 colorscheme base16-gruvbox-dark-hard
 syntax on
 set background=dark
+highlight Comment guifg=#7f7f7f " make comments more visible
 
 " Settings
 filetype plugin indent on
-set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
