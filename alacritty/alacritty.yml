@@ -5,8 +5,8 @@ draw_bold_text_with_bright_colors: false
 window:
   dynamic_title: true
   dimensions:
-    columns: 90
-    lines: 30
+    columns: 120
+    lines: 40
   padding:
     x: 0
     y: 0
