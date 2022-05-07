@@ -16,6 +16,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
+Plug 'mfussenegger/nvim-jdtls'
 
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
