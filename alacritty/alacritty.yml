@@ -8,8 +8,8 @@ window:
     columns: 120
     lines: 30
   padding:
-    x: 2
-    y: 1
+    x: 0
+    y: 0
   decorations: full
 
 scrolling:
