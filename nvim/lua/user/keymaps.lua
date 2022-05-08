@@ -20,6 +20,9 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 -- Nvim Tree toggle
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
+-- Trouble
+keymap("n", "<leader>d", "<cmd>TroubleToggle<cr>", opts)
+
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers theme=dropdown previewer=false<CR>", opts)

@@ -51,14 +51,19 @@ Plug 'chriskempson/base16-vim'
 Plug 'airblade/vim-rooter'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'folke/trouble.nvim'
 
 " Other
 Plug 'lewis6991/impatient.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'j-hui/fidget.nvim'
+Plug 'andymass/vim-matchup'
 
 call plug#end()
 
 lua require "impatient"
+lua require "fidget".setup{}
+lua require "trouble".setup{}
 lua require "user.keymaps"
 lua require "user.treesitter"
 lua require "user.lualine"
