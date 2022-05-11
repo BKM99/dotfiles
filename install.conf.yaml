@@ -6,15 +6,14 @@
 - clean: ['~', '~/.config']
 
 - link:
-          ~/.config/alacritty/alacritty.yml: alacritty/alacritty.yml
-          ~/.aliases: other/.aliases
-          ~/.hushlogin: other/.hushlogin
-          ~/.gitconfig: git/.gitconfig
-          ~/.gitignore_global: git/.gitignore_global
-          ~/.tmux.conf: tmux/.tmux_simple.conf
-          # ~/.tmux.conf.local: tmux/.tmux.conf.local
-          ~/.antigen.zsh: zsh/.antigen.zsh
-          ~/.p10k.zsh: zsh/.p10k.zsh
-          ~/.zshrc: zsh/.zshrc
-          ~/.config/nvim: nvim
-          ~/.condarc: conda/.condarc
+          ~/.config/alacritty/alacritty.yml: terminals/alacritty/alacritty.yml
+          ~/.aliases: shell/.aliases
+          ~/.hushlogin: shell/.hushlogin
+          ~/.gitconfig: tools/git/.gitconfig
+          ~/.gitignore_global: tools/git/.gitignore_global
+          ~/.tmux.conf: tools/tmux/.tmux_simple.conf
+          ~/.antigen.zsh: shell/zsh/.antigen.zsh
+          ~/.p10k.zsh: shell/zsh/.p10k.zsh
+          ~/.zshrc: shell/zsh/.zshrc
+          ~/.config/nvim: editor/nvim
+          ~/.condarc: tools/conda/.condarc

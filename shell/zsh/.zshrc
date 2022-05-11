@@ -7,7 +7,7 @@ ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
 
 export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL
 
-source $ZSH_BASE/zsh/.antigen.zsh # Load Antigen
+source $ZSH_BASE/shell/zsh/.antigen.zsh # Load Antigen
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -17,7 +17,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Use oh-my-zsh
-antigen use oh-my-zsh
+# antigen use oh-my-zsh
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -26,7 +26,6 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle sudo
 antigen bundle tmux
 antigen bundle dirhistory
-antigen bundle autojump
 antigen bundle colored-man-pages
 antigen bundle safe-paste
 antigen bundle "MichaelAquilina/zsh-you-should-use"
@@ -60,9 +59,9 @@ unset __conda_setup
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# To customize prompt, run `p10k configure` or edit ~/configs/zsh/.p10k.zsh.
+[[ ! -f ~/configs/zsh/.p10k.zsh ]] || source ~/configs/zsh/.p10k.zsh
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# To customize prompt, run `p10k configure` or edit ~/configs/zsh/.p10k.zsh.
-[[ ! -f ~/configs/zsh/.p10k.zsh ]] || source ~/configs/zsh/.p10k.zsh
