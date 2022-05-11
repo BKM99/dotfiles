@@ -16,3 +16,13 @@ then
     alias ll='exa -ll'
     alias la='exa -la'
 fi
+
+if command -v tmux &> /dev/null
+then
+    alias t='tmux'
+    alias tks='tmux kill-session'
+fi
+
+if [[ $TERM == "xterm-kitty" ]]; then
+  alias ssh="kitty +kitten ssh"
+fi

@@ -17,15 +17,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Use oh-my-zsh
-# antigen use oh-my-zsh
+antigen use oh-my-zsh
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle sudo
-antigen bundle tmux
-antigen bundle dirhistory
 antigen bundle colored-man-pages
 antigen bundle safe-paste
 antigen bundle "MichaelAquilina/zsh-you-should-use"
