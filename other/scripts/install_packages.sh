@@ -7,15 +7,12 @@ then
     echo "done installing brew!"
 fi
 
-echo "installing apps packages..."
+echo "installing brew packages..."
 
 brew install node
 brew install tmux
 brew install git
 brew install neovim
-brew install peco
-brew install mysql
-brew install fzf
 brew install bat
 brew install --cask zoom
 brew install --cask alacritty
@@ -28,13 +25,10 @@ brew install --cask intellij-idea-ce
 brew install --cask visual-studio-code
 brew install --cask miniconda
 conda init "$(basename "${SHELL}")"
-brew install --cask rstudio
-brew install r
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 brew install autojump
 brew install exa
-brew install lolcat
 
 echo "installing rust..."
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh

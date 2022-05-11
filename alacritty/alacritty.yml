@@ -1,6 +1,6 @@
 env:
   TERM: xterm-256color
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 # Window Customization
 window:
   dynamic_title: true
@@ -19,7 +19,7 @@ scrolling:
 # Font Customization
 font:
   normal:
-    family: Hack Nerd Font
+    family: Hack Nerd Font Mono
     style: Regular
   size: 14
   offset:
@@ -131,38 +131,33 @@ key_bindings:
   - { key: Backslash, mods: Alt|Shift, chars: "\e|" }
   # Alt + |
 
-
 # Base16 Gruvbox dark, hard 256 - alacritty color config
 # Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 colors:
-  # Default colors
+  name: Atelierdune (dark)
+  author: Chris Kempson
   primary:
-    background: '0x1d2021'
-    foreground: '0xd5c4a1'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
+    background: "#20201d"
+    foreground: "#a6a28c"
   cursor:
-    text: '0x1d2021'
-    cursor: '0xd5c4a1'
-
-  # Normal colors
+    text: "#20201d"
+    cursor: "#a6a28c"
   normal:
-    black:   '0x1d2021'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xd5c4a1'
-
-  # Bright colors
+    black: "#20201d"
+    red: "#d73737"
+    green: "#60ac39"
+    yellow: "#cfb017"
+    blue: "#6684e1"
+    magenta: "#b854d4"
+    cyan: "#1fad83"
+    white: "#a6a28c"
   bright:
-    black:   '0x665c54'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xfbf1c7'
+    black: "#7d7a68"
+    red: "#d73737"
+    green: "#60ac39"
+    yellow: "#cfb017"
+    blue: "#6684e1"
+    magenta: "#b854d4"
+    cyan: "#1fad83"
+    white: "#fefbec"
+theme: Atelierdune.dark

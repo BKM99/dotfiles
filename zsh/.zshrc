@@ -1,10 +1,5 @@
-export WORKSPACE=$HOME/workspace
-export JDTLS_HOME=$HOME/.local/share/nvim/lsp_servers/jdtls
-
-# if command -v pfetch lolcat &> /dev/null
-# then
-#     pfetch
-# fi
+# export WORKSPACE=$HOME/workspace
+# export JDTLS_HOME=$HOME/.local/share/nvim/lsp_servers/jdtls
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
@@ -27,6 +22,14 @@ antigen use oh-my-zsh
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle sudo
+antigen bundle tmux
+antigen bundle dirhistory
+antigen bundle autojump
+antigen bundle colored-man-pages
+antigen bundle safe-paste
+antigen bundle "MichaelAquilina/zsh-you-should-use"
 
 # Load the theme.
 antigen theme romkatv/powerlevel10k
