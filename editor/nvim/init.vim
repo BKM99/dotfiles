@@ -79,6 +79,7 @@ colorscheme base16-gruvbox-dark-hard
 syntax on
 set background=dark
 highlight Comment guifg=#7f7f7f " make comments more visible
+hi Normal ctermbg=NONE
 
 " Settings
 filetype plugin indent on
