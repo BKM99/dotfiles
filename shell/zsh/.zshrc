@@ -1,6 +1,3 @@
-# export WORKSPACE=$HOME/workspace
-# export JDTLS_HOME=$HOME/.local/share/nvim/lsp_servers/jdtls
-
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
