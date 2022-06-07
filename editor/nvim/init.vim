@@ -17,6 +17,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
 Plug 'mfussenegger/nvim-jdtls'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -36,6 +37,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-fugitive'
+Plug 'simrat39/symbols-outline.nvim'
 
 " Make Stuff Pretty
 Plug 'nvim-lualine/lualine.nvim'
@@ -71,6 +73,7 @@ lua require "user.cmp"
 lua require "user.nvim-tree"
 lua require "user.autopairs"
 lua require "user.comment"
+lua require "user.null-ls"
 lua require "user.lsp"
 
 " Colors
@@ -115,3 +118,4 @@ set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " Insert 4 spaces on a tab
 set expandtab       " tabs are spaces, mainly because of python
 set autoindent
+set relativenumber

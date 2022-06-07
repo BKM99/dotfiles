@@ -23,6 +23,12 @@ keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 -- Trouble
 keymap("n", "<leader>d", "<cmd>TroubleToggle<cr>", opts)
 
+-- Symbol Outline
+keymap("n", "<leader>s", ":SymbolsOutline<cr>", opts)
+
+-- Null-ls format
+keymap("n", "<leader>nf", ":lua vim.lsp.buf.formatting_sync()<cr>", opts)
+
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers theme=dropdown previewer=false<CR>", opts)
@@ -35,11 +41,20 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Toggle between buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
 -- Turn off highlight after searching
 keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
+
+-- Move text up and down
+keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
+keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+
+keymap("v", "p", '"_dP', opts)
+
+keymap("n", "<leader>y", '"+y', opts)
+keymap("v", "<leader>y", '"+y', opts)
