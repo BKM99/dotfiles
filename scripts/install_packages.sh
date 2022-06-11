@@ -15,6 +15,9 @@ brew install git
 brew install neovim
 brew install autojump
 brew install exa
+brew install go
+brew install gradle
+brew install yarn
 brew install --cask zoom
 brew install --cask alacritty
 brew install --cask spotify
@@ -28,6 +31,8 @@ conda init "$(basename "${SHELL}")"
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
+echo "done installing brew packages"
+
 echo "installing rust..."
 curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
@@ -35,4 +40,4 @@ echo "installing sdkman..."
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-echo "done installing apps!"
+echo "installed everything"
