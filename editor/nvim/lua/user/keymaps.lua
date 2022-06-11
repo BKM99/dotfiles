@@ -54,7 +54,7 @@ keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
-keymap("v", "p", '"_dP', opts)
+-- keymap("v", "p", '"_dP', opts)
 
-keymap("n", "<leader>y", '"+y', opts)
-keymap("v", "<leader>y", '"+y', opts)
+-- keymap("n", "yy", '"+y', opts)
+-- keymap("v", "yy", '"+y', opts)

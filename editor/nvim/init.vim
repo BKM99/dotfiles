@@ -18,6 +18,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'onsails/lspkind-nvim'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
 " Autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -59,6 +60,7 @@ Plug 'folke/trouble.nvim'
 Plug 'lewis6991/impatient.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'andymass/vim-matchup'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 call plug#end()
 
@@ -75,6 +77,7 @@ lua require "user.autopairs"
 lua require "user.comment"
 lua require "user.null-ls"
 lua require "user.lsp"
+lua require "user.lspsaga"
 
 " Colors
 set termguicolors
@@ -108,7 +111,7 @@ set updatetime=300
 set undodir=~/.vimUndoDir
 set undofile
 set cursorline
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set signcolumn=yes
 set nobackup
 set nowritebackup
@@ -118,4 +121,5 @@ set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " Insert 4 spaces on a tab
 set expandtab       " tabs are spaces, mainly because of python
 set autoindent
+set smartindent
 set relativenumber
