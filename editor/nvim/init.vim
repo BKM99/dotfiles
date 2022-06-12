@@ -43,7 +43,7 @@ Plug 'simrat39/symbols-outline.nvim'
 " Make Stuff Pretty
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'McAuleyPenney/tidy.nvim'
+Plug 'mcauley-penney/tidy.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'airblade/vim-gitgutter'
 
@@ -78,6 +78,7 @@ lua require "user.comment"
 lua require "user.null-ls"
 lua require "user.lsp"
 lua require "user.lspsaga"
+lua require "tidy".setup()
 
 " Colors
 set termguicolors

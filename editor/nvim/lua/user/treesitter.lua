@@ -12,6 +12,14 @@ require'nvim-treesitter.configs'.setup {
         "html",
         "css",
         "bash",
+        "vim",
+        "tsx",
+        "typescript",
+        "css",
+        "cpp",
+        "c",
+        "c_sharp",
+        "dockerfile"
     },
     highlight = {
         enable = true,      -- false will disable the whole extension
