@@ -1,5 +1,8 @@
 require "user.plugins"
 require "user.impatient"
+require "user.cmp"
+require "user.lsp"
+require "user.null-ls"
 require "user.treesitter"
 require "user.lualine"
 require "user.autocommands"

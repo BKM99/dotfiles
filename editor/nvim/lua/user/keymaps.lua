@@ -24,6 +24,7 @@ keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers theme=dropdown previewer=false<CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep <CR>", opts)
+keymap("n", "<leader>d", ":Telescope diagnostics <CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
