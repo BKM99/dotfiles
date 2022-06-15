@@ -15,5 +15,6 @@
           ~/.antigen.zsh: shell/zsh/.antigen.zsh
           ~/.p10k.zsh: shell/zsh/.p10k.zsh
           ~/.zshrc: shell/zsh/.zshrc
+          ~/.zshenv: shell/zsh/.zshenv
           ~/.config/nvim: editor/nvim
           ~/.condarc: tools/conda/.condarc
