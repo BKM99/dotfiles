@@ -1,13 +1,11 @@
-vim.cmd [[
-    augroup highlight_yank
-        autocmd!
-        au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=300}
-    augroup END
+-- Removes whitespace at end of line
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*" },
+    command = [[%s/\s\+$//e]],
+})
 
-    augroup jump_last_location
-        if has("autocmd")
-            au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-            \| exe "normal! g'\"" | endif
-        endif
-    augroup END
-]]
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+  callback = function()
+    vim.highlight.on_yank { higroup = "IncSearch", timeout = 300 }
+  end,
+})

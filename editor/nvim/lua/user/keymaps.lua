@@ -20,15 +20,6 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 -- Nvim Tree toggle
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
--- Trouble
-keymap("n", "<leader>d", "<cmd>TroubleToggle<cr>", opts)
-
--- Symbol Outline
-keymap("n", "<leader>s", ":SymbolsOutline<cr>", opts)
-
--- Null-ls format
-keymap("n", "<leader>nf", ":lua vim.lsp.buf.formatting_sync()<cr>", opts)
-
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy<CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers theme=dropdown previewer=false<CR>", opts)
@@ -40,10 +31,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Navigate buffers
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprevious<CR>", opts)
-
 -- Toggle between buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
@@ -54,7 +41,15 @@ keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
--- keymap("v", "p", '"_dP', opts)
+-- Better pasting in visual mode
+keymap("v", "p", '"_dP', opts)
 
--- keymap("n", "yy", '"+y', opts)
--- keymap("v", "yy", '"+y', opts)
+-- Resize with arrows
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)

@@ -38,35 +38,29 @@ Plug 'numToStr/Comment.nvim'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'simrat39/symbols-outline.nvim'
 
 " Make Stuff Pretty
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'mcauley-penney/tidy.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'folke/todo-comments.nvim'
 
 " Colorschemes
 Plug 'chriskempson/base16-vim'
 
 " Files Management
-Plug 'airblade/vim-rooter'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'folke/trouble.nvim'
 
 " Other
 Plug 'lewis6991/impatient.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'andymass/vim-matchup'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 call plug#end()
 
 lua require "impatient"
-lua require "user.trouble"
-lua require "user.keymaps"
 lua require "user.treesitter"
 lua require "user.lualine"
 lua require "user.autocommands"
@@ -78,49 +72,8 @@ lua require "user.comment"
 lua require "user.null-ls"
 lua require "user.lsp"
 lua require "user.lspsaga"
-lua require "tidy".setup()
-
-" Colors
-set termguicolors
-colorscheme base16-gruvbox-dark-hard
-syntax on
-set background=dark
-highlight Comment guifg=#7f7f7f " make comments more visible
-hi Normal ctermbg=NONE
-
-" Settings
-filetype plugin indent on
-set incsearch
-set ignorecase
-set smartcase
-set gdefault
-set backspace=indent,eol,start
-set noswapfile
-set encoding=utf-8
-set number
-set mouse=a
-set nowrap
-set noshowmode
-set scrolloff=6
-set hidden
-set lazyredraw
-set timeoutlen=300
-set laststatus=2
-set completeopt=menu,menuone,noinsert,noselect
-set cmdheight=2
-set updatetime=300
-set undodir=~/.vimUndoDir
-set undofile
-set cursorline
-set clipboard+=unnamedplus
-set signcolumn=yes
-set nobackup
-set nowritebackup
-set shortmess+=c
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " Insert 4 spaces on a tab
-set expandtab       " tabs are spaces, mainly because of python
-set autoindent
-set smartindent
-set relativenumber
+lua require "user.gitsigns"
+lua require "user.todo-comments"
+lua require "user.options"
+lua require "user.colorscheme"
+lua require "user.keymaps"
