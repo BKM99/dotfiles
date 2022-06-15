@@ -20,7 +20,6 @@ vim.opt.completeopt={ "menu", "menuone", "noinsert", "noselect" }
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
 vim.opt.undofile = true
-vim.opt.undodir = "~/.local/share/nvim/vimUndoDir"
 vim.opt.cursorline = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
