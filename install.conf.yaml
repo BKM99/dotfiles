@@ -6,7 +6,7 @@
 - clean: ['~', '~/.config']
 
 - link:
-          ~/.config/alacritty/alacritty.yml: terminals/alacritty/alacritty.yml
+          ~/.config/alacritty: terminals/alacritty
           ~/.aliases: shell/.aliases
           ~/.hushlogin: shell/.hushlogin
           ~/.gitconfig: tools/git/.gitconfig
