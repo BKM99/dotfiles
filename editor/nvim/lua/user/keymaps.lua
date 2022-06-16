@@ -20,11 +20,14 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 -- Nvim Tree toggle
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
+-- Null-ls formatting
+keymap("n", "<leader>nf", ":lua vim.lsp.buf.formatting_sync()<cr>", opts)
+
 -- Telescope
-keymap("n", "<leader>f", ":Telescope find_files theme=ivy<CR>", opts)
-keymap("n", "<leader>b", ":Telescope buffers theme=dropdown previewer=false<CR>", opts)
-keymap("n", "<leader>g", ":Telescope live_grep <CR>", opts)
-keymap("n", "<leader>d", ":Telescope diagnostics <CR>", opts)
+keymap("n", "<leader>f", ":Telescope find_files theme=ivy <CR>", opts)
+keymap("n", "<leader>b", ":Telescope buffers theme=ivy <CR>", opts)
+keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
+keymap("n", "<leader>d", ":Telescope diagnostics theme=ivy <CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
