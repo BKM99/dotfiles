@@ -71,9 +71,9 @@ return packer.startup(function(use)
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "lukas-reineke/indent-blankline.nvim"
     use "tpope/vim-fugitive"
-    use "chriskempson/base16-vim"
     use "nvim-telescope/telescope.nvim"
     use "nvim-lua/plenary.nvim"
+    use "RRethy/vim-illuminate"
     use {
 
         "iamcco/markdown-preview.nvim",
@@ -100,10 +100,16 @@ return packer.startup(function(use)
         requires = "nvim-lua/plenary.nvim",
     }
 
+    -- Colorschemes
+    use "chriskempson/base16-vim"
+    use "rose-pine/neovim"
+    use "LunarVim/Colorschemes"
+    use "folke/tokyonight.nvim"
+    use "catppuccin/nvim"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
 end)
-

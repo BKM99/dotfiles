@@ -18,6 +18,7 @@ brew install exa
 brew install go
 brew install gradle
 brew install yarn
+brew install ripgrep
 brew install --cask zoom
 brew install --cask alacritty
 brew install --cask spotify
