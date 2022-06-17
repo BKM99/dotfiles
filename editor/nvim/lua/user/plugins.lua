@@ -48,6 +48,11 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer"
     use "jose-elias-alvarez/null-ls.nvim"
     use "mfussenegger/nvim-jdtls"
+    use "onsails/lspkind.nvim"
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    }
 
     -- Autocomplete
     use "hrsh7th/cmp-nvim-lsp"
@@ -74,7 +79,14 @@ return packer.startup(function(use)
     use "tpope/vim-fugitive"
     use "nvim-telescope/telescope.nvim"
     use "nvim-lua/plenary.nvim"
+    use "norcalli/nvim-colorizer.lua"
     use "RRethy/vim-illuminate"
+    use {
+        "antoinemadec/FixCursorHold.nvim",
+        run = function()
+            vim.g.curshold_updatime = 100
+        end,
+    }
     use {
 
         "iamcco/markdown-preview.nvim",

@@ -27,7 +27,9 @@ keymap("n", "<leader>nf", ":lua vim.lsp.buf.formatting_sync()<cr>", opts)
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy <CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers theme=ivy <CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
-keymap("n", "<leader>d", ":Telescope diagnostics theme=ivy <CR>", opts)
+
+-- Trouble
+keymap("n", "<leader>d", ":TroubleToggle <CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
