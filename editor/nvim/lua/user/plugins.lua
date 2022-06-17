@@ -66,6 +66,7 @@ return packer.startup(function(use)
     use "lewis6991/impatient.nvim"
     use "kyazdani42/nvim-web-devicons"
     use "windwp/nvim-ts-autotag"
+    use "p00f/nvim-ts-rainbow"
     use "windwp/nvim-autopairs"
     use "numToStr/Comment.nvim"
     use "JoosepAlviste/nvim-ts-context-commentstring"

@@ -13,6 +13,9 @@ local servers = {
     "pyright",
     "rust_analyzer",
     "tailwindcss",
+    "bashls",
+    "yamlls",
+    "cssls",
     "eslint",
     "jdtls"
 }
@@ -45,7 +48,7 @@ local sumneko_lua_opts = {
 }
 
 for _, server in pairs(servers) do
-    opts = {
+    local opts = {
         on_attach = require("user.lsp.lsp-functions").on_attach,
         capabilities = require("user.lsp.lsp-functions").capabilities
     }

@@ -46,6 +46,9 @@ configs.setup {
         disable = {},  -- optional, list of language that will be disabled
         -- [options]
     },
+    rainbow = {
+		enable = true,
+	},
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
