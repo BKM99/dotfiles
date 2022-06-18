@@ -36,7 +36,10 @@ configs.setup {
     autopairs = {
         enable = true
     },
-    indent = { enable = true, disable = { "yaml", "python", "rust" } },
+    indent = {
+        enable = true,
+        disable = { "yaml", "python", "rust" }
+    },
     context_commentstring = {
         enable = true,
         enable_autocmd = false,

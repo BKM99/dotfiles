@@ -1,6 +1,7 @@
 -- local colorscheme = "catppuccin"
 -- vim.g.catppuccin_flavour = "mocha"
-local colorscheme = "base16-gruvbox-dark-hard"
+-- local colorscheme = "base16-gruvbox-dark-hard"
+local colorscheme = "onedarker"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

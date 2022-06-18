@@ -12,7 +12,7 @@ local branch = {
 lualine.setup {
     options = {
         icons_enabled = false,
-        theme = "powerline",
+        theme = "auto",
         component_separators = { left = "|", right = "|"},
         section_separators = { left = "", right = ""},
         disabled_filetypes = {},

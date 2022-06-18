@@ -18,8 +18,15 @@ cmp.setup({
         end,
     },
     window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        -- documentation = "native",
+        documentation = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+        },
+        completion = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+            winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+        },
     },
     mapping = cmp.mapping.preset.insert({
         ["<S-TAB>"] = cmp.mapping.select_prev_item(),
@@ -38,5 +45,8 @@ cmp.setup({
         { name = "path" },
     }, {
             { name = "buffer" },
-        })
+        }),
+    experimental = {
+        ghost_text = true,
+    },
 })

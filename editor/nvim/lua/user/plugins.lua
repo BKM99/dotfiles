@@ -48,7 +48,7 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer"
     use "jose-elias-alvarez/null-ls.nvim"
     use "mfussenegger/nvim-jdtls"
-    use "onsails/lspkind.nvim"
+    use "simrat39/symbols-outline.nvim"
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -80,7 +80,12 @@ return packer.startup(function(use)
     use "nvim-telescope/telescope.nvim"
     use "nvim-lua/plenary.nvim"
     use "norcalli/nvim-colorizer.lua"
+    use "andymass/vim-matchup"
     use "RRethy/vim-illuminate"
+    use {
+        "dstein64/vim-startuptime",
+        opt = true, cmd = {"StartupTime"}
+    }
     use {
         "antoinemadec/FixCursorHold.nvim",
         run = function()

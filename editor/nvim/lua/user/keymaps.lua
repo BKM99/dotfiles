@@ -31,6 +31,9 @@ keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
 -- Trouble
 keymap("n", "<leader>d", ":TroubleToggle <CR>", opts)
 
+-- Symbol Outline
+keymap("n", "<leader>o", ":SymbolsOutline <CR>", opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
