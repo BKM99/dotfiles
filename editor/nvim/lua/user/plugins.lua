@@ -81,6 +81,7 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "andymass/vim-matchup"
+    use "nvim-lua/popup.nvim"
     use "RRethy/vim-illuminate"
     use {
         "dstein64/vim-startuptime",
