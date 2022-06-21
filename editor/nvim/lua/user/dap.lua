@@ -13,19 +13,28 @@ if not dap_install_status_ok then
     return
 end
 
-local dap_virtual_text_status_ok, dap_virutal_text = pcall(require, "nvim-dap-virutal-text")
-if not dap_virtual_text_status_ok then
-    return
-end
-
-dap_virutal_text.setup()
-
 dap_install.setup {
     installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
 }
 
-dapui.setup {}
+dapui.setup {
+    sidebar = {
+        elements = {
+            {
+                id = "scopes",
+                size = 0.25, -- Can be float or integer > 1
+            },
+            { id = "breakpoints", size = 0.25 },
+        },
+        size = 40,
+        position = "right", -- Can be "left", "right", "top", "bottom"
+    },
+    tray = {
+        elements = {},
+    },
+}
 
+vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end

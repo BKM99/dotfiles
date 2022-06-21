@@ -3,6 +3,7 @@
     lg = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
     last = log -1 HEAD --stat
     s = status
+    aa = add .
     c = commit
     co = checkout
     reword = commit --amend
@@ -20,3 +21,5 @@
 [core]
     excludesfile = /Users/brandonmorimoto/.gitignore_global
     editor = nvim
+[http]
+	postBuffer = 157286400

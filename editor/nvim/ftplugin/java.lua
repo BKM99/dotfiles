@@ -29,6 +29,24 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local workspace_dir = WORKSPACE_PATH .. project_name
 
+-- git clone https://github.com/microsoft/java-debug.git
+-- cd java-debug/
+-- ./mvnw clean install
+
+-- git clone https://github.com/microsoft/vscode-java-test.git
+-- cd vscode-java-test
+-- npm install
+-- npm run build-plugin
+JAVA_DAP_ACTIVE = false
+
+-- local bundles = {
+--     vim.fn.glob(
+--         home .. "/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+--     ),
+-- }
+--
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     -- The command that starts the language server
@@ -116,7 +134,7 @@ local config = {
                 -- }
             },
         },
-        -- signatureHelp = { enabled = true },
+        signatureHelp = { enabled = true },
         completion = {
             favoriteStaticMembers = {
                 "org.hamcrest.MatcherAssert.assertThat",
@@ -156,10 +174,19 @@ local config = {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
-        bundles = {},
+        -- bundles = {},
+        -- bundles = bundles,
     },
 }
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
+
+
+vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
+vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
+-- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
+vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
+-- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
