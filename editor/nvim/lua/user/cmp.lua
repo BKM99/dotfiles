@@ -15,6 +15,19 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
+-- local function border(hl_name)
+--     return {
+--         { "╭", hl_name },
+--         { "─", hl_name },
+--         { "╮", hl_name },
+--         { "│", hl_name },
+--         { "╯", hl_name },
+--         { "─", hl_name },
+--         { "╰", hl_name },
+--         { "│", hl_name },
+--     }
+-- end
+
 cmp.setup {
     snippet = {
         expand = function(args)
@@ -79,17 +92,15 @@ cmp.setup {
         select = false,
     },
     -- documentation = true,
-    window = {
-        -- documentation = "native",
-        documentation = {
-            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-        },
-        completion = {
-            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-            winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-        },
-    },
+    -- window = {
+    --     completion = {
+    --         border = border "CmpBorder",
+    --         winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+    --     },
+    --     documentation = {
+    --         border = border "CmpDocBorder",
+    --     },
+    -- },
     experimental = {
         ghost_text = false,
         -- native_menu = false,

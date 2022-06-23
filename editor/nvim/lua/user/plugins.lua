@@ -130,6 +130,9 @@ return packer.startup(function(use)
     use "LunarVim/Colorschemes"
     use "folke/tokyonight.nvim"
     use "catppuccin/nvim"
+    use "EdenEast/nightfox.nvim"
+    use "rebelot/kanagawa.nvim"
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
