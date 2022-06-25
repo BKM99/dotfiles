@@ -17,24 +17,10 @@ dap_install.setup {
     installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
 }
 
-dapui.setup {
-    sidebar = {
-        elements = {
-            {
-                id = "scopes",
-                size = 0.25, -- Can be float or integer > 1
-            },
-            { id = "breakpoints", size = 0.25 },
-        },
-        size = 40,
-        position = "right", -- Can be "left", "right", "top", "bottom"
-    },
-    tray = {
-        elements = {},
-    },
-}
+dapui.setup {}
 
 vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
