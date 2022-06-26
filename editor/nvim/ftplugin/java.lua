@@ -6,10 +6,10 @@ end
 -- Determine OS
 local home = os.getenv "HOME"
 if vim.fn.has "mac" == 1 then
-    WORKSPACE_PATH = home .. "/workspace/"
+    WORKSPACE_PATH = home .. "/.cache/jdtls-workspace/"
     CONFIG = "mac"
 elseif vim.fn.has "unix" == 1 then
-    WORKSPACE_PATH = home .. "/workspace/"
+    WORKSPACE_PATH = home .. "/.cache/jdtls-workspace/"
     CONFIG = "linux"
 else
     print "Unsupported system"
@@ -37,15 +37,16 @@ local workspace_dir = WORKSPACE_PATH .. project_name
 -- cd vscode-java-test
 -- npm install
 -- npm run build-plugin
-JAVA_DAP_ACTIVE = true
+JAVA_DAP_ACTIVE = false
 
 local bundles = {
     vim.fn.glob(
-        home .. "/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+        -- home .. "/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+        home .. "/.vscode/extensions/vscjava.vscode-java-debug-0.41.0/server"
     ),
 }
 
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
+-- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -175,7 +176,7 @@ local config = {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         -- bundles = {},
-        bundles = bundles,
+        -- bundles = bundles,
     },
 }
 
