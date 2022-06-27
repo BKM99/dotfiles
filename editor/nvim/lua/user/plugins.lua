@@ -29,15 +29,6 @@ if not status_ok then
     return
 end
 
--- Have packer use a popup window
-packer.init {
-    display = {
-        open_fn = function()
-            return require("packer.util").float { border = "rounded" }
-        end,
-    },
-}
-
 -- Install your plugins here
 return packer.startup(function(use)
 
@@ -49,6 +40,7 @@ return packer.startup(function(use)
     use "jose-elias-alvarez/null-ls.nvim"
     use "mfussenegger/nvim-jdtls"
     use "simrat39/symbols-outline.nvim"
+    use "RRethy/vim-illuminate"
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
@@ -71,27 +63,30 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip"
     use "rafamadriz/friendly-snippets" -- a bunch of useful snippets
 
-    -- Other Plugins
+    -- Git
+    use "tpope/vim-fugitive"
     use "lewis6991/gitsigns.nvim"
-    use "lewis6991/impatient.nvim"
-    use "kyazdani42/nvim-web-devicons"
+
+    -- Treesitter
     use "windwp/nvim-ts-autotag"
     use "p00f/nvim-ts-rainbow"
-    use "windwp/nvim-autopairs"
-    use "numToStr/Comment.nvim"
     use "JoosepAlviste/nvim-ts-context-commentstring"
+    use "andymass/vim-matchup"
     use "lukas-reineke/indent-blankline.nvim"
-    use "tpope/vim-fugitive"
+    use "windwp/nvim-autopairs"
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    }
+
+    -- Other Plugins
+    use "lewis6991/impatient.nvim"
+    use "kyazdani42/nvim-web-devicons"
+    use "numToStr/Comment.nvim"
     use "nvim-telescope/telescope.nvim"
     use "nvim-lua/plenary.nvim"
     use "norcalli/nvim-colorizer.lua"
-    use "andymass/vim-matchup"
     use "nvim-lua/popup.nvim"
-    use "RRethy/vim-illuminate"
-    use {
-        "dstein64/vim-startuptime",
-        opt = true, cmd = {"StartupTime"}
-    }
     use {
         "antoinemadec/FixCursorHold.nvim",
         run = function()
@@ -116,22 +111,19 @@ return packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use {
-        "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate",
-    }
-    use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
     }
 
     -- Colorschemes
     use "chriskempson/base16-vim"
-    use "rose-pine/neovim"
-    use "LunarVim/Colorschemes"
-    use "folke/tokyonight.nvim"
-    use "catppuccin/nvim"
-    use "EdenEast/nightfox.nvim"
-    use "rebelot/kanagawa.nvim"
+    -- use "rose-pine/neovim"
+    -- use "LunarVim/Colorschemes"
+    -- use "folke/tokyonight.nvim"
+    -- use "catppuccin/nvim"
+    -- use "EdenEast/nightfox.nvim"
+    -- use "rebelot/kanagawa.nvim"
+    -- use "flazz/vim-colorschemes"
 
 
     -- Automatically set up your configuration after cloning packer.nvim
