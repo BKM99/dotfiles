@@ -1,10 +1,8 @@
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-ZSH_BASE=$HOME/configs # Base directory for ZSH configuration
+export ZSH_BASE=$HOME/configs/shell/zsh/ # Base directory for ZSH configuration
 
-export PATH=${PATH}:/usr/local/mysql/bin/ # exporting path to MySQL
-
-source $ZSH_BASE/shell/zsh/.antigen.zsh # Load Antigen
+source ~/.antigen.zsh # Load Antigen
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -13,16 +11,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Use oh-my-zsh
-antigen use oh-my-zsh
+# completions
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+# compinit
+_comp_options+=(globdots)
+autoload -Uz colors && colors
 
-# Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle colored-man-pages
-antigen bundle safe-paste
-antigen bundle "MichaelAquilina/zsh-you-should-use"
+antigen bundle MichaelAquilina/zsh-you-should-use
 
 # Load the theme.
 antigen theme romkatv/powerlevel10k
@@ -53,12 +53,9 @@ unset __conda_setup
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/configs/zsh/.p10k.zsh.
-[[ ! -f ~/configs/zsh/.p10k.zsh ]] || source ~/configs/zsh/.p10k.zsh
-
+# To customize prompt, run `p10k configure` or edit ~/configs/shell/zsh/.p10k.zsh.
+[[ ! -f ~/configs/shell/zsh/.p10k.zsh ]] || source ~/configs/shell/zsh/.p10k.zsh
+#
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# To customize prompt, run `p10k configure` or edit ~/configs/shell/zsh/.p10k.zsh.
-[[ ! -f ~/configs/shell/zsh/.p10k.zsh ]] || source ~/configs/shell/zsh/.p10k.zsh
