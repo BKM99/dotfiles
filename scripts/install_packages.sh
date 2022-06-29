@@ -9,7 +9,7 @@ fi
 
 echo "installing brew packages..."
 
-brew install node
+brew install nvm
 brew install tmux
 brew install git
 brew install neovim
@@ -19,6 +19,7 @@ brew install go
 brew install gradle
 brew install yarn
 brew install ripgrep
+brew install docker
 brew install --cask zoom
 brew install --cask alacritty
 brew install --cask spotify
