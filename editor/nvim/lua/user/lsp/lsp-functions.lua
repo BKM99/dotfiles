@@ -2,7 +2,7 @@ local M = {}
 
 M.setup = function()
     local config = {
-        virtual_text = true, -- disable virtual text
+        virtual_text = true,
         update_in_insert = true,
         underline = true,
         severity_sort = true,
@@ -37,14 +37,8 @@ local function lsp_keymaps(bufnr)
     keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-    keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-    keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
     keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-    keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
-    keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
     keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-    keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -56,17 +50,12 @@ M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
-        print "test"
         return
     end
     illuminate.on_attach(client)
 
     if client.name == "jdt.ls" then
         vim.lsp.codelens.refresh()
-        if JAVA_DAP_ACTIVE then
-            require("jdtls").setup_dap { hotcodereplace = "auto" }
-            require("jdtls.dap").setup_dap_main_class_configs()
-        end
         client.resolved_capabilities.document_formatting = false
         client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
     end

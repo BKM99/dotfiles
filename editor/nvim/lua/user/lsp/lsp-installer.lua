@@ -17,6 +17,7 @@ local servers = {
     "yamlls",
     "cssls",
     "eslint",
+    "emmet_ls",
     "jdtls"
 }
 
@@ -29,33 +30,23 @@ if not lspconfig_status_ok then
     return
 end
 
--- Custom settings for sumneko_lua
-local sumneko_lua_opts = {
-    settings = {
-
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-            workspace = {
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.stdpath("config") .. "/lua"] = true,
-                },
-            },
-        },
-    },
-}
+local opts = {}
 
 for _, server in pairs(servers) do
-    local opts = {
+    opts = {
         on_attach = require("user.lsp.lsp-functions").on_attach,
-        capabilities = require("user.lsp.lsp-functions").capabilities
+        capabilities = require("user.lsp.lsp-functions").capabilities,
     }
 
     if server == "sumneko_lua" then
-        opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
+        local sumneko_opts = require "user.lsp.lsp-custom-server.sumneko_lua"
+        opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+    end
+
+    if server == "jdtls" then
+        goto continue
     end
 
     lspconfig[server].setup(opts)
+    ::continue::
 end

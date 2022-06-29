@@ -30,7 +30,7 @@ nvim_tree.setup {
         args = {}
     },
     filters = {
-        dotfiles = true,
+        dotfiles = false,
         custom = {}
     },
     git = {

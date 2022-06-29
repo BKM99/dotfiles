@@ -29,25 +29,6 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local workspace_dir = WORKSPACE_PATH .. project_name
 
--- git clone https://github.com/microsoft/java-debug.git
--- cd java-debug/
--- ./mvnw clean install
-
--- git clone https://github.com/microsoft/vscode-java-test.git
--- cd vscode-java-test
--- npm install
--- npm run build-plugin
-JAVA_DAP_ACTIVE = false
-
-local bundles = {
-    vim.fn.glob(
-        -- home .. "/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
-        home .. "/.vscode/extensions/vscjava.vscode-java-debug-0.41.0/server"
-    ),
-}
-
--- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
-
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     -- The command that starts the language server
@@ -105,11 +86,6 @@ local config = {
     -- for a list of options
     settings = {
         java = {
-            -- jdt = {
-            --   ls = {
-            --     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
-            --   }
-            -- },
             eclipse = {
                 downloadSources = true,
             },
@@ -128,11 +104,9 @@ local config = {
             references = {
                 includeDecompiledSources = true,
             },
+            -- Set this to true to use jdtls as your formatter
             format = {
                 enabled = false,
-                -- settings = {
-                --   profile = "asdf"
-                -- }
             },
         },
         signatureHelp = { enabled = true },
@@ -157,7 +131,7 @@ local config = {
         },
         codeGeneration = {
             toString = {
-                template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+    template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
             },
             useBlocks = true,
         },
@@ -174,11 +148,17 @@ local config = {
     -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
-    init_options = {
-        -- bundles = {},
-        -- bundles = bundles,
-    },
+    -- init_options = {
+    --     -- bundles = {},
+    -- },
 }
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+    pattern = { "*.java" },
+    callback = function()
+        vim.lsp.codelens.refresh()
+    end,
+})
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.

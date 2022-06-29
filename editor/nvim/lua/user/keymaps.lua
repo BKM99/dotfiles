@@ -62,7 +62,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- DAP stuff
+-- DAP Stuff
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)

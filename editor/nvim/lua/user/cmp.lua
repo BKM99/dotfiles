@@ -82,16 +82,12 @@ cmp.setup {
         { name = "nvim_lua" },
         { name = "luasnip" },
         { name = "buffer" },
-        -- { name = "cmp_tabnine" },
         { name = "path" },
-        -- { name = "emoji" },
-        -- { name = "dap" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
-    -- documentation = true,
     -- window = {
     --     completion = {
     --         border = border "CmpBorder",
