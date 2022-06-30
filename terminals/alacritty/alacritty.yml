@@ -40,6 +40,8 @@ cursor:
 # Reload Alacritty if the configuration changes
 live_config_reload: true
 
+draw_bold_text_with_bright_colors: true
+
 key_bindings:
   - { key: A, mods: Alt, chars: "\ea" }
   - { key: B, mods: Alt, chars: "\eb" }

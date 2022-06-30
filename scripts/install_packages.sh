@@ -19,7 +19,9 @@ brew install go
 brew install gradle
 brew install yarn
 brew install ripgrep
+brew install fzf
 brew install docker
+brew install btop
 brew install --cask zoom
 brew install --cask alacritty
 brew install --cask spotify
