@@ -39,6 +39,7 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer"
     use "jose-elias-alvarez/null-ls.nvim"
     use "mfussenegger/nvim-jdtls"
+    use "simrat39/rust-tools.nvim"
     use "simrat39/symbols-outline.nvim"
     use "RRethy/vim-illuminate"
     use {
