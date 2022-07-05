@@ -99,7 +99,7 @@ local config = {
                 enabled = true,
             },
             referencesCodeLens = {
-                enabled = true,
+                enabled = false,
             },
             references = {
                 includeDecompiledSources = true,
