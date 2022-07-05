@@ -21,6 +21,9 @@ export NVM_DIR="$HOME/.nvm"
 
 zle_highlight=('paste:none')
 
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
+
 # completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
