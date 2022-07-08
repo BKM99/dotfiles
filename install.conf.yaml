@@ -17,3 +17,6 @@
           ~/.zshrc: shell/zsh/.zshrc
           ~/.zshenv: shell/zsh/.zshenv
           ~/.zsh-aliases: shell/zsh/.zsh-aliases
+
+- shell:
+          - [git submodule update --init --recursive, Installing submodules]
