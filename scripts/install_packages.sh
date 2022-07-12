@@ -12,6 +12,7 @@ echo "installing brew packages..."
 brew install nvm
 brew install tmux
 brew install git
+brew install lazygit
 brew install neovim
 brew install autojump
 brew install exa
@@ -34,6 +35,7 @@ brew install --cask miniconda
 conda init "$(basename "${SHELL}")"
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
+brew install --cask font-jetbrains-mono-nerd-font
 
 echo "done installing brew packages"
 
