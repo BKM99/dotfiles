@@ -117,7 +117,8 @@ return packer.startup(function(use)
     }
 
     -- Colorschemes
-    use "RRethy/nvim-base16"
+    -- use "RRethy/nvim-base16"
+    use "morhetz/gruvbox"
     -- use "chriskempson/base16-vim"
     -- use { "ellisonleao/gruvbox.nvim" }
     -- use "rose-pine/neovim"
