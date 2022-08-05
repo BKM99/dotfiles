@@ -1,6 +1,11 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
     return
+end
+
+local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not status_ok_1 then
+  return
 end
 
 local servers = {
@@ -21,7 +26,17 @@ local servers = {
     "jdtls"
 }
 
-lsp_installer.setup {
+mason.setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
+mason_lspconfig.setup {
     ensure_installed = servers
 }
 
