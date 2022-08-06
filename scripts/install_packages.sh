@@ -13,6 +13,7 @@ brew install nvm
 brew install tmux
 brew install git
 brew install lazygit
+brew install lazydocker
 brew install neovim
 brew install autojump
 brew install exa
@@ -24,13 +25,10 @@ brew install fzf
 brew install docker
 brew install btop
 brew install --cask zoom
-brew install --cask alacritty
 brew install --cask spotify
 brew install --cask discord
 brew install --cask the-unarchiver
 brew install --cask google-chrome
-brew install --cask intellij-idea-ce
-brew install --cask visual-studio-code
 brew install --cask miniconda
 conda init "$(basename "${SHELL}")"
 brew tap homebrew/cask-fonts
