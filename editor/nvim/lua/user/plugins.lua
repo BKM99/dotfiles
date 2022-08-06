@@ -29,6 +29,10 @@ if not status_ok then
     return
 end
 
+packer.init {
+    snapshot_path = fn.stdpath "config" .. "/snapshots"
+}
+
 -- Install your plugins here
 return packer.startup(function(use)
 
