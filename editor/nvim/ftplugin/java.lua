@@ -29,6 +29,35 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local workspace_dir = WORKSPACE_PATH .. project_name
 
+local bundles = {}
+
+-- how to install java dap stuff
+-- clone it into ~/.local/share/nvim/
+-- git clone https://github.com/microsoft/java-debug.git
+-- cd java-debug/
+-- ./mvnw clean install
+
+-- clone it into ~/.local/share/nvim/
+-- git clone https://github.com/microsoft/vscode-java-test.git
+-- cd vscode-java-test
+-- npm install
+-- npm run build-plugin
+
+JAVA_DAP_ACTIVE = true
+
+if JAVA_DAP_ACTIVE then
+    vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
+    vim.list_extend(
+        bundles,
+        vim.split(
+            vim.fn.glob(
+                home .. ".local/share/nvim/java-debug/com.microsoft.java.debug.repository/target/repository"
+            ),
+            "\n"
+        )
+    )
+end
+
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
     -- The command that starts the language server
@@ -148,9 +177,10 @@ local config = {
     -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
-    -- init_options = {
-    --     -- bundles = {},
-    -- },
+    init_options = {
+        -- bundles = {},
+        bundles = bundles,
+    },
 }
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
