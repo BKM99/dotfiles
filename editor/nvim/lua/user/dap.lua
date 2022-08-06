@@ -8,16 +8,15 @@ if not dap_ui_status_ok then
     return
 end
 
-local dap_install_status_ok, dap_install = pcall(require, "dap-install")
-if not dap_install_status_ok then
+dapui.setup {}
+
+local dap_python_status_ok, dap_python = pcall(require, "dap-python")
+if not dap_python_status_ok then
     return
 end
 
-dap_install.setup {
-    installation_path = vim.fn.stdpath "data" .. "/dapinstall/",
-}
-
-dapui.setup {}
+dap_python.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+dap_python.test_runner = "unittest"
 
 vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
 

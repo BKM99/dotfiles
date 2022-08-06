@@ -36,7 +36,6 @@ return packer.startup(function(use)
 
     -- LSP
     use "neovim/nvim-lspconfig"
-    -- use "williamboman/nvim-lsp-installer" -- mason replaces this
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
     use "jose-elias-alvarez/null-ls.nvim"
@@ -59,7 +58,7 @@ return packer.startup(function(use)
     -- DAP
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
-    use "ravenxrz/DAPInstall.nvim"
+    use "mfussenegger/nvim-dap-python"
 
     -- Snippets needed for cmp
     use "L3MON4D3/LuaSnip"
@@ -121,8 +120,8 @@ return packer.startup(function(use)
     -- Colorschemes
     -- use "RRethy/nvim-base16"
     use "morhetz/gruvbox"
-    use "ishan9299/nvim-solarized-lua"
-    use "Everblush/everblush.vim"
+    -- use "ishan9299/nvim-solarized-lua"
+    -- use "Everblush/everblush.vim"
     -- use "chriskempson/base16-vim"
     -- use { "ellisonleao/gruvbox.nvim" }
     -- use "rose-pine/neovim"
