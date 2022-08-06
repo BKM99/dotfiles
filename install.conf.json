@@ -16,7 +16,6 @@
     {
         "link": {
             "~/.condarc": "tools/conda/.condarc",
-            "~/.config/alacritty": "terminals/alacritty",
             "~/.config/kitty": "terminals/kitty",
             "~/.config/nvim": "editor/nvim",
             "~/.gitconfig": "tools/git/.gitconfig",
