@@ -42,6 +42,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Toggle between buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
+-- Bufferline Stuff
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+
 -- Turn off highlight after searching
 keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
 

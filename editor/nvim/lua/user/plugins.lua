@@ -42,7 +42,9 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"
     use "williamboman/mason.nvim"
     use "williamboman/mason-lspconfig.nvim"
+    use "onsails/lspkind.nvim"
     use "jose-elias-alvarez/null-ls.nvim"
+    use "glepnir/lspsaga.nvim"
     use "mfussenegger/nvim-jdtls"
     use "simrat39/rust-tools.nvim"
     use "simrat39/symbols-outline.nvim"
@@ -86,6 +88,7 @@ return packer.startup(function(use)
     }
 
     -- Other Plugins
+    use "akinsho/bufferline.nvim"
     use "lewis6991/impatient.nvim"
     use "kyazdani42/nvim-web-devicons"
     use "numToStr/Comment.nvim"
@@ -124,6 +127,7 @@ return packer.startup(function(use)
     -- Colorschemes
     -- use "RRethy/nvim-base16"
     use "morhetz/gruvbox"
+    -- use "sainnhe/everforest"
     -- use "ishan9299/nvim-solarized-lua"
     -- use "Everblush/everblush.vim"
     -- use "chriskempson/base16-vim"
