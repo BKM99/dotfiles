@@ -44,11 +44,6 @@ configs.setup {
         enable = true,
         enable_autocmd = false,
     },
-    matchup = {
-        enable = true,              -- mandatory, false will disable the whole extension
-        disable = {},  -- optional, list of language that will be disabled
-        -- [options]
-    },
     rainbow = {
 		enable = true,
 	},

@@ -42,9 +42,16 @@ local function lsp_keymaps(bufnr)
     keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-    -- keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+end
+
+local function lspsaga_keymaps(bufnr)
+    local opts = { noremap = true, silent = true }
+    local keymap = vim.api.nvim_buf_set_keymap
     keymap(bufnr, "n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
+    keymap(bufnr, "n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
+    keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+    keymap(bufnr, "v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -54,6 +61,7 @@ M.on_attach = function(client, bufnr)
     end
 
     lsp_keymaps(bufnr)
+    lspsaga_keymaps(bufnr)
     local status_ok, illuminate = pcall(require, "illuminate")
     if not status_ok then
         return

@@ -19,19 +19,14 @@ keymap("n", "<leader>w", ":w<CR>", opts)
 -- Nvim Tree toggle
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
--- Null-ls formatting
-keymap("n", "<leader>nf", ":lua vim.lsp.buf.formatting_sync()<cr>", opts)
-
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy <CR>", opts)
 keymap("n", "<leader>b", ":Telescope buffers theme=ivy <CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
+keymap("n", "<leader>cb", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>d", ":TroubleToggle <CR>", opts)
-
--- Symbol Outline
-keymap("n", "<leader>o", ":SymbolsOutline <CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -39,12 +34,30 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- Resize with arrows
+keymap("n", "<m-Up>", ":resize -1<CR>", opts)
+keymap("n", "<m-Down>", ":resize +1<CR>", opts)
+keymap("n", "<m-Left>", ":vertical resize -1<CR>", opts)
+keymap("n", "<m-Right>", ":vertical resize +1<CR>", opts)
+
+-- Splits
+keymap("n", "<leader>vs", ":vsplit <CR>", opts)
+keymap("n", "<leader>hs", ":split <CR>", opts)
+
 -- Toggle between buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
 -- Bufferline Stuff
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+
+-- Buffer Delete
+keymap("n", "<m-q>", ":bdelete<CR>", opts)
+
+-- Tabs --
+keymap("n", "<m-t>", ":tabnew %<cr>", opts) -- create new tab
+keymap("n", "<m-y>", ":tabclose<cr>", opts) -- close current tab
+keymap("n", "<m-\\>", ":tabonly<cr>", opts) -- close all tabs
 
 -- Turn off highlight after searching
 keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
@@ -61,18 +74,19 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- DAP Stuff
-keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>dbc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
-keymap("n", "<leader>dlp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", opts)
-keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
-keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
-keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
-keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
+keymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", opts)
+keymap("n", "<S-up>", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<S-right>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<S-left>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<S-down>", "<cmd>lua require'dap'.step_out()<cr>", opts)
 keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) -- open and close
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
+-- TODO: add more git mappings
 -- Git Stuff
-keymap("n", "<leader>gbl", ":Gitsigns blame_line <CR>")
+keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>")
 keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>")

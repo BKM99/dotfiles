@@ -47,7 +47,6 @@ return packer.startup(function(use)
     use "glepnir/lspsaga.nvim"
     use "mfussenegger/nvim-jdtls"
     use "simrat39/rust-tools.nvim"
-    use "simrat39/symbols-outline.nvim"
     use "RRethy/vim-illuminate"
     use {
         "folke/trouble.nvim",
@@ -79,7 +78,6 @@ return packer.startup(function(use)
     use "windwp/nvim-ts-autotag"
     use "p00f/nvim-ts-rainbow"
     use "JoosepAlviste/nvim-ts-context-commentstring"
-    use "andymass/vim-matchup"
     use "lukas-reineke/indent-blankline.nvim"
     use "windwp/nvim-autopairs"
     use {
@@ -93,6 +91,7 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use "numToStr/Comment.nvim"
     use "nvim-telescope/telescope.nvim"
+    use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
     use "nvim-lua/plenary.nvim"
     use "norcalli/nvim-colorizer.lua"
     use "nvim-lua/popup.nvim"
@@ -125,8 +124,8 @@ return packer.startup(function(use)
     }
 
     -- Colorschemes
-    -- use "RRethy/nvim-base16"
     use "morhetz/gruvbox"
+    -- use "RRethy/nvim-base16"
     -- use "sainnhe/everforest"
     -- use "ishan9299/nvim-solarized-lua"
     -- use "Everblush/everblush.vim"
