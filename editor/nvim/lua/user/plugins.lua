@@ -124,12 +124,12 @@ return packer.startup(function(use)
     }
 
     -- Colorschemes
-    use "morhetz/gruvbox"
-    -- use "RRethy/nvim-base16"
+    --[[ use "morhetz/gruvbox" ]]
+    --[[ use "RRethy/nvim-base16" ]]
     -- use "sainnhe/everforest"
-    -- use "ishan9299/nvim-solarized-lua"
+    --[[ use "ishan9299/nvim-solarized-lua" ]]
     -- use "Everblush/everblush.vim"
-    -- use "chriskempson/base16-vim"
+    use "chriskempson/base16-vim"
     -- use { "ellisonleao/gruvbox.nvim" }
     -- use "rose-pine/neovim"
     -- use "LunarVim/Colorschemes"
