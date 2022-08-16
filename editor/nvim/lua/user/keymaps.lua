@@ -66,6 +66,9 @@ keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
+-- Select all
+keymap("n", "<m-a>", "gg <S-v> G", opts)
+
 -- Better pasting in visual mode
 keymap("v", "p", '"_dP', opts)
 
