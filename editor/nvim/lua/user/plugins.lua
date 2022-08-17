@@ -139,6 +139,7 @@ return packer.startup(function(use)
     --[[ use "flazz/vim-colorschemes" ]]
     --[[ use "navarasu/onedark.nvim" ]]
     --[[ use "olimorris/onedarkpro.nvim" ]]
+    --[[ use "tjdevries/colorbuddy.nvim" ]]
 
 
     -- Automatically set up your configuration after cloning packer.nvim
