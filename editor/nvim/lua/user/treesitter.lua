@@ -24,7 +24,8 @@ configs.setup {
         "cpp",
         "c",
         "c_sharp",
-        "dockerfile"
+        "dockerfile",
+        "norg"
     },
     highlight = {
         enable = true,      -- false will disable the whole extension

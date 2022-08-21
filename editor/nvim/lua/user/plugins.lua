@@ -85,6 +85,17 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
 
+    -- Note taking
+    use {
+        "nvim-neorg/neorg",
+        requires = "nvim-lua/plenary.nvim"
+    }
+    use {
+
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        ft = "markdown",
+    }
     -- Other Plugins
     use "akinsho/bufferline.nvim"
     use "lewis6991/impatient.nvim"
@@ -100,12 +111,6 @@ return packer.startup(function(use)
         run = function()
             vim.g.curshold_updatime = 100
         end,
-    }
-    use {
-
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        ft = "markdown",
     }
     use {
         'kyazdani42/nvim-tree.lua',
@@ -129,13 +134,13 @@ return packer.startup(function(use)
     --[[ use "sainnhe/everforest" ]]
     --[[ use "ishan9299/nvim-solarized-lua" ]]
     -- use "Everblush/everblush.vim"
-    use "chriskempson/base16-vim"
-    -- use "rose-pine/neovim"
+    --[[ use "chriskempson/base16-vim" ]]
+    --[[ use "rose-pine/neovim" ]]
     --[[ use "LunarVim/Colorschemes" ]]
     -- use "folke/tokyonight.nvim"
-    -- use "catppuccin/nvim"
-    -- use "EdenEast/nightfox.nvim"
-    -- use "rebelot/kanagawa.nvim"
+    --[[ use "catppuccin/nvim" ]]
+    --[[ use "EdenEast/nightfox.nvim" ]]
+    use "rebelot/kanagawa.nvim"
     --[[ use "flazz/vim-colorschemes" ]]
     --[[ use "navarasu/onedark.nvim" ]]
     --[[ use "olimorris/onedarkpro.nvim" ]]
