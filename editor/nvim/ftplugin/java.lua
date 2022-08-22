@@ -43,7 +43,7 @@ local bundles = {}
 -- npm install
 -- npm run build-plugin
 
-JAVA_DAP_ACTIVE = true
+JAVA_DAP_ACTIVE = false
 
 if JAVA_DAP_ACTIVE then
     vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
