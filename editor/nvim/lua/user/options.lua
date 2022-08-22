@@ -16,7 +16,7 @@ vim.opt.hidden = true
 vim.opt.lazyredraw = true
 vim.opt.timeoutlen = 200
 vim.opt.laststatus = 3
-vim.opt.completeopt={ "menu", "menuone", "noinsert", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 vim.opt.cmdheight = 2
 vim.opt.updatetime = 300
 vim.opt.undofile = true
@@ -25,7 +25,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
 vim.opt.backup = false
 vim.opt.writebackup = false
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append("c")
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -33,6 +33,6 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
-vim.cmd [[syntax on]]
+vim.cmd([[syntax on]])
 vim.opt.background = "dark"
-vim.cmd [[filetype plugin indent on]]
+vim.cmd([[filetype plugin indent on]])

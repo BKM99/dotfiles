@@ -2,8 +2,8 @@ local colorscheme = "kanagawa"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-    print("colorscheme was not loaded")
-    return
+	print("colorscheme was not loaded")
+	return
 end
 
 -- vim.cmd [[highlight Comment guifg=#7f7f7f]]

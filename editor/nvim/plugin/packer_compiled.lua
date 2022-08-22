@@ -271,6 +271,11 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim.git"
   },
+  ["tabout.nvim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/tabout.nvim",
+    url = "https://github.com/abecodes/tabout.nvim.git"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
