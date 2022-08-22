@@ -5,3 +5,4 @@ end
 
 require("user.lsp.mason")
 require("user.lsp.lsp-functions").setup()
+require("user.lsp.null-ls")
