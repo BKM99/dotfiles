@@ -1,5 +1,5 @@
 require("user.plugins.impatient")
-require("user.plugins.plugins")
+require("user.plugins.packer")
 require("user.plugins.colorscheme")
 require("user.plugins.cmp")
 require("user.plugins.dap")
