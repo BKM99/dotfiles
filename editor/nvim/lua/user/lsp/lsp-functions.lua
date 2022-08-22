@@ -73,8 +73,8 @@ M.on_attach = function(client, bufnr)
             require("jdtls").setup_dap { hotcodereplace = "auto" }
             require("jdtls.dap").setup_dap_main_class_configs()
         end
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
     end
 
     M.capabilities = vim.lsp.protocol.make_client_capabilities()
