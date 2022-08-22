@@ -72,239 +72,244 @@ _G.packer_plugins = {
   ["Comment.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/Comment.nvim",
-    url = "https://github.com/numToStr/Comment.nvim.git"
+    url = "https://github.com/numToStr/Comment.nvim"
   },
   ["FixCursorHold.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim.git"
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
   },
   LuaSnip = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip.git"
+    url = "https://github.com/L3MON4D3/LuaSnip"
   },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim.git"
+    url = "https://github.com/akinsho/bufferline.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/cmp-buffer",
-    url = "https://github.com/hrsh7th/cmp-buffer.git"
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline.git"
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp.git"
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/cmp-path",
-    url = "https://github.com/hrsh7th/cmp-path.git"
+    url = "https://github.com/hrsh7th/cmp-path"
   },
   cmp_luasnip = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip.git"
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/friendly-snippets",
-    url = "https://github.com/rafamadriz/friendly-snippets.git"
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
-    url = "https://github.com/lewis6991/gitsigns.nvim.git"
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/impatient.nvim",
-    url = "https://github.com/lewis6991/impatient.nvim.git"
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim.git"
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kanagawa.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim.git"
+    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
-    url = "https://github.com/onsails/lspkind.nvim.git"
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lspsaga.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
-    url = "https://github.com/glepnir/lspsaga.nvim.git"
+    url = "https://github.com/glepnir/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim.git"
+    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
-    url = "https://github.com/iamcco/markdown-preview.nvim.git"
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim.git"
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim.git"
+    url = "https://github.com/williamboman/mason.nvim"
   },
   neorg = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neorg",
-    url = "https://github.com/nvim-neorg/neorg.git"
+    url = "https://github.com/nvim-neorg/neorg"
   },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim.git"
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
-    url = "https://github.com/windwp/nvim-autopairs.git"
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp.git"
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/norcalli/nvim-colorizer.lua.git"
+    url = "https://github.com/NvChad/nvim-colorizer.lua"
   },
   ["nvim-dap"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap.git"
+    url = "https://github.com/mfussenegger/nvim-dap"
   },
   ["nvim-dap-python"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
-    url = "https://github.com/mfussenegger/nvim-dap-python.git"
+    url = "https://github.com/mfussenegger/nvim-dap-python"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui.git"
+    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-jdtls"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
-    url = "https://github.com/mfussenegger/nvim-jdtls.git"
+    url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
-    url = "https://github.com/neovim/nvim-lspconfig.git"
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/kyazdani42/nvim-tree.lua.git"
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
-    url = "https://github.com/nvim-treesitter/nvim-treesitter.git"
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-ts-autotag"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
-    url = "https://github.com/windwp/nvim-ts-autotag.git"
+    url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-context-commentstring"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
-    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring.git"
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-ts-rainbow"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow.git"
+    url = "https://github.com/p00f/nvim-ts-rainbow"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons.git"
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/packer.nvim",
-    url = "https://github.com/wbthomason/packer.nvim.git"
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/plenary.nvim",
-    url = "https://github.com/nvim-lua/plenary.nvim.git"
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim.git"
+    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
-    url = "https://github.com/simrat39/rust-tools.nvim.git"
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["tabout.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/tabout.nvim",
-    url = "https://github.com/abecodes/tabout.nvim.git"
+    url = "https://github.com/abecodes/tabout.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim.git"
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope.nvim",
-    url = "https://github.com/nvim-telescope/telescope.nvim.git"
+    url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["todo-comments.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
-    url = "https://github.com/folke/todo-comments.nvim.git"
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim.git"
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-fugitive",
-    url = "https://github.com/tpope/vim-fugitive.git"
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-illuminate"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-illuminate",
-    url = "https://github.com/RRethy/vim-illuminate.git"
+    url = "https://github.com/RRethy/vim-illuminate"
   }
 }
 

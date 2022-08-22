@@ -87,7 +87,7 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
-	use("norcalli/nvim-colorizer.lua")
+    use "NvChad/nvim-colorizer.lua"
 
 	-- Note taking
 	use({
@@ -133,11 +133,11 @@ return packer.startup(function(use)
 	--[[ use "RRethy/nvim-base16" ]]
 	--[[ use "sainnhe/everforest" ]]
 	--[[ use "ishan9299/nvim-solarized-lua" ]]
-	-- use "Everblush/everblush.vim"
+    --[[ use "Everblush/everblush.vim" ]]
 	--[[ use "chriskempson/base16-vim" ]]
 	--[[ use "rose-pine/neovim" ]]
 	--[[ use "LunarVim/Colorschemes" ]]
-	-- use "folke/tokyonight.nvim"
+	--[[ use "folke/tokyonight.nvim" ]]
 	--[[ use "catppuccin/nvim" ]]
 	--[[ use "EdenEast/nightfox.nvim" ]]
 	use("rebelot/kanagawa.nvim")

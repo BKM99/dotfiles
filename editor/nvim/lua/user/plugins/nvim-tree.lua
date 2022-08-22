@@ -15,6 +15,9 @@ nvim_tree.setup({
 	},
 	renderer = {
 		group_empty = true,
+		indent_markers = {
+			enable = true,
+		},
 	},
 	filters = {
 		dotfiles = true,
