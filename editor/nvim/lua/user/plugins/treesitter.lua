@@ -20,7 +20,6 @@ configs.setup({
 		"vim",
 		"tsx",
 		"typescript",
-		"css",
 		"cpp",
 		"c",
 		"c_sharp",
