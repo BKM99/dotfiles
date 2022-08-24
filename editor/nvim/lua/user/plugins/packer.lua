@@ -101,7 +101,14 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
+    use {
+        "AckslD/nvim-neoclip.lua",
+        requires = {
+            {'nvim-telescope/telescope.nvim'},
+        },
+    }
 	use("abecodes/tabout.nvim")
+	use("ThePrimeagen/harpoon")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("numToStr/Comment.nvim")
@@ -145,6 +152,8 @@ return packer.startup(function(use)
 	--[[ use "navarasu/onedark.nvim" ]]
 	--[[ use "olimorris/onedarkpro.nvim" ]]
 	--[[ use "tjdevries/colorbuddy.nvim" ]]
+    --[[ use "w0ng/vim-hybrid" ]]
+    --[[ use "NLKNguyen/papercolor-theme" ]]
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

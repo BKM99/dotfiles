@@ -25,6 +25,15 @@ keymap("n", "<leader>b", ":Telescope buffers theme=ivy <CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
 keymap("n", "<leader>cb", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>", opts)
 
+-- Harpoon
+keymap("n", "<leader>aa", ":lua require('harpoon.mark').add_file() <CR>", opts)
+keymap("n", "1", ":lua require('harpoon.ui').nav_file(1) <CR>", opts)
+keymap("n", "2", ":lua require('harpoon.ui').nav_file(2) <CR>", opts)
+keymap("n", "3", ":lua require('harpoon.ui').nav_file(3) <CR>", opts)
+keymap("n", "4", ":lua require('harpoon.ui').nav_file(4) <CR>", opts)
+keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu() <CR>", opts)
+
+
 -- Trouble
 keymap("n", "<leader>d", ":TroubleToggle <CR>", opts)
 
@@ -71,6 +80,9 @@ keymap("n", "<m-a>", "gg <S-v> G", opts)
 
 -- Better pasting in visual mode
 keymap("v", "p", '"_dP', opts)
+
+-- Neoclip
+keymap("n", "<leader>nc", ":Telescope neoclip <CR>", opts)
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
