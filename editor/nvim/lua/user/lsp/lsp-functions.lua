@@ -1,8 +1,3 @@
-local status_ok_lspsaga, lspsaga = pcall(require, "lspsaga")
-if not status_ok_lspsaga then
-	return
-end
-
 local M = {}
 
 M.setup = function()
@@ -45,6 +40,11 @@ local function lsp_keymaps(bufnr)
 end
 
 local function lspsaga_keymaps(bufnr)
+	local status_ok_lspsaga, lspsaga = pcall(require, "lspsaga")
+	if not status_ok_lspsaga then
+		return
+	end
+
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
@@ -61,6 +61,7 @@ M.on_attach = function(client, bufnr)
 
 	lsp_keymaps(bufnr)
 	lspsaga_keymaps(bufnr)
+
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		return

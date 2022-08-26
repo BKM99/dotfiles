@@ -46,16 +46,10 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
-	use("onsails/lspkind.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
-	use("mfussenegger/nvim-jdtls")
-	use("simrat39/rust-tools.nvim")
+	use({ "mfussenegger/nvim-jdtls", filetype = "java" })
 	use("RRethy/vim-illuminate")
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -69,7 +63,7 @@ return packer.startup(function(use)
 	use("rcarriga/nvim-dap-ui")
 	use("mfussenegger/nvim-dap-python")
 
-	-- Snippets needed for cmp
+	-- Snippets
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
 	use("rafamadriz/friendly-snippets") -- a bunch of useful snippets
@@ -89,22 +83,36 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-    use("nvim-telescope/telescope-symbols.nvim")
+	use("nvim-telescope/telescope-symbols.nvim")
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
 	use("NvChad/nvim-colorizer.lua")
+	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+	})
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
 
 	-- Note taking
-    use ("renerocksai/telekasten.nvim")
-    use({"preservim/vim-markdown", ft = "markdown"})
-    use ({"dhruvasagar/vim-table-mode", ft = "markdown"})
-    use({"mzlogin/vim-markdown-toc", ft = "markdown"})
-    use({"dkarter/bullets.vim", ft = "markdown"})
+	use("renerocksai/telekasten.nvim")
+	use({ "preservim/vim-markdown", ft = "markdown" })
+	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
+	use({ "mzlogin/vim-markdown-toc", ft = "markdown" })
+	use({ "dkarter/bullets.vim", ft = "markdown" })
 	use({
-		run = "cd app && npm install",
 		"iamcco/markdown-preview.nvim",
-		ft = "markdown",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
 	})
 
 	-- Other Plugins
@@ -128,16 +136,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icon
-		},
-	})
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
@@ -151,7 +149,7 @@ return packer.startup(function(use)
 	--[[ use "LunarVim/Colorschemes" ]]
 	--[[ use "folke/tokyonight.nvim" ]]
 	--[[ use "catppuccin/nvim" ]]
-	--[[ use "EdenEast/nightfox.nvim" ]]
+	use("EdenEast/nightfox.nvim")
 	use("rebelot/kanagawa.nvim")
 	--[[ use "flazz/vim-colorschemes" ]]
 	--[[ use "navarasu/onedark.nvim" ]]
@@ -159,7 +157,8 @@ return packer.startup(function(use)
 	--[[ use "w0ng/vim-hybrid" ]]
 	--[[ use "NLKNguyen/papercolor-theme" ]]
 	--[[ use ("NTBBloodbath/doom-one.nvim") ]]
-	--[[ use ("shaunsingh/nord.nvim") ]]
+	--[[ use("shaunsingh/nord.nvim") ]]
+	--[[ use("arcticicestudio/nord-vim") ]]
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

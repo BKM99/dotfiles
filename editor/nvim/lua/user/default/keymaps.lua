@@ -21,10 +21,10 @@ keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy <CR>", opts)
-keymap("n", "<leader>b", ":Telescope buffers theme=ivy <CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
 keymap("n", "<leader>cb", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>", opts)
 keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
+keymap("n", "<leader>d", ":Telescope diagnostics <CR>", opts)
 
 -- Harpoon
 keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file() <CR>", opts)
@@ -33,9 +33,6 @@ keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2) <CR>", opts)
 keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3) <CR>", opts)
 keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4) <CR>", opts)
 keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu() <CR>", opts)
-
--- Trouble
-keymap("n", "<leader>d", ":TroubleToggle <CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)

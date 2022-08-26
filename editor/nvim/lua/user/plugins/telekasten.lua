@@ -16,6 +16,7 @@ telekasten.setup({
 	auto_set_filetype = true,
 
 	-- dir names for special notes (absolute path or subdir name)
+    notes = home .. "/" .. "notes",
 	dailies = home .. "/" .. "daily",
 	weeklies = home .. "/" .. "weekly",
 	templates = home .. "/" .. "templates",
