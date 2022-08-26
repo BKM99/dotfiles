@@ -34,7 +34,6 @@ keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3) <CR>", opts)
 keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4) <CR>", opts)
 keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu() <CR>", opts)
 
-
 -- Trouble
 keymap("n", "<leader>d", ":TroubleToggle <CR>", opts)
 
@@ -88,6 +87,10 @@ keymap("n", "<leader>nc", ":Telescope neoclip <CR>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Stuff for Telekasten/Markdown
+keymap("n", "<leader>zz", ":lua require('telekasten').follow_link()<CR>", opts)
+keymap("n", "<leader>z", ":lua require('telekasten').panel()<CR>", opts)
 
 -- DAP Stuff
 keymap("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

@@ -89,16 +89,18 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use("nvim-telescope/telescope-symbols.nvim")
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
 	use("NvChad/nvim-colorizer.lua")
 
 	-- Note taking
-	use({
-		"nvim-neorg/neorg",
-		requires = "nvim-lua/plenary.nvim",
-	})
+    use ("renerocksai/telekasten.nvim")
+    use({"preservim/vim-markdown", ft = "markdown"})
+    use ({"dhruvasagar/vim-table-mode", ft = "markdown"})
+    use({"mzlogin/vim-markdown-toc", ft = "markdown"})
+    use({"dkarter/bullets.vim", ft = "markdown"})
 	use({
 		run = "cd app && npm install",
 		"iamcco/markdown-preview.nvim",

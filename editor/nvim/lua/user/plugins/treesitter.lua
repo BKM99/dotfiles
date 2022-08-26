@@ -24,6 +24,7 @@ configs.setup({
 		"c",
 		"c_sharp",
 		"dockerfile",
+        "markdown",
 		"norg",
 	},
 	highlight = {
