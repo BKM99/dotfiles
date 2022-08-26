@@ -30,6 +30,11 @@ if not status_ok then
 end
 
 packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
 })
 
@@ -87,7 +92,7 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
-    use "NvChad/nvim-colorizer.lua"
+	use("NvChad/nvim-colorizer.lua")
 
 	-- Note taking
 	use({
@@ -101,12 +106,12 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-    use {
-        "AckslD/nvim-neoclip.lua",
-        requires = {
-            {'nvim-telescope/telescope.nvim'},
-        },
-    }
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "nvim-telescope/telescope.nvim" },
+		},
+	})
 	use("abecodes/tabout.nvim")
 	use("ThePrimeagen/harpoon")
 	use("lewis6991/impatient.nvim")
@@ -136,11 +141,9 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	--[[ use "morhetz/gruvbox" ]]
 	--[[ use "RRethy/nvim-base16" ]]
 	--[[ use "sainnhe/everforest" ]]
 	--[[ use "ishan9299/nvim-solarized-lua" ]]
-    --[[ use "Everblush/everblush.vim" ]]
 	--[[ use "chriskempson/base16-vim" ]]
 	--[[ use "rose-pine/neovim" ]]
 	--[[ use "LunarVim/Colorschemes" ]]
@@ -151,9 +154,10 @@ return packer.startup(function(use)
 	--[[ use "flazz/vim-colorschemes" ]]
 	--[[ use "navarasu/onedark.nvim" ]]
 	--[[ use "olimorris/onedarkpro.nvim" ]]
-	--[[ use "tjdevries/colorbuddy.nvim" ]]
-    --[[ use "w0ng/vim-hybrid" ]]
-    --[[ use "NLKNguyen/papercolor-theme" ]]
+	--[[ use "w0ng/vim-hybrid" ]]
+	--[[ use "NLKNguyen/papercolor-theme" ]]
+	--[[ use ("NTBBloodbath/doom-one.nvim") ]]
+	--[[ use ("shaunsingh/nord.nvim") ]]
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
