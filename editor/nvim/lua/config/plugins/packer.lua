@@ -40,7 +40,7 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	use("wbthomason/packer.nvim") -- Have packer manage itself
+	use("wbthomason/packer.nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
@@ -48,15 +48,14 @@ return packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
-	use({ "mfussenegger/nvim-jdtls", filetype = "java" })
-	use("RRethy/vim-illuminate")
+	use("mfussenegger/nvim-jdtls")
 
 	-- Autocomplete
+	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/nvim-cmp")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
@@ -69,21 +68,19 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of useful snippets
 
 	-- Git
-	use("tpope/vim-fugitive")
 	use("lewis6991/gitsigns.nvim")
 
 	-- Treesitter
+	use("nvim-treesitter/nvim-treesitter")
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-autopairs")
-	use("nvim-treesitter/nvim-treesitter")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-symbols.nvim")
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
@@ -116,14 +113,8 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-	use({
-		"AckslD/nvim-neoclip.lua",
-		requires = {
-			{ "nvim-telescope/telescope.nvim" },
-		},
-	})
+	use("junegunn/vim-slash")
 	use("abecodes/tabout.nvim")
-	use("ThePrimeagen/harpoon")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("numToStr/Comment.nvim")
@@ -139,26 +130,34 @@ return packer.startup(function(use)
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
+	use({
+		"phaazon/hop.nvim",
+		branch = "v2",
+		config = function()
+			require("hop").setup({})
+		end,
+	})
 
 	-- Colorschemes
-	--[[ use "RRethy/nvim-base16" ]]
-	--[[ use "sainnhe/everforest" ]]
-	--[[ use "ishan9299/nvim-solarized-lua" ]]
-	--[[ use "chriskempson/base16-vim" ]]
-	--[[ use "rose-pine/neovim" ]]
-	--[[ use "LunarVim/Colorschemes" ]]
-	--[[ use "folke/tokyonight.nvim" ]]
-	--[[ use "catppuccin/nvim" ]]
-	use("EdenEast/nightfox.nvim")
+	-- use "RRethy/nvim-base16"
+	-- use "sainnhe/everforest"
+	-- use "ishan9299/nvim-solarized-lua"
+	-- use "chriskempson/base16-vim"
+	-- use "rose-pine/neovim"
+	-- use "LunarVim/Colorschemes"
+	-- use "folke/tokyonight.nvim"
+	-- use "catppuccin/nvim"
+	-- use("EdenEast/nightfox.nvim")
 	use("rebelot/kanagawa.nvim")
-	--[[ use "flazz/vim-colorschemes" ]]
-	--[[ use "navarasu/onedark.nvim" ]]
-	--[[ use "olimorris/onedarkpro.nvim" ]]
-	--[[ use "w0ng/vim-hybrid" ]]
-	--[[ use "NLKNguyen/papercolor-theme" ]]
-	--[[ use ("NTBBloodbath/doom-one.nvim") ]]
-	--[[ use("shaunsingh/nord.nvim") ]]
-	--[[ use("arcticicestudio/nord-vim") ]]
+	-- use "flazz/vim-colorschemes"
+	-- use "navarasu/onedark.nvim"
+	-- use "olimorris/onedarkpro.nvim"
+	-- use "w0ng/vim-hybrid"
+	-- use "NLKNguyen/papercolor-theme"
+	-- use ("NTBBloodbath/doom-one.nvim")
+	-- use("shaunsingh/nord.nvim")
+	-- use("arcticicestudio/nord-vim")
+	-- use("rmehri01/onenord.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -32,7 +32,11 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.cmd([[filetype plugin indent on]])
+
+-- Some default color stuff
 vim.opt.termguicolors = true
 vim.cmd([[syntax on]])
 vim.opt.background = "dark"
-vim.cmd([[filetype plugin indent on]])
+vim.cmd [[hi Search guibg=#ff9e3b]]
+vim.cmd [[hi Search guifg=#223249]]

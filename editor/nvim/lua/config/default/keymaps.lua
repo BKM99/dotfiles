@@ -26,14 +26,6 @@ keymap("n", "<leader>cb", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>",
 keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
 keymap("n", "<leader>d", ":Telescope diagnostics <CR>", opts)
 
--- Harpoon
-keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file() <CR>", opts)
-keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1) <CR>", opts)
-keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2) <CR>", opts)
-keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3) <CR>", opts)
-keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4) <CR>", opts)
-keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu() <CR>", opts)
-
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
@@ -65,9 +57,6 @@ keymap("n", "<m-t>", ":tabnew %<cr>", opts) -- create new tab
 keymap("n", "<m-y>", ":tabclose<cr>", opts) -- close current tab
 keymap("n", "<m-\\>", ":tabonly<cr>", opts) -- close all tabs
 
--- Turn off highlight after searching
-keymap("n", "<esc><esc>", ":silent! nohls<CR>", opts)
-
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
@@ -77,9 +66,6 @@ keymap("n", "<m-a>", "gg <S-v> G", opts)
 
 -- Better pasting in visual mode
 keymap("v", "p", '"_dP', opts)
-
--- Neoclip
-keymap("n", "<leader>nc", ":Telescope neoclip <CR>", opts)
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -104,5 +90,8 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- TODO: add more git mappings
 -- Git Stuff
-keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>")
-keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>")
+keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>", opts)
+keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", opts)
+
+-- Hop
+keymap("n", "<leader>h", ":HopWord <CR>", opts)

@@ -25,7 +25,6 @@ configs.setup({
 		"c_sharp",
 		"dockerfile",
         "markdown",
-		"norg",
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
@@ -43,7 +42,6 @@ configs.setup({
 	},
 	context_commentstring = {
 		enable = true,
-		enable_autocmd = false,
 	},
 	rainbow = {
 		enable = true,
