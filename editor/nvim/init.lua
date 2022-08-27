@@ -1,3 +1,3 @@
-require("user.default")
-require("user.plugins")
-require("user.lsp")
+require("config.default")
+require("config.plugins")
+require("config.lsp")

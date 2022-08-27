@@ -49,17 +49,17 @@ local opts = {}
 
 for _, server in pairs(servers) do
 	opts = {
-		on_attach = require("user.lsp.lsp-functions").on_attach,
-		capabilities = require("user.lsp.lsp-functions").capabilities,
+		on_attach = require("config.lsp.lsp-functions").on_attach,
+		capabilities = require("config.lsp.lsp-functions").capabilities,
 	}
 
 	if server == "sumneko_lua" then
-		local sumneko_opts = require("user.lsp.lsp-custom-server.sumneko_lua")
+		local sumneko_opts = require("config.lsp.lsp-custom-server.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
 	if server == "pyright" then
-		local pyright_opts = require("user.lsp.lsp-custom-server.pyright")
+		local pyright_opts = require("config.lsp.lsp-custom-server.pyright")
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
