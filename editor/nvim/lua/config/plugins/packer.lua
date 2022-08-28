@@ -115,6 +115,7 @@ return packer.startup(function(use)
 	-- Other Plugins
 	use("junegunn/vim-slash")
 	use("abecodes/tabout.nvim")
+    use("stevearc/dressing.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("numToStr/Comment.nvim")

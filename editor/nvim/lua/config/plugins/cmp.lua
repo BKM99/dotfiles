@@ -102,3 +102,14 @@ cmp.setup({
 		-- native_menu = false,
 	},
 })
+
+cmp.setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+})
+cmp.setup.cmdline("/", {
+	sources = {
+		{ name = "buffer" },
+	},
+})
