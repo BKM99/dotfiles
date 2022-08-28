@@ -103,13 +103,14 @@ cmp.setup({
 	},
 })
 
-cmp.setup.cmdline(":", {
-	sources = {
-		{ name = "cmdline" },
-	},
-})
-cmp.setup.cmdline("/", {
-	sources = {
-		{ name = "buffer" },
-	},
-})
+-- cmp.setup.cmdline(":", {
+-- 	sources = {
+-- 		{ name = "cmdline" },
+-- 	},
+-- })
+
+-- cmp.setup.cmdline("/", {
+-- 	sources = {
+-- 		{ name = "buffer" },
+-- 	},
+-- })

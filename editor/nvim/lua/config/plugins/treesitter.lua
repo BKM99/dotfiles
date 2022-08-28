@@ -24,7 +24,7 @@ configs.setup({
 		"c",
 		"c_sharp",
 		"dockerfile",
-        "markdown",
+		"markdown",
 	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
@@ -44,6 +44,9 @@ configs.setup({
 		enable = true,
 	},
 	rainbow = {
+		enable = true,
+	},
+	playground = {
 		enable = true,
 	},
 })

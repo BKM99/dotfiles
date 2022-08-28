@@ -72,6 +72,7 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
+	use("nvim-treesitter/playground")
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
@@ -114,8 +115,8 @@ return packer.startup(function(use)
 
 	-- Other Plugins
 	use("junegunn/vim-slash")
-	use("abecodes/tabout.nvim")
-    use("stevearc/dressing.nvim")
+	use({ "abecodes/tabout.nvim", wants = { "nvim-treesitter" }, after = { "nvim-cmp" } })
+	use("stevearc/dressing.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("numToStr/Comment.nvim")
@@ -140,10 +141,10 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	-- use "RRethy/nvim-base16"
+	use "RRethy/nvim-base16"
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
-	-- use "chriskempson/base16-vim"
+	-- use("chriskempson/base16-vim")
 	-- use "rose-pine/neovim"
 	-- use "LunarVim/Colorschemes"
 	-- use "folke/tokyonight.nvim"
@@ -159,6 +160,8 @@ return packer.startup(function(use)
 	-- use("shaunsingh/nord.nvim")
 	-- use("arcticicestudio/nord-vim")
 	-- use("rmehri01/onenord.nvim")
+	-- use("ellisonleao/gruvbox.nvim")
+	-- use("morhetz/gruvbox")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
