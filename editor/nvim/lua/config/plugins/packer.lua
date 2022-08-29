@@ -44,6 +44,7 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
+    use("ray-x/lsp_signature.nvim")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -141,7 +142,7 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	use "RRethy/nvim-base16"
+	use("RRethy/nvim-base16")
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
 	-- use("chriskempson/base16-vim")

@@ -35,7 +35,6 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format { async = true}<CR>", opts)
 end
 
@@ -51,6 +50,9 @@ local function lspsaga_keymaps(bufnr)
 	keymap(bufnr, "n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
 	keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 	keymap(bufnr, "v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
+	keymap(bufnr, "n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+	keymap(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+	keymap(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
