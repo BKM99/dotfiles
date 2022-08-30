@@ -5,7 +5,7 @@ end
 
 bufferline.setup({
 	options = {
-		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		offsets = { { filetype = "NvimTree", text = "File Explorer", padding = 1 } },
 		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 	},
 })
