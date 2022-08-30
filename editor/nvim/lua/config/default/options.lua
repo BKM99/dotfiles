@@ -17,7 +17,7 @@ vim.opt.lazyredraw = true
 vim.opt.timeoutlen = 200
 vim.opt.laststatus = 3
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 vim.opt.updatetime = 300
 vim.opt.undofile = true
 vim.opt.cursorline = true
@@ -38,5 +38,5 @@ vim.cmd([[filetype plugin indent on]])
 vim.opt.termguicolors = true
 vim.cmd([[syntax on]])
 vim.opt.background = "dark"
-vim.cmd [[hi Search guibg=#ff9e3b]]
-vim.cmd [[hi Search guifg=#223249]]
+-- vim.cmd [[hi Search guibg=#ff9e3b]]
+-- vim.cmd [[hi Search guifg=#223249]]
