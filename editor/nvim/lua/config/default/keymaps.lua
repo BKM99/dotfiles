@@ -92,6 +92,3 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- Git Stuff
 keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>", opts)
 keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", opts)
-
--- Hop
-keymap("n", "<leader>h", ":HopWord <CR>", opts)
