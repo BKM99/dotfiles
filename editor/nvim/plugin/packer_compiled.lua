@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -136,12 +141,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["hop.nvim"] = {
-    config = { "\27LJ\2\n5\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\bhop\frequire\0" },
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/hop.nvim",
-    url = "https://github.com/phaazon/hop.nvim"
-  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/impatient.nvim",
@@ -151,11 +150,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
-  },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
@@ -198,11 +192,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
-  },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -355,10 +344,6 @@ time([[Defining packer_plugins]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: hop.nvim
-time([[Config for hop.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\bhop\frequire\0", "config", "hop.nvim")
-time([[Config for hop.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -369,16 +354,16 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'bullets.vim', 'vim-markdown', 'markdown-preview.nvim', 'vim-markdown-toc', 'vim-table-mode'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'bullets.vim', 'vim-table-mode', 'vim-markdown-toc', 'markdown-preview.nvim', 'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
-vim.cmd [[source /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
-time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
 time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], true)
 vim.cmd [[source /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]]
 time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], false)
+time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
+vim.cmd [[source /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
+time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

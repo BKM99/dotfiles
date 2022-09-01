@@ -44,7 +44,7 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
-    use("ray-x/lsp_signature.nvim")
+	use("ray-x/lsp_signature.nvim")
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -66,7 +66,7 @@ return packer.startup(function(use)
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets") -- a bunch of useful snippets
+	use("rafamadriz/friendly-snippets")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
@@ -77,7 +77,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("lukas-reineke/indent-blankline.nvim")
 	use("windwp/nvim-autopairs")
 
 	-- Telescope
@@ -86,6 +85,7 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
+	use("lukas-reineke/indent-blankline.nvim")
 	use("NvChad/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
 	use({
@@ -133,25 +133,18 @@ return packer.startup(function(use)
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
-	use({
-		"phaazon/hop.nvim",
-		branch = "v2",
-		config = function()
-			require("hop").setup({})
-		end,
-	})
 
 	-- Colorschemes
-	use("RRethy/nvim-base16")
+	-- use("RRethy/nvim-base16")
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
-	-- use("chriskempson/base16-vim")
+	use("chriskempson/base16-vim")
 	-- use "rose-pine/neovim"
 	-- use "LunarVim/Colorschemes"
 	-- use "folke/tokyonight.nvim"
 	-- use "catppuccin/nvim"
 	-- use("EdenEast/nightfox.nvim")
-	use("rebelot/kanagawa.nvim")
+	-- use("rebelot/kanagawa.nvim")
 	-- use "flazz/vim-colorschemes"
 	-- use "navarasu/onedark.nvim"
 	-- use "olimorris/onedarkpro.nvim"
