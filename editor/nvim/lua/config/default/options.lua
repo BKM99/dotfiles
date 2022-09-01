@@ -4,7 +4,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.gdefault = true
 vim.opt.backspace = { "indent", "eol", "start" }
-vim.opt.swapfile = true
+vim.opt.swapfile = false
 vim.opt.fileencoding = "utf-8"
 vim.opt.number = true
 vim.opt.mouse = "a"
@@ -25,7 +25,8 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
 vim.opt.backup = false
 vim.opt.writebackup = false
-vim.opt.shortmess:append("c")
+-- vim.cmd[[ set shortmess+=S ]]
+-- vim.opt.shortmess:append("c")
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
