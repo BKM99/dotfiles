@@ -3,7 +3,6 @@ if not status_ok then
 	return
 end
 
--- TODO: I need to fix this plugin, it works but the s-tab is not working
 tabout.setup({
 	tabkey = "<tab>", -- key to trigger tabout, set to an empty string to disable
 	backwards_tabkey = "<S-tab>", -- key to trigger backwards tabout, set to an empty string to disable

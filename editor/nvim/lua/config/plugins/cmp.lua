@@ -98,14 +98,14 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-        documentation = false,
-	    -- completion = {
-	    --     border = border "CmpBorder",
-	    --     winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
-	    -- },
-	    -- documentation = {
-	    --     border = border "CmpDocBorder",
-	    -- },
+		documentation = false,
+		-- completion = {
+		--     border = border "CmpBorder",
+		--     winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+		-- },
+		-- documentation = {
+		--     border = border "CmpDocBorder",
+		-- },
 	},
 	experimental = {
 		ghost_text = false,

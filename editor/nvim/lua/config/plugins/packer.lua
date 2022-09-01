@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
-    use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/nvim-cmp")
 
 	-- DAP
@@ -87,7 +87,6 @@ return packer.startup(function(use)
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("stevearc/dressing.nvim")
 	use("NvChad/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
 	use({
