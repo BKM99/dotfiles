@@ -52,11 +52,12 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-jdtls")
 
 	-- Autocomplete
-	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-path")
 	use("hrsh7th/cmp-cmdline")
+    use("hrsh7th/cmp-nvim-lua")
+	use("hrsh7th/nvim-cmp")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
@@ -86,6 +87,7 @@ return packer.startup(function(use)
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
+	use("stevearc/dressing.nvim")
 	use("NvChad/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
 	use({
@@ -117,7 +119,6 @@ return packer.startup(function(use)
 	-- Other Plugins
 	use("junegunn/vim-slash")
 	use("abecodes/tabout.nvim")
-	use("stevearc/dressing.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("numToStr/Comment.nvim")

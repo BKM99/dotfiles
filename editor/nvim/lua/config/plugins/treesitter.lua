@@ -27,11 +27,11 @@ configs.setup({
 		"markdown",
 	},
 	highlight = {
-		enable = true, -- false will disable the whole extension
+		enable = true,
 		additional_vim_regex_highlighting = false,
 	},
 	autotag = {
-		enable = true, -- This is for autotag plugin
+		enable = true,
 	},
 	autopairs = {
 		enable = true,
@@ -45,11 +45,14 @@ configs.setup({
 	},
 	rainbow = {
 		enable = true,
+		-- colors = {
+		-- 	"Gold",
+		-- 	"Orchid",
+		-- 	"DodgerBlue",
+		-- },
+		disable = { "html" },
 	},
 	playground = {
 		enable = true,
 	},
 })
-
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
