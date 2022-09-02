@@ -85,7 +85,6 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- UI Stuff
-	use("akinsho/bufferline.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("NvChad/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })

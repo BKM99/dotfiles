@@ -45,10 +45,6 @@ keymap("n", "<leader>hs", ":split <CR>", opts)
 -- Toggle between buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
--- Bufferline Stuff
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-
 -- Buffer Delete
 keymap("n", "<m-q>", ":bdelete<CR>", opts)
 
@@ -88,7 +84,6 @@ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) -- open and close
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
--- TODO: add more git mappings
 -- Git Stuff
 keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>", opts)
 keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", opts)
