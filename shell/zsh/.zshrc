@@ -1,3 +1,5 @@
+export PATH="/usr/local/sbin:$PATH"
+
 # Aliases
 if [ -f ~/.zsh-aliases ]; then
     source ~/.zsh-aliases
