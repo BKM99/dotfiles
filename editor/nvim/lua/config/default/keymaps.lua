@@ -87,3 +87,8 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 -- Git Stuff
 keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>", opts)
 keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", opts)
+
+-- ZK
+keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+keymap("n", "<leader>zf", "<cmd>ZkNotes <cr>", opts)
+keymap("n", "<leader>zt", "<cmd>ZkTags <cr>", opts)

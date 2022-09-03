@@ -9,7 +9,7 @@ language = "en"
 default-title = "Untitled"
 
 # Template used to generate a note's filename, without extension.
-filename = "{{id}}"
+filename = "{{title}}"
 
 # The file extension used for the notes.
 extension = "md"
@@ -69,6 +69,8 @@ recents = "--sort created- --created-after 'last two weeks'"
 
 # COMMAND ALIASES
 [alias]
+# easy way to get to my config
+config = 'nvim "$HOME/configs/tools/zk/config.toml"'
 
 # list notes for editing
 ls = "zk edit --interactive"
