@@ -69,6 +69,10 @@ recents = "--sort created- --created-after 'last two weeks'"
 
 # COMMAND ALIASES
 [alias]
+
+# create a new note
+n = 'zk new --no-input "$ZK_NOTEBOOK_DIR/"'
+
 # easy way to get to my config
 config = 'nvim "$HOME/configs/tools/zk/config.toml"'
 

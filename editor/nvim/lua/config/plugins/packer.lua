@@ -86,7 +86,7 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("lukas-reineke/indent-blankline.nvim")
-	use("NvChad/nvim-colorizer.lua")
+    use("norcalli/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
 	use({
 		"kyazdani42/nvim-tree.lua",
