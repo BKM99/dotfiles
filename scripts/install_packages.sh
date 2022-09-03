@@ -14,6 +14,8 @@ brew install git
 brew install lazygit
 brew install lazydocker
 brew install neovim
+brew install bat
+brew install zk
 brew install autojump
 brew install exa
 brew install go
@@ -33,6 +35,7 @@ brew install --cask kitty
 brew install --cask zoom
 brew install --cask spotify
 brew install --cask discord
+brew install --cask obsidian
 brew install --cask the-unarchiver
 brew install --cask google-chrome
 

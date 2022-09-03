@@ -78,8 +78,8 @@ M.on_attach = function(client, bufnr)
 			require("jdtls").setup_dap({ hotcodereplace = "auto" })
 			require("jdtls.dap").setup_dap_main_class_configs()
 		end
-		client.server_capabilities.document_formatting = false
-		client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
+		-- client.server_capabilities.document_formatting = false
+		-- client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
 	end
 end
 

@@ -100,11 +100,12 @@ return packer.startup(function(use)
 	})
 
 	-- Note taking
-	use("renerocksai/telekasten.nvim")
-	use({ "preservim/vim-markdown", ft = "markdown" })
-	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
-	use({ "mzlogin/vim-markdown-toc", ft = "markdown" })
-	use({ "dkarter/bullets.vim", ft = "markdown" })
+    use("vimwiki/vimwiki")
+    use("mickael-menu/zk-nvim")
+	use({ "preservim/vim-markdown" })
+	use({ "dhruvasagar/vim-table-mode" })
+	use({ "mzlogin/vim-markdown-toc" })
+	use({ "dkarter/bullets.vim" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
