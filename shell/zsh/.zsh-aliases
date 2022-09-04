@@ -9,6 +9,16 @@ then
     alias vim=nvim
 fi
 
+if command -v fzf &> /dev/null
+then
+    alias fp="fzf --height 70% --preview='bat --color=always --style=numbers {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+
+    function fe() {
+      IFS=$'\n' files=($(fp))
+      [[ -n "$files" ]] && ${EDITOR} -O "${files[@]}" -p
+    }
+fi
+
 if command -v lazygit &> /dev/null
 then
     alias lg=lazygit
@@ -19,6 +29,7 @@ then
     alias ld=lazydocker
 
 fi
+
 if command -v exa &> /dev/null
 then
     alias l='exa'
@@ -48,6 +59,7 @@ function mkcd() {
     mkdir -p $1
     cd $1
 }
+
 
 # clone a plugin, identify its init file, source it, and add it to your fpath
 function plugin-load {
