@@ -38,6 +38,7 @@ plugins=(
     zsh-users/zsh-autosuggestions
     MichaelAquilina/zsh-you-should-use
     romkatv/powerlevel10k
+    jeffreytse/zsh-vi-mode
 )
 
 plugin-load $plugins
