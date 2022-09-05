@@ -1,6 +1,7 @@
-local status_ok_impatient, impatient = pcall(require, "impatient")
-if status_ok_impatient then
-	impatient.enable_profile()
+local status_ok_impatient, _ = pcall(require, "impatient")
+if not status_ok_impatient then
+    print("impatient not loaded!")
+    return
 end
 
 require("config.default")

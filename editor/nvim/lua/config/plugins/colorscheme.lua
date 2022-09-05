@@ -6,5 +6,5 @@ if not status_ok then
 	return
 end
 
-vim.cmd [[highlight Comment guifg=#8f8c8c]]
-vim.cmd [[hi Normal ctermbg=NONE]]
+-- vim.cmd [[highlight Comment guifg=#8f8c8c]]
+-- vim.cmd [[hi Normal ctermbg=NONE]]

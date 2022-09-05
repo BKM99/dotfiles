@@ -86,7 +86,7 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("lukas-reineke/indent-blankline.nvim")
-    use("norcalli/nvim-colorizer.lua")
+	use("norcalli/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -98,10 +98,27 @@ return packer.startup(function(use)
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+
+	-- Editing Support
+	use("abecodes/tabout.nvim")
+	use("numToStr/Comment.nvim")
 
 	-- Note taking
-    use("vimwiki/vimwiki")
-    use("mickael-menu/zk-nvim")
+	use({
+		"jakewvincent/mkdnflow.nvim",
+		config = function()
+			require("mkdnflow").setup({})
+		end,
+	})
+	use("mickael-menu/zk-nvim")
+	use({
+		"AckslD/nvim-FeMaco.lua",
+		config = 'require("femaco").setup()',
+	})
 	use({ "preservim/vim-markdown" })
 	use({ "dhruvasagar/vim-table-mode" })
 	use({ "mzlogin/vim-markdown-toc" })
@@ -117,10 +134,8 @@ return packer.startup(function(use)
 
 	-- Other Plugins
 	use("junegunn/vim-slash")
-	use("abecodes/tabout.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
-	use("numToStr/Comment.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 	use({
@@ -129,16 +144,12 @@ return packer.startup(function(use)
 			vim.g.curshold_updatime = 100
 		end,
 	})
-	use({
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
 
 	-- Colorschemes
-	-- use("RRethy/nvim-base16")
+	use("RRethy/nvim-base16")
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
-	use("chriskempson/base16-vim")
+	-- use("chriskempson/base16-vim")
 	-- use "rose-pine/neovim"
 	-- use "LunarVim/Colorschemes"
 	-- use "folke/tokyonight.nvim"

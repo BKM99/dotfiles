@@ -25,7 +25,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
 vim.opt.backup = false
 vim.opt.writebackup = false
--- vim.cmd[[ set shortmess+=S ]]
 vim.opt.shortmess:append("c")
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -33,11 +32,12 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
--- vim.cmd([[set nofoldenable]])
-vim.cmd([[set nocompatible]])
 vim.cmd([[filetype plugin indent on]])
 
-vim.g.vimwiki_conceallevel = 0 -- conceal level for vimwiki
+-- Some options for markdown
+vim.g.vim_markdown_folding_disabled = 1
+vim.g.vim_markdown_frontmatter = 1
+-- vim.cmd([[set conceallevel=1]])
 
 -- Some default color stuff
 vim.opt.termguicolors = true
