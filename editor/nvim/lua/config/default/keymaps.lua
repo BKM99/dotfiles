@@ -24,7 +24,9 @@ keymap("n", "<leader>f", ":Telescope find_files theme=ivy <CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
 keymap("n", "<leader>b", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>", opts)
 keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
-keymap("n", "<leader>d", ":Telescope diagnostics <CR>", opts)
+
+-- Trouble
+keymap("n", "<leader>d", ":TroubleToggle<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -66,10 +68,6 @@ keymap("v", "p", '"_dP', opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Stuff for Telekasten/Markdown
-keymap("n", "<leader>zz", ":lua require('telekasten').follow_link()<CR>", opts)
-keymap("n", "<leader>z", ":lua require('telekasten').panel()<CR>", opts)
 
 -- DAP Stuff
 keymap("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

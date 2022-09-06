@@ -50,6 +50,14 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
 	use("mfussenegger/nvim-jdtls")
+	use("j-hui/fidget.nvim")
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({})
+		end,
+	})
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -75,10 +83,7 @@ return packer.startup(function(use)
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/playground")
-	use("windwp/nvim-ts-autotag")
-	use("p00f/nvim-ts-rainbow")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("windwp/nvim-autopairs")
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -99,13 +104,16 @@ return packer.startup(function(use)
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 	use({
-		"folke/todo-comments.nvim",
+		"B4mbus/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
 
 	-- Editing Support
 	use("abecodes/tabout.nvim")
+	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
+	use("windwp/nvim-ts-autotag")
+	use("p00f/nvim-ts-rainbow")
 
 	-- Note taking
 	use({
@@ -133,6 +141,7 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
+    use("MattesGroeger/vim-bookmarks")
 	use("junegunn/vim-slash")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
@@ -171,6 +180,7 @@ return packer.startup(function(use)
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
+        print("Installing plugins, please wait.")
 		require("packer").sync()
 	end
 end)
