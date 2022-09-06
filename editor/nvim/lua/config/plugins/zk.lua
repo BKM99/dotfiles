@@ -24,3 +24,14 @@ zk.setup({
 		},
 	},
 })
+
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.keymap.set
+
+-- ZK
+keymap("n", "<leader>zn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", opts)
+keymap("n", "<leader>znl", "<Cmd>ZkNew { title = vim.fn.input('Title: '), group = 'leetcode', dir = 'leetcode/'}<CR>", opts)
+keymap("n", "<leader>znd", "<Cmd>ZkNew { group = 'daily', dir = 'daily/'}<CR>", opts)
+keymap("n", "<leader>zf", "<cmd>ZkNotes <cr>", opts)
+keymap("n", "<leader>zt", "<cmd>ZkTags <cr>", opts)

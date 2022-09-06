@@ -51,13 +51,7 @@ return packer.startup(function(use)
 	use("glepnir/lspsaga.nvim")
 	use("mfussenegger/nvim-jdtls")
 	use("j-hui/fidget.nvim")
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup({})
-		end,
-	})
+	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -93,20 +87,9 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use({ "folke/zen-mode.nvim", opt = true, cmd = { "ZenMode" } })
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons",
-		},
-	})
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-	use({
-		"B4mbus/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-	})
+	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
+	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+	use({ "B4mbus/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- Editing Support
 	use("abecodes/tabout.nvim")
@@ -116,21 +99,13 @@ return packer.startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 
 	-- Note taking
-	use({
-		"jakewvincent/mkdnflow.nvim",
-		config = function()
-			require("mkdnflow").setup({})
-		end,
-	})
+	use("jakewvincent/mkdnflow.nvim")
 	use("mickael-menu/zk-nvim")
-	use({
-		"AckslD/nvim-FeMaco.lua",
-		config = 'require("femaco").setup()',
-	})
-	use({ "preservim/vim-markdown" })
-	use({ "dhruvasagar/vim-table-mode" })
-	use({ "mzlogin/vim-markdown-toc" })
-	use({ "dkarter/bullets.vim" })
+	use("AckslD/nvim-FeMaco.lua")
+	use("preservim/vim-markdown")
+	use("dhruvasagar/vim-table-mode")
+	use("mzlogin/vim-markdown-toc")
+	use("dkarter/bullets.vim")
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -141,7 +116,7 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-    use("MattesGroeger/vim-bookmarks")
+	use("MattesGroeger/vim-bookmarks")
 	use("junegunn/vim-slash")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
@@ -180,7 +155,7 @@ return packer.startup(function(use)
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
-        print("Installing plugins, please wait.")
+		print("Installing plugins, please wait.")
 		require("packer").sync()
 	end
 end)

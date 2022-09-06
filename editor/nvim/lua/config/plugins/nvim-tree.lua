@@ -3,6 +3,11 @@ if not status_ok then
 	return
 end
 
+local opts = { noremap = true, silent = true }
+local keymap = vim.keymap.set
+-- Nvim Tree toggle
+keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
+
 nvim_tree.setup({
 	sort_by = "case_sensitive",
 	view = {
