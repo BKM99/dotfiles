@@ -101,9 +101,6 @@ conf = '$EDITOR "$HOME/configs/tools/zk/config.toml"'
 # list notes for editing
 ls = "zk edit --interactive"
 
-# search notes by tags
-t = 'zk edit --interactive --tag'
-
 # Edit the last modified note.
 edlast = "zk edit --limit 1 --sort modified- $@"
 
