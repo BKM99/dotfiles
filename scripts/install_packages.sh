@@ -11,10 +11,12 @@ echo "installing brew packages..."
 brew install nvm
 brew install tmux
 brew install git
+brew install ranger
 brew install lazygit
 brew install lazydocker
 brew install neovim
 brew install bat
+brew install btop
 brew install zk
 brew install autojump
 brew install exa
