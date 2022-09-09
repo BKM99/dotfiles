@@ -4,3 +4,8 @@ if not status_ok then
 end
 
 todo_comments.setup()
+
+local opts = { noremap = true, silent = true }
+local keymap = vim.keymap.set
+
+keymap("n", "<leader>td", ":TodoTelescope<CR>", opts)
