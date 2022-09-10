@@ -63,6 +63,7 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 	use("mfussenegger/nvim-dap-python")
+    use("leoluz/nvim-dap-go")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip")

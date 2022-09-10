@@ -49,3 +49,11 @@ end
 dap_python.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
 dap_python.test_runner = "unittest"
 -- ------------ End of Python DAP Stuff -----------------------------------------------------------
+
+-- ------------ Go DAP Stuff -----------------------------------------------------------
+local dap_go_status_ok, dap_go = pcall(require, "dap-go")
+if not dap_go_status_ok then
+    return
+end
+
+dap_go.setup()
