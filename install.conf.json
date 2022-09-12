@@ -15,7 +15,6 @@
     },
     {
         "link": {
-            "~/.condarc": "tools/conda/.condarc",
             "~/.config/kitty": "terminals/kitty",
             "~/.config/nvim": "editor/nvim",
             "~/.config/zk": "tools/zk",
