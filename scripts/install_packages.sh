@@ -17,6 +17,7 @@ brew install lazydocker
 brew install neovim
 brew install bat
 brew install btop
+brew install ncdu
 brew install zk
 brew install autojump
 brew install exa
@@ -40,9 +41,6 @@ brew install --cask discord
 brew install --cask obsidian
 brew install --cask the-unarchiver
 brew install --cask google-chrome
-
-brew install --cask miniconda
-conda init "$(basename "${SHELL}")"
 
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
