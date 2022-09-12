@@ -87,7 +87,7 @@ return packer.startup(function(use)
 	use("norcalli/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-	use({ "B4mbus/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- Editing Support
 	use("windwp/nvim-autopairs")

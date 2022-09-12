@@ -18,7 +18,6 @@ local servers = {
 	"pyright",
 	"rust_analyzer",
 	"tailwindcss",
-	"bashls",
 	"yamlls",
 	"cssls",
 	"eslint",
