@@ -96,9 +96,10 @@ return packer.startup(function(use)
 	use("p00f/nvim-ts-rainbow")
 
 	-- Note taking
+    use("arjunmahishi/run-code.nvim")
 	use("jakewvincent/mkdnflow.nvim")
 	use("mickael-menu/zk-nvim")
-	use("AckslD/nvim-FeMaco.lua")
+	use({"AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c"})
 	use("preservim/vim-markdown")
 	use("dhruvasagar/vim-table-mode")
 	use("mzlogin/vim-markdown-toc")
