@@ -62,6 +62,22 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
+	if server == "rust_analyzer" then
+		local rust_opts = require("config.plugins.lsp.lsp-custom-server.rust")
+		local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
+		if not rust_tools_status_ok then
+			return
+		end
+
+		rust_tools.setup(rust_opts)
+		goto continue
+	end
+
+	if server == "jsonls" then
+		local jsonls_opts = require("config.plugins.lsp.lsp-custom-server.jsonls")
+		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+	end
+
 	if server == "jdtls" then
 		goto continue
 	end

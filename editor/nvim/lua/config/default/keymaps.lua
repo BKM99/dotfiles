@@ -22,6 +22,10 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+-- -- Easier Buffer Switching
+-- keymap("n", "<S-l>", ":bnext<CR>", opts)
+-- keymap("n", "<S-h>", ":bprev<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
 keymap("n", "<m-Down>", ":resize +1<CR>", opts)
@@ -56,3 +60,6 @@ keymap("v", "p", '"_dP', opts)
 -- Indent text
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Cancel search highlighting with ESC
+keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)

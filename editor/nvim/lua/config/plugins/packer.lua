@@ -49,7 +49,9 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
 	use("mfussenegger/nvim-jdtls")
+    use("simrat39/rust-tools.nvim")
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+    use("simrat39/symbols-outline.nvim")
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -62,8 +64,10 @@ return packer.startup(function(use)
 	-- DAP
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
+    use("theHamsta/nvim-dap-virtual-text")
 	use("mfussenegger/nvim-dap-python")
     use("leoluz/nvim-dap-go")
+    use("jbyuki/one-small-step-for-vimkind")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
@@ -95,9 +99,9 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
+    use("nacro90/numb.nvim")
 
 	-- Note taking
-    use("arjunmahishi/run-code.nvim")
 	use("jakewvincent/mkdnflow.nvim")
 	use("mickael-menu/zk-nvim")
 	use({"AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c"})
@@ -115,7 +119,10 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-	use("junegunn/vim-slash")
+    use("ThePrimeagen/harpoon")
+    use("tversteeg/registers.nvim")
+    use("ghillb/cybu.nvim")
+    use("b0o/SchemaStore.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lua/plenary.nvim")
@@ -147,8 +154,6 @@ return packer.startup(function(use)
 	-- use("shaunsingh/nord.nvim")
 	-- use("arcticicestudio/nord-vim")
 	-- use("rmehri01/onenord.nvim")
-	-- use("ellisonleao/gruvbox.nvim")
-	-- use("morhetz/gruvbox")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
