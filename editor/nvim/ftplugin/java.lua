@@ -33,27 +33,26 @@ local bundles = {}
 
 -- how to install java dap stuff
 -- clone it into ~/.local/share/nvim/
--- git clone https://github.com/microsoft/java-debug.git
+-- git clone https://github.com/microsoft/java-debug.git ~/.local/share/nvim/java-debug
 -- cd java-debug/
 -- ./mvnw clean install
 
+-- vscode-java-test for whatever reason is not working when I run build-plugin
 -- clone it into ~/.local/share/nvim/
--- git clone https://github.com/microsoft/vscode-java-test.git
+-- git clone https://github.com/microsoft/vscode-java-test.git ~/.local/share/nvim/vscode-java-test
 -- cd vscode-java-test
 -- npm install
 -- npm run build-plugin
 
-JAVA_DAP_ACTIVE = false
+JAVA_DAP_ACTIVE = true
 
 if JAVA_DAP_ACTIVE then
-	vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
-	vim.list_extend(
-		bundles,
-		vim.split(
-			vim.fn.glob(home .. ".local/share/nvim/java-debug/com.microsoft.java.debug.repository/target/repository"),
-			"\n"
-		)
-	)
+	bundles = {
+		vim.fn.glob(
+			"~/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+		),
+	}
+	-- vim.list_extend(bundles, vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar"), "\n"))
 end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
@@ -192,8 +191,12 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 -- or attaches to an existing client & server depending on the `root_dir`.
 require("jdtls").start_or_attach(config)
 
-vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)")
-vim.cmd("command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)")
+vim.cmd(
+	"command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+)
+vim.cmd(
+	"command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
+)
 vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
 vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
 
