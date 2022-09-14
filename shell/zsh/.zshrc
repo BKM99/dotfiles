@@ -44,7 +44,10 @@ plugin-load $plugins
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # pyenv
-eval "$(pyenv init --path)"
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

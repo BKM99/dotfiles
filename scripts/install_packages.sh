@@ -17,7 +17,6 @@ brew install lazydocker
 brew install neovim
 brew install bat
 brew install pyenv
-brew install btop
 brew install ncdu
 brew install zk
 brew install autojump
