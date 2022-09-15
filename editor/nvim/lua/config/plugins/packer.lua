@@ -49,9 +49,9 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
 	use("mfussenegger/nvim-jdtls")
-    use("simrat39/rust-tools.nvim")
+	use("simrat39/rust-tools.nvim")
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-    use("simrat39/symbols-outline.nvim")
+	use("simrat39/symbols-outline.nvim")
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -60,15 +60,15 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/nvim-cmp")
-    use("onsails/lspkind.nvim")
+	use("onsails/lspkind.nvim")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
-    use("theHamsta/nvim-dap-virtual-text")
+	use("theHamsta/nvim-dap-virtual-text")
 	use("mfussenegger/nvim-dap-python")
-    use("leoluz/nvim-dap-go")
-    use("jbyuki/one-small-step-for-vimkind")
+	use("leoluz/nvim-dap-go")
+	use("jbyuki/one-small-step-for-vimkind")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
@@ -77,8 +77,8 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-    use("TimUntersberger/neogit")
-    use("sindrets/diffview.nvim")
+	use("TimUntersberger/neogit")
+	use("sindrets/diffview.nvim")
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
@@ -88,11 +88,12 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-    use("nvim-telescope/telescope-dap.nvim")
+	use("nvim-telescope/telescope-dap.nvim")
 
 	-- UI Stuff
-    use("rcarriga/nvim-notify")
-    use("goolord/alpha-nvim")
+	use("rcarriga/nvim-notify")
+	use("stevearc/dressing.nvim")
+	use("goolord/alpha-nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
@@ -104,12 +105,12 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
-    use("nacro90/numb.nvim")
+	use("nacro90/numb.nvim")
 
 	-- Note taking
 	use("jakewvincent/mkdnflow.nvim")
 	use("mickael-menu/zk-nvim")
-	use({"AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c"})
+	use({ "AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c" })
 	use("preservim/vim-markdown")
 	use("dhruvasagar/vim-table-mode")
 	use("mzlogin/vim-markdown-toc")
@@ -124,11 +125,17 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-    use("ThePrimeagen/harpoon")
-    use("tversteeg/registers.nvim")
-    use("ghillb/cybu.nvim")
-    use("mbbill/undotree")
-    use("b0o/SchemaStore.nvim")
+	use("ThePrimeagen/harpoon")
+	use("tversteeg/registers.nvim")
+	use("ghillb/cybu.nvim")
+	use("mbbill/undotree")
+	use({
+		"notjedi/nvim-rooter.lua",
+		config = function()
+			require("nvim-rooter").setup()
+		end,
+	})
+	use("b0o/SchemaStore.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lua/plenary.nvim")
