@@ -60,6 +60,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/nvim-cmp")
+    use("onsails/lspkind.nvim")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
@@ -76,6 +77,8 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+    use("TimUntersberger/neogit")
+    use("sindrets/diffview.nvim")
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
@@ -85,8 +88,10 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use("nvim-telescope/telescope-dap.nvim")
 
 	-- UI Stuff
+    use("rcarriga/nvim-notify")
     use("goolord/alpha-nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
@@ -122,6 +127,7 @@ return packer.startup(function(use)
     use("ThePrimeagen/harpoon")
     use("tversteeg/registers.nvim")
     use("ghillb/cybu.nvim")
+    use("mbbill/undotree")
     use("b0o/SchemaStore.nvim")
 	use("lewis6991/impatient.nvim")
 	use("kyazdani42/nvim-web-devicons")

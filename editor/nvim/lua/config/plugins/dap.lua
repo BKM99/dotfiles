@@ -37,9 +37,9 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- DAP Stuff
-keymap("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
-keymap("n", "<leader>bc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
-keymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", opts)
+keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>dbc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
+keymap("n", "<leader>dlp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", opts)
 keymap("n", "<S-up>", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<S-right>", "<cmd>lua require'dap'.step_into()<cr>", opts)
 keymap("n", "<S-left>", "<cmd>lua require'dap'.step_over()<cr>", opts)
@@ -48,6 +48,12 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) -- open and close
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Telescope DAP
+keymap("n", "<leader>dc", ":Telescope dap commands<cr>", opts)
+keymap("n", "<leader>dlb", ":Telescope dap list_breakpoints<cr>", opts)
+keymap("n", "<leader>dv", ":Telescope dap variables<cr>", opts)
+keymap("n", "<leader>df", ":Telescope dap frames<cr>", opts)
 
 local dap_python_status_ok, dap_python = pcall(require, "dap-python")
 if not dap_python_status_ok then

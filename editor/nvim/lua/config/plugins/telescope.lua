@@ -38,6 +38,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("dap")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
