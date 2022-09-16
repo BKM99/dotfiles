@@ -39,6 +39,35 @@ mason_lspconfig.setup({
 	ensure_installed = servers,
 })
 
+local mason_tool_installer_status_ok, mason_tool_installer = pcall(require, "mason-tool-installer")
+if not mason_tool_installer_status_ok then
+	return
+end
+
+mason_tool_installer.setup({
+    -- I'm using this tool for everything that's not an LSP
+	ensure_installed = {
+		"chrome-debug-adapter",
+		"node-debug2-adapter",
+		"delve",
+		"debugpy",
+		"black",
+		"prettier",
+		"stylua",
+	},
+	auto_update = false,
+	run_on_start = true,
+})
+
+-- Upon completion of any mason-tool-installer initiated installation/update
+-- a user event will be emitted named MasonToolsUpdateCompleted
+vim.api.nvim_create_autocmd("User", {
+	pattern = "MasonToolsUpdateCompleted",
+	callback = function()
+		vim.schedule(print("mason-tool-installer has finished"))
+	end,
+})
+
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
 	return

@@ -45,6 +45,7 @@ return packer.startup(function(use)
 	-- LSP
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
+	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
@@ -126,6 +127,8 @@ return packer.startup(function(use)
 
 	-- Other Plugins
 	use("ThePrimeagen/harpoon")
+	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "michaelb/sniprun", run = "bash ./install.sh" })
 	use("tversteeg/registers.nvim")
 	use("ghillb/cybu.nvim")
 	use("mbbill/undotree")
@@ -137,6 +140,7 @@ return packer.startup(function(use)
 	})
 	use("b0o/SchemaStore.nvim")
 	use("lewis6991/impatient.nvim")
+	use("karb94/neoscroll.nvim")
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
@@ -149,8 +153,8 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("RRethy/nvim-base16")
-    -- use("Mofiqul/vscode.nvim")
-    -- use("yazeed1s/minimal.nvim")
+	-- use("Mofiqul/vscode.nvim")
+	-- use("yazeed1s/minimal.nvim")
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
 	-- use("chriskempson/base16-vim")
