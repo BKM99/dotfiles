@@ -13,11 +13,28 @@ if not lsp_kind_status_ok then
 	return
 end
 
+vim.cmd([[
+" gray
+highlight! CmpItemAbbrDeprecated guibg=NONE gui=strikethrough guifg=#808080
+" blue
+highlight! CmpItemAbbrMatch guibg=NONE guifg=#569CD6
+highlight! CmpItemAbbrMatchFuzzy guibg=NONE guifg=#569CD6
+" light blue
+highlight! CmpItemKindVariable guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindInterface guibg=NONE guifg=#9CDCFE
+highlight! CmpItemKindText guibg=NONE guifg=#9CDCFE
+" pink
+highlight! CmpItemKindFunction guibg=NONE guifg=#C586C0
+highlight! CmpItemKindMethod guibg=NONE guifg=#C586C0
+" front
+highlight! CmpItemKindKeyword guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindProperty guibg=NONE guifg=#D4D4D4
+highlight! CmpItemKindUnit guibg=NONE guifg=#D4D4D4
+]])
+
 require("luasnip/loaders/from_vscode").lazy_load({
 	path = "~/.local/share/nvim/site/pack/packer/start/friendly-snippets/snippets",
 })
-
-luasnip.filetype_extend("vimwiki", { "markdown" })
 
 local check_backspace = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
