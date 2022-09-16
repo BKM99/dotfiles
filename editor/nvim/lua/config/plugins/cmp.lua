@@ -95,6 +95,18 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			with_text = false,
 			mode = "symbol_text",
+
+			before = function(entry, vim_item)
+				vim_item.menu = ({
+					nvim_lsp = "[LSP]",
+					nvim_lua = "[Lua]",
+					luasnip = "[Snip]",
+					buffer = "[Buffer]",
+					path = "[Path]",
+				})[entry.source.name]
+
+				return vim_item
+			end,
 		}),
 	},
 })

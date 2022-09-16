@@ -38,7 +38,7 @@ configs.setup({
 	},
 	indent = {
 		enable = true,
-		disable = { "yaml", "python", "rust" },
+		disable = { "yaml", "rust" },
 	},
 	context_commentstring = {
 		enable = true,

@@ -149,6 +149,8 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("RRethy/nvim-base16")
+    -- use("Mofiqul/vscode.nvim")
+    -- use("yazeed1s/minimal.nvim")
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
 	-- use("chriskempson/base16-vim")
