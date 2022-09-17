@@ -6,12 +6,13 @@
 -- 	return
 -- end
 
--- vim.cmd [[highlight Comment guifg=#8f8c8c]]
--- vim.cmd [[hi Normal ctermbg=NONE]]
+-- Slightly modified base16-gruvbox-dark-hard, I changed base03 to #8f8c8c
+local base_16_status_ok, base16_colorscheme = pcall(require, "base16-colorscheme")
+if not base_16_status_ok then
+    return
+end
 
--- Slightly modified base16-gruvbox-dark-hard
--- I changed base03 from #5a524 to #8f8c8c
-require('base16-colorscheme').setup({
+base16_colorscheme.setup({
 	base00 = "#1d2021",
 	base01 = "#3c3836",
 	base02 = "#504945",

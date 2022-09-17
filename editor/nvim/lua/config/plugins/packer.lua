@@ -36,6 +36,7 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
+    max_jobs = 15,
 })
 
 -- Install your plugins here
@@ -157,10 +158,9 @@ return packer.startup(function(use)
 	-- use("yazeed1s/minimal.nvim")
 	-- use "sainnhe/everforest"
 	-- use "ishan9299/nvim-solarized-lua"
-	-- use("chriskempson/base16-vim")
 	-- use "rose-pine/neovim"
 	-- use "LunarVim/Colorschemes"
-	-- use "folke/tokyonight.nvim"
+	-- use("folke/tokyonight.nvim")
 	-- use "catppuccin/nvim"
 	-- use("EdenEast/nightfox.nvim")
 	-- use("rebelot/kanagawa.nvim")
