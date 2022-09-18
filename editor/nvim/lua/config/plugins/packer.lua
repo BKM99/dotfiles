@@ -36,7 +36,7 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
-	max_jobs = 15,
+	max_jobs = 20,
 })
 
 -- Install your plugins here
@@ -162,7 +162,6 @@ return packer.startup(function(use)
 			vim.g.registers_window_border = "rounded"
 		end,
 	})
-	use("ghillb/cybu.nvim")
 	use({
 		"notjedi/nvim-rooter.lua",
 		config = function()

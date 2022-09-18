@@ -23,8 +23,8 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- -- Easier Buffer Switching
--- keymap("n", "<S-l>", ":bnext<CR>", opts)
--- keymap("n", "<S-h>", ":bprev<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprev<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)

@@ -144,11 +144,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/code_runner.nvim",
     url = "https://github.com/CRAG666/code_runner.nvim"
   },
-  ["cybu.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/cybu.nvim",
-    url = "https://github.com/ghillb/cybu.nvim"
-  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -472,6 +467,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: git-blame.nvim
+time([[Setup for git-blame.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\1\0=\1\2\0K\0\1\0\21gitblame_enabled\6g\bvim\0", "setup", "git-blame.nvim")
+time([[Setup for git-blame.nvim]], false)
+time([[packadd for git-blame.nvim]], true)
+vim.cmd [[packadd git-blame.nvim]]
+time([[packadd for git-blame.nvim]], false)
 -- Setup for: registers.nvim
 time([[Setup for registers.nvim]], true)
 try_loadstring("\27LJ\2\nA\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\frounded\28registers_window_border\6g\bvim\0", "setup", "registers.nvim")
@@ -483,13 +485,6 @@ time([[packadd for registers.nvim]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Setup for: git-blame.nvim
-time([[Setup for git-blame.nvim]], true)
-try_loadstring("\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\1\0=\1\2\0K\0\1\0\21gitblame_enabled\6g\bvim\0", "setup", "git-blame.nvim")
-time([[Setup for git-blame.nvim]], false)
-time([[packadd for git-blame.nvim]], true)
-vim.cmd [[packadd git-blame.nvim]]
-time([[packadd for git-blame.nvim]], false)
 -- Config for: nvim-rooter.lua
 time([[Config for nvim-rooter.lua]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16nvim-rooter\frequire\0", "config", "nvim-rooter.lua")
