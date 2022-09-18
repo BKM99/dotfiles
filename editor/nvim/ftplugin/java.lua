@@ -31,7 +31,7 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local workspace_dir = WORKSPACE_PATH .. project_name
 
-local bundles = {}
+-- local bundles = {}
 
 -- how to install java dap stuff
 -- clone it into ~/.local/share/nvim/
@@ -39,24 +39,18 @@ local bundles = {}
 -- cd java-debug/
 -- ./mvnw clean install
 
--- vscode-java-test for whatever reason is not working when I run build-plugin
 -- clone it into ~/.local/share/nvim/
 -- git clone https://github.com/microsoft/vscode-java-test.git ~/.local/share/nvim/vscode-java-test
 -- cd vscode-java-test
 -- npm install
 -- npm run build-plugin
 
-JAVA_DAP_ACTIVE = true
-
-if JAVA_DAP_ACTIVE then
-	bundles = {
-		vim.fn.glob(
-			"~/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
-		),
-	}
-    -- the install for this works when I install it through vscode
-	vim.list_extend(bundles, vim.split(vim.fn.glob("~/.vscode/extensions/vscjava.vscode-java-debug-0.44.0/server"), "\n"))
-end
+local bundles = {
+	vim.fn.glob(
+		home .. "/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+	),
+}
+vim.list_extend(bundles, vim.split(vim.fn.glob( home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -135,7 +129,7 @@ local config = {
 			},
 			-- Set this to true to use jdtls as your formatter
 			format = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 		signatureHelp = { enabled = true },
@@ -183,12 +177,12 @@ local config = {
 	},
 }
 
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.java" },
-	callback = function()
-		vim.lsp.codelens.refresh()
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+-- 	pattern = { "*.java" },
+-- 	callback = function()
+-- 		vim.lsp.codelens.refresh()
+-- 	end,
+-- })
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
@@ -211,8 +205,8 @@ local opts = { silent = true }
 keymap("n", "<leader>jo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
 keymap("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
 keymap("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
-keymap("n", "<leader>jt", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
-keymap("n", "<leader>jT", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
+keymap("n", "<leader>jtm", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+keymap("n", "<leader>jtc", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
 keymap("n", "<leader>ju", "<Cmd>JdtUpdateConfig<CR>", opts)
 
 keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
