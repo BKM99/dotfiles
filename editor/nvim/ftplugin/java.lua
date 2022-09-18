@@ -1,3 +1,5 @@
+vim.opt_local.cmdheight = 2
+
 local status, jdtls = pcall(require, "jdtls")
 if not status then
 	return
