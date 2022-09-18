@@ -36,7 +36,7 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
-	max_jobs = 20,
+	max_jobs = 15,
 })
 
 -- Install your plugins here
@@ -104,9 +104,11 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- UI Stuff
+	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
 	use("rcarriga/nvim-notify")
 	use("stevearc/dressing.nvim")
 	use("goolord/alpha-nvim")
+	use("mbbill/undotree")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
@@ -150,12 +152,17 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
+	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({ "michaelb/sniprun", run = "bash ./install.sh" })
-	use("tversteeg/registers.nvim")
+	use({
+		"tversteeg/registers.nvim",
+		setup = function()
+			vim.g.registers_window_border = "rounded"
+		end,
+	})
 	use("ghillb/cybu.nvim")
-	use("mbbill/undotree")
 	use({
 		"notjedi/nvim-rooter.lua",
 		config = function()

@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
+  ["bufferline.nvim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    url = "https://github.com/akinsho/bufferline.nvim"
+  },
   ["bullets.vim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/bullets.vim",
@@ -179,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -380,7 +390,8 @@ _G.packer_plugins = {
   },
   ["registers.nvim"] = {
     loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/registers.nvim",
+    needs_bufread = false,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/registers.nvim",
     url = "https://github.com/tversteeg/registers.nvim"
   },
   ["rust-tools.nvim"] = {
@@ -461,6 +472,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: registers.nvim
+time([[Setup for registers.nvim]], true)
+try_loadstring("\27LJ\2\nA\0\0\2\0\4\0\0056\0\0\0009\0\1\0'\1\3\0=\1\2\0K\0\1\0\frounded\28registers_window_border\6g\bvim\0", "setup", "registers.nvim")
+time([[Setup for registers.nvim]], false)
+time([[packadd for registers.nvim]], true)
+vim.cmd [[packadd registers.nvim]]
+time([[packadd for registers.nvim]], false)
 -- Setup for: markdown-preview.nvim
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
