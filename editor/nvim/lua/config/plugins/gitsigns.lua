@@ -8,5 +8,4 @@ gitsigns.setup()
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-keymap("n", "<leader>gb", ":Gitsigns blame_line <CR>", opts)
 keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", opts)

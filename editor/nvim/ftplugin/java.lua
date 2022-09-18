@@ -54,7 +54,8 @@ if JAVA_DAP_ACTIVE then
 			"~/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
 		),
 	}
-	-- vim.list_extend(bundles, vim.split(vim.fn.glob("/path/to/microsoft/vscode-java-test/server/*.jar"), "\n"))
+    -- the install for this works when I install it through vscode
+	vim.list_extend(bundles, vim.split(vim.fn.glob("~/.vscode/extensions/vscjava.vscode-java-debug-0.44.0/server"), "\n"))
 end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.

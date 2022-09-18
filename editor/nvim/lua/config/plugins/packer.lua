@@ -36,12 +36,17 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
-    max_jobs = 15,
+	max_jobs = 20,
 })
 
 -- Install your plugins here
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
+
+	-- A Bunch of Plugins use these
+	use("kyazdani42/nvim-web-devicons")
+	use("nvim-lua/plenary.nvim")
+	use("nvim-lua/popup.nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
@@ -81,6 +86,12 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("TimUntersberger/neogit")
 	use("sindrets/diffview.nvim")
+	use({
+		"f-person/git-blame.nvim",
+		setup = function()
+			vim.g.gitblame_enabled = false
+		end,
+	})
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
@@ -108,8 +119,10 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
 	use("nacro90/numb.nvim")
+	use("chaoren/vim-wordmotion")
+	use("wellle/targets.vim")
 
-	-- Note taking
+	-- Note taking (Markdown)
 	use("jakewvincent/mkdnflow.nvim")
 	use("mickael-menu/zk-nvim")
 	use({ "AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c" })
@@ -126,6 +139,16 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 
+	-- Better Performance
+	use("nathom/filetype.nvim")
+	use("lewis6991/impatient.nvim")
+	use({
+		"antoinemadec/FixCursorHold.nvim",
+		run = function()
+			vim.g.curshold_updatime = 100
+		end,
+	})
+
 	-- Other Plugins
 	use("ThePrimeagen/harpoon")
 	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
@@ -140,17 +163,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("b0o/SchemaStore.nvim")
-	use("lewis6991/impatient.nvim")
 	use("karb94/neoscroll.nvim")
-	use("kyazdani42/nvim-web-devicons")
-	use("nvim-lua/plenary.nvim")
-	use("nvim-lua/popup.nvim")
-	use({
-		"antoinemadec/FixCursorHold.nvim",
-		run = function()
-			vim.g.curshold_updatime = 100
-		end,
-	})
 
 	-- Colorschemes
 	use("RRethy/nvim-base16")
