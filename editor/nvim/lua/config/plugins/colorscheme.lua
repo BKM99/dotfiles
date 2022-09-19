@@ -30,3 +30,11 @@ base16_colorscheme.setup({
 	base0E = "#d3869b",
 	base0F = "#d65d0e",
 })
+
+--
+vim.cmd([[
+hi DiagnosticError guifg=#f50707
+hi DiagnosticWarn guifg=#f5c907
+hi DiagnosticInfo guifg=#34c6eb
+hi DiagnosticHint guifg=#34eb80
+]])
