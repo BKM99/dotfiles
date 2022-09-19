@@ -55,6 +55,7 @@ return packer.startup(function(use)
 	use("simrat39/rust-tools.nvim")
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use("simrat39/symbols-outline.nvim")
+	use("b0o/SchemaStore.nvim")
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -176,7 +177,6 @@ return packer.startup(function(use)
 			require("nvim-rooter").setup()
 		end,
 	})
-	use("b0o/SchemaStore.nvim")
 	use("karb94/neoscroll.nvim")
 
 	-- Colorschemes

@@ -107,6 +107,11 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
+    if server == "tailwindcss" then
+		local tailwindcss_opts = require("config.plugins.lsp.lsp-custom-server.tailwindcss")
+		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
+    end
+
 	if server == "jdtls" then
 		goto continue
 	end
