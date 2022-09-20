@@ -12,13 +12,11 @@ end
 
 local packer_bootstrap = ensure_packer()
 
--- Autocommand that reloads neovim whenever you save the packer.lua file
-vim.cmd([[
-   augroup packer_user_config
-   autocmd!
-   autocmd BufWritePost packer.lua source <afile> | PackerSync
-   augroup end
-]])
+local packer_grp = vim.api.nvim_create_augroup("packer_user_config", { clear = true })
+vim.api.nvim_create_autocmd(
+	{ "BufWritePost" },
+	{ pattern = "packer.lua", command = "source <afile> | PackerSync", group = packer_grp }
+)
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -111,7 +109,7 @@ return packer.startup(function(use)
 		setup = function()
 			vim.g.gitblame_enabled = false
 		end,
-        cmd = "GitBlameToggle"
+		cmd = "GitBlameToggle",
 	})
 
 	-- Treesitter
@@ -157,7 +155,7 @@ return packer.startup(function(use)
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
-        cmd = "MarkdownPreview"
+		cmd = "MarkdownPreview",
 	})
 
 	-- Better Performance
