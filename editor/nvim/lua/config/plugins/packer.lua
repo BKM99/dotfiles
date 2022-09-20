@@ -78,11 +78,11 @@ return packer.startup(function(use)
 	use({
 		"vim-test/vim-test",
 		setup = function()
-            vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<leader>tf", ":TestFile<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<leader>ts", ":TestSuite<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
-            vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>tf", ":TestFile<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>ts", ":TestSuite<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { noremap = true, silent = true })
 			vim.cmd([[
                 let test#strategy = "neovim"
             ]])
