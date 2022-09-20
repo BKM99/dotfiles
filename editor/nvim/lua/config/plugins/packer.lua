@@ -161,7 +161,6 @@ return packer.startup(function(use)
 	})
 
 	-- Better Performance
-	use("nathom/filetype.nvim")
 	use("lewis6991/impatient.nvim")
 	use({
 		"antoinemadec/FixCursorHold.nvim",
