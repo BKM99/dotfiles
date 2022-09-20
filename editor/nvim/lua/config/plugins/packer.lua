@@ -51,12 +51,10 @@ return packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("glepnir/lspsaga.nvim")
-	use("mfussenegger/nvim-jdtls")
-	use("simrat39/rust-tools.nvim")
+	use({ "mfussenegger/nvim-jdtls", ft = { "java" } })
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use("simrat39/symbols-outline.nvim")
 	use("b0o/SchemaStore.nvim")
-    use("jose-elias-alvarez/typescript.nvim")
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")
@@ -91,18 +89,12 @@ return packer.startup(function(use)
 	use({
 		"nvim-neotest/neotest",
 		requires = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"antoinemadec/FixCursorHold.nvim",
 			"nvim-neotest/neotest-python",
 			"haydenmeade/neotest-jest",
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-vim-test",
 			"rouge8/neotest-rust",
 		},
-		config = function()
-            require("config.plugins.neotest").setup()
-		end,
 	})
 
 	-- Snippets
@@ -119,11 +111,12 @@ return packer.startup(function(use)
 		setup = function()
 			vim.g.gitblame_enabled = false
 		end,
+        cmd = "GitBlameToggle"
 	})
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use("nvim-treesitter/playground")
+	use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
@@ -134,26 +127,12 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
-	use("rcarriga/nvim-notify")
-	use("stevearc/dressing.nvim")
-	use("goolord/alpha-nvim")
-	use("mbbill/undotree")
+	use({ "mbbill/undotree", cmd = "UndotreeToggle" })
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
 	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({
-		"folke/lsp-colors.nvim",
-		config = function()
-			require("lsp-colors").setup({
-				Error = "#db4b4b",
-				Warning = "#e0af68",
-				Information = "#0db9d7",
-				Hint = "#10B981",
-			})
-		end,
-	})
 
 	-- Editing Support
 	use("windwp/nvim-autopairs")
@@ -165,20 +144,20 @@ return packer.startup(function(use)
 	use("wellle/targets.vim")
 
 	-- Note taking (Markdown)
-	use("jakewvincent/mkdnflow.nvim")
-	use("mickael-menu/zk-nvim")
-	use({ "AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c" })
-	use("preservim/vim-markdown")
-	use("dhruvasagar/vim-table-mode")
-	use("mzlogin/vim-markdown-toc")
-	use("dkarter/bullets.vim")
+	use({ "jakewvincent/mkdnflow.nvim", ft = { "markdown" } })
+	use({ "mickael-menu/zk-nvim", ft = { "markdown" } })
+	use({ "AckslD/nvim-FeMaco.lua", commit = "a51b4fc94ee5a8714170272d256ec0abaa5bf32c", cmd = "FeMaco" })
+	use({ "preservim/vim-markdown", ft = { "markdown" } })
+	use({ "dhruvasagar/vim-table-mode", ft = { "markdown" } })
+	use({ "mzlogin/vim-markdown-toc", ft = { "markdown" } })
+	use({ "dkarter/bullets.vim", ft = { "markdown" } })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
-		ft = { "markdown" },
+        cmd = "MarkdownPreview"
 	})
 
 	-- Better Performance
@@ -194,21 +173,12 @@ return packer.startup(function(use)
 	-- Other Plugins
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
-	use({ "CRAG666/code_runner.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({ "michaelb/sniprun", run = "bash ./install.sh" })
 	use({
 		"tversteeg/registers.nvim",
 		setup = function()
 			vim.g.registers_window_border = "rounded"
 		end,
 	})
-	use({
-		"notjedi/nvim-rooter.lua",
-		config = function()
-			require("nvim-rooter").setup()
-		end,
-	})
-	use("karb94/neoscroll.nvim")
 
 	-- Colorschemes
 	use("RRethy/nvim-base16")

@@ -11,16 +11,13 @@ keymap("n", "<leader>tn", ":lua require('neotest').run.run()<cr>", opts)
 -- Run the current file
 keymap("n", "<leader>tf", ":lua require('neotest').run.run(vim.fn.expand('%'))<cr>", opts)
 -- Neotest Summary
-keymap("n", "<leader>tss", ":lua require('neotest').summary.toggle()<cr>", opts)
+keymap("n", "<leader>too", ":lua require('neotest').summary.toggle()<cr>", opts)
 -- Stop Test
 keymap("n", "<leader>tx", ":lua require('neotest').run.stop()<cr>", opts)
 -- Debug nearest test
 keymap("n", "<leader>tdn", "<cmd>lua require('neotest').run.run({vim.fn.expand('%'), strategy = 'dap'})<cr>", opts)
 -- Open Output
 keymap("n", "<leader>to", "<cmd>lua require('neotest').output.open({ enter = true })<cr>", opts)
-
-
-local M = {}
 
 local function config_test()
 	vim.api.nvim_exec(
@@ -46,34 +43,20 @@ local function config_test()
 	)
 end
 
-function M.javascript_runner()
-	local runners = { "cypress", "jest" }
-	vim.ui.select(runners, { prompt = "Choose Javascript Runner" }, function(selected)
-		if selected then
-			vim.g["test#javascript#runner"] = selected
-			require("utils").info("Test runner changed to " .. selected, "Test Runner")
-		end
-	end)
-end
+neotest.setup({
+	adapters = {
+		require("neotest-python")({
+			dap = { justMyCode = false },
+			runner = "unittest",
+		}),
+		require("neotest-jest"),
+		require("neotest-go"),
+		require("neotest-vim-test")({
+			ignore_file_types = { "python", "vim", "lua", "java" },
+		}),
+		require("neotest-rust"),
+	},
+})
 
-function M.setup()
-	neotest.setup({
-		adapters = {
-			require("neotest-python")({
-				dap = { justMyCode = false },
-				runner = "unittest",
-			}),
-			require("neotest-jest"),
-			require("neotest-go"),
-			require("neotest-vim-test")({
-				ignore_file_types = { "python", "vim", "lua" },
-			}),
-			require("neotest-rust"),
-		},
-	})
-
-	-- vim-test
-	config_test()
-end
-
-return M
+-- vim-test
+config_test()

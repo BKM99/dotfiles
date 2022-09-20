@@ -32,27 +32,18 @@ keymap("n", "<m-Down>", ":resize +1<CR>", opts)
 keymap("n", "<m-Left>", ":vertical resize -1<CR>", opts)
 keymap("n", "<m-Right>", ":vertical resize +1<CR>", opts)
 
--- Splits
-keymap("n", "<leader>vs", ":vsplit <CR>", opts)
-keymap("n", "<leader>hs", ":split <CR>", opts)
-
 -- Go between the last two buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
 -- Buffer Delete
 keymap("n", "<m-q>", ":bdelete<CR>", opts)
 
--- Tabs
-keymap("n", "<m-t>", ":tabnew %<cr>", opts) -- create new tab
-keymap("n", "<m-y>", ":tabclose<cr>", opts) -- close current tab
-keymap("n", "<m-\\>", ":tabonly<cr>", opts) -- close all tabs
-
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
 -- Select all
-keymap("n", "<m-a>", "gg <S-v> G", opts)
+keymap("n", "<m-a>", "ggVG", opts)
 
 -- Better pasting in visual mode
 keymap("v", "p", '"_dP', opts)

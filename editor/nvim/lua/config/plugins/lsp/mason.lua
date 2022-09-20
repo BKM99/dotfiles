@@ -77,29 +77,9 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-	if server == "tsserver" then
-        local typescript_status_ok, typescript = pcall(require, "typescript")
-        if not typescript_status_ok then
-            return
-        end
-        typescript.setup({})
-        goto continue
-	end
-
 	if server == "pyright" then
 		local pyright_opts = require("config.plugins.lsp.lsp-custom-server.pyright")
 		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-	end
-
-	if server == "rust_analyzer" then
-		local rust_opts = require("config.plugins.lsp.lsp-custom-server.rust")
-		local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
-		if not rust_tools_status_ok then
-			return
-		end
-
-		rust_tools.setup(rust_opts)
-		goto continue
 	end
 
 	if server == "jsonls" then

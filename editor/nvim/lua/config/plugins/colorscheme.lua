@@ -9,7 +9,7 @@
 -- Slightly modified base16-gruvbox-dark-hard, I changed base03 to #8f8c8c
 local base_16_status_ok, base16_colorscheme = pcall(require, "base16-colorscheme")
 if not base_16_status_ok then
-    return
+	return
 end
 
 base16_colorscheme.setup({
@@ -29,9 +29,8 @@ base16_colorscheme.setup({
 	base0D = "#83a598",
 	base0E = "#d3869b",
 	base0F = "#d65d0e",
-})
+}, { telescope = false })
 
---
 vim.cmd([[
 hi DiagnosticError guifg=#f50707
 hi DiagnosticWarn guifg=#f5c907
