@@ -14,7 +14,7 @@ vim.g.mapleader = " "
 --   command_mode = "c",
 
 -- Better saving
--- keymap("n", "<leader>w", ":w<CR>", opts)
+keymap("n", "<leader>w", ":w<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)

@@ -253,6 +253,37 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
     url = "https://github.com/karb94/neoscroll.nvim"
   },
+  neotest = {
+    config = { "\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27config.plugins.neotest\frequire\0" },
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-go"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest-go",
+    url = "https://github.com/nvim-neotest/neotest-go"
+  },
+  ["neotest-jest"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest-jest",
+    url = "https://github.com/haydenmeade/neotest-jest"
+  },
+  ["neotest-python"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest-python",
+    url = "https://github.com/nvim-neotest/neotest-python"
+  },
+  ["neotest-rust"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest-rust",
+    url = "https://github.com/rouge8/neotest-rust"
+  },
+  ["neotest-vim-test"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest-vim-test",
+    url = "https://github.com/nvim-neotest/neotest-vim-test"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -491,6 +522,17 @@ time([[Setup for registers.nvim]], false)
 time([[packadd for registers.nvim]], true)
 vim.cmd [[packadd registers.nvim]]
 time([[packadd for registers.nvim]], false)
+-- Setup for: markdown-preview.nvim
+time([[Setup for markdown-preview.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
+time([[Setup for markdown-preview.nvim]], false)
+-- Setup for: vim-test
+time([[Setup for vim-test]], true)
+try_loadstring("\27LJ\2\nÓ\2\0\0\6\0\15\0\0296\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\r\0'\2\14\0B\0\2\1K\0\1\0>                let test#strategy = \"neovim\"\n            \bcmd\1\0\2\fnoremap\2\vsilent\2\19:TestVisit<CR>\15<leader>tv\1\0\2\fnoremap\2\vsilent\2\18:TestLast<CR>\15<leader>tl\1\0\2\fnoremap\2\vsilent\2\19:TestSuite<CR>\15<leader>ta\6n\bset\vkeymap\bvim\0", "setup", "vim-test")
+time([[Setup for vim-test]], false)
+time([[packadd for vim-test]], true)
+vim.cmd [[packadd vim-test]]
+time([[packadd for vim-test]], false)
 -- Setup for: git-blame.nvim
 time([[Setup for git-blame.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0+\1\1\0=\1\2\0K\0\1\0\21gitblame_enabled\6g\bvim\0", "setup", "git-blame.nvim")
@@ -498,17 +540,10 @@ time([[Setup for git-blame.nvim]], false)
 time([[packadd for git-blame.nvim]], true)
 vim.cmd [[packadd git-blame.nvim]]
 time([[packadd for git-blame.nvim]], false)
--- Setup for: vim-test
-time([[Setup for vim-test]], true)
-try_loadstring("\27LJ\2\nð\3\0\0\6\0\21\0-6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\r\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\17\0005\5\18\0B\0\5\0016\0\0\0009\0\19\0'\2\20\0B\0\2\1K\0\1\0>                let test#strategy = \"neovim\"\n            \bcmd\1\0\2\vsilent\2\fnoremap\2\19:TestVisit<CR>\15<leader>tv\1\0\2\vsilent\2\fnoremap\2\18:TestLast<CR>\15<leader>tl\1\0\2\vsilent\2\fnoremap\2\19:TestSuite<CR>\15<leader>ts\1\0\2\vsilent\2\fnoremap\2\18:TestFile<CR>\15<leader>tf\1\0\2\vsilent\2\fnoremap\2\21:TestNearest<CR>\15<leader>tn\6n\bset\vkeymap\bvim\0", "setup", "vim-test")
-time([[Setup for vim-test]], false)
-time([[packadd for vim-test]], true)
-vim.cmd [[packadd vim-test]]
-time([[packadd for vim-test]], false)
--- Setup for: markdown-preview.nvim
-time([[Setup for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
-time([[Setup for markdown-preview.nvim]], false)
+-- Config for: neotest
+time([[Config for neotest]], true)
+try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\27config.plugins.neotest\frequire\0", "config", "neotest")
+time([[Config for neotest]], false)
 -- Config for: nvim-rooter.lua
 time([[Config for nvim-rooter.lua]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16nvim-rooter\frequire\0", "config", "nvim-rooter.lua")

@@ -78,14 +78,29 @@ return packer.startup(function(use)
 	use({
 		"vim-test/vim-test",
 		setup = function()
-			vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>tf", ":TestFile<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>ts", ":TestSuite<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>ta", ":TestSuite<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
 			vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { noremap = true, silent = true })
 			vim.cmd([[
                 let test#strategy = "neovim"
             ]])
+		end,
+	})
+
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-python",
+			"haydenmeade/neotest-jest",
+			"nvim-neotest/neotest-go",
+			"nvim-neotest/neotest-vim-test",
+			"rouge8/neotest-rust",
+		},
+		config = function()
+            require("config.plugins.neotest").setup()
 		end,
 	})
 
