@@ -32,7 +32,7 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
-	max_jobs = 20,
+	max_jobs = 10,
 })
 
 -- Install your plugins here
@@ -74,6 +74,21 @@ return packer.startup(function(use)
 	use("leoluz/nvim-dap-go")
 	use("jbyuki/one-small-step-for-vimkind")
 
+	-- Testing
+	use({
+		"vim-test/vim-test",
+		setup = function()
+            vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>tf", ":TestFile<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>ts", ":TestSuite<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { noremap = true, silent = true })
+			vim.cmd([[
+                let test#strategy = "neovim"
+            ]])
+		end,
+	})
+
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
 	use("saadparwaiz1/cmp_luasnip")
@@ -91,7 +106,7 @@ return packer.startup(function(use)
 	})
 
 	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/playground")
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
