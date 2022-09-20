@@ -15,8 +15,6 @@ end
 
 virtual_text.setup()
 
-local home = os.getenv("HOME")
-
 dapui.setup({})
 
 vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
@@ -60,8 +58,7 @@ if not dap_python_status_ok then
 	return
 end
 
-dap_python.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
-dap_python.test_runner = "unittest"
+dap_python.setup("python3", {})
 
 local dap_go_status_ok, dap_go = pcall(require, "dap-go")
 if not dap_go_status_ok then
@@ -73,8 +70,9 @@ dap_go.setup()
 dap.adapters.node2 = {
 	type = "executable",
 	command = "node",
-	args = { home .. "/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js" },
+	args = { os.getenv("HOME") .. "/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js" },
 }
+
 dap.configurations.javascript = {
 	{
 		name = "Launch",
@@ -95,36 +93,62 @@ dap.configurations.javascript = {
 	},
 }
 
+dap.configurations.typescript = {
+    {
+        name = "ts-node (Node2 with ts-node)",
+        type = "node2",
+        request = "launch",
+        cwd = vim.loop.cwd(),
+        runtimeArgs = { "-r", "ts-node/register" },
+        runtimeExecutable = "node",
+        args = {"--inspect", "${file}"},
+        sourceMaps = true,
+        skipFiles = { "<node_internals>/**", "node_modules/**" },
+    },
+    {
+        name = "Jest (Node2 with ts-node)",
+        type = "node2",
+        request = "launch",
+        cwd = vim.loop.cwd(),
+        runtimeArgs = {"--inspect-brk", "${workspaceFolder}/node_modules/.bin/jest"},
+        runtimeExecutable = "node",
+        args = {"${file}", "--runInBand", "--coverage", "false"},
+        sourceMaps = true,
+        port = 9229,
+        skipFiles = { "<node_internals>/**", "node_modules/**" },
+    },
+}
+
 dap.adapters.chrome = {
-	type = "executable",
-	command = "node",
-	args = { os.getenv("HOME") .. "~/.local/share/nvim/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js" },
+    type = "executable",
+    command = "node",
+    args = {os.getenv("HOME") .. "/.local/share/nvim/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js"}
 }
 
-dap.configurations.javascript = { -- change this to javascript if needed
-	{
-		type = "chrome",
-		request = "attach",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		port = 9222,
-		webRoot = "${workspaceFolder}",
-	},
+dap.configurations.javascriptreact = { -- change this to javascript if needed
+    {
+        type = "chrome",
+        request = "attach",
+        program = "${file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${workspaceFolder}"
+    }
 }
 
-dap.configurations.typescript = { -- change to typescript if needed
-	{
-		type = "chrome",
-		request = "attach",
-		program = "${file}",
-		cwd = vim.fn.getcwd(),
-		sourceMaps = true,
-		protocol = "inspector",
-		port = 9222,
-		webRoot = "${workspaceFolder}",
-	},
+dap.configurations.typescriptreact = { -- change to typescript if needed
+    {
+        type = "chrome",
+        request = "attach",
+        program = "${file}",
+        cwd = vim.fn.getcwd(),
+        sourceMaps = true,
+        protocol = "inspector",
+        port = 9222,
+        webRoot = "${workspaceFolder}"
+    }
 }
 
 dap.configurations.lua = {
@@ -133,10 +157,15 @@ dap.configurations.lua = {
 		request = "attach",
 		name = "Attach to running Neovim instance",
 		host = function()
+			local value = vim.fn.input("Host [127.0.0.1]: ")
+			if value ~= "" then
+				return value
+			end
 			return "127.0.0.1"
 		end,
 		port = function()
-			local val = 54231
+			local val = tonumber(vim.fn.input("Port: "))
+			assert(val, "Please provide a port number")
 			return val
 		end,
 	},
@@ -146,26 +175,30 @@ dap.adapters.nlua = function(callback, config)
 	callback({ type = "server", host = config.host, port = config.port })
 end
 
-dap.adapters.lldb = {
-	type = "executable",
-	command = "/usr/local/Cellar/llvm/14.0.6_1/bin/lldb-vscode", -- brew install llvm
-	name = "lldb",
-}
+local install_root_dir = vim.fn.stdpath("data") .. "/mason"
+local extension_path = install_root_dir .. "/packages/codelldb/extension/"
+local codelldb_path = extension_path .. "adapter/codelldb"
 
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		command = codelldb_path,
+		args = { "--port", "${port}" },
+	},
+}
 dap.configurations.cpp = {
 	{
-		name = "Launch",
-		type = "lldb",
+		name = "Launch file",
+		type = "codelldb",
 		request = "launch",
 		program = function()
-			return vim.fn.input("Path to executable: ", vim.loop.cwd() .. "/", "file")
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
 		stopOnEntry = true,
-		args = {},
 	},
 }
 
--- If you want to use this for Rust and C, add something like this:
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp

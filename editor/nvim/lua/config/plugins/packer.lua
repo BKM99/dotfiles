@@ -56,6 +56,7 @@ return packer.startup(function(use)
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use("simrat39/symbols-outline.nvim")
 	use("b0o/SchemaStore.nvim")
+    use("jose-elias-alvarez/typescript.nvim")
 
 	-- Autocomplete
 	use("hrsh7th/cmp-nvim-lsp")

@@ -50,22 +50,13 @@ mason_tool_installer.setup({
 		"chrome-debug-adapter",
 		"node-debug2-adapter",
 		"delve",
-		"debugpy",
 		"black",
 		"prettier",
 		"stylua",
+        "codelldb",
 	},
 	auto_update = false,
 	run_on_start = true,
-})
-
--- Upon completion of any mason-tool-installer initiated installation/update
--- a user event will be emitted named MasonToolsUpdateCompleted
-vim.api.nvim_create_autocmd("User", {
-	pattern = "MasonToolsUpdateCompleted",
-	callback = function()
-		vim.schedule(print("mason-tool-installer has finished"))
-	end,
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -84,6 +75,15 @@ for _, server in pairs(servers) do
 	if server == "sumneko_lua" then
 		local sumneko_opts = require("config.plugins.lsp.lsp-custom-server.sumneko_lua")
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+	end
+
+	if server == "tsserver" then
+        local typescript_status_ok, typescript = pcall(require, "typescript")
+        if not typescript_status_ok then
+            return
+        end
+        typescript.setup({})
+        goto continue
 	end
 
 	if server == "pyright" then
