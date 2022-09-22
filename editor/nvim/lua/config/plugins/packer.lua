@@ -113,7 +113,13 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- UI Stuff
-	use({ "mbbill/undotree", cmd = "UndotreeToggle" })
+	use({
+		"mbbill/undotree",
+		setup = function()
+			vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>", { noremap = true, silent = true })
+		end,
+		cmd = "UndotreeToggle",
+	})
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use("kyazdani42/nvim-tree.lua")

@@ -400,13 +400,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: vim-test
-time([[Setup for vim-test]], true)
-try_loadstring("\27LJ\2\n”\3\0\0\6\0\21\0-6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\r\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\17\0005\5\18\0B\0\5\0016\0\0\0009\0\19\0'\2\20\0B\0\2\1K\0\1\0!let test#strategy = \"neovim\"\bcmd\1\0\2\fnoremap\2\vsilent\2\19:TestVisit<CR>\15<leader>tv\1\0\2\fnoremap\2\vsilent\2\18:TestLast<CR>\15<leader>tl\1\0\2\fnoremap\2\vsilent\2\19:TestSuite<CR>\15<leader>ta\1\0\2\fnoremap\2\vsilent\2\18:TestFile<CR>\15<leader>tf\1\0\2\fnoremap\2\vsilent\2\21:TestNearest<CR>\15<leader>tn\6n\bset\vkeymap\bvim\0", "setup", "vim-test")
-time([[Setup for vim-test]], false)
-time([[packadd for vim-test]], true)
-vim.cmd [[packadd vim-test]]
-time([[packadd for vim-test]], false)
+-- Setup for: undotree
+time([[Setup for undotree]], true)
+try_loadstring("\27LJ\2\no\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<CR>\15<leader>ut\6n\bset\vkeymap\bvim\0", "setup", "undotree")
+time([[Setup for undotree]], false)
 -- Setup for: markdown-preview.nvim
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
@@ -418,6 +415,13 @@ time([[Setup for git-blame.nvim]], false)
 time([[packadd for git-blame.nvim]], true)
 vim.cmd [[packadd git-blame.nvim]]
 time([[packadd for git-blame.nvim]], false)
+-- Setup for: vim-test
+time([[Setup for vim-test]], true)
+try_loadstring("\27LJ\2\n”\3\0\0\6\0\21\0-6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\r\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\17\0005\5\18\0B\0\5\0016\0\0\0009\0\19\0'\2\20\0B\0\2\1K\0\1\0!let test#strategy = \"neovim\"\bcmd\1\0\2\fnoremap\2\vsilent\2\19:TestVisit<CR>\15<leader>tv\1\0\2\fnoremap\2\vsilent\2\18:TestLast<CR>\15<leader>tl\1\0\2\fnoremap\2\vsilent\2\19:TestSuite<CR>\15<leader>ta\1\0\2\fnoremap\2\vsilent\2\18:TestFile<CR>\15<leader>tf\1\0\2\fnoremap\2\vsilent\2\21:TestNearest<CR>\15<leader>tn\6n\bset\vkeymap\bvim\0", "setup", "vim-test")
+time([[Setup for vim-test]], false)
+time([[packadd for vim-test]], true)
+vim.cmd [[packadd vim-test]]
+time([[packadd for vim-test]], false)
 -- Config for: numb.nvim
 time([[Config for numb.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tnumb\frequire\0", "config", "numb.nvim")
@@ -426,8 +430,8 @@ time([[Config for numb.nvim]], false)
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file UndotreeToggle lua require("packer.load")({'undotree'}, { cmd = "UndotreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FeMaco lua require("packer.load")({'nvim-FeMaco.lua'}, { cmd = "FeMaco", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
@@ -435,7 +439,7 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-table-mode', 'vim-markdown-toc', 'vim-markdown', 'mkdnflow.nvim', 'bullets.vim', 'zk-nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'zk-nvim', 'vim-table-mode', 'vim-markdown-toc', 'vim-markdown', 'bullets.vim', 'mkdnflow.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
