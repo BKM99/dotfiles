@@ -8,13 +8,6 @@ if not dap_ui_status_ok then
 	return
 end
 
-local virutal_text_status_ok, virtual_text = pcall(require, "nvim-dap-virtual-text")
-if not virutal_text_status_ok then
-	return
-end
-
-virtual_text.setup()
-
 dapui.setup({})
 
 vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
@@ -150,30 +143,6 @@ dap.configurations.typescriptreact = { -- change to typescript if needed
         webRoot = "${workspaceFolder}"
     }
 }
-
-dap.configurations.lua = {
-	{
-		type = "nlua",
-		request = "attach",
-		name = "Attach to running Neovim instance",
-		host = function()
-			local value = vim.fn.input("Host [127.0.0.1]: ")
-			if value ~= "" then
-				return value
-			end
-			return "127.0.0.1"
-		end,
-		port = function()
-			local val = tonumber(vim.fn.input("Port: "))
-			assert(val, "Please provide a port number")
-			return val
-		end,
-	},
-}
-
-dap.adapters.nlua = function(callback, config)
-	callback({ type = "server", host = config.host, port = config.port })
-end
 
 local install_root_dir = vim.fn.stdpath("data") .. "/mason"
 local extension_path = install_root_dir .. "/packages/codelldb/extension/"

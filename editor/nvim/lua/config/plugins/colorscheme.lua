@@ -1,12 +1,3 @@
--- local colorscheme = "base16-gruvbox-dark-hard"
-
--- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
--- if not status_ok then
--- 	print("colorscheme was not loaded")
--- 	return
--- end
-
--- Slightly modified base16-gruvbox-dark-hard, I changed base03 to #8f8c8c
 local base_16_status_ok, base16_colorscheme = pcall(require, "base16-colorscheme")
 if not base_16_status_ok then
 	return

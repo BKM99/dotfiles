@@ -21,7 +21,6 @@ local servers = {
 	"yamlls",
 	"cssls",
 	"eslint",
-	"emmet_ls",
 	"jdtls",
 }
 

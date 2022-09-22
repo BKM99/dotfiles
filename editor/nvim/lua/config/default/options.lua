@@ -10,7 +10,7 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.wrap = false
-vim.opt.showmode = false
+vim.opt.showmode = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.hidden = true
@@ -39,11 +39,8 @@ vim.cmd([[filetype plugin indent on]])
 -- Some options for markdown
 vim.g.vim_markdown_folding_disabled = 1
 vim.g.vim_markdown_frontmatter = 1
--- vim.cmd([[set conceallevel=1]])
 
 -- Some default color stuff
 vim.opt.termguicolors = true
 vim.cmd([[syntax on]])
 vim.opt.background = "dark"
--- vim.cmd [[hi Search guibg=#ff9e3b]]
--- vim.cmd [[hi Search guifg=#223249]]

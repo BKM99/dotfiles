@@ -43,30 +43,21 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-end
-
-local function lspsaga_keymaps(bufnr)
-	local status_ok_lspsaga, _ = pcall(require, "lspsaga")
-	if status_ok_lspsaga then
-		local opts = { noremap = true, silent = true }
-		local keymap = vim.api.nvim_buf_set_keymap
-		keymap(bufnr, "n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
-		keymap(bufnr, "n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
-		keymap(bufnr, "n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-		keymap(bufnr, "v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", opts)
-		keymap(bufnr, "n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
-		keymap(bufnr, "n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-		keymap(bufnr, "n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-	end
+	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	keymap(bufnr, "n", "<leader>ca", "<cmd> vim.lsp.buf.code_action()<CR>", opts)
+	keymap(bufnr, "v", "<leader>ca", "<cmd> vim.lsp.buf.range_code_action()<CR>", opts)
+	keymap(bufnr, "v", "gl", "<cmd> vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+	keymap(bufnr, "n", "[d", "<cmd> vim.diagnostic.goto_prev()<CR>", opts)
+	keymap(bufnr, "n", "]d", "<cmd> vim.diagnostic.goto_next()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
-	lspsaga_keymaps(bufnr)
 
 	if client.name == "sumneko_lua" then
 		client.resolved_capabilities.document_formatting = false
@@ -76,8 +67,6 @@ M.on_attach = function(client, bufnr)
 		vim.lsp.codelens.refresh()
 		require("jdtls").setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
-		-- client.server_capabilities.document_formatting = false
-		-- client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
 	end
 end
 

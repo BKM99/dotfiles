@@ -22,7 +22,6 @@ configs.setup({
 		"typescript",
 		"cpp",
 		"c",
-		"c_sharp",
 		"dockerfile",
 		"markdown",
 	},
@@ -45,15 +44,7 @@ configs.setup({
 	},
 	rainbow = {
 		enable = true,
-		-- colors = {
-		-- 	"Gold",
-		-- 	"Orchid",
-		-- 	"DodgerBlue",
-		-- },
 		disable = { "html" },
-	},
-	playground = {
-		enable = true,
 	},
 	textobjects = {
 		select = {
