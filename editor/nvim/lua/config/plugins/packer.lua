@@ -117,6 +117,7 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use("kyazdani42/nvim-tree.lua")
+	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
 	use("windwp/nvim-autopairs")

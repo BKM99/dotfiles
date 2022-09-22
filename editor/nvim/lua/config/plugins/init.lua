@@ -1,6 +1,7 @@
 require("config.plugins.packer")
 require("config.plugins.colorscheme")
 require("config.plugins.lsp")
+require("config.plugins.lualine")
 require("config.plugins.cmp")
 require("config.plugins.telescope")
 require("config.plugins.dap")
