@@ -10,7 +10,9 @@ end
 
 dapui.setup({})
 
-vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "", linehl = "", numhl = "" })
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
@@ -87,61 +89,61 @@ dap.configurations.javascript = {
 }
 
 dap.configurations.typescript = {
-    {
-        name = "ts-node (Node2 with ts-node)",
-        type = "node2",
-        request = "launch",
-        cwd = vim.loop.cwd(),
-        runtimeArgs = { "-r", "ts-node/register" },
-        runtimeExecutable = "node",
-        args = {"--inspect", "${file}"},
-        sourceMaps = true,
-        skipFiles = { "<node_internals>/**", "node_modules/**" },
-    },
-    {
-        name = "Jest (Node2 with ts-node)",
-        type = "node2",
-        request = "launch",
-        cwd = vim.loop.cwd(),
-        runtimeArgs = {"--inspect-brk", "${workspaceFolder}/node_modules/.bin/jest"},
-        runtimeExecutable = "node",
-        args = {"${file}", "--runInBand", "--coverage", "false"},
-        sourceMaps = true,
-        port = 9229,
-        skipFiles = { "<node_internals>/**", "node_modules/**" },
-    },
+	{
+		name = "ts-node (Node2 with ts-node)",
+		type = "node2",
+		request = "launch",
+		cwd = vim.loop.cwd(),
+		runtimeArgs = { "-r", "ts-node/register" },
+		runtimeExecutable = "node",
+		args = { "--inspect", "${file}" },
+		sourceMaps = true,
+		skipFiles = { "<node_internals>/**", "node_modules/**" },
+	},
+	{
+		name = "Jest (Node2 with ts-node)",
+		type = "node2",
+		request = "launch",
+		cwd = vim.loop.cwd(),
+		runtimeArgs = { "--inspect-brk", "${workspaceFolder}/node_modules/.bin/jest" },
+		runtimeExecutable = "node",
+		args = { "${file}", "--runInBand", "--coverage", "false" },
+		sourceMaps = true,
+		port = 9229,
+		skipFiles = { "<node_internals>/**", "node_modules/**" },
+	},
 }
 
 dap.adapters.chrome = {
-    type = "executable",
-    command = "node",
-    args = {os.getenv("HOME") .. "/.local/share/nvim/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js"}
+	type = "executable",
+	command = "node",
+	args = { os.getenv("HOME") .. "/.local/share/nvim/mason/packages/chrome-debug-adapter/out/src/chromeDebug.js" },
 }
 
 dap.configurations.javascriptreact = { -- change this to javascript if needed
-    {
-        type = "chrome",
-        request = "attach",
-        program = "${file}",
-        cwd = vim.fn.getcwd(),
-        sourceMaps = true,
-        protocol = "inspector",
-        port = 9222,
-        webRoot = "${workspaceFolder}"
-    }
+	{
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
 }
 
 dap.configurations.typescriptreact = { -- change to typescript if needed
-    {
-        type = "chrome",
-        request = "attach",
-        program = "${file}",
-        cwd = vim.fn.getcwd(),
-        sourceMaps = true,
-        protocol = "inspector",
-        port = 9222,
-        webRoot = "${workspaceFolder}"
-    }
+	{
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
 }
 
 local install_root_dir = vim.fn.stdpath("data") .. "/mason"

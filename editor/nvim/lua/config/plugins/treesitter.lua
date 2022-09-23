@@ -4,27 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = {
-		"python",
-		"javascript",
-		"java",
-		"rust",
-		"go",
-		"lua",
-		"json",
-		"yaml",
-		"toml",
-		"html",
-		"css",
-		"bash",
-		"vim",
-		"tsx",
-		"typescript",
-		"cpp",
-		"c",
-		"dockerfile",
-		"markdown",
-	},
+	ensure_installed = "all",
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,

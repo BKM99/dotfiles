@@ -44,7 +44,7 @@ if not mason_tool_installer_status_ok then
 end
 
 mason_tool_installer.setup({
-    -- I'm using this tool for everything that's not an LSP
+	-- I'm using this tool for everything that's not an LSP
 	ensure_installed = {
 		"chrome-debug-adapter",
 		"node-debug2-adapter",
@@ -52,7 +52,7 @@ mason_tool_installer.setup({
 		"black",
 		"prettier",
 		"stylua",
-        "codelldb",
+		"codelldb",
 	},
 	auto_update = false,
 	run_on_start = true,
@@ -86,10 +86,10 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
 	end
 
-    if server == "tailwindcss" then
+	if server == "tailwindcss" then
 		local tailwindcss_opts = require("config.plugins.lsp.lsp-custom-server.tailwindcss")
 		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
-    end
+	end
 
 	if server == "jdtls" then
 		goto continue
