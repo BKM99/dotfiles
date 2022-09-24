@@ -30,7 +30,7 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
-	max_jobs = 10,
+	max_jobs = 15,
 })
 
 -- Install your plugins here
@@ -50,6 +50,10 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use({ "mfussenegger/nvim-jdtls", ft = { "java" } })
 	use("b0o/SchemaStore.nvim")
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 
 	-- Autocomplete
 	use({
@@ -73,6 +77,12 @@ return packer.startup(function(use)
 			"mfussenegger/nvim-dap-python",
 			"leoluz/nvim-dap-go",
 		},
+	})
+	use("mxsdev/nvim-dap-vscode-js")
+	use({
+		"microsoft/vscode-js-debug",
+		opt = true,
+		run = "npm install --legacy-peer-deps && npm run compile",
 	})
 
 	-- Testing
@@ -177,6 +187,14 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({
+				manual_mode = false,
+			})
+		end,
+	})
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
 
