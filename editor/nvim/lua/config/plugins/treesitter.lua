@@ -22,10 +22,6 @@ configs.setup({
 	context_commentstring = {
 		enable = true,
 	},
-	rainbow = {
-		enable = true,
-		disable = { "html" },
-	},
 	textobjects = {
 		select = {
 			enable = true,

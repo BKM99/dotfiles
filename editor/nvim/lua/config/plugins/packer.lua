@@ -48,12 +48,9 @@ return packer.startup(function(use)
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({ "mfussenegger/nvim-jdtls", ft = { "java" } })
+	use("mfussenegger/nvim-jdtls")
 	use("b0o/SchemaStore.nvim")
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
+	use("folke/trouble.nvim")
 
 	-- Autocomplete
 	use({
@@ -128,7 +125,6 @@ return packer.startup(function(use)
 		setup = function()
 			vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>", { noremap = true, silent = true })
 		end,
-		cmd = "UndotreeToggle",
 	})
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
@@ -139,7 +135,6 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-	use("p00f/nvim-ts-rainbow")
 	use({
 		"nacro90/numb.nvim",
 		config = function()
@@ -174,7 +169,7 @@ return packer.startup(function(use)
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
-		cmd = "MarkdownPreview",
+        ft = { "markdown" }
 	})
 
 	-- Better Performance
@@ -199,7 +194,8 @@ return packer.startup(function(use)
 	use("ThePrimeagen/harpoon")
 
 	-- Colorschemes
-	use("RRethy/nvim-base16")
+	-- use("RRethy/nvim-base16")
+	use("folke/tokyonight.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then
