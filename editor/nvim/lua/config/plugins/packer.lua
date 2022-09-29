@@ -169,7 +169,7 @@ return packer.startup(function(use)
 		setup = function()
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
-        ft = { "markdown" }
+		ft = { "markdown" },
 	})
 
 	-- Better Performance

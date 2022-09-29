@@ -1,4 +1,4 @@
-vim.opt.guicursor = "" -- cursor is always a block
+-- vim.opt.guicursor = "" -- cursor is always a block
 vim.opt.relativenumber = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
