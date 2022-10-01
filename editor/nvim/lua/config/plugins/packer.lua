@@ -51,6 +51,7 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-jdtls")
 	use("b0o/SchemaStore.nvim")
 	use("folke/trouble.nvim")
+	use("simrat39/symbols-outline.nvim")
 
 	-- Autocomplete
 	use({
@@ -73,13 +74,8 @@ return packer.startup(function(use)
 			"rcarriga/nvim-dap-ui",
 			"mfussenegger/nvim-dap-python",
 			"leoluz/nvim-dap-go",
+			"mxsdev/nvim-dap-vscode-js",
 		},
-	})
-	use("mxsdev/nvim-dap-vscode-js")
-	use({
-		"microsoft/vscode-js-debug",
-		opt = true,
-		run = "npm install --legacy-peer-deps && npm run compile",
 	})
 
 	-- Testing
@@ -101,18 +97,13 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use("sindrets/diffview.nvim")
-	use({
-		"f-person/git-blame.nvim",
-		setup = function()
-			vim.g.gitblame_enabled = false
-		end,
-	})
+	use("rhysd/git-messenger.vim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -142,6 +133,9 @@ return packer.startup(function(use)
 		end,
 	})
 	use("chaoren/vim-wordmotion")
+	use("tpope/vim-sleuth")
+	use("monaqa/dial.nvim")
+	use("linty-org/readline.nvim")
 
 	-- Note taking (Markdown)
 	use({

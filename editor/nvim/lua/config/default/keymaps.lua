@@ -32,8 +32,10 @@ keymap("n", "<m-Right>", ":vertical resize +1<CR>", opts)
 keymap("n", "<leader><leader>", "<c-^>", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Better pasting in visual mode
 keymap("v", "p", '"_dP', opts)

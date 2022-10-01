@@ -31,26 +31,12 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
 local workspace_dir = WORKSPACE_PATH .. project_name
 
--- local bundles = {}
-
--- how to install java dap stuff
--- clone it into ~/.local/share/nvim/
--- git clone https://github.com/microsoft/java-debug.git ~/.local/share/nvim/java-debug
--- cd java-debug/
--- ./mvnw clean install
-
--- clone it into ~/.local/share/nvim/
--- git clone https://github.com/microsoft/vscode-java-test.git ~/.local/share/nvim/vscode-java-test
--- cd vscode-java-test
--- npm install
--- npm run build-plugin
-
 local bundles = {
 	vim.fn.glob(
-		home .. "/.local/share/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+		home .. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"
 	),
 }
-vim.list_extend(bundles, vim.split(vim.fn.glob( home .. "/.local/share/nvim/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob( home .. "/.local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n"))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -208,7 +194,6 @@ keymap("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", op
 keymap("n", "<leader>jtm", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
 keymap("n", "<leader>jtc", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
 keymap("n", "<leader>ju", "<Cmd>JdtUpdateConfig<CR>", opts)
-
 keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
 keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
 keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
