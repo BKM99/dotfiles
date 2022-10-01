@@ -15,6 +15,9 @@ configs.setup({
 	autopairs = {
 		enable = true,
 	},
+	matchup = {
+		enable = true,
+	},
 	indent = {
 		enable = true,
 		disable = { "yaml", "rust", "python" },

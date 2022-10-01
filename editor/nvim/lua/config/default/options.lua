@@ -33,7 +33,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.cmd([[let g:do_filetype_lua = 1]])
 vim.cmd([[filetype plugin indent on]])
 
 -- Some options for markdown

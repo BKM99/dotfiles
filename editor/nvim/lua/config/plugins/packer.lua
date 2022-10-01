@@ -124,6 +124,7 @@ return packer.startup(function(use)
 
 	-- Editing Support
 	use("windwp/nvim-autopairs")
+	use("andymass/vim-matchup")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
 	use({
@@ -133,7 +134,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("chaoren/vim-wordmotion")
-	use("tpope/vim-sleuth")
+	-- use("tpope/vim-sleuth")
 	use("monaqa/dial.nvim")
 	use("linty-org/readline.nvim")
 
