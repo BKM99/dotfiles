@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use("b0o/SchemaStore.nvim")
 	use("folke/trouble.nvim")
 	use("simrat39/symbols-outline.nvim")
+	use("folke/lua-dev.nvim")
 
 	-- Autocomplete
 	use({
@@ -111,6 +112,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- UI Stuff
+	use("akinsho/bufferline.nvim")
 	use({
 		"mbbill/undotree",
 		setup = function()
@@ -134,7 +136,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("chaoren/vim-wordmotion")
-	-- use("tpope/vim-sleuth")
+	use("tpope/vim-sleuth")
 	use("monaqa/dial.nvim")
 	use("linty-org/readline.nvim")
 
