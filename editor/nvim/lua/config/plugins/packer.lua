@@ -48,11 +48,9 @@ return packer.startup(function(use)
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("mfussenegger/nvim-jdtls")
+	use({"mfussenegger/nvim-jdtls", ft = "java"})
 	use("b0o/SchemaStore.nvim")
 	use("folke/trouble.nvim")
-	use("simrat39/symbols-outline.nvim")
-	use("folke/lua-dev.nvim")
 
 	-- Autocomplete
 	use({
@@ -98,7 +96,6 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use("rhysd/git-messenger.vim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -113,6 +110,7 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
+	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({
 		"mbbill/undotree",
 		setup = function()
@@ -135,8 +133,12 @@ return packer.startup(function(use)
 			require("numb").setup()
 		end,
 	})
-	use("chaoren/vim-wordmotion")
-	use("tpope/vim-sleuth")
+	use({
+		"tpope/vim-sleuth",
+		setup = function()
+			vim.g.sleuth_automatic = 0
+		end,
+	})
 	use("monaqa/dial.nvim")
 	use("linty-org/readline.nvim")
 

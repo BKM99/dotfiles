@@ -146,11 +146,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["git-messenger.vim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/git-messenger.vim",
-    url = "https://github.com/rhysd/git-messenger.vim"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -180,11 +175,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
-  },
-  ["lua-dev.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/lua-dev.nvim",
-    url = "https://github.com/folke/lua-dev.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -246,6 +236,13 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
+  ["nvim-bqf"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/nvim-bqf",
+    url = "https://github.com/kevinhwang91/nvim-bqf"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -282,8 +279,10 @@ _G.packer_plugins = {
     url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-jdtls"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/nvim-jdtls",
     url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
@@ -355,11 +354,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/readline.nvim",
     url = "https://github.com/linty-org/readline.nvim"
   },
-  ["symbols-outline.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
-    url = "https://github.com/simrat39/symbols-outline.nvim"
-  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
@@ -412,7 +406,8 @@ _G.packer_plugins = {
   },
   ["vim-sleuth"] = {
     loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-sleuth",
+    needs_bufread = false,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-sleuth",
     url = "https://github.com/tpope/vim-sleuth"
   },
   ["vim-table-mode"] = {
@@ -428,11 +423,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-test",
     url = "https://github.com/vim-test/vim-test"
   },
-  ["vim-wordmotion"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
-    url = "https://github.com/chaoren/vim-wordmotion"
-  },
   ["zk-nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -443,17 +433,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: vim-test
-time([[Setup for vim-test]], true)
-try_loadstring("\27LJ\2\n”\3\0\0\6\0\21\0-6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\r\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\17\0005\5\18\0B\0\5\0016\0\0\0009\0\19\0'\2\20\0B\0\2\1K\0\1\0!let test#strategy = \"neovim\"\bcmd\1\0\2\vsilent\2\fnoremap\2\19:TestVisit<CR>\15<leader>tv\1\0\2\vsilent\2\fnoremap\2\18:TestLast<CR>\15<leader>tl\1\0\2\vsilent\2\fnoremap\2\19:TestSuite<CR>\15<leader>ta\1\0\2\vsilent\2\fnoremap\2\18:TestFile<CR>\15<leader>tf\1\0\2\vsilent\2\fnoremap\2\21:TestNearest<CR>\15<leader>tn\6n\bset\vkeymap\bvim\0", "setup", "vim-test")
-time([[Setup for vim-test]], false)
-time([[packadd for vim-test]], true)
-vim.cmd [[packadd vim-test]]
-time([[packadd for vim-test]], false)
--- Setup for: markdown-preview.nvim
-time([[Setup for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
-time([[Setup for markdown-preview.nvim]], false)
 -- Setup for: undotree
 time([[Setup for undotree]], true)
 try_loadstring("\27LJ\2\no\0\0\6\0\a\0\t6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\1K\0\1\0\1\0\2\vsilent\2\fnoremap\2\24:UndotreeToggle<CR>\15<leader>ut\6n\bset\vkeymap\bvim\0", "setup", "undotree")
@@ -461,6 +440,24 @@ time([[Setup for undotree]], false)
 time([[packadd for undotree]], true)
 vim.cmd [[packadd undotree]]
 time([[packadd for undotree]], false)
+-- Setup for: markdown-preview.nvim
+time([[Setup for markdown-preview.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
+time([[Setup for markdown-preview.nvim]], false)
+-- Setup for: vim-sleuth
+time([[Setup for vim-sleuth]], true)
+try_loadstring("\27LJ\2\n2\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\0\0=\1\2\0K\0\1\0\21sleuth_automatic\6g\bvim\0", "setup", "vim-sleuth")
+time([[Setup for vim-sleuth]], false)
+time([[packadd for vim-sleuth]], true)
+vim.cmd [[packadd vim-sleuth]]
+time([[packadd for vim-sleuth]], false)
+-- Setup for: vim-test
+time([[Setup for vim-test]], true)
+try_loadstring("\27LJ\2\n”\3\0\0\6\0\21\0-6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\a\0'\4\b\0005\5\t\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\n\0'\4\v\0005\5\f\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\r\0'\4\14\0005\5\15\0B\0\5\0016\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\16\0'\4\17\0005\5\18\0B\0\5\0016\0\0\0009\0\19\0'\2\20\0B\0\2\1K\0\1\0!let test#strategy = \"neovim\"\bcmd\1\0\2\vsilent\2\fnoremap\2\19:TestVisit<CR>\15<leader>tv\1\0\2\vsilent\2\fnoremap\2\18:TestLast<CR>\15<leader>tl\1\0\2\vsilent\2\fnoremap\2\19:TestSuite<CR>\15<leader>ta\1\0\2\vsilent\2\fnoremap\2\18:TestFile<CR>\15<leader>tf\1\0\2\vsilent\2\fnoremap\2\21:TestNearest<CR>\15<leader>tn\6n\bset\vkeymap\bvim\0", "setup", "vim-test")
+time([[Setup for vim-test]], false)
+time([[packadd for vim-test]], true)
+vim.cmd [[packadd vim-test]]
+time([[packadd for vim-test]], false)
 -- Config for: project.nvim
 time([[Config for project.nvim]], true)
 try_loadstring("\27LJ\2\nN\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\16manual_mode\1\nsetup\17project_nvim\frequire\0", "config", "project.nvim")
@@ -480,7 +477,9 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-table-mode', 'vim-markdown-toc', 'vim-markdown', 'bullets.vim', 'mkdnflow.nvim', 'markdown-preview.nvim', 'zk-nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'mkdnflow.nvim', 'markdown-preview.nvim', 'zk-nvim', 'vim-table-mode', 'vim-markdown-toc', 'bullets.vim', 'vim-markdown'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
