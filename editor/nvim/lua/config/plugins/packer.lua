@@ -181,14 +181,8 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("project_nvim").setup({
-				manual_mode = false,
-			})
-		end,
-	})
+    use("airblade/vim-rooter")
+    use("editorconfig/editorconfig-vim")
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
 

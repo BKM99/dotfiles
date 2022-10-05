@@ -26,6 +26,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
+-- Delete buffer
+keymap("n", "<leader>Q", ":bdelete<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
 keymap("n", "<m-Down>", ":resize +1<CR>", opts)
