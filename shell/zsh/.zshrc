@@ -1,7 +1,4 @@
-# Aliases
-if [ -f ~/.zsh-aliases ]; then
-    source ~/.zsh-aliases
-fi
+source ~/.zsh-aliases
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -14,53 +11,16 @@ ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-lazynvm() {
-    unset -f nvm node npm npx
-    export NVM_DIR=~/.nvm
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-    if [ -f "$NVM_DIR/bash_completion" ]; then
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-    fi
-}
-
-nvm() {
-    lazynvm
-    nvm $@
-}
-
-node() {
-    lazynvm
-    node $@
-}
-
-npm() {
-    lazynvm
-    npm $@
-}
-
-npx() {
-    lazynvm
-    npx $@
-}
-
 zle_highlight=('paste:none')
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' menu select
 
 # completions
-autoload -Uz compinit
+autoload -Uz compinit && compinit
 
-for dump in ~/.zcompdump(N.mh+24); do
-    compinit
-done
-compinit -C
-
-zstyle ':completion:*' menu select
 zmodload zsh/complist
+
 # compinit
 _comp_options+=(globdots)
 autoload -Uz colors && colors
@@ -82,6 +42,9 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# this causes the shell to be extremely slow, not sure why
+# eval "$(pyenv virtualenv-init -)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

@@ -4,31 +4,16 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias c='clear'
+alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && brew autoremove'
+alias brewdtree='brew deps --tree --installed'
+alias lg=lazygit
+alias ld=lazydocker
 
 if command -v nvim &> /dev/null
 then
     alias vim=nvim
-fi
-
-if command -v fzf &> /dev/null
-then
-    alias fp="fzf --height 70% --preview='bat --color=always --style=numbers {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
-
-    function fe() {
-      IFS=$'\n' files=($(fp))
-      [[ -n "$files" ]] && ${EDITOR} -O "${files[@]}" -p
-    }
-fi
-
-if command -v lazygit &> /dev/null
-then
-    alias lg=lazygit
-fi
-
-if command -v lazydocker &> /dev/null
-then
-    alias ld=lazydocker
-
+    alias vi='vim'
+    alias v='vim'
 fi
 
 if command -v exa &> /dev/null
@@ -43,12 +28,6 @@ if command -v tmux &> /dev/null
 then
     alias t='tmux'
     alias tks='tmux kill-session'
-fi
-
-if command -v brew &> /dev/null
-then
-    alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && brew autoremove'
-    alias brewdtree='brew deps --tree --installed'
 fi
 
 if [[ $TERM == "xterm-kitty" ]]; then

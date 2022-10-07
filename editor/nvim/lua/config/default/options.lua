@@ -43,3 +43,9 @@ vim.g.vim_markdown_frontmatter = 1
 vim.opt.termguicolors = true
 vim.cmd([[syntax on]])
 vim.opt.background = "dark"
+
+-- https://neovim.io/doc/user/provider.html
+vim.g.python3_host_prog = "~/.pyenv/versions/py3nvim/bin/python"
+vim.g.node_host_prog = "/usr/local/bin/neovim-node-host"
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0

@@ -8,7 +8,7 @@ fi
 
 echo "installing brew packages..."
 
-brew install nvm
+brew install node
 brew install tmux
 brew install git
 brew install ranger
@@ -17,6 +17,7 @@ brew install lazydocker
 brew install neovim
 brew install bat
 brew install pyenv
+brew install pyenv-virtualenv
 brew install ncdu
 brew install zk
 brew install autojump
@@ -44,7 +45,6 @@ brew install --cask google-chrome
 
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
-brew install --cask font-noto-nerd-font
 
 echo "done installing brew packages"
 
