@@ -96,6 +96,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+    use("rhysd/committia.vim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -181,7 +182,12 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-	use("airblade/vim-rooter")
+	use({
+		"airblade/vim-rooter",
+		config = function()
+			vim.g.rooter_silent_chdir = 1
+		end,
+	})
 	use("editorconfig/editorconfig-vim")
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
@@ -190,7 +196,7 @@ return packer.startup(function(use)
 		config = function()
 			require("go").setup()
 		end,
-        ft = "go"
+		ft = "go",
 	})
 
 	-- Colorschemes

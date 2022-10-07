@@ -3,12 +3,12 @@ if not status_ok then
 	return
 end
 
-lualine.setup({
+local config = {
 	options = {
 		icons_enabled = true,
 		theme = "auto",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		component_separators = { left = "|", right = "|" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -42,4 +42,6 @@ lualine.setup({
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-})
+}
+
+lualine.setup(config)

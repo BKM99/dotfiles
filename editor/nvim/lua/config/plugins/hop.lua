@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-hop.setup({ keys = "qwerpoiasdflkjmxv" })
+hop.setup({ keys = "asdfghjklqwercpo" })
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
