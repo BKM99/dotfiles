@@ -48,7 +48,7 @@ return packer.startup(function(use)
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({"mfussenegger/nvim-jdtls", ft = "java"})
+	use({ "mfussenegger/nvim-jdtls", ft = "java" })
 	use("b0o/SchemaStore.nvim")
 	use("folke/trouble.nvim")
 
@@ -181,10 +181,17 @@ return packer.startup(function(use)
 	})
 
 	-- Other Plugins
-    use("airblade/vim-rooter")
-    use("editorconfig/editorconfig-vim")
+	use("airblade/vim-rooter")
+	use("editorconfig/editorconfig-vim")
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
+	use({
+		"ray-x/go.nvim",
+		config = function()
+			require("go").setup()
+		end,
+        ft = "go"
+	})
 
 	-- Colorschemes
 	-- use("RRethy/nvim-base16")

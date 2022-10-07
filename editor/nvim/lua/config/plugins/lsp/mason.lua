@@ -55,8 +55,12 @@ mason_tool_installer.setup({
 		"codelldb",
         "java-debug-adapter",
         "java-test",
+        "goimports",
+        "gofumpt",
+        "gotests",
+        "gomodifytags",
 	},
-	auto_update = false,
+	auto_update = true,
 	run_on_start = true,
 })
 
