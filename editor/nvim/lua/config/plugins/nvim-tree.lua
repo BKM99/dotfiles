@@ -3,9 +3,13 @@ if not status_ok then
 	return
 end
 
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
--- Nvim Tree toggle
+
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
 nvim_tree.setup({

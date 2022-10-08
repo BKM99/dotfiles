@@ -96,7 +96,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-    use("rhysd/committia.vim")
+	use("rhysd/committia.vim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -120,7 +120,7 @@ return packer.startup(function(use)
 	})
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
-	use("kyazdani42/nvim-tree.lua")
+	use({"kyazdani42/nvim-tree.lua", tag = 'nightly'})
 	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
@@ -134,13 +134,13 @@ return packer.startup(function(use)
 			require("numb").setup()
 		end,
 	})
+	use("monaqa/dial.nvim")
 	use({
-		"tpope/vim-sleuth",
-		setup = function()
-			vim.g.sleuth_automatic = 0
+		"nmac427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({})
 		end,
 	})
-	use("monaqa/dial.nvim")
 	use("linty-org/readline.nvim")
 
 	-- Note taking (Markdown)

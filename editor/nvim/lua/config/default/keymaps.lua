@@ -23,8 +23,8 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Naviagate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<m-l>", ":bnext<CR>", opts)
+keymap("n", "<m-h>", ":bprevious<CR>", opts)
 
 -- Delete buffer
 keymap("n", "<leader>Q", ":bdelete<CR>", opts)

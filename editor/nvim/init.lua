@@ -1,7 +1,3 @@
-local status_ok_impatient, _ = pcall(require, "impatient")
-if not status_ok_impatient then
-	print("impatient not loaded!")
-end
-
-require("config.default")
-require("config.plugins")
+require("impatient")        -- faster startup time
+require("config.default")   -- load settings that do not rely on plugins
+require("config.plugins")   -- load settings for plugins
