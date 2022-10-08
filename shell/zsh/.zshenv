@@ -1,6 +1,13 @@
 export PATH="/usr/local/sbin:$PATH"
 export PATH=$PATH:/usr/local/bin/zk
 export ZK_NOTEBOOK_DIR="$HOME/Documents/Notes/"
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
+
+. "$HOME/.cargo/env"
+if [ -d $HOME/.cargo/bin/ ]; then
+    path=( $path $HOME/.cargo/bin )
+fi
 
 if (( $+commands[nvim] )); then
     export EDITOR='nvim'
@@ -8,9 +15,4 @@ if (( $+commands[nvim] )); then
 else
     export EDITOR='vim'
     export VISUAL='vim'
-fi
-
-# rust (cargo)
-if [ -d $HOME/.cargo/bin/ ]; then
-    path=( $path $HOME/.cargo/bin )
 fi
