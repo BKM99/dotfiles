@@ -3,6 +3,7 @@ if not status_ok then
 	return
 end
 
+-- TODO: make more intuitive keymaps
 vim.keymap.set('!', '<M-b>', readline.backward_word)
 vim.keymap.set('!', '<C-a>', readline.beginning_of_line)
 vim.keymap.set('!', '<C-e>', readline.end_of_line)

@@ -42,9 +42,9 @@ telescope.load_extension("fzf")
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
+keymap("n", "<leader>ff", ":Telescope git_files theme=ivy <CR>", opts)
 keymap("n", "<leader>f", ":Telescope find_files theme=ivy <CR>", opts)
 keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
 keymap("n", "<leader>gb", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>", opts)
 keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
-keymap("n", "<leader>m", ":Telescope marks theme=ivy <CR>", opts)
 keymap("n", "<leader>ht", ":Telescope help_tags theme=ivy <CR>", opts)

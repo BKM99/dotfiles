@@ -120,7 +120,7 @@ return packer.startup(function(use)
 	})
 	use("lukas-reineke/indent-blankline.nvim")
 	use("norcalli/nvim-colorizer.lua")
-	use({"kyazdani42/nvim-tree.lua", tag = 'nightly'})
+	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
@@ -174,12 +174,6 @@ return packer.startup(function(use)
 
 	-- Better Performance
 	use("lewis6991/impatient.nvim")
-	use({
-		"antoinemadec/FixCursorHold.nvim",
-		run = function()
-			vim.g.curshold_updatime = 100
-		end,
-	})
 
 	-- Other Plugins
 	use({
@@ -189,7 +183,7 @@ return packer.startup(function(use)
 		end,
 	})
 	use("editorconfig/editorconfig-vim")
-	use({ "phaazon/hop.nvim", branch = "v2" })
+	use("ggandor/leap.nvim")
 	use("ThePrimeagen/harpoon")
 	use({
 		"ray-x/go.nvim",

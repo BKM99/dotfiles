@@ -13,6 +13,7 @@ local servers = {
 	"sumneko_lua",
 	"clangd",
 	"tsserver",
+	"emmet_ls",
 	"gopls",
 	"html",
 	"pyright",
