@@ -9,8 +9,8 @@ Note: Git needs to be installed for the install script to work. If you want to u
 
 ```bash
 cd ~
-git clone https://github.com/BKM99/configs
-cd configs
+git clone https://github.com/BKM99/.dotfiles.git
+cd .dotfiles
 ./install
 ```
 
