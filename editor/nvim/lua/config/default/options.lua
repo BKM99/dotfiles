@@ -35,10 +35,6 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.cmd([[filetype plugin indent on]])
 
--- Some options for markdown
-vim.g.vim_markdown_folding_disabled = 1
-vim.g.vim_markdown_frontmatter = 1
-
 -- Some default color stuff
 vim.opt.termguicolors = true
 vim.cmd([[syntax on]])

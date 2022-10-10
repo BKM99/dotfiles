@@ -96,13 +96,11 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use("rhysd/committia.vim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use({ "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" })
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -111,7 +109,6 @@ return packer.startup(function(use)
 
 	-- UI Stuff
 	use("akinsho/bufferline.nvim")
-	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 	use({
 		"mbbill/undotree",
 		setup = function()
@@ -141,15 +138,19 @@ return packer.startup(function(use)
 			require("guess-indent").setup({})
 		end,
 	})
-	use("linty-org/readline.nvim")
+	use({
+		"tpope/vim-sleuth",
+		setup = function()
+			vim.g.sleuth_automatic = 0
+		end,
+	})
 
 	-- Note taking (Markdown)
 	use({
-		"jakewvincent/mkdnflow.nvim",
-		config = function()
-			require("mkdnflow").setup({})
+		"jghauser/follow-md-links.nvim",
+		setup = function()
+			vim.keymap.set("n", "<bs>", ":edit #<cr>", { noremap = true, silent = true })
 		end,
-		ft = { "markdown" },
 	})
 	use({ "mickael-menu/zk-nvim", ft = { "markdown" } })
 	use({
@@ -159,7 +160,6 @@ return packer.startup(function(use)
 		end,
 		cmd = "FeMaco",
 	})
-	use({ "preservim/vim-markdown", ft = { "markdown" } })
 	use({ "dhruvasagar/vim-table-mode", ft = { "markdown" } })
 	use({ "mzlogin/vim-markdown-toc", ft = { "markdown" } })
 	use({ "dkarter/bullets.vim", ft = { "markdown" } })
@@ -182,6 +182,7 @@ return packer.startup(function(use)
 			vim.g.rooter_silent_chdir = 1
 		end,
 	})
+	use("tversteeg/registers.nvim")
 	use("editorconfig/editorconfig-vim")
 	use("ggandor/leap.nvim")
 	use("ThePrimeagen/harpoon")

@@ -6,7 +6,7 @@ end
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
-keymap("n", "<leader>d", ":TroubleToggle<CR>", opts)
+keymap("n", "<leader>e", ":TroubleToggle<CR>", opts)
 
 trouble.setup({
 	position = "bottom", -- position of the list can be: bottom, top, left, right
