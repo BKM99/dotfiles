@@ -14,6 +14,14 @@ cd .dotfiles
 ./install
 ```
 
+```bash
+# load the zsh plugins using this command
+plugin-load
+
+# update zsh plugins using this command
+plugin-update
+```
+
 ## Warnings
 1. The install script will **overwrite** the files specified in "install.conf.json", so please be careful. You should make backups for those files. Basically, "install" looks at "install.conf.json" and creates symlinks for the specified files. Go to the [dotbot](https://github.com/anishathalye/dotbot)  Github Repo to learn more.
 2. Restart the terminal for changes to take effect.
