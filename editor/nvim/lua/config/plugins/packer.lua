@@ -151,6 +151,7 @@ return packer.startup(function(use)
 		setup = function()
 			vim.keymap.set("n", "<bs>", ":edit #<cr>", { noremap = true, silent = true })
 		end,
+		ft = { "markdown" },
 	})
 	use({ "mickael-menu/zk-nvim", ft = { "markdown" } })
 	use({
