@@ -28,6 +28,8 @@ brew install yarn
 brew install tree
 brew install ripgrep
 brew install fzf
+# To install useful key bindings and fuzzy completion:
+# $(brew --prefix)/opt/fzf/install
 brew install fd
 brew install btop
 brew install rustup
