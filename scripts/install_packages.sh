@@ -11,7 +11,7 @@ echo "installing brew packages..."
 brew install node
 brew install tmux
 brew install git
-brew install ranger
+brew install nnn
 brew install lazygit
 brew install lazydocker
 brew install neovim

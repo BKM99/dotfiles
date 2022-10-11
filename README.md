@@ -28,35 +28,14 @@ plugin-update
 3. When running nvim (Neovim) for the first time there may be some errors on the initial load. Run :checkhealth to make sure everything is working. Also, it might take a minute or so to install the plugins, treesitter parsers, LSPs, DAP, etc.
 4. These dotfiles/configs are meant for me. So, there could be issues with some of the configurations.
 
-## Features/Content
+## Things I use
 
-#### I use:
-- OS: macOS and install most things with Homebrew
+- Operating System: macOS
+- Package Manager: Homebrew
 - Font: JetBrainsMono Nerd Font
 - Colorscheme: [Tokyonight-night](https://github.com/folke/tokyonight.nvim#night)
-- [kitty](https://github.com/kovidgoyal/kitty) (fast, GPU-based, true color, feature rich terminal)
-- ZSH with [powerlevel10k](https://github.com/romkatv/powerlevel10k), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), [zsh-completion](https://github.com/zsh-users/zsh-completions), [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- [ZK](https://github.com/mickael-menu/zk), plain text Zettlekasten based note taking CLI app.
-- [Neovim](https://github.com/neovim/neovim) (nvim)
-    - LSP support
-    - Debugging (DAP)
-    - Autocomplete
-    - Formatting/Linting
-    - Snippets
-    - Treesitter
-    - Git integration
-    - Telescope (fuzzy finder)
-    - Markdown note taking support
-    - View all the plugins I use in "editor/nvim/lua/config/plugins/packer.lua"
+- Terminal: [kitty](https://github.com/kovidgoyal/kitty)
+- Shell: ZSH with [powerlevel10k](https://github.com/romkatv/powerlevel10k), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), [zsh-completion](https://github.com/zsh-users/zsh-completions), [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- Editor: [Neovim](https://github.com/neovim/neovim)
 
-#### Other things I use:
-- [autojump](https://github.com/wting/autojump)
-- [btop](https://github.com/aristocratos/btop)
-- [exa](https://github.com/ogham/exa)
-- [fzf](https://github.com/junegunn/fzf)
-- [ncdu](https://dev.yorhel.nl/ncdu)
-- [pyenv](https://github.com/pyenv/pyenv)
-- [pyenv-virutalenv](https://github.com/pyenv/pyenv-virtualenv)
-- [ranger](https://github.com/ranger/ranger)
-- [tmux](https://github.com/tmux/tmux)
-- view "scripts/install_packages.sh" to view the packages/programs I use
+Note: To see some other things I use not listed here go to "scripts/install_packages.sh", to see my neovim plugins go to "editor/nvim/lua/config/plugins/packer.lua"

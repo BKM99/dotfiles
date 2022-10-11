@@ -5,11 +5,5 @@ export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
 . "$HOME/.cargo/env"
 
-if (( $+commands[nvim] )); then
-    export EDITOR='nvim'
-    export VISUAL='nvim'
-else
-    export EDITOR='vim'
-    export VISUAL='vim'
-fi
-
+export EDITOR="nvim"
+export VISUAL="nvim"
