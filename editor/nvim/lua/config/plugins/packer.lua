@@ -121,6 +121,7 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
+	use("gbprod/substitute.nvim")
 	use("windwp/nvim-autopairs")
 	use("andymass/vim-matchup")
 	use("numToStr/Comment.nvim")
@@ -136,12 +137,6 @@ return packer.startup(function(use)
 		"nmac427/guess-indent.nvim",
 		config = function()
 			require("guess-indent").setup({})
-		end,
-	})
-	use({
-		"tpope/vim-sleuth",
-		setup = function()
-			vim.g.sleuth_automatic = 0
 		end,
 	})
 
@@ -173,6 +168,11 @@ return packer.startup(function(use)
 		ft = { "markdown" },
 	})
 
+	-- Faster movements
+	use("ggandor/leap.nvim") -- I like using this for the "sneak" functionality
+	use({ "phaazon/hop.nvim", branch = "v2" }) -- I like using this to remap f,F,t,T
+	use("ThePrimeagen/harpoon")
+
 	-- Better Performance
 	use("lewis6991/impatient.nvim")
 
@@ -185,8 +185,6 @@ return packer.startup(function(use)
 	})
 	use("tversteeg/registers.nvim")
 	use("editorconfig/editorconfig-vim")
-	use("ggandor/leap.nvim")
-	use("ThePrimeagen/harpoon")
 	use({
 		"ray-x/go.nvim",
 		config = function()

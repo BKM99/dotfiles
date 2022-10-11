@@ -42,19 +42,6 @@ keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts) -- open and close
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
-local status_ok_telescope, telescope = pcall(require, "telescope")
-if not status_ok_telescope then
-	return
-end
-
-telescope.load_extension("dap")
-
--- Telescope DAP
-keymap("n", "<leader>dc", ":Telescope dap commands<cr>", opts)
-keymap("n", "<leader>dlb", ":Telescope dap list_breakpoints<cr>", opts)
-keymap("n", "<leader>dv", ":Telescope dap variables<cr>", opts)
-keymap("n", "<leader>df", ":Telescope dap frames<cr>", opts)
-
 local load_launchjs = function()
 	require("dap.ext.vscode").load_launchjs()
 end
@@ -66,5 +53,16 @@ end
 require("config.plugins.dap.python")
 require("config.plugins.dap.node")
 require("config.plugins.dap.jsChrome")
-require("config.plugins.dap.go")
+require("config.plugins.dap.golang")
 require("config.plugins.dap.cpp")
+
+local status_ok_telescope, telescope = pcall(require, "telescope")
+if not status_ok_telescope then
+	return
+else
+	telescope.load_extension("dap")
+	keymap("n", "<leader>dc", ":Telescope dap commands<cr>", opts)
+	keymap("n", "<leader>dlb", ":Telescope dap list_breakpoints<cr>", opts)
+	keymap("n", "<leader>dv", ":Telescope dap variables<cr>", opts)
+	keymap("n", "<leader>df", ":Telescope dap frames<cr>", opts)
+end

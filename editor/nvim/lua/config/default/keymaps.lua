@@ -23,11 +23,11 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Naviagate buffers
-keymap("n", "<m-l>", ":bnext<CR>", opts)
-keymap("n", "<m-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", opts)
+keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Delete buffer
-keymap("n", "<leader>Q", ":bdelete<CR>", opts)
+keymap("n", "<leader>X", ":bdelete<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
@@ -49,8 +49,8 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
 
 -- delete to black hole register
-keymap("n", "<leader>d", "\"_d", opts)
-keymap("v", "<leader>d", "\"_d", opts)
+-- keymap("n", "<leader>d", "\"_d", opts)
+-- keymap("v", "<leader>d", "\"_d", opts)
 
 -- Indent text without leaving
 keymap("v", "<", "<gv", opts)
