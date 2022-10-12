@@ -96,7 +96,7 @@ idea = 'zk new --no-input "$ZK_NOTEBOOK_DIR/ideas/" --group ideas --title "$*"'
 n = 'zk new --no-input "$ZK_NOTEBOOK_DIR/" --title "$*"'
 
 # easy way to get to my config
-conf = '$EDITOR "$HOME/configs/tools/zk/config.toml"'
+conf = '$EDITOR "$HOME/.dotfiles/tools/zk/config.toml"'
 
 # list notes for editing
 ls = "zk edit --interactive"
