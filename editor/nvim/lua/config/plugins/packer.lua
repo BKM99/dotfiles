@@ -112,7 +112,7 @@ return packer.startup(function(use)
 	use({
 		"mbbill/undotree",
 		setup = function()
-			vim.keymap.set("n", "<leader>ut", ":UndotreeToggle<CR>", { noremap = true, silent = true })
+			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { noremap = true, silent = true })
 		end,
 	})
 	use("lukas-reineke/indent-blankline.nvim")
@@ -134,9 +134,9 @@ return packer.startup(function(use)
 	})
 	use("monaqa/dial.nvim")
 	use({
-		"nmac427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({})
+		"tpope/vim-sleuth",
+		setup = function()
+			vim.g.sleuth_automatic = 0
 		end,
 	})
 
