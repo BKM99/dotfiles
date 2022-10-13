@@ -140,6 +140,12 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"abecodes/tabout.nvim",
+		wants = { "nvim-treesitter" }, -- or require if not used so far
+		after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
+	})
+
 	-- Note taking (Markdown)
 	use({
 		"jghauser/follow-md-links.nvim",
@@ -192,6 +198,7 @@ return packer.startup(function(use)
 		end,
 		ft = "go",
 	})
+	use("karb94/neoscroll.nvim")
 
 	-- Colorschemes
 	-- use("RRethy/nvim-base16")

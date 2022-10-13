@@ -65,3 +65,7 @@ keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true
 -- move line by line
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
+
+-- scroll horizontally
+keymap("n", "zl", "25zl<CR>", opts)
+keymap("n", "zh", "25zh<CR>", opts)
