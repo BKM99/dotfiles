@@ -156,7 +156,6 @@ return packer.startup(function(use)
 		wants = { "nvim-treesitter" },
 		after = { "nvim-cmp" },
 	})
-    use("gbprod/yanky.nvim")
 
 	-- Note taking (Markdown)
 	use({
