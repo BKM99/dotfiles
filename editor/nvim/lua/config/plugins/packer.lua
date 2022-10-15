@@ -95,7 +95,9 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets")
 
 	-- Git
+	use("TimUntersberger/neogit")
 	use("lewis6991/gitsigns.nvim")
+	use("sindrets/diffview.nvim")
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -108,6 +110,7 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- UI Stuff
+	use("stevearc/dressing.nvim")
 	use("akinsho/bufferline.nvim")
 	use({
 		"mbbill/undotree",
@@ -116,12 +119,21 @@ return packer.startup(function(use)
 		end,
 	})
 	use("lukas-reineke/indent-blankline.nvim")
-	use("norcalli/nvim-colorizer.lua")
+	use("NvChad/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
 	use("gbprod/substitute.nvim")
+	use({
+		"kylechui/nvim-surround",
+		tag = "*",
+		config = function()
+			require("nvim-surround").setup({
+			})
+		end,
+	})
+	use("wellle/targets.vim")
 	use("windwp/nvim-autopairs")
 	use("andymass/vim-matchup")
 	use("numToStr/Comment.nvim")
@@ -139,12 +151,12 @@ return packer.startup(function(use)
 			vim.g.sleuth_automatic = 0
 		end,
 	})
-
 	use({
 		"abecodes/tabout.nvim",
-		wants = { "nvim-treesitter" }, -- or require if not used so far
-		after = { "nvim-cmp" }, -- if a completion plugin is using tabs load it before
+		wants = { "nvim-treesitter" },
+		after = { "nvim-cmp" },
 	})
+    use("gbprod/yanky.nvim")
 
 	-- Note taking (Markdown)
 	use({
