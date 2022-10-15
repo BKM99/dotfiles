@@ -124,17 +124,33 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
+	use({
+		"danymat/neogen",
+		config = function()
+			require("neogen").setup({})
+		end,
+		requires = "nvim-treesitter/nvim-treesitter",
+		tag = "*",
+	})
 	use("gbprod/substitute.nvim")
 	use({
 		"kylechui/nvim-surround",
 		tag = "*",
 		config = function()
-			require("nvim-surround").setup({
-			})
+			require("nvim-surround").setup()
 		end,
 	})
 	use("wellle/targets.vim")
 	use("windwp/nvim-autopairs")
+	use({
+		"junegunn/vim-easy-align",
+		setup = function()
+			vim.cmd([[
+                xmap ga <Plug>(EasyAlign)
+                nmap ga <Plug>(EasyAlign)
+            ]])
+		end,
+	})
 	use("andymass/vim-matchup")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
