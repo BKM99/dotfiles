@@ -66,7 +66,7 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- DAP
+	-- Debugging and Testing
 	use({
 		"mfussenegger/nvim-dap",
 		requires = {
@@ -76,19 +76,7 @@ return packer.startup(function(use)
 			"mxsdev/nvim-dap-vscode-js",
 		},
 	})
-
-	-- Testing
-	use({
-		"vim-test/vim-test",
-		setup = function()
-			vim.keymap.set("n", "<leader>tn", ":TestNearest<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>tf", ":TestFile<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>ta", ":TestSuite<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
-			vim.keymap.set("n", "<leader>tv", ":TestVisit<CR>", { noremap = true, silent = true })
-			vim.cmd([[let test#strategy = "neovim"]])
-		end,
-	})
+	use("vim-test/vim-test")
 
 	-- Snippets
 	use("L3MON4D3/LuaSnip")
@@ -112,54 +100,23 @@ return packer.startup(function(use)
 	-- UI Stuff
 	use("stevearc/dressing.nvim")
 	use("akinsho/bufferline.nvim")
-	use({
-		"mbbill/undotree",
-		setup = function()
-			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { noremap = true, silent = true })
-		end,
-	})
+	use("mbbill/undotree")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("NvChad/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("nvim-lualine/lualine.nvim")
 
 	-- Editing Support
-	use({
-		"danymat/neogen",
-		config = function()
-			require("neogen").setup({})
-		end,
-		requires = "nvim-treesitter/nvim-treesitter",
-		tag = "*",
-	})
+	use({ "danymat/neogen", tag = "*" })
 	use("gbprod/substitute.nvim")
-	use({
-		"kylechui/nvim-surround",
-		tag = "*",
-		config = function()
-			require("nvim-surround").setup()
-		end,
-	})
+	use({ "kylechui/nvim-surround", tag = "*" })
 	use("wellle/targets.vim")
 	use("windwp/nvim-autopairs")
-	use({
-		"junegunn/vim-easy-align",
-		setup = function()
-			vim.cmd([[
-                xmap ga <Plug>(EasyAlign)
-                nmap ga <Plug>(EasyAlign)
-            ]])
-		end,
-	})
+	use("junegunn/vim-easy-align")
 	use("andymass/vim-matchup")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-	use({
-		"nacro90/numb.nvim",
-		config = function()
-			require("numb").setup()
-		end,
-	})
+	use("nacro90/numb.nvim")
 	use("monaqa/dial.nvim")
 	use({
 		"tpope/vim-sleuth",
@@ -167,31 +124,15 @@ return packer.startup(function(use)
 			vim.g.sleuth_automatic = 0
 		end,
 	})
-	use({
-		"abecodes/tabout.nvim",
-		wants = { "nvim-treesitter" },
-		after = { "nvim-cmp" },
-	})
+	use("abecodes/tabout.nvim")
 
 	-- Note taking (Markdown)
-	use({
-		"jghauser/follow-md-links.nvim",
-		setup = function()
-			vim.keymap.set("n", "<bs>", ":edit #<cr>", { noremap = true, silent = true })
-		end,
-		ft = { "markdown" },
-	})
-	use({ "mickael-menu/zk-nvim", ft = { "markdown" } })
-	use({
-		"AckslD/nvim-FeMaco.lua",
-		config = function()
-			require("femaco").setup()
-		end,
-		cmd = "FeMaco",
-	})
-	use({ "dhruvasagar/vim-table-mode", ft = { "markdown" } })
-	use({ "mzlogin/vim-markdown-toc", ft = { "markdown" } })
-	use({ "dkarter/bullets.vim", ft = { "markdown" } })
+	use({ "jghauser/follow-md-links.nvim" })
+	use({ "mickael-menu/zk-nvim" })
+	use({ "AckslD/nvim-FeMaco.lua", cmd = "FeMaco" })
+	use({ "dhruvasagar/vim-table-mode" })
+	use({ "mzlogin/vim-markdown-toc" })
+	use({ "dkarter/bullets.vim" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -202,29 +143,18 @@ return packer.startup(function(use)
 	})
 
 	-- Faster movements
-	use("ggandor/leap.nvim") -- I like using this for the "sneak" functionality
-	use({ "phaazon/hop.nvim", branch = "v2" }) -- I like using this to remap f,F,t,T
+	use("ggandor/leap.nvim")
+	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
 
 	-- Better Performance
 	use("lewis6991/impatient.nvim")
 
 	-- Other Plugins
-	use({
-		"airblade/vim-rooter",
-		config = function()
-			vim.g.rooter_silent_chdir = 1
-		end,
-	})
+    use("airblade/vim-rooter")
 	use("tversteeg/registers.nvim")
 	use("editorconfig/editorconfig-vim")
-	use({
-		"ray-x/go.nvim",
-		config = function()
-			require("go").setup()
-		end,
-		ft = "go",
-	})
+	use("ray-x/go.nvim")
 	use("karb94/neoscroll.nvim")
 
 	-- Colorschemes
