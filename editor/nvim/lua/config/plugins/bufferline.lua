@@ -8,5 +8,10 @@ bufferline.setup({
 		offsets = { { filetype = "NvimTree", text = "File Explorer", padding = 1 } },
 		separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
 		right_mouse_command = "", -- stop right click from deleting buffer
+		diagnostics = "nvim_lsp",
+		diagnostics_indicator = function(count, level, diagnostics_dict, context)
+			local icon = level:match("error") and " " or " "
+			return " " .. icon .. count
+		end,
 	},
 })
