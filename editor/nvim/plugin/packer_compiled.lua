@@ -252,11 +252,8 @@ _G.packer_plugins = {
     url = "https://github.com/nacro90/numb.nvim"
   },
   ["nvim-FeMaco.lua"] = {
-    commands = { "FeMaco" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/nvim-FeMaco.lua",
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-FeMaco.lua",
     url = "https://github.com/AckslD/nvim-FeMaco.lua"
   },
   ["nvim-autopairs"] = {
@@ -300,10 +297,8 @@ _G.packer_plugins = {
     url = "https://github.com/mxsdev/nvim-dap-vscode-js"
   },
   ["nvim-jdtls"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/nvim-jdtls",
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
     url = "https://github.com/mfussenegger/nvim-jdtls"
   },
   ["nvim-lspconfig"] = {
@@ -466,17 +461,10 @@ time([[Setup for vim-sleuth]], false)
 time([[packadd for vim-sleuth]], true)
 vim.cmd [[packadd vim-sleuth]]
 time([[packadd for vim-sleuth]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FeMaco lua require("packer.load")({'nvim-FeMaco.lua'}, { cmd = "FeMaco", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-time([[Defining lazy-load commands]], false)
-
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
 vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")

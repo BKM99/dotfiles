@@ -48,7 +48,7 @@ return packer.startup(function(use)
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
-	use({ "mfussenegger/nvim-jdtls", ft = "java" })
+	use("mfussenegger/nvim-jdtls")
 	use("b0o/SchemaStore.nvim")
 	use("folke/trouble.nvim")
 
@@ -127,12 +127,12 @@ return packer.startup(function(use)
 	use("abecodes/tabout.nvim")
 
 	-- Note taking (Markdown)
-	use({ "jghauser/follow-md-links.nvim" })
-	use({ "mickael-menu/zk-nvim" })
-	use({ "AckslD/nvim-FeMaco.lua", cmd = "FeMaco" })
-	use({ "dhruvasagar/vim-table-mode" })
-	use({ "mzlogin/vim-markdown-toc" })
-	use({ "dkarter/bullets.vim" })
+	use("jghauser/follow-md-links.nvim")
+	use("mickael-menu/zk-nvim")
+	use("AckslD/nvim-FeMaco.lua")
+	use("dhruvasagar/vim-table-mode")
+	use("mzlogin/vim-markdown-toc")
+	use("dkarter/bullets.vim")
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -151,7 +151,7 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 
 	-- Other Plugins
-    use("airblade/vim-rooter")
+	use("airblade/vim-rooter")
 	use("tversteeg/registers.nvim")
 	use("editorconfig/editorconfig-vim")
 	use("ray-x/go.nvim")
