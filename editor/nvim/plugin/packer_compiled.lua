@@ -306,6 +306,11 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-neoclip.lua"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-neoclip.lua",
+    url = "https://github.com/AckslD/nvim-neoclip.lua"
+  },
   ["nvim-surround"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-surround",
@@ -360,11 +365,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["registers.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/registers.nvim",
-    url = "https://github.com/tversteeg/registers.nvim"
   },
   ["substitute.nvim"] = {
     loaded = true,
@@ -445,6 +445,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-matchup",
     url = "https://github.com/andymass/vim-matchup"
+  },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-repeat",
+    url = "https://github.com/tpope/vim-repeat"
   },
   ["vim-rooter"] = {
     loaded = true,

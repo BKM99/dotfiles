@@ -35,7 +35,7 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-    -- Plugin manager
+	-- Plugin manager
 	use("wbthomason/packer.nvim")
 
 	-- A Bunch of Plugins use these
@@ -51,7 +51,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("folke/trouble.nvim")
 
-    -- Language specific
+	-- Language specific
 	use("ray-x/go.nvim")
 	use("mfussenegger/nvim-jdtls")
 	use("b0o/SchemaStore.nvim")
@@ -101,13 +101,13 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-dap.nvim")
 
-    -- Database
-    use("tpope/vim-dadbod")
-    use("kristijanhusak/vim-dadbod-ui")
-    use("kristijanhusak/vim-dadbod-completion")
+	-- Database
+	use("tpope/vim-dadbod")
+	use("kristijanhusak/vim-dadbod-ui")
+	use("kristijanhusak/vim-dadbod-completion")
 
 	-- Better UI
-    use("folke/todo-comments.nvim")
+	use("folke/todo-comments.nvim")
 	use("stevearc/dressing.nvim")
 	use("akinsho/bufferline.nvim")
 	use("mbbill/undotree")
@@ -115,9 +115,10 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("nvim-lualine/lualine.nvim")
-    use("p00f/nvim-ts-rainbow")
+	use("p00f/nvim-ts-rainbow")
 
 	-- Editing Support
+	use("tpope/vim-repeat")
 	use({ "danymat/neogen", tag = "*" })
 	use("gbprod/substitute.nvim")
 	use({ "kylechui/nvim-surround", tag = "*" })
@@ -135,7 +136,7 @@ return packer.startup(function(use)
 			vim.g.sleuth_automatic = 0
 		end,
 	})
-    use("abecodes/tabout.nvim")
+	use("abecodes/tabout.nvim")
 
 	-- Note taking (Markdown)
 	use("jghauser/follow-md-links.nvim")
@@ -163,7 +164,7 @@ return packer.startup(function(use)
 
 	-- Other Plugins
 	use("airblade/vim-rooter")
-	use("tversteeg/registers.nvim")
+    use("AckslD/nvim-neoclip.lua")
 	use("editorconfig/editorconfig-vim")
 	use("karb94/neoscroll.nvim")
 
