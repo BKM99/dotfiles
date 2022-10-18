@@ -124,7 +124,7 @@ return packer.startup(function(use)
 			vim.g.sleuth_automatic = 0
 		end,
 	})
-	use("abecodes/tabout.nvim")
+    use("abecodes/tabout.nvim")
 
 	-- Note taking (Markdown)
 	use("jghauser/follow-md-links.nvim")

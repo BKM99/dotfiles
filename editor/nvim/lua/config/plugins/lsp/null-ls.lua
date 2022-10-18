@@ -4,17 +4,19 @@ if not null_ls_status_ok then
 end
 
 local formatting = null_ls.builtins.formatting
--- local diagnostics = null_ls.builtins.diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({
+		formatting.prettierd.with({
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
+		formatting.eslint_d,
 		formatting.black.with({ extra_args = { "--fast" } }),
+		diagnostics.flake8,
 		formatting.stylua,
-        formatting.goimports,
-        formatting.gofumpt,
+		formatting.goimports,
+		formatting.gofumpt,
 	},
 })
