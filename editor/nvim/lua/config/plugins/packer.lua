@@ -35,6 +35,7 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
+    -- Plugin manager
 	use("wbthomason/packer.nvim")
 
 	-- A Bunch of Plugins use these
@@ -48,9 +49,12 @@ return packer.startup(function(use)
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
+	use("folke/trouble.nvim")
+
+    -- Language specific
+	use("ray-x/go.nvim")
 	use("mfussenegger/nvim-jdtls")
 	use("b0o/SchemaStore.nvim")
-	use("folke/trouble.nvim")
 
 	-- Autocomplete
 	use({
@@ -97,7 +101,13 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-dap.nvim")
 
-	-- UI Stuff
+    -- Database
+    use("tpope/vim-dadbod")
+    use("kristijanhusak/vim-dadbod-ui")
+    use("kristijanhusak/vim-dadbod-completion")
+
+	-- Better UI
+    use("folke/todo-comments.nvim")
 	use("stevearc/dressing.nvim")
 	use("akinsho/bufferline.nvim")
 	use("mbbill/undotree")
@@ -105,6 +115,7 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("nvim-lualine/lualine.nvim")
+    use("p00f/nvim-ts-rainbow")
 
 	-- Editing Support
 	use({ "danymat/neogen", tag = "*" })
@@ -154,7 +165,6 @@ return packer.startup(function(use)
 	use("airblade/vim-rooter")
 	use("tversteeg/registers.nvim")
 	use("editorconfig/editorconfig-vim")
-	use("ray-x/go.nvim")
 	use("karb94/neoscroll.nvim")
 
 	-- Colorschemes
