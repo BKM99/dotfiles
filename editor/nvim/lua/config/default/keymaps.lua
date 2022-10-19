@@ -27,7 +27,7 @@ keymap("n", "<m-l>", ":bnext<CR>", opts)
 keymap("n", "<m-h>", ":bprevious<CR>", opts)
 
 -- Delete buffer
-keymap("n", "<leader>x", ":bdelete<CR>", opts)
+keymap("n", "<leader>q", ":bdelete<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
@@ -66,6 +66,11 @@ keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 
--- scroll horizontally
+-- scroll horizontally faster
 keymap("n", "zl", "25zl<CR>", opts)
 keymap("n", "zh", "25zh<CR>", opts)
+
+-- sed
+keymap("n", "<leader>/", ":%s/", { noremap = true })
+keymap("v", "<leader>/", ":s/", { noremap = true })
+keymap("n","<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>") -- current line only, replace all occurences of word under cursor
