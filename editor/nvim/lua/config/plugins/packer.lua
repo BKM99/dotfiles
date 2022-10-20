@@ -161,7 +161,6 @@ return packer.startup(function(use)
 	use("airblade/vim-rooter")
 	use("AckslD/nvim-neoclip.lua")
 	use("editorconfig/editorconfig-vim")
-	use("karb94/neoscroll.nvim")
 
 	-- Colorschemes
 	-- use("RRethy/nvim-base16")

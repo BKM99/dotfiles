@@ -41,3 +41,10 @@ else
         hi Comment guifg=#8f8c8c
     ]])
 end
+
+-- vim.cmd[[
+-- colo base16-gruvbox-dark-hard
+-- hi Normal ctermbg=NONE
+-- call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
+-- " call Base16hi("LspSignatureActiveParameter", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03, "bold", "")
+-- ]]
