@@ -33,11 +33,16 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 			-- the default case_mode is "smart_case"
 		},
+		file_browser = {
+			theme = "ivy",
+			hijack_netrw = true,
+		},
 	},
 	file_ignore_patterns = { "node_modules" },
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("file_browser")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
@@ -48,3 +53,5 @@ keymap("n", "<leader>g", ":Telescope live_grep theme=ivy <CR>", opts)
 keymap("n", "<leader>gb", ":Telescope current_buffer_fuzzy_find theme=ivy <CR>", opts)
 keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
 keymap("n", "<leader>ht", ":Telescope help_tags theme=ivy <CR>", opts)
+
+keymap("n", "<space>fb", ":Telescope file_browser<CR>", opts)

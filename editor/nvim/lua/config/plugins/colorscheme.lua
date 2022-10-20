@@ -29,7 +29,15 @@
 -- hi DiagnosticHint guifg=#34eb80
 -- ]])
 
-vim.cmd([[
-colo tokyonight-night
-hi Comment guifg=#8f8c8c
-]])
+local tokyonight_ok, tokyonight = pcall(require, "tokyonight")
+if not tokyonight_ok then
+	return
+else
+    tokyonight.setup({
+        style = "night"
+    })
+	vim.cmd([[
+        colo tokyonight
+        hi Comment guifg=#8f8c8c
+    ]])
+end

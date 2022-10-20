@@ -35,25 +35,33 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-	-- Plugin manager
 	use("wbthomason/packer.nvim")
+
+	-- Better Performance
+	use("lewis6991/impatient.nvim")
 
 	-- A Bunch of Plugins use these
 	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 
+    -- Treesitter
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("nvim-treesitter/nvim-treesitter-textobjects")
+    use("JoosepAlviste/nvim-ts-context-commentstring")
+
 	-- LSP
 	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("WhoIsSethDaniel/mason-tool-installer.nvim")
-	use("williamboman/mason-lspconfig.nvim")
+	use({
+		"williamboman/mason.nvim",
+		requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
+	})
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("folke/trouble.nvim")
 
 	-- Language specific
-	use("ray-x/go.nvim")
-	use("mfussenegger/nvim-jdtls")
+	use({ "ray-x/go.nvim", ft = "go" })
+	use({ "mfussenegger/nvim-jdtls", ft = "java" })
 	use("b0o/SchemaStore.nvim")
 
 	-- Autocomplete
@@ -80,46 +88,42 @@ return packer.startup(function(use)
 			"mxsdev/nvim-dap-vscode-js",
 		},
 	})
-	use("vim-test/vim-test")
+	use({ "vim-test/vim-test", cmd = { "TestFile", "TestLast", "TestClass", "TestSuite", "TestVisit", "TestNearest" } })
 
 	-- Snippets
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
+	use({ "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets" } })
 
 	-- Git
 	use("TimUntersberger/neogit")
 	use("lewis6991/gitsigns.nvim")
 	use("sindrets/diffview.nvim")
 
-	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use("nvim-treesitter/nvim-treesitter-textobjects")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    use("nvim-telescope/telescope-file-browser.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- Database
-	use("tpope/vim-dadbod")
-	use("kristijanhusak/vim-dadbod-ui")
-	use("kristijanhusak/vim-dadbod-completion")
+	use({
+		"tpope/vim-dadbod",
+		requires = { "kristijanhusak/vim-dadbod-ui", "kristijanhusak/vim-dadbod-completion" },
+	})
 
 	-- Better UI
-	use("folke/todo-comments.nvim")
 	use("stevearc/dressing.nvim")
 	use("akinsho/bufferline.nvim")
-	use("mbbill/undotree")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("NvChad/nvim-colorizer.lua")
-	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("nvim-lualine/lualine.nvim")
+	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
+	use("lukas-reineke/indent-blankline.nvim")
+	use("folke/todo-comments.nvim")
+	use({ "mbbill/undotree", cmd = { "UndoTreeToggle" } })
+	use("NvChad/nvim-colorizer.lua")
 	use("p00f/nvim-ts-rainbow")
 
 	-- Editing Support
 	use("tpope/vim-repeat")
-	use({ "danymat/neogen", tag = "*" })
+	use({ "danymat/neogen", tag = "*", cmd = { "Neogen" } })
 	use("gbprod/substitute.nvim")
 	use({ "kylechui/nvim-surround", tag = "*" })
 	use("wellle/targets.vim")
@@ -130,21 +134,15 @@ return packer.startup(function(use)
 	use("windwp/nvim-ts-autotag")
 	use("nacro90/numb.nvim")
 	use("monaqa/dial.nvim")
-	use({
-		"tpope/vim-sleuth",
-		setup = function()
-			vim.g.sleuth_automatic = 0
-		end,
-	})
 	use("abecodes/tabout.nvim")
 
 	-- Note taking (Markdown)
-	use("jghauser/follow-md-links.nvim")
-	use("mickael-menu/zk-nvim")
-	use("AckslD/nvim-FeMaco.lua")
-	use("dhruvasagar/vim-table-mode")
-	use("mzlogin/vim-markdown-toc")
-	use("dkarter/bullets.vim")
+	use({ "jghauser/follow-md-links.nvim", ft = "markdown" })
+	use({ "mickael-menu/zk-nvim", ft = "markdown" })
+	use({ "AckslD/nvim-FeMaco.lua", cmd = { "FeMaco" } })
+	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
+	use({ "mzlogin/vim-markdown-toc", ft = "markdown" })
+	use({ "dkarter/bullets.vim", ft = "markdown" })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -159,12 +157,9 @@ return packer.startup(function(use)
 	use({ "phaazon/hop.nvim", branch = "v2" })
 	use("ThePrimeagen/harpoon")
 
-	-- Better Performance
-	use("lewis6991/impatient.nvim")
-
 	-- Other Plugins
 	use("airblade/vim-rooter")
-    use("AckslD/nvim-neoclip.lua")
+	use("AckslD/nvim-neoclip.lua")
 	use("editorconfig/editorconfig-vim")
 	use("karb94/neoscroll.nvim")
 
@@ -174,7 +169,6 @@ return packer.startup(function(use)
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then
-		print("Installing plugins, restart neovim after.")
 		require("packer").sync()
 	end
 end)

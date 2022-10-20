@@ -12,7 +12,6 @@ null_ls.setup({
 		formatting.prettierd.with({
 			extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 		}),
-		formatting.eslint_d,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		diagnostics.flake8,
 		formatting.stylua,

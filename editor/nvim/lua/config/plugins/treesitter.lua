@@ -1,10 +1,35 @@
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
 	return
-end
-
+else
 configs.setup({
-	ensure_installed = "all",
+	ensure_installed = {
+		"c",
+		"c_sharp",
+		"cpp",
+		"css",
+		"dockerfile",
+		"go",
+		"html",
+		"java",
+		"javascript",
+		"json",
+		"lua",
+		"typescript",
+		"markdown",
+		"tsx",
+		"markdown",
+		"python",
+		"rust",
+		"ruby",
+		"sql",
+		"toml",
+		"vim",
+		"yaml",
+		"bash",
+		"comment",
+		"query",
+	},
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
@@ -65,3 +90,4 @@ configs.setup({
 		},
 	},
 })
+end
