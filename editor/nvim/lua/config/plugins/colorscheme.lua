@@ -42,9 +42,16 @@ else
     ]])
 end
 
--- vim.cmd[[
--- colo base16-gruvbox-dark-hard
+-- local colorscheme = "base16-gruvbox-dark-hard"
+
+-- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
+-- if not status_ok then
+-- 	print("colorscheme was not loaded")
+-- 	return
+-- end
+
+-- vim.cmd [[
+-- highlight Comment guifg=#8f8c8c
 -- hi Normal ctermbg=NONE
 -- call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
--- " call Base16hi("LspSignatureActiveParameter", g:base16_gui05, g:base16_gui03, g:base16_cterm05, g:base16_cterm03, "bold", "")
 -- ]]

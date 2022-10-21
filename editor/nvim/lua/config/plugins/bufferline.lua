@@ -10,7 +10,7 @@ bufferline.setup({
 		right_mouse_command = "", -- stop right click from deleting buffer
 		diagnostics = "nvim_lsp",
 		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			local icon = level:match("error") and " " or " "
+			local icon = level:match("error") and "E" or "W"
 			return " " .. icon .. count
 		end,
 	},

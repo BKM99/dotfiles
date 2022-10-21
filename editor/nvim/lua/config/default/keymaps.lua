@@ -23,8 +23,8 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Naviagate buffers
-keymap("n", "<m-l>", ":bnext<CR>", opts)
-keymap("n", "<m-h>", ":bprevious<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", opts)
+keymap("n", "[b", ":bprevious<CR>", opts)
 
 -- Delete buffer
 keymap("n", "<leader>q", ":bdelete<CR>", opts)
@@ -91,3 +91,10 @@ map L $
 -- center screen when scrolling
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- open quickfix list
+keymap("n", "<leader>co", ":copen<CR>", opts)
+
+-- go through quickfix list
+keymap("n", "]q", ":cnext<CR>", opts)
+keymap("n", "[q", ":cprevious<CR>", opts)
