@@ -33,7 +33,6 @@ plugin-update
 - Operating System: macOS
 - Package Manager: Homebrew
 - Font: JetBrainsMono Nerd Font
-- Colorscheme: [Tokyonight-night](https://github.com/folke/tokyonight.nvim#night)
 - Terminal: [kitty](https://github.com/kovidgoyal/kitty)
 - Shell: ZSH with [powerlevel10k](https://github.com/romkatv/powerlevel10k), [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions), [zsh-completion](https://github.com/zsh-users/zsh-completions), [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - Editor: [Neovim](https://github.com/neovim/neovim)
