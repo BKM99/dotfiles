@@ -1,57 +1,23 @@
--- local base_16_status_ok, base16_colorscheme = pcall(require, "base16-colorscheme")
--- if not base_16_status_ok then
--- 	return
--- end
-
--- base16_colorscheme.setup({
--- 	base00 = "#1d2021",
--- 	base01 = "#3c3836",
--- 	base02 = "#504945",
--- 	base03 = "#8f8c8c",
--- 	base04 = "#bdae93",
--- 	base05 = "#d5c4a1",
--- 	base06 = "#ebdbb2",
--- 	base07 = "#fbf1c7",
--- 	base08 = "#fb4934",
--- 	base09 = "#fe8019",
--- 	base0A = "#fabd2f",
--- 	base0B = "#b8bb26",
--- 	base0C = "#8ec07c",
--- 	base0D = "#83a598",
--- 	base0E = "#d3869b",
--- 	base0F = "#d65d0e",
--- }, { telescope = false })
-
--- vim.cmd([[
--- hi DiagnosticError guifg=#f50707
--- hi DiagnosticWarn guifg=#f5c907
--- hi DiagnosticInfo guifg=#34c6eb
--- hi DiagnosticHint guifg=#34eb80
--- ]])
-
-local tokyonight_ok, tokyonight = pcall(require, "tokyonight")
-if not tokyonight_ok then
+local base_16_status_ok, base16_colorscheme = pcall(require, "base16-colorscheme")
+if not base_16_status_ok then
 	return
 else
-    tokyonight.setup({
-        style = "night"
-    })
-	vim.cmd([[
-        colo tokyonight
-        hi Comment guifg=#8f8c8c
-    ]])
+	base16_colorscheme.setup({
+		base00 = "#1d2021",
+		base01 = "#3a3a3a",
+		base02 = "#4e4e4e",
+		base03 = "#8a8a8a",
+		base04 = "#949494",
+		base05 = "#dab997",
+		base06 = "#d5c4a1",
+		base07 = "#ebdbb2",
+		base08 = "#d75f5f",
+		base09 = "#ff8700",
+		base0A = "#ffaf00",
+		base0B = "#afaf00",
+		base0C = "#85ad85",
+		base0D = "#83adad",
+		base0E = "#d485ad",
+		base0F = "#d65d0e",
+	})
 end
-
--- local colorscheme = "base16-gruvbox-dark-hard"
-
--- local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
--- if not status_ok then
--- 	print("colorscheme was not loaded")
--- 	return
--- end
-
--- vim.cmd [[
--- highlight Comment guifg=#8f8c8c
--- hi Normal ctermbg=NONE
--- call Base16hi("Comment", g:base16_gui09, "", g:base16_cterm09, "", "", "")
--- ]]

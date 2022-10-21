@@ -130,7 +130,7 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("lukas-reineke/indent-blankline.nvim")
 	use("folke/todo-comments.nvim")
-	use({ "mbbill/undotree", cmd = { "UndoTreeToggle" } })
+	use("mbbill/undotree")
 	use("NvChad/nvim-colorizer.lua")
 	use("p00f/nvim-ts-rainbow")
 
@@ -140,6 +140,7 @@ return packer.startup(function(use)
 	use("gbprod/substitute.nvim")
 	use({ "kylechui/nvim-surround", tag = "*" })
 	use("wellle/targets.vim")
+	use("chaoren/vim-wordmotion")
 	use("windwp/nvim-autopairs")
 	use("junegunn/vim-easy-align")
 	use("andymass/vim-matchup")
@@ -176,9 +177,8 @@ return packer.startup(function(use)
 	use("editorconfig/editorconfig-vim")
 
 	-- Colorschemes
-	-- use("RRethy/nvim-base16")
-	use("folke/tokyonight.nvim")
-	-- use("chriskempson/base16-vim")
+	use("RRethy/nvim-base16")
+	-- use("folke/tokyonight.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then

@@ -70,10 +70,8 @@ keymap("n", "k", "gk", opts)
 keymap("n", "zl", "25zl<CR>", opts)
 keymap("n", "zh", "25zh<CR>", opts)
 
--- sed
-keymap("n", "<leader>/", ":%s/", { noremap = true })
-keymap("v", "<leader>/", ":s/", { noremap = true })
-keymap("n","<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>") -- current line only, replace all occurences of word under cursor
+-- Replace word under cursor on current line only
+keymap("n","<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
 vim.cmd([[
 " Search results centered please
