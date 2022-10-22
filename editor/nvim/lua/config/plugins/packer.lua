@@ -149,6 +149,7 @@ return packer.startup(function(use)
 	use("nacro90/numb.nvim")
 	use("monaqa/dial.nvim")
 	use("abecodes/tabout.nvim")
+	use("linty-org/readline.nvim")
 
 	-- Note taking (Markdown)
 	use({ "jghauser/follow-md-links.nvim", ft = "markdown" })
