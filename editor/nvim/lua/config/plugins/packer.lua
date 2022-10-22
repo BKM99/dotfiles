@@ -114,7 +114,6 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-file-browser.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 
 	-- Database
@@ -125,7 +124,6 @@ return packer.startup(function(use)
 
 	-- Better UI
 	use("stevearc/dressing.nvim")
-	use("akinsho/bufferline.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("lukas-reineke/indent-blankline.nvim")
@@ -178,8 +176,8 @@ return packer.startup(function(use)
 	use("editorconfig/editorconfig-vim")
 
 	-- Colorschemes
-	use("RRethy/nvim-base16")
-	-- use("folke/tokyonight.nvim")
+	-- use("RRethy/nvim-base16")
+	use("folke/tokyonight.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then

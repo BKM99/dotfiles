@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/SchemaStore.nvim",
     url = "https://github.com/b0o/SchemaStore.nvim"
   },
-  ["bufferline.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
-  },
   ["bullets.vim"] = {
     loaded = false,
     needs_bufread = false,
@@ -278,11 +273,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
-  },
   ["nvim-bqf"] = {
     loaded = false,
     needs_bufread = true,
@@ -422,11 +412,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
     url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
-  ["telescope-file-browser.nvim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
-    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
-  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -441,6 +426,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -539,35 +529,35 @@ time([[Setup for markdown-preview.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestNearest lua require("packer.load")({'vim-test'}, { cmd = "TestNearest", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestVisit lua require("packer.load")({'vim-test'}, { cmd = "TestVisit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogen lua require("packer.load")({'neogen'}, { cmd = "Neogen", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Dispatch lua require("packer.load")({'vim-dispatch'}, { cmd = "Dispatch", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Make lua require("packer.load")({'vim-dispatch'}, { cmd = "Make", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestFile lua require("packer.load")({'vim-test'}, { cmd = "TestFile", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestLast lua require("packer.load")({'vim-test'}, { cmd = "TestLast", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestClass lua require("packer.load")({'vim-test'}, { cmd = "TestClass", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestSuite lua require("packer.load")({'vim-test'}, { cmd = "TestSuite", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestVisit lua require("packer.load")({'vim-test'}, { cmd = "TestVisit", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Neogen lua require("packer.load")({'neogen'}, { cmd = "Neogen", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FeMaco lua require("packer.load")({'nvim-FeMaco.lua'}, { cmd = "FeMaco", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file TestNearest lua require("packer.load")({'vim-test'}, { cmd = "TestNearest", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
-vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
 vim.cmd [[au FileType go ++once lua require("packer.load")({'go.nvim'}, { ft = "go" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'follow-md-links.nvim', 'bullets.vim', 'zk-nvim', 'vim-table-mode', 'markdown-preview.nvim', 'vim-markdown-toc'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-markdown-toc', 'markdown-preview.nvim', 'follow-md-links.nvim', 'zk-nvim', 'bullets.vim', 'vim-table-mode'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]], true)
-vim.cmd [[source /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]]
-time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]], false)
 time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], true)
 vim.cmd [[source /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]]
 time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-markdown-toc/ftdetect/markdown.vim]], false)
+time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]], true)
+vim.cmd [[source /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]]
+time([[Sourcing ftdetect script at: /Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/go.nvim/ftdetect/go.vim]], false)
 vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
