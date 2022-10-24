@@ -39,7 +39,6 @@ return packer.startup(function(use)
 
 	-- Better Performance
 	use("lewis6991/impatient.nvim")
-	use({ "tpope/vim-dispatch", cmd = { "Dispatch", "Make" } })
 
 	-- A Bunch of Plugins use these
 	use("kyazdani42/nvim-web-devicons")
@@ -53,7 +52,6 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
-    use("glepnir/lspsaga.nvim")
 	use({
 		"williamboman/mason.nvim",
 		requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
@@ -62,11 +60,10 @@ return packer.startup(function(use)
 	use("folke/trouble.nvim")
 
 	-- Language specific
-	use({ "ray-x/go.nvim", ft = "go" })
 	use({ "mfussenegger/nvim-jdtls", ft = "java" })
 	use("b0o/SchemaStore.nvim")
 
-	-- Autocomplete
+	-- Autocomplete and Snippets
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -77,6 +74,8 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
 			"onsails/lspkind.nvim",
+			"L3MON4D3/LuaSnip",
+			"rafamadriz/friendly-snippets",
 		},
 	})
 
@@ -90,21 +89,22 @@ return packer.startup(function(use)
 			"mxsdev/nvim-dap-vscode-js",
 		},
 	})
-	use({ "vim-test/vim-test", cmd = { "TestFile", "TestLast", "TestClass", "TestSuite", "TestVisit", "TestNearest" } })
-
-	-- Snippets
-	use({ "L3MON4D3/LuaSnip", requires = { "rafamadriz/friendly-snippets" } })
 
 	-- Git
-	use("TimUntersberger/neogit")
 	use("lewis6991/gitsigns.nvim")
-	use("sindrets/diffview.nvim")
 
 	-- Quickfix list
-	use({ "kevinhwang91/nvim-bqf", ft = "qf" })
-
-	-- FZF
-	use("junegunn/fzf.vim")
+	use({
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+		config = function()
+			require("bqf").setup({
+				preview = {
+					auto_preview = false,
+				},
+			})
+		end,
+	})
 	use({
 		"junegunn/fzf",
 		run = function()
@@ -115,13 +115,6 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("nvim-telescope/telescope-dap.nvim")
-
-	-- Database
-	use({
-		"tpope/vim-dadbod",
-		requires = { "kristijanhusak/vim-dadbod-ui", "kristijanhusak/vim-dadbod-completion" },
-	})
 
 	-- Better UI
 	use("stevearc/dressing.nvim")
@@ -129,56 +122,49 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
 	use("lukas-reineke/indent-blankline.nvim")
 	use("folke/todo-comments.nvim")
-	use("mbbill/undotree")
+	use({
+		"mbbill/undotree",
+		setup = function()
+			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { noremap = true, silent = true })
+			vim.g.undotree_SetFocusWhenToggle = 1
+		end,
+	})
 	use("NvChad/nvim-colorizer.lua")
-	use("p00f/nvim-ts-rainbow")
 
 	-- Editing Support
-	use("tpope/vim-repeat")
-	use({ "danymat/neogen", tag = "*", cmd = { "Neogen" } })
+	use("ggandor/leap.nvim")
 	use("gbprod/substitute.nvim")
-	use({ "kylechui/nvim-surround", tag = "*" })
+	use({
+		"kylechui/nvim-surround",
+		tag = "*",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	})
 	use("wellle/targets.vim")
-	use("chaoren/vim-wordmotion")
 	use("windwp/nvim-autopairs")
-	use("junegunn/vim-easy-align")
-	use("andymass/vim-matchup")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-	use("nacro90/numb.nvim")
-	use("monaqa/dial.nvim")
 	use("abecodes/tabout.nvim")
-	use("linty-org/readline.nvim")
 
-	-- Note taking (Markdown)
-	use({ "jghauser/follow-md-links.nvim", ft = "markdown" })
-	use({ "mickael-menu/zk-nvim", ft = "markdown" })
-	use({ "AckslD/nvim-FeMaco.lua", cmd = { "FeMaco" } })
+	-- Note taking
 	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
-	use({ "mzlogin/vim-markdown-toc", ft = "markdown" })
-	use({ "dkarter/bullets.vim", ft = "markdown" })
+	use({ "dkarter/bullets.vim", ft = { "markdown", "text", "gitcommit" } })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
 		ft = { "markdown" },
 	})
-
-	-- Faster movements
-	use("ggandor/leap.nvim")
-	use({ "phaazon/hop.nvim", branch = "v2" })
-	use("ThePrimeagen/harpoon")
-
-	-- Other Plugins
-	use("airblade/vim-rooter")
-	use("AckslD/nvim-neoclip.lua")
-	use("editorconfig/editorconfig-vim")
 
 	-- Colorschemes
 	-- use("RRethy/nvim-base16")
 	use("folke/tokyonight.nvim")
+	-- use("ChristianChiarulli/nvcode-color-schemes.vim")
+	-- use("projekt0n/github-nvim-theme")
+	-- use("kvrohit/rasmus.nvim")
+	-- use("yazeed1s/minimal.nvim")
+	-- use("Mofiqul/adwaita.nvim")
+	-- use("ishan9299/nvim-solarized-lua")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then

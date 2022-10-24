@@ -55,14 +55,3 @@ require("config.plugins.dap.node")
 require("config.plugins.dap.jsChrome")
 require("config.plugins.dap.golang")
 require("config.plugins.dap.cpp")
-
-local status_ok_telescope, telescope = pcall(require, "telescope")
-if not status_ok_telescope then
-	return
-else
-	telescope.load_extension("dap")
-	keymap("n", "<leader>dc", ":Telescope dap commands<cr>", opts)
-	keymap("n", "<leader>dlb", ":Telescope dap list_breakpoints<cr>", opts)
-	keymap("n", "<leader>dv", ":Telescope dap variables<cr>", opts)
-	keymap("n", "<leader>df", ":Telescope dap frames<cr>", opts)
-end
