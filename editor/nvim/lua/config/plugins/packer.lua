@@ -41,7 +41,6 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 
 	-- A Bunch of Plugins use these
-	use("kyazdani42/nvim-web-devicons")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 
@@ -54,10 +53,11 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use({
 		"williamboman/mason.nvim",
-		requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
-	use("folke/trouble.nvim")
+	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 
 	-- Language specific
 	use({ "mfussenegger/nvim-jdtls", ft = "java" })
@@ -79,7 +79,7 @@ return packer.startup(function(use)
 		},
 	})
 
-	-- Debugging and Testing
+	-- Debugging
 	use({
 		"mfussenegger/nvim-dap",
 		requires = {
@@ -112,16 +112,27 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- Project
+	use({
+		"notjedi/nvim-rooter.lua",
+		config = function()
+			require("nvim-rooter").setup()
+		end,
+	})
+
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
+	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Better UI
 	use("stevearc/dressing.nvim")
-	use("nvim-lualine/lualine.nvim")
-	use({ "kyazdani42/nvim-tree.lua", tag = "nightly" })
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+	use({ "kyazdani42/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" })
 	use("lukas-reineke/indent-blankline.nvim")
-	use("folke/todo-comments.nvim")
+	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
 	use({
 		"mbbill/undotree",
 		setup = function()
@@ -145,7 +156,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-	use("abecodes/tabout.nvim")
+	use({ "abecodes/tabout.nvim", wants = { "nvim-treesitter" }, after = { "nvim-cmp" } })
 
 	-- Note taking
 	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
