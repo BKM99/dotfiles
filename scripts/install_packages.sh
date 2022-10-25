@@ -20,6 +20,7 @@ brew install pyenv
 brew install pyenv-virtualenv
 brew install ncdu
 brew install zk
+brew install tldr
 brew install autojump
 brew install exa
 brew install go
