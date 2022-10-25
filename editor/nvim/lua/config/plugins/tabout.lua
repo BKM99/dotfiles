@@ -4,8 +4,8 @@ if not ok then
 end
 
 tabout.setup({
-	tabkey = "<leader><Tab>", -- key to trigger tabout, set to an empty string to disable
-	backwards_tabkey = "<leader><S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+	tabkey = "<A-Tab>", -- key to trigger tabout, set to an empty string to disable
+	backwards_tabkey = "<A-S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
 	act_as_tab = true, -- shift content if tab out is not possible
 	act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
 	default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
