@@ -156,7 +156,7 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-	use({ "abecodes/tabout.nvim", wants = { "nvim-treesitter" }, after = { "nvim-cmp" } })
+	use("abecodes/tabout.nvim")
 
 	-- Note taking
 	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
