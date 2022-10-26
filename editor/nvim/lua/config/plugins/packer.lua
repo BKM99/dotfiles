@@ -168,14 +168,24 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	-- use("RRethy/nvim-base16")
-	use("folke/tokyonight.nvim")
+    -- use("Shatur/neovim-ayu")
+    -- use("tiagovla/tokyodark.nvim")
+    -- use("Tsuzat/NeoSolarized.nvim")
+	-- use("kvrohit/mellow.nvim")
+	-- use("jacoborus/tender.vim")
+	-- use("rebelot/kanagawa.nvim")
+	use("RRethy/nvim-base16")
+    -- use("chriskempson/base16-vim")
+	-- use("folke/tokyonight.nvim")
+    -- use("tomasiser/vim-code-dark")
+    -- use("NTBBloodbath/doom-one.nvim")
 	-- use("ChristianChiarulli/nvcode-color-schemes.vim")
 	-- use("projekt0n/github-nvim-theme")
 	-- use("kvrohit/rasmus.nvim")
 	-- use("yazeed1s/minimal.nvim")
 	-- use("Mofiqul/adwaita.nvim")
 	-- use("ishan9299/nvim-solarized-lua")
+    -- use("https://gitlab.com/madyanov/gruber.vim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then
