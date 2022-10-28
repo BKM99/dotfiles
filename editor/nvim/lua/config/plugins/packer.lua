@@ -143,6 +143,7 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 
 	-- Editing Support
+    use("andymass/vim-matchup")
 	use("ggandor/leap.nvim")
 	use("gbprod/substitute.nvim")
 	use({
@@ -168,24 +169,26 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-    -- use("Shatur/neovim-ayu")
-    -- use("tiagovla/tokyodark.nvim")
-    -- use("Tsuzat/NeoSolarized.nvim")
+    -- use("nanotech/jellybeans.vim")
+	-- use("Shatur/neovim-ayu")
+	-- use("tiagovla/tokyodark.nvim")
+	-- use("Tsuzat/NeoSolarized.nvim")
 	-- use("kvrohit/mellow.nvim")
 	-- use("jacoborus/tender.vim")
 	-- use("rebelot/kanagawa.nvim")
-	use("RRethy/nvim-base16")
-    -- use("chriskempson/base16-vim")
+	-- use("RRethy/nvim-base16")
+	use("chriskempson/base16-vim")
 	-- use("folke/tokyonight.nvim")
-    -- use("tomasiser/vim-code-dark")
-    -- use("NTBBloodbath/doom-one.nvim")
+	-- use("tomasiser/vim-code-dark")
+	-- use("NTBBloodbath/doom-one.nvim")
 	-- use("ChristianChiarulli/nvcode-color-schemes.vim")
 	-- use("projekt0n/github-nvim-theme")
 	-- use("kvrohit/rasmus.nvim")
 	-- use("yazeed1s/minimal.nvim")
 	-- use("Mofiqul/adwaita.nvim")
 	-- use("ishan9299/nvim-solarized-lua")
-    -- use("https://gitlab.com/madyanov/gruber.vim")
+	-- use("https://gitlab.com/madyanov/gruber.vim")
+    -- use("joshdick/onedark.vim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then

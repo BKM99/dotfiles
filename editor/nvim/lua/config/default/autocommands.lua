@@ -18,3 +18,30 @@ vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] }
 
 -- Go to last location
 vim.cmd [[ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif ]]
+
+-- windows to close
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "help",
+    "startuptime",
+    "qf",
+    "lspinfo",
+    "vim",
+    "OverseerList",
+    "OverseerForm",
+    "fugitive",
+    "toggleterm",
+    "floggraph",
+    "git",
+    "neotest-summary",
+    "query",
+    "tsplayground",
+  },
+  command = [[nnoremap <buffer><silent> q :close<CR>]],
+})
+
+-- create directories when needed, when saving a file
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),
+  command = [[call mkdir(expand('<afile>:p:h'), 'p')]],
+})

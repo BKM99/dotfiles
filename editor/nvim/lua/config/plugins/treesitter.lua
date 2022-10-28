@@ -44,6 +44,9 @@ else
 		autopairs = {
 			enable = true,
 		},
+		matchup = {
+			enable = true,
+		},
 		context_commentstring = {
 			enable = true,
 		},

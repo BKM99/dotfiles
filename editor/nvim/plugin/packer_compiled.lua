@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/SchemaStore.nvim",
     url = "https://github.com/b0o/SchemaStore.nvim"
   },
+  ["base16-vim"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
+  },
   ["bullets.vim"] = {
     loaded = false,
     needs_bufread = false,
@@ -202,11 +207,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
-  },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
   },
   ["nvim-bqf"] = {
     config = { "\27LJ\2\nY\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fpreview\1\0\0\1\0\1\17auto_preview\1\nsetup\bbqf\frequire\0" },
@@ -361,6 +361,11 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-matchup"] = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-matchup",
+    url = "https://github.com/andymass/vim-matchup"
+  },
   ["vim-table-mode"] = {
     loaded = false,
     needs_bufread = true,
@@ -373,28 +378,28 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Setup for: undotree
 time([[Setup for undotree]], true)
-try_loadstring("\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
+try_loadstring("\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\vsilent\2\fnoremap\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
 time([[Setup for undotree]], false)
 time([[packadd for undotree]], true)
 vim.cmd [[packadd undotree]]
 time([[packadd for undotree]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
 -- Config for: nvim-rooter.lua
 time([[Config for nvim-rooter.lua]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16nvim-rooter\frequire\0", "config", "nvim-rooter.lua")
 time([[Config for nvim-rooter.lua]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim', 'vim-table-mode', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
-vim.cmd [[au FileType gitcommit ++once lua require("packer.load")({'bullets.vim'}, { ft = "gitcommit" }, _G.packer_plugins)]]
 vim.cmd [[au FileType text ++once lua require("packer.load")({'bullets.vim'}, { ft = "text" }, _G.packer_plugins)]]
+vim.cmd [[au FileType gitcommit ++once lua require("packer.load")({'bullets.vim'}, { ft = "gitcommit" }, _G.packer_plugins)]]
+vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'bullets.vim', 'markdown-preview.nvim', 'vim-table-mode'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
