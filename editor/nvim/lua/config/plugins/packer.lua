@@ -39,6 +39,12 @@ return packer.startup(function(use)
 
 	-- Better Performance
 	use("lewis6991/impatient.nvim")
+	use({
+		"stevearc/overseer.nvim",
+		config = function()
+			require("overseer").setup()
+		end,
+	})
 
 	-- A Bunch of Plugins use these
 	use("nvim-lua/plenary.nvim")
@@ -143,7 +149,7 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 
 	-- Editing Support
-    use("andymass/vim-matchup")
+	use("andymass/vim-matchup")
 	use("ggandor/leap.nvim")
 	use("gbprod/substitute.nvim")
 	use({
@@ -169,7 +175,7 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-    -- use("nanotech/jellybeans.vim")
+	-- use("nanotech/jellybeans.vim")
 	-- use("Shatur/neovim-ayu")
 	-- use("tiagovla/tokyodark.nvim")
 	-- use("Tsuzat/NeoSolarized.nvim")
@@ -188,7 +194,7 @@ return packer.startup(function(use)
 	-- use("Mofiqul/adwaita.nvim")
 	-- use("ishan9299/nvim-solarized-lua")
 	-- use("https://gitlab.com/madyanov/gruber.vim")
-    -- use("joshdick/onedark.vim")
+	-- use("joshdick/onedark.vim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then
