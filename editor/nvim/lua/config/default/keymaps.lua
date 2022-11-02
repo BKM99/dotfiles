@@ -27,7 +27,7 @@ keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
 
 -- Delete buffer
-keymap("n", "<leader>q", ":bdelete<CR>", opts)
+-- keymap("n", "<leader>q", ":bdelete<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
@@ -62,6 +62,9 @@ keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 -- open file in the buffer's current path
 keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 
+-- open dotfiles
+keymap("n", "<leader>od", ":e ~/.dotfiles/ <CR>", opts)
+
 -- move line by line
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
@@ -91,7 +94,7 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- open quickfix list
-keymap("n", "<leader>co", ":copen<CR>", opts)
+keymap("n", "<leader>qf", ":copen<CR>", opts)
 
 -- go through quickfix list
 keymap("n", "]q", ":cnext<CR>", opts)

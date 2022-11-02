@@ -49,14 +49,16 @@ cmp.setup({
 			end
 		end,
 	}),
-	sources = cmp.config.sources({
+	sources = {
 		{ name = "nvim_lua" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
-	}, {
+		{ name = "neorg" },
+	},
+	{
 		{ name = "buffer", keyword_length = 5 },
-	}),
+	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,

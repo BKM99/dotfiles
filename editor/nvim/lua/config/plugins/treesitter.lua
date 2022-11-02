@@ -19,6 +19,7 @@ else
 			"markdown",
 			"tsx",
 			"markdown",
+			"norg",
 			"python",
 			"rust",
 			"ruby",

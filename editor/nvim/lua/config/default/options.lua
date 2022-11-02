@@ -34,6 +34,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.cmd([[filetype plugin indent on]])
+vim.cmd([[set nofoldenable]])
 
 -- Some default color stuff
 vim.opt.termguicolors = true

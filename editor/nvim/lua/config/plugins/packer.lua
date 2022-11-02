@@ -166,6 +166,53 @@ return packer.startup(function(use)
 	use("abecodes/tabout.nvim")
 
 	-- Note taking
+	use({
+		"jakewvincent/mkdnflow.nvim",
+		config = function()
+			require("mkdnflow").setup({})
+		end,
+		ft = "markdown",
+	})
+	use({
+		"nvim-neorg/neorg",
+		run = ":Neorg sync-parsers",
+		-- tag = "*",
+		-- ft = "norg",
+		-- after = "nvim-treesitter",
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {},
+					["core.norg.dirman"] = {
+						config = {
+							workspaces = {
+								notes = "~/Documents/Notes/norg/notes",
+								gtd = "~/Documents/Notes/norg/gtd_workspace",
+							},
+						},
+					},
+					["core.norg.concealer"] = {},
+					["core.norg.completion"] = {
+						config = {
+							engine = "nvim-cmp",
+						},
+					},
+					["core.integrations.telescope"] = {},
+					["core.gtd.base"] = {
+						config = {
+							workspace = "gtd",
+						},
+					},
+				},
+			})
+		end,
+		requires = "nvim-neorg/neorg-telescope",
+	})
+	use({
+		"AckslD/nvim-FeMaco.lua",
+		config = 'require("femaco").setup()',
+		command = { "FeMaco" },
+	})
 	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
 	use({ "dkarter/bullets.vim", ft = { "markdown", "text", "gitcommit" } })
 	use({
