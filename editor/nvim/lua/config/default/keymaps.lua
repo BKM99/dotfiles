@@ -27,7 +27,7 @@ keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
 
 -- Delete buffer
--- keymap("n", "<leader>q", ":bdelete<CR>", opts)
+keymap("n", "<leader>bd", ":bdelete<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
@@ -49,6 +49,7 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
 
 -- delete to black hole register
+keymap("n", "x", '"_x', opts)
 -- keymap("n", "<leader>d", "\"_d", opts)
 -- keymap("v", "<leader>d", "\"_d", opts)
 
@@ -62,8 +63,8 @@ keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 -- open file in the buffer's current path
 keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 
--- open dotfiles
-keymap("n", "<leader>od", ":e ~/.dotfiles/ <CR>", opts)
+-- -- open dotfiles
+-- keymap("n", "<leader>od", ":e ~/.dotfiles/ <CR>", opts)
 
 -- move line by line
 keymap("n", "j", "gj", opts)
