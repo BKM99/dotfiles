@@ -77,18 +77,13 @@ keymap("n", "zh", "25zh<CR>", opts)
 -- Replace word under cursor on current line only
 keymap("n","<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
-vim.cmd([[
-" Search results centered please
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-
-" Jump to start and end of line using the home row keys
-map H ^
-map L $
-]])
+-- Center searches
+keymap("n", "n", "nzz", opts)
+keymap("n", "N", "Nzz", opts)
+keymap("n", "*", "*zz", opts)
+keymap("n", "#", "#zz", opts)
+keymap("n", "g*", "g*zz", opts)
+keymap("n", "g#", "g#zz", opts)
 
 -- center screen when scrolling
 keymap("n", "<C-d>", "<C-d>zz", opts)

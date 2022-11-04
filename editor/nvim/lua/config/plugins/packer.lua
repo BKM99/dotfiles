@@ -39,12 +39,6 @@ return packer.startup(function(use)
 
 	-- Better Performance
 	use("lewis6991/impatient.nvim")
-	use({
-		"stevearc/overseer.nvim",
-		config = function()
-			require("overseer").setup()
-		end,
-	})
 
 	-- A Bunch of Plugins use these
 	use("nvim-lua/plenary.nvim")
@@ -111,6 +105,7 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+    -- I'm only using this for fuzzy searching qf list
 	use({
 		"junegunn/fzf",
 		run = function()
@@ -119,12 +114,7 @@ return packer.startup(function(use)
 	})
 
 	-- Project
-	use({
-		"notjedi/nvim-rooter.lua",
-		config = function()
-			require("nvim-rooter").setup()
-		end,
-	})
+	use("ahmedkhalf/project.nvim")
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -147,6 +137,20 @@ return packer.startup(function(use)
 		end,
 	})
 	use("NvChad/nvim-colorizer.lua")
+
+	-- Code Runners
+	use({
+		"michaelb/sniprun",
+		run = "bash install.sh",
+		config = function()
+			require("sniprun").setup({
+				display = { "Classic" },
+			})
+			vim.keymap.set("n", "<leader>sr", ":SnipRun <CR>", { noremap = true, silent = true })
+			vim.keymap.set("v", "<leader>sr", ":SnipRun <CR>", { noremap = true, silent = true })
+		end,
+	})
+	use("CRAG666/code_runner.nvim")
 
 	-- Editing Support
 	use("andymass/vim-matchup")
