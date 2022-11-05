@@ -105,7 +105,6 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-    -- I'm only using this for fuzzy searching qf list
 	use({
 		"junegunn/fzf",
 		run = function()
@@ -139,22 +138,16 @@ return packer.startup(function(use)
 	use("NvChad/nvim-colorizer.lua")
 
 	-- Code Runners
-	use({
-		"michaelb/sniprun",
-		run = "bash install.sh",
-		config = function()
-			require("sniprun").setup({
-				display = { "Classic" },
-			})
-			vim.keymap.set("n", "<leader>sr", ":SnipRun <CR>", { noremap = true, silent = true })
-			vim.keymap.set("v", "<leader>sr", ":SnipRun <CR>", { noremap = true, silent = true })
-		end,
-	})
+	use({ "michaelb/sniprun", run = "bash install.sh" })
 	use("CRAG666/code_runner.nvim")
+
+    -- Faster movements
+	use("ggandor/leap.nvim")
+    use("phaazon/hop.nvim")
+    use("ThePrimeagen/harpoon")
 
 	-- Editing Support
 	use("andymass/vim-matchup")
-	use("ggandor/leap.nvim")
 	use("gbprod/substitute.nvim")
 	use({
 		"kylechui/nvim-surround",
@@ -180,36 +173,6 @@ return packer.startup(function(use)
 	use({
 		"nvim-neorg/neorg",
 		run = ":Neorg sync-parsers",
-		-- tag = "*",
-		-- ft = "norg",
-		-- after = "nvim-treesitter",
-		config = function()
-			require("neorg").setup({
-				load = {
-					["core.defaults"] = {},
-					["core.norg.dirman"] = {
-						config = {
-							workspaces = {
-								notes = "~/Documents/Notes/norg/notes",
-								gtd = "~/Documents/Notes/norg/gtd_workspace",
-							},
-						},
-					},
-					["core.norg.concealer"] = {},
-					["core.norg.completion"] = {
-						config = {
-							engine = "nvim-cmp",
-						},
-					},
-					["core.integrations.telescope"] = {},
-					["core.gtd.base"] = {
-						config = {
-							workspace = "gtd",
-						},
-					},
-				},
-			})
-		end,
 		requires = "nvim-neorg/neorg-telescope",
 	})
 	use({

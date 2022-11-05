@@ -75,7 +75,7 @@ keymap("n", "zl", "25zl<CR>", opts)
 keymap("n", "zh", "25zh<CR>", opts)
 
 -- Replace word under cursor on current line only
-keymap("n","<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
+keymap("n", "<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
 -- Center searches
 keymap("n", "n", "nzz", opts)
@@ -95,3 +95,6 @@ keymap("n", "<leader>qf", ":copen<CR>", opts)
 -- go through quickfix list
 keymap("n", "]q", ":cnext<CR>", opts)
 keymap("n", "[q", ":cprevious<CR>", opts)
+
+-- I disabled netrw because of nvim tree, using this keybind to open URL under cursor
+vim.cmd([[ nmap gx :!open <c-r><c-a> ]])
