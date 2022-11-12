@@ -1,4 +1,5 @@
 -- vim.opt.guicursor = "" -- cursor is always a block
+vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
@@ -7,7 +8,6 @@ vim.opt.gdefault = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.swapfile = false
 vim.opt.fileencoding = "utf-8"
-vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.wrap = false
 vim.opt.showmode = false
@@ -33,6 +33,9 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.title = true
 vim.cmd([[filetype plugin indent on]])
 vim.cmd([[set nofoldenable]])
 

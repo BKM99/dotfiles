@@ -46,7 +46,7 @@ function fe() {
     [[ -n "$files" ]] && ${EDITOR} -O "${files[@]}" -p
 }
 
-alias notes='cd ~/Documents/Notes/ && fe'
+alias notes='cd ~/Documents/Dropbox/Notes/ && fe'
 
 # clone a plugin, identify its init file, source it, and add it to your fpath
 function plugin-load {

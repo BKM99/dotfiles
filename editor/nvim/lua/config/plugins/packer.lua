@@ -141,10 +141,10 @@ return packer.startup(function(use)
 	use({ "michaelb/sniprun", run = "bash install.sh" })
 	use("CRAG666/code_runner.nvim")
 
-    -- Faster movements
+	-- Faster movements
 	use("ggandor/leap.nvim")
-    use("phaazon/hop.nvim")
-    use("ThePrimeagen/harpoon")
+	use("phaazon/hop.nvim")
+	use("ThePrimeagen/harpoon")
 
 	-- Editing Support
 	use("andymass/vim-matchup")
@@ -163,18 +163,13 @@ return packer.startup(function(use)
 	use("abecodes/tabout.nvim")
 
 	-- Note taking
-	use({
-		"jakewvincent/mkdnflow.nvim",
-		config = function()
-			require("mkdnflow").setup({})
-		end,
-		ft = "markdown",
-	})
-	use({
-		"nvim-neorg/neorg",
-		run = ":Neorg sync-parsers",
-		requires = "nvim-neorg/neorg-telescope",
-	})
+    use({"lervag/wiki.vim", setup = function ()
+       vim.cmd([[
+        " let g:wiki_root = '~/wiki'
+        let g:wiki_filetypes = ['md']
+        let g:wiki_link_extension = '.md'
+       ]])
+    end})
 	use({
 		"AckslD/nvim-FeMaco.lua",
 		config = 'require("femaco").setup()',
@@ -209,6 +204,8 @@ return packer.startup(function(use)
 	-- use("ishan9299/nvim-solarized-lua")
 	-- use("https://gitlab.com/madyanov/gruber.vim")
 	-- use("joshdick/onedark.vim")
+	-- use("rmehri01/onenord.nvim")
+	-- use("Yazeed1s/oh-lucy.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	if packer_bootstrap then

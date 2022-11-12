@@ -98,3 +98,6 @@ keymap("n", "[q", ":cprevious<CR>", opts)
 
 -- I disabled netrw because of nvim tree, using this keybind to open URL under cursor
 vim.cmd([[ nmap gx :!open <c-r><c-a> ]])
+
+-- open refile
+keymap("n", "<leader>c", ":split ~/Documents/Dropbox/Notes/refile.md <CR>")

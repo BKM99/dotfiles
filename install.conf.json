@@ -14,7 +14,6 @@
     "link": {
       "~/.config/kitty": "terminals/kitty",
       "~/.config/nvim": "editor/nvim",
-      "~/.config/zk": "tools/zk",
       "~/.gitconfig": "tools/git/.gitconfig",
       "~/.gitignore_global": "tools/git/.gitignore_global",
       "~/.p10k.zsh": "shell/zsh/.p10k.zsh",

@@ -213,24 +213,6 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["mkdnflow.nvim"] = {
-    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rmkdnflow\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/mkdnflow.nvim",
-    url = "https://github.com/jakewvincent/mkdnflow.nvim"
-  },
-  neorg = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neorg",
-    url = "https://github.com/nvim-neorg/neorg"
-  },
-  ["neorg-telescope"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neorg-telescope",
-    url = "https://github.com/nvim-neorg/neorg-telescope"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -415,6 +397,12 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/vim-table-mode",
     url = "https://github.com/dhruvasagar/vim-table-mode"
+  },
+  ["wiki.vim"] = {
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/wiki.vim",
+    url = "https://github.com/lervag/wiki.vim"
   }
 }
 
@@ -426,23 +414,30 @@ time([[Setup for undotree]], false)
 time([[packadd for undotree]], true)
 vim.cmd [[packadd undotree]]
 time([[packadd for undotree]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
+-- Setup for: wiki.vim
+time([[Setup for wiki.vim]], true)
+try_loadstring("\27LJ\2\n°\1\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0Å\1        \" let g:wiki_root = '~/wiki'\n        let g:wiki_filetypes = ['md']\n        let g:wiki_link_extension = '.md'\n       \bcmd\bvim\0", "setup", "wiki.vim")
+time([[Setup for wiki.vim]], false)
+time([[packadd for wiki.vim]], true)
+vim.cmd [[packadd wiki.vim]]
+time([[packadd for wiki.vim]], false)
 -- Config for: nvim-FeMaco.lua
 time([[Config for nvim-FeMaco.lua]], true)
 require("femaco").setup()
 time([[Config for nvim-FeMaco.lua]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'mkdnflow.nvim', 'markdown-preview.nvim', 'vim-table-mode', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-table-mode', 'markdown-preview.nvim', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
-vim.cmd [[au FileType text ++once lua require("packer.load")({'bullets.vim'}, { ft = "text" }, _G.packer_plugins)]]
 vim.cmd [[au FileType gitcommit ++once lua require("packer.load")({'bullets.vim'}, { ft = "gitcommit" }, _G.packer_plugins)]]
+vim.cmd [[au FileType text ++once lua require("packer.load")({'bullets.vim'}, { ft = "text" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
