@@ -407,13 +407,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: undotree
-time([[Setup for undotree]], true)
-try_loadstring("\27LJ\2\nú\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
-time([[Setup for undotree]], false)
-time([[packadd for undotree]], true)
-vim.cmd [[packadd undotree]]
-time([[packadd for undotree]], false)
 -- Setup for: wiki.vim
 time([[Setup for wiki.vim]], true)
 try_loadstring("\27LJ\2\n°\1\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0Å\1        \" let g:wiki_root = '~/wiki'\n        let g:wiki_filetypes = ['md']\n        let g:wiki_link_extension = '.md'\n       \bcmd\bvim\0", "setup", "wiki.vim")
@@ -421,6 +414,13 @@ time([[Setup for wiki.vim]], false)
 time([[packadd for wiki.vim]], true)
 vim.cmd [[packadd wiki.vim]]
 time([[packadd for wiki.vim]], false)
+-- Setup for: undotree
+time([[Setup for undotree]], true)
+try_loadstring("\27LJ\2\nú\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
+time([[Setup for undotree]], false)
+time([[packadd for undotree]], true)
+vim.cmd [[packadd undotree]]
+time([[packadd for undotree]], false)
 -- Config for: nvim-FeMaco.lua
 time([[Config for nvim-FeMaco.lua]], true)
 require("femaco").setup()
@@ -433,10 +433,10 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'vim-table-mode', 'markdown-preview.nvim', 'bullets.vim'}, { ft = "markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
 vim.cmd [[au FileType gitcommit ++once lua require("packer.load")({'bullets.vim'}, { ft = "gitcommit" }, _G.packer_plugins)]]
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'bullets.vim', 'markdown-preview.nvim', 'vim-table-mode'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
 vim.cmd [[au FileType text ++once lua require("packer.load")({'bullets.vim'}, { ft = "text" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
