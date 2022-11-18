@@ -6,9 +6,9 @@ end
 local config = {
 	options = {
 		icons_enabled = true,
-		theme = "powerline",
-		component_separators = { left = "|", right = "|" },
-		section_separators = { left = "", right = "" },
+		theme = "catppuccin",
+		-- component_separators = { left = "|", right = "|" },
+		-- section_separators = { left = "", right = "" },
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},

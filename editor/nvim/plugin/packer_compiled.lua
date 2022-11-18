@@ -89,17 +89,17 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/SchemaStore.nvim",
     url = "https://github.com/b0o/SchemaStore.nvim"
   },
-  ["base16-vim"] = {
-    loaded = true,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/base16-vim",
-    url = "https://github.com/chriskempson/base16-vim"
-  },
   ["bullets.vim"] = {
     loaded = false,
     needs_bufread = false,
     only_cond = false,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/bullets.vim",
     url = "https://github.com/dkarter/bullets.vim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -451,7 +451,7 @@ vim.cmd [[packadd wiki.vim]]
 time([[packadd for wiki.vim]], false)
 -- Setup for: undotree
 time([[Setup for undotree]], true)
-try_loadstring("\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\vsilent\2\fnoremap\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
+try_loadstring("\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\fnoremap\2\vsilent\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
 time([[Setup for undotree]], false)
 time([[packadd for undotree]], true)
 vim.cmd [[packadd undotree]]
