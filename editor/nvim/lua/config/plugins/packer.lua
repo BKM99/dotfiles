@@ -91,12 +91,7 @@ return packer.startup(function(use)
 	})
 
 	-- Run Tests
-	use({
-		"vim-test/vim-test",
-		config = function()
-			require("config.plugins.vim-test")
-		end,
-	})
+	use("vim-test/vim-test")
 	use({
 		"nvim-neotest/neotest",
 		requires = {
