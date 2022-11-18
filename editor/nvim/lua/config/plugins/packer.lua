@@ -90,6 +90,24 @@ return packer.startup(function(use)
 		},
 	})
 
+	-- Run Tests
+	use({
+		"vim-test/vim-test",
+		config = function()
+			require("config.plugins.vim-test")
+		end,
+	})
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-neotest/neotest-vim-test",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-go",
+			"haydenmeade/neotest-jest",
+			"rouge8/neotest-rust",
+		},
+	})
+
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
@@ -163,13 +181,16 @@ return packer.startup(function(use)
 	use("abecodes/tabout.nvim")
 
 	-- Note taking
-    use({"lervag/wiki.vim", setup = function ()
-       vim.cmd([[
+	use({
+		"lervag/wiki.vim",
+		setup = function()
+			vim.cmd([[
         " let g:wiki_root = '~/wiki'
         let g:wiki_filetypes = ['md']
         let g:wiki_link_extension = '.md'
        ]])
-    end})
+		end,
+	})
 	use({
 		"AckslD/nvim-FeMaco.lua",
 		config = 'require("femaco").setup()',
