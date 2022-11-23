@@ -13,3 +13,5 @@ end, { remap = true })
 vim.keymap.set("", "F", function()
 	hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true })
 end, { remap = true })
+
+vim.keymap.set("n", "<leader>hw", ":HopWord<CR>", { noremap = true, silent = true })

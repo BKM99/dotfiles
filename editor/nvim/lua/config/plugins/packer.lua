@@ -106,27 +106,13 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-	-- Quickfix list
-	use({
-		"kevinhwang91/nvim-bqf",
-		ft = "qf",
-		config = function()
-			require("bqf").setup({
-				preview = {
-					auto_preview = false,
-				},
-			})
-		end,
-	})
-	use({
-		"junegunn/fzf",
-		run = function()
-			vim.fn["fzf#install"]()
-		end,
-	})
-
 	-- Project
-	use("ahmedkhalf/project.nvim")
+	use({
+		"airblade/vim-rooter",
+		setup = function()
+			vim.cmd([[ let g:rooter_silent_chdir = 1 ]])
+		end,
+	})
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
@@ -148,11 +134,13 @@ return packer.startup(function(use)
 			vim.g.undotree_SetFocusWhenToggle = 1
 		end,
 	})
-	use("NvChad/nvim-colorizer.lua")
 
-	-- Code Runners
-	use({ "michaelb/sniprun", run = "bash install.sh" })
-	use("CRAG666/code_runner.nvim")
+	-- Code Runner
+	use({
+		"michaelb/sniprun",
+		run = "bash install.sh",
+		cmd = { "SnipRun", "SnipInfo", "SnipClose", "SnipReset", "SnipReplMemoryClean" },
+	})
 
 	-- Faster movements
 	use("ggandor/leap.nvim")
@@ -162,25 +150,16 @@ return packer.startup(function(use)
 	-- Editing Support
 	use("andymass/vim-matchup")
 	use("gbprod/substitute.nvim")
-	use({
-		"kylechui/nvim-surround",
-		tag = "*",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	})
-	use("wellle/targets.vim")
+	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-	use("abecodes/tabout.nvim")
 
 	-- Note taking
 	use({
 		"lervag/wiki.vim",
 		setup = function()
 			vim.cmd([[
-        " let g:wiki_root = '~/wiki'
         let g:wiki_filetypes = ['md']
         let g:wiki_link_extension = '.md'
        ]])
@@ -188,8 +167,10 @@ return packer.startup(function(use)
 	})
 	use({
 		"AckslD/nvim-FeMaco.lua",
-		config = 'require("femaco").setup()',
-		command = { "FeMaco" },
+		config = function()
+			require("femaco").setup()
+		end,
+		cmd = { "FeMaco" },
 	})
 	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
 	use({ "dkarter/bullets.vim", ft = { "markdown", "text", "gitcommit" } })
@@ -197,6 +178,7 @@ return packer.startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		ft = { "markdown" },
+		cmd = "MarkdownPreview",
 	})
 
 	-- Colorschemes

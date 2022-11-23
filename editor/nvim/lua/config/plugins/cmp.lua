@@ -29,6 +29,7 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = false }),
 
+        -- TODO: update the tab and shift tab stuff
 		-- this is from https://github.com/abecodes/tabout.nvim README.md
 		["<Tab>"] = function(fallback)
 			if cmp.visible() then

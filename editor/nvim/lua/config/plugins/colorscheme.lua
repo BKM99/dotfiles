@@ -5,11 +5,5 @@ if not status_ok then
     vim.cmd("colorscheme lunaperche")
 end
 
-vim.cmd([[ hi Comment guifg=#8f8c8c ]])
-
--- vim.cmd([[ hi Comment guifg=#8f8c8c
--- " hi Normal guibg=#1a1b26
--- " hi Normal guibg=#292828
--- " hi Normal ctermfg=NONE
--- " hi Normal ctermbg=NONE
--- ]])
+vim.cmd([[ hi Comment guifg=#7d83ab]])
+-- vim.cmd([[ hi Comment guifg=#8f8c8c ]])

@@ -46,7 +46,6 @@ end
 mason_tool_installer.setup({
 	-- I'm using this tool for everything that's not an LSP
 	ensure_installed = {
-		"chrome-debug-adapter",
 		"js-debug-adapter",
 		"delve",
 		"black",
@@ -56,6 +55,8 @@ mason_tool_installer.setup({
 		"codelldb",
         "java-debug-adapter",
         "java-test",
+        "gofumpt",
+        "goimports"
 	},
 	auto_update = true,
 	run_on_start = true,

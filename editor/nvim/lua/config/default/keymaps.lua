@@ -50,8 +50,8 @@ keymap("v", "P", '"_dP', opts)
 
 -- delete to black hole register
 keymap("n", "x", '"_x', opts)
--- keymap("n", "<leader>d", "\"_d", opts)
--- keymap("v", "<leader>d", "\"_d", opts)
+keymap("n", "<leader>d", '"_dd', opts)
+keymap("v", "<leader>d", '"_dd', opts)
 
 -- Indent text without leaving
 keymap("v", "<", "<gv", opts)
@@ -63,9 +63,6 @@ keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 -- open file in the buffer's current path
 keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 
--- -- open dotfiles
--- keymap("n", "<leader>od", ":e ~/.dotfiles/ <CR>", opts)
-
 -- move line by line
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
@@ -75,7 +72,7 @@ keymap("n", "zl", "25zl<CR>", opts)
 keymap("n", "zh", "25zh<CR>", opts)
 
 -- Replace word under cursor on current line only
-keymap("n", "<leader>r", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
+keymap("n", "<leader>rw", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
 -- Center searches
 keymap("n", "n", "nzz", opts)
