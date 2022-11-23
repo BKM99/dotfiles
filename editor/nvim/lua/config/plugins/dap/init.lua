@@ -51,7 +51,6 @@ if not pcall(load_launchjs) then
 end
 
 require("config.plugins.dap.python")
-require("config.plugins.dap.node")
-require("config.plugins.dap.jsChrome")
+require("config.plugins.dap.javascript")
 require("config.plugins.dap.golang")
 require("config.plugins.dap.cpp")
