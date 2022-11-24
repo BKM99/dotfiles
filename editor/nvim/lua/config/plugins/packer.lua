@@ -134,6 +134,17 @@ return packer.startup(function(use)
 			vim.g.undotree_SetFocusWhenToggle = 1
 		end,
 	})
+	use({
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+		config = function()
+			require("bqf").setup({
+				preview = {
+					auto_preview = false,
+				},
+			})
+		end,
+	})
 
 	-- Code Runner
 	use({
