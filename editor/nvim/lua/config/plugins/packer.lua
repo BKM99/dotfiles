@@ -168,13 +168,11 @@ return packer.startup(function(use)
 
 	-- Note taking
 	use({
-		"lervag/wiki.vim",
-		setup = function()
-			vim.cmd([[
-        let g:wiki_filetypes = ['md']
-        let g:wiki_link_extension = '.md'
-       ]])
+		"jakewvincent/mkdnflow.nvim",
+		config = function()
+			require("mkdnflow").setup({})
 		end,
+		ft = { "markdown" },
 	})
 	use({
 		"AckslD/nvim-FeMaco.lua",

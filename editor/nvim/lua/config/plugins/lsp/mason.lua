@@ -22,6 +22,7 @@ local servers = {
 	"cssls",
 	"eslint",
 	"jdtls",
+	"marksman",
 }
 
 mason.setup({
@@ -49,14 +50,14 @@ mason_tool_installer.setup({
 		"js-debug-adapter",
 		"delve",
 		"black",
-        "flake8",
+		"flake8",
 		"prettierd",
 		"stylua",
 		"codelldb",
-        "java-debug-adapter",
-        "java-test",
-        "gofumpt",
-        "goimports"
+		"java-debug-adapter",
+		"java-test",
+		"gofumpt",
+		"goimports",
 	},
 	auto_update = true,
 	run_on_start = true,

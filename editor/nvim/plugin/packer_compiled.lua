@@ -204,6 +204,14 @@ _G.packer_plugins = {
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["mkdnflow.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rmkdnflow\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/mkdnflow.nvim",
+    url = "https://github.com/jakewvincent/mkdnflow.nvim"
+  },
   neotest = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/neotest",
@@ -414,30 +422,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/start/vim-test",
     url = "https://github.com/vim-test/vim-test"
-  },
-  ["wiki.vim"] = {
-    loaded = true,
-    needs_bufread = false,
-    path = "/Users/brandonmorimoto/.local/share/nvim/site/pack/packer/opt/wiki.vim",
-    url = "https://github.com/lervag/wiki.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: wiki.vim
-time([[Setup for wiki.vim]], true)
-try_loadstring("\27LJ\2\n{\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\\        let g:wiki_filetypes = ['md']\n        let g:wiki_link_extension = '.md'\n       \bcmd\bvim\0", "setup", "wiki.vim")
-time([[Setup for wiki.vim]], false)
-time([[packadd for wiki.vim]], true)
-vim.cmd [[packadd wiki.vim]]
-time([[packadd for wiki.vim]], false)
--- Setup for: vim-rooter
-time([[Setup for vim-rooter]], true)
-try_loadstring("\27LJ\2\nC\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0$ let g:rooter_silent_chdir = 1 \bcmd\bvim\0", "setup", "vim-rooter")
-time([[Setup for vim-rooter]], false)
-time([[packadd for vim-rooter]], true)
-vim.cmd [[packadd vim-rooter]]
-time([[packadd for vim-rooter]], false)
 -- Setup for: undotree
 time([[Setup for undotree]], true)
 try_loadstring("\27LJ\2\nœ\1\0\0\6\0\t\0\r6\0\0\0009\0\1\0009\0\2\0'\2\3\0'\3\4\0'\4\5\0005\5\6\0B\0\5\0016\0\0\0009\0\a\0)\1\1\0=\1\b\0K\0\1\0 undotree_SetFocusWhenToggle\6g\1\0\2\vsilent\2\fnoremap\2\24:UndotreeToggle<CR>\14<leader>u\6n\bset\vkeymap\bvim\0", "setup", "undotree")
@@ -445,27 +433,34 @@ time([[Setup for undotree]], false)
 time([[packadd for undotree]], true)
 vim.cmd [[packadd undotree]]
 time([[packadd for undotree]], false)
+-- Setup for: vim-rooter
+time([[Setup for vim-rooter]], true)
+try_loadstring("\27LJ\2\nC\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0$ let g:rooter_silent_chdir = 1 \bcmd\bvim\0", "setup", "vim-rooter")
+time([[Setup for vim-rooter]], false)
+time([[packadd for vim-rooter]], true)
+vim.cmd [[packadd vim-rooter]]
+time([[packadd for vim-rooter]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SnipReset lua require("packer.load")({'sniprun'}, { cmd = "SnipReset", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SnipReplMemoryClean lua require("packer.load")({'sniprun'}, { cmd = "SnipReplMemoryClean", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file FeMaco lua require("packer.load")({'nvim-FeMaco.lua'}, { cmd = "FeMaco", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file MarkdownPreview lua require("packer.load")({'markdown-preview.nvim'}, { cmd = "MarkdownPreview", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SnipRun lua require("packer.load")({'sniprun'}, { cmd = "SnipRun", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SnipInfo lua require("packer.load")({'sniprun'}, { cmd = "SnipInfo", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SnipClose lua require("packer.load")({'sniprun'}, { cmd = "SnipClose", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file SnipReset lua require("packer.load")({'sniprun'}, { cmd = "SnipReset", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'bullets.vim', 'vim-table-mode', 'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
 vim.cmd [[au FileType text ++once lua require("packer.load")({'bullets.vim'}, { ft = "text" }, _G.packer_plugins)]]
 vim.cmd [[au FileType gitcommit ++once lua require("packer.load")({'bullets.vim'}, { ft = "gitcommit" }, _G.packer_plugins)]]
 vim.cmd [[au FileType java ++once lua require("packer.load")({'nvim-jdtls'}, { ft = "java" }, _G.packer_plugins)]]
-vim.cmd [[au FileType qf ++once lua require("packer.load")({'nvim-bqf'}, { ft = "qf" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim', 'bullets.vim', 'vim-table-mode', 'mkdnflow.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
