@@ -26,9 +26,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
 
--- Delete buffer
-keymap("n", "<leader>bd", ":bdelete<CR>", opts)
-
 -- Resize with arrows
 keymap("n", "<m-Up>", ":resize -1<CR>", opts)
 keymap("n", "<m-Down>", ":resize +1<CR>", opts)
@@ -44,11 +41,9 @@ keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
--- Paste over selected text without yanking
+-- delete to black hole register
 keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
-
--- delete to black hole register
 keymap("n", "x", '"_x', opts)
 keymap("n", "<leader>d", '"_dd', opts)
 keymap("v", "<leader>d", '"_dd', opts)
@@ -72,7 +67,7 @@ keymap("n", "zl", "25zl<CR>", opts)
 keymap("n", "zh", "25zh<CR>", opts)
 
 -- Replace word under cursor on current line only
-keymap("n", "<leader>rw", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
+-- keymap("n", "<leader>rw", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
 
 -- Center searches
 keymap("n", "n", "nzz", opts)
@@ -97,4 +92,4 @@ keymap("n", "[q", ":cprevious<CR>", opts)
 vim.cmd([[ nmap gx :!open <c-r><c-a> ]])
 
 -- open refile
-keymap("n", "<leader>c", ":split ~/Documents/Dropbox/Notes/refile.md <CR>")
+-- keymap("n", "<leader>c", ":split ~/Documents/Dropbox/Notes/refile.md <CR>")

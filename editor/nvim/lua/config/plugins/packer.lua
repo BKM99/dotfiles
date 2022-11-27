@@ -105,6 +105,7 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
 	-- Project
 	use({
@@ -126,14 +127,6 @@ return packer.startup(function(use)
 	})
 	use({ "kyazdani42/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" })
 	use("lukas-reineke/indent-blankline.nvim")
-	use({ "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" })
-	use({
-		"mbbill/undotree",
-		setup = function()
-			vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { noremap = true, silent = true })
-			vim.g.undotree_SetFocusWhenToggle = 1
-		end,
-	})
 	use({
 		"kevinhwang91/nvim-bqf",
 		ft = "qf",
@@ -166,7 +159,7 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
 
-	-- Note taking
+	-- Markdown Stuff
 	use({
 		"jakewvincent/mkdnflow.nvim",
 		config = function()
@@ -174,20 +167,20 @@ return packer.startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
-	use({
-		"AckslD/nvim-FeMaco.lua",
-		config = function()
-			require("femaco").setup()
-		end,
-		cmd = { "FeMaco" },
-	})
-	use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
 	use({ "dkarter/bullets.vim", ft = { "markdown", "text", "gitcommit" } })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		ft = { "markdown" },
 		cmd = "MarkdownPreview",
+	})
+
+	-- Other
+	use({
+		"moll/vim-bbye",
+		setup = function()
+			vim.keymap.set("n", "Q", "<cmd>Bdelete!<CR>", { noremap = true, silent = true })
+		end,
 	})
 
 	-- Colorschemes
