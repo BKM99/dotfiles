@@ -26,6 +26,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("file_browser")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
@@ -43,3 +44,5 @@ keymap(
 	':lua require("telescope.builtin").find_files { prompt_title = "dotfiles", cwd = "~/.dotfiles/" } <CR>',
 	opts
 )
+
+keymap("n", "<leader>fb", ":Telescope file_browser<CR>", opts) -- uses file_browser extension
