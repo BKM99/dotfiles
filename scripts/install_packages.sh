@@ -11,10 +11,12 @@ echo "installing brew packages..."
 brew install node
 brew install tmux
 brew install git
+brew install git-delta
 brew install nnn
 brew install lazygit
 brew install lazydocker
 brew install neovim
+brew install gnu-sed
 brew install bat
 brew install pyenv
 brew install pyenv-virtualenv
@@ -27,11 +29,13 @@ brew install go
 brew install gradle
 brew install yarn
 brew install tree
+brew install broot
 brew install ripgrep
 brew install fzf
 # To install useful key bindings and fuzzy completion:
 # $(brew --prefix)/opt/fzf/install
 brew install fd
+brew install hyperfine
 brew install btop
 brew install rustup
 rustup-init -y
