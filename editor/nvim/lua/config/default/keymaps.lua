@@ -82,7 +82,7 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- open quickfix list
-keymap("n", "<leader>qf", ":copen<CR>", opts)
+keymap("n", "<leader>q", ":copen<CR>", opts)
 
 -- go through quickfix list
 keymap("n", "]q", ":cnext<CR>", opts)
@@ -93,3 +93,7 @@ vim.cmd([[ nmap gx :!open <c-r><c-a> ]])
 
 -- open refile
 -- keymap("n", "<leader>c", ":split ~/Documents/Dropbox/Notes/refile.md <CR>")
+
+-- create new space above and blow without going into insert mode
+keymap("n", "[<space>", "O<down><ESC>", opts)
+keymap("n", "]<space>", "o<up><ESC>", opts)

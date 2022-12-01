@@ -17,16 +17,11 @@ telescope.setup({
 			override_file_sorter = true, -- override the file sorter
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 		},
-		file_browser = {
-			theme = "ivy",
-			hijack_netrw = true,
-		},
 	},
 	file_ignore_patterns = { "node_modules" },
 })
 
 telescope.load_extension("fzf")
-telescope.load_extension("file_browser")
 
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
@@ -44,5 +39,3 @@ keymap(
 	':lua require("telescope.builtin").find_files { prompt_title = "dotfiles", cwd = "~/.dotfiles/" } <CR>',
 	opts
 )
-
-keymap("n", "<leader>fb", ":Telescope file_browser<CR>", opts) -- uses file_browser extension
