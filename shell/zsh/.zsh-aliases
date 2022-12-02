@@ -11,6 +11,12 @@ alias ld=lazydocker
 alias t='tmux'
 alias tks='tmux kill-session'
 
+update () {
+    plugin-update
+    brewall
+    nvim -c "PackerSync"
+}
+
 if command -v nvim &> /dev/null
 then
     alias vim=nvim
