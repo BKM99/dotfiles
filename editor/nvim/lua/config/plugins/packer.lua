@@ -106,7 +106,7 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-    use("tpope/vim-fugitive")
+	use("tpope/vim-fugitive")
 
 	-- Project
 	use({
@@ -115,9 +115,10 @@ return packer.startup(function(use)
 			vim.cmd([[ let g:rooter_silent_chdir = 1 ]])
 		end,
 	})
+	use("editorconfig/editorconfig-vim")
 
 	-- Telescope
-	use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { { "nvim-lua/plenary.nvim" } } })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 	-- Better UI
