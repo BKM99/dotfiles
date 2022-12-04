@@ -13,6 +13,9 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
 
 nvim_tree.setup({
+	git = {
+		ignore = false,
+	},
 	sort_by = "case_sensitive",
 	view = {
 		adaptive_size = true,
