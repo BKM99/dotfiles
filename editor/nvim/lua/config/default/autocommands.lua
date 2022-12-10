@@ -1,4 +1,4 @@
--- Removes whitespace at end of line, doesn't include markdown
+-- Removes whitespace at end of line, doesn't include markdownautoco
 if vim.bo.filetype ~= "markdown" then
 	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		pattern = { "*" },
@@ -14,7 +14,13 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 -- don't auto comment new line
-vim.api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
+vim.api.nvim_create_autocmd("BufEnter", { command = [[
+set formatoptions=tc
+set formatoptions+=r
+set formatoptions+=q
+set formatoptions+=n
+set formatoptions+=b
+]] })
 
 -- Go to last location
 vim.cmd [[ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif ]]
