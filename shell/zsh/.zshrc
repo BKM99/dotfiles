@@ -12,7 +12,6 @@ SAVEHIST=10000
 
 ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
 
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 zle_highlight=('paste:none')
 
@@ -60,7 +59,9 @@ eval "$(pyenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/brandonmorimoto/.config/broot/launcher/bash/br
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+eval "$(zoxide init zsh)"
+alias j=z
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

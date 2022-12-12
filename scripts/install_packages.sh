@@ -16,14 +16,15 @@ brew install git-delta
 # brew install lazygit
 # brew install lazydocker
 brew install neovim
-brew install gnu-sed
+# brew install gnu-sed
 brew install bat
 brew install pyenv
 brew install pyenv-virtualenv
 brew install ncdu
 # brew install zk
 brew install tldr
-brew install autojump
+# brew install autojump
+brew install zoxide
 brew install exa
 brew install go
 brew install gradle
