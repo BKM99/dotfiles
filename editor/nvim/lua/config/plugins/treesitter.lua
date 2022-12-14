@@ -20,7 +20,6 @@ else
 			"tsx",
 			"markdown",
 			"markdown_inline",
-			"norg",
 			"python",
 			"rust",
 			"ruby",

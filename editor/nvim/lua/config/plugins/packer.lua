@@ -33,23 +33,14 @@ packer.init({
 	max_jobs = 15,
 })
 
--- Install your plugins here
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
-
-	-- Better Performance
 	use("lewis6991/impatient.nvim")
-
-	-- A Bunch of Plugins use these
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
-
-	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-
-	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({
 		"williamboman/mason.nvim",
@@ -58,12 +49,8 @@ return packer.startup(function(use)
 	})
 	use("jose-elias-alvarez/null-ls.nvim")
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-
-	-- Language specific
 	use({ "mfussenegger/nvim-jdtls", ft = "java" })
 	use("b0o/SchemaStore.nvim")
-
-	-- Autocomplete and Snippets
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -78,8 +65,6 @@ return packer.startup(function(use)
 			"rafamadriz/friendly-snippets",
 		},
 	})
-
-	-- Debugging
 	use({
 		"mfussenegger/nvim-dap",
 		requires = {
@@ -89,8 +74,6 @@ return packer.startup(function(use)
 			"mxsdev/nvim-dap-vscode-js",
 		},
 	})
-
-	-- Run Tests
 	use("vim-test/vim-test")
 	use({
 		"nvim-neotest/neotest",
@@ -102,27 +85,15 @@ return packer.startup(function(use)
 			"rouge8/neotest-rust",
 		},
 	})
-
-	-- Git
 	use("lewis6991/gitsigns.nvim")
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use("tpope/vim-fugitive")
-
-	-- Project
 	use({
 		"airblade/vim-rooter",
 		setup = function()
 			vim.cmd([[ let g:rooter_silent_chdir = 1 ]])
 		end,
 	})
-	use("editorconfig/editorconfig-vim")
-
-	-- Telescope
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.0", requires = { { "nvim-lua/plenary.nvim" } } })
+	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } })
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-
-	-- Better UI
-	use("stevearc/dressing.nvim")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -140,49 +111,17 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-
-	-- Code Runner
-	use({
-		"michaelb/sniprun",
-		run = "bash install.sh",
-		cmd = { "SnipRun", "SnipInfo", "SnipClose", "SnipReset", "SnipReplMemoryClean" },
-	})
-
-	-- Faster movements
-	use("ggandor/leap.nvim")
-	use("phaazon/hop.nvim")
 	use("ThePrimeagen/harpoon")
-
-	-- Editing Support
 	use("andymass/vim-matchup")
-	use("gbprod/substitute.nvim")
 	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
-
-	-- Markdown Stuff
-	use({
-		"jakewvincent/mkdnflow.nvim",
-		config = function()
-			require("mkdnflow").setup({})
-		end,
-		ft = { "markdown" },
-	})
-	use({ "dkarter/bullets.vim", ft = { "markdown", "text", "gitcommit" } })
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		ft = { "markdown" },
 		cmd = "MarkdownPreview",
-	})
-
-	-- Other
-	use({
-		"moll/vim-bbye",
-		setup = function()
-			vim.keymap.set("n", "Q", "<cmd>Bdelete!<CR>", { noremap = true, silent = true })
-		end,
 	})
 
 	-- Colorschemes

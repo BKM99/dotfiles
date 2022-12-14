@@ -22,7 +22,6 @@ local servers = {
 	"cssls",
 	"eslint",
 	"jdtls",
-	"marksman",
 }
 
 mason.setup({
@@ -95,6 +94,11 @@ for _, server in pairs(servers) do
 		local tailwindcss_opts = require("config.plugins.lsp.lsp-custom-server.tailwindcss")
 		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
 	end
+
+    if server == "rust_analyzer" then
+        local rust_analyzer = require("config.plugins.lsp.lsp-custom-server.rustanalyzer")
+		opts = vim.tbl_deep_extend("force", rust_analyzer, opts)
+    end
 
 	if server == "jdtls" then
 		goto continue

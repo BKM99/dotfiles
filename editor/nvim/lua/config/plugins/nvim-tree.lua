@@ -7,6 +7,9 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- I disabled netrw because of nvim tree, use this keybind to open URL under cursor
+vim.cmd([[ nmap gx :!open <c-r><c-a> ]])
+
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 

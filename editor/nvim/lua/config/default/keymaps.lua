@@ -12,10 +12,10 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Better saving
+-- Faster saving
 keymap("n", "<leader>w", ":w<CR>", opts)
 
--- Better window navigation
+-- Faster window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
@@ -24,6 +24,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Naviagate buffers
 keymap("n", "]b", ":bnext<CR>", opts)
 keymap("n", "[b", ":bprevious<CR>", opts)
+
+-- open quickfix list
+keymap("n", "<leader>q", ":copen<CR>", opts)
 
 -- go through quickfix list
 keymap("n", "]q", ":cnext<CR>", opts)
@@ -67,27 +70,12 @@ keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true
 keymap("n", "j", "gj", opts)
 keymap("n", "k", "gk", opts)
 
--- scroll horizontally faster
--- keymap("n", "zl", "25zl<CR>", opts)
--- keymap("n", "zh", "25zh<CR>", opts)
-
--- Replace word under cursor on current line only
--- keymap("n", "<leader>rw", ":.s/\\<<C-r><C-w>\\>/<C-r><C-w>/<Left>")
-
--- Center searches
+-- Center things
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
 keymap("n", "*", "*zz", opts)
 keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
-
--- center screen when scrolling
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
-
--- open quickfix list
-keymap("n", "<leader>q", ":copen<CR>", opts)
-
--- I disabled netrw because of nvim tree, use this keybind to open URL under cursor
-vim.cmd([[ nmap gx :!open <c-r><c-a> ]])
