@@ -95,11 +95,6 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
 	end
 
-    if server == "rust_analyzer" then
-        local rust_analyzer = require("config.plugins.lsp.lsp-custom-server.rustanalyzer")
-		opts = vim.tbl_deep_extend("force", rust_analyzer, opts)
-    end
-
 	if server == "jdtls" then
 		goto continue
 	end

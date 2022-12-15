@@ -38,19 +38,23 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
+
+    -- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+
+    -- LSP
 	use("neovim/nvim-lspconfig")
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	})
+    use({ "mfussenegger/nvim-jdtls", ft = "java" })
+    use("b0o/SchemaStore.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
-	use({ "mfussenegger/nvim-jdtls", ft = "java" })
-	use("b0o/SchemaStore.nvim")
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -74,17 +78,6 @@ return packer.startup(function(use)
 			"mxsdev/nvim-dap-vscode-js",
 		},
 	})
-	use("vim-test/vim-test")
-	use({
-		"nvim-neotest/neotest",
-		requires = {
-			"nvim-neotest/neotest-vim-test",
-			"nvim-neotest/neotest-python",
-			"nvim-neotest/neotest-go",
-			"haydenmeade/neotest-jest",
-			"rouge8/neotest-rust",
-		},
-	})
 	use("lewis6991/gitsigns.nvim")
 	use({
 		"airblade/vim-rooter",
@@ -100,20 +93,7 @@ return packer.startup(function(use)
 	})
 	use({ "kyazdani42/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" })
 	use("lukas-reineke/indent-blankline.nvim")
-	use({
-		"kevinhwang91/nvim-bqf",
-		ft = "qf",
-		config = function()
-			require("bqf").setup({
-				preview = {
-					auto_preview = false,
-				},
-			})
-		end,
-	})
-	use("ThePrimeagen/harpoon")
 	use("andymass/vim-matchup")
-	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("windwp/nvim-ts-autotag")
