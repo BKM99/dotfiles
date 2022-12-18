@@ -39,20 +39,20 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
 
-    -- Treesitter
+	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
-    -- LSP
+	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	})
-    use({ "mfussenegger/nvim-jdtls", ft = "java" })
-    use("b0o/SchemaStore.nvim")
+	use({ "mfussenegger/nvim-jdtls", ft = "java" })
+	use("b0o/SchemaStore.nvim")
 	use("jose-elias-alvarez/null-ls.nvim")
 	use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
 	use({
