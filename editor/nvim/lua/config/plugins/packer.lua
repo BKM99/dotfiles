@@ -38,13 +38,9 @@ return packer.startup(function(use)
 	use("lewis6991/impatient.nvim")
 	use("nvim-lua/plenary.nvim")
 	use("nvim-lua/popup.nvim")
-
-	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-
-	-- LSP
 	use("neovim/nvim-lspconfig")
 	use({
 		"williamboman/mason.nvim",
@@ -64,7 +60,6 @@ return packer.startup(function(use)
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lua",
 			"saadparwaiz1/cmp_luasnip",
-			"onsails/lspkind.nvim",
 			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
 		},

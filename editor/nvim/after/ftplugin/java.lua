@@ -29,8 +29,7 @@ if not status_cmp_ok then
     return
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
