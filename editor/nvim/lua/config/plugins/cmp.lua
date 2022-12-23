@@ -8,11 +8,6 @@ if not snip_status_ok then
     return
 end
 
--- local lsp_kind_status_ok, lspkind = pcall(require, "lspkind")
--- if not lsp_kind_status_ok then
---     return
--- end
-
 require("luasnip.loaders.from_vscode").lazy_load()
 
 luasnip.config.set_config({
