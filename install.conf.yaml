@@ -20,6 +20,7 @@
     ~/.zlogin: shell/zsh/.zlogin
     ~/.zshenv: shell/zsh/.zshenv
     ~/.zsh-aliases: shell/zsh/.zsh-aliases
+    ~/.zprofile: shell/zsh/.zprofile
     # ~/.bashrc: shell/bash/.bashrc
     # ~/.bash_profile: shell/bash/.bash_profile
 
