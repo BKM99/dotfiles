@@ -30,7 +30,7 @@ packer.init({
 		end,
 	},
 	snapshot_path = fn.stdpath("config") .. "/snapshots",
-	max_jobs = 15,
+	-- max_jobs = 15,
 })
 
 return packer.startup(function(use)
