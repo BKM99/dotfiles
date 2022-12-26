@@ -8,6 +8,11 @@ if not snip_status_ok then
     return
 end
 
+local lsp_kind_status_ok, lspkind = pcall(require, "lspkind")
+if not lsp_kind_status_ok then
+    return
+end
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 luasnip.config.set_config({
@@ -91,18 +96,24 @@ cmp.setup({
         native_menu = false,
     },
     formatting = {
-        fields = { "abbr", "menu", "kind" },
-        format = function(entry, item)
-            local short_name = {
-                nvim_lsp = "LSP",
-                nvim_lua = "nvim",
-            }
+        format = lspkind.cmp_format({
+            with_text = false,
+            mode = "symbol_text",
+            maxwidth = 50,
+            ellipsis_char = "...",
 
-            local menu_name = short_name[entry.source.name] or entry.source.name
+            before = function(entry, vim_item)
+                vim_item.menu = ({
+                    nvim_lsp = "[LSP]",
+                    nvim_lua = "[Lua]",
+                    luasnip = "[Snippet]",
+                    buffer = "[Buffer]",
+                    path = "[Path]",
+                })[entry.source.name]
 
-            item.menu = string.format("[%s]", menu_name)
-            return item
-        end,
+                return vim_item
+            end,
+        }),
     },
 })
 
