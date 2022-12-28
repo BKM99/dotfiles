@@ -73,9 +73,9 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     sources = {
-        { name = "nvim_lua", keyword_length = 3 },
-        { name = "nvim_lsp", keyword_length = 3 },
-        { name = "luasnip", keyword_length = 2 },
+        { name = "nvim_lua" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "path" },
     },
     {

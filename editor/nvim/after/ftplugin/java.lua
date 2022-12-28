@@ -84,10 +84,13 @@ local config = {
         "-data",
         workspace_dir,
     },
-    on_attach = require("config.plugins.lsp-utils").on_attach,
-    capabilities = require("config.plugins.lsp-utils").capabilities,
+
+    on_attach = require("config.plugins.lsp.lsp-handlers").on_attach,
+    capabilities = require("config.plugins.lsp.lsp-handlers").capabilities,
 
     -- 💀
+    -- This is the default if not provided, you can remove it. Or adjust as needed.
+    -- One dedicated LSP server & client will be started per unique root_dir
     root_dir = root_dir,
 
     -- Here you can configure eclipse.jdt.ls specific settings
@@ -173,28 +176,26 @@ local config = {
 
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-require("jdtls").start_or_attach(config)
+jdtls.start_or_attach(config)
 
 vim.cmd(
-    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
+    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua jdtls.compile(<f-args>)"
 )
 vim.cmd(
-    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
+    "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua jdtls.set_runtime(<f-args>)"
 )
-vim.cmd("command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()")
-vim.cmd("command! -buffer JdtBytecode lua require('jdtls').javap()")
+vim.cmd("command! -buffer JdtUpdateConfig lua jdtls.update_project_config()")
+vim.cmd("command! -buffer JdtBytecode lua jdtls.javap()")
 
--- Shorten function name
-local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
-keymap("n", "<leader>jo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-keymap("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-keymap("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
-keymap("n", "<leader>jtm", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
-keymap("n", "<leader>jtc", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
-keymap("n", "<leader>ju", "<Cmd>JdtUpdateConfig<CR>", opts)
-keymap("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
-keymap("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
-keymap("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+vim.keymap.set("n", "<leader>jo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+vim.keymap.set("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
+vim.keymap.set("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
+vim.keymap.set("n", "<leader>jtm", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+vim.keymap.set("n", "<leader>jtc", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
+vim.keymap.set("n", "<leader>ju", "<Cmd>JdtUpdateConfig<CR>", opts)
+vim.keymap.set("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+vim.keymap.set("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
+vim.keymap.set("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
