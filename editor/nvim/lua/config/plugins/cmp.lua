@@ -13,6 +13,8 @@ if not lsp_kind_status_ok then
     return
 end
 
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
 require("luasnip.loaders.from_vscode").lazy_load()
 
 luasnip.config.set_config({

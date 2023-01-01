@@ -13,11 +13,6 @@ if not status_ok_1 then
     return
 end
 
-local mason_tool_installer_status_ok, mason_tool_installer = pcall(require, "mason-tool-installer")
-if not mason_tool_installer_status_ok then
-    return
-end
-
 mason.setup({
     ui = {
         icons = {
@@ -43,30 +38,35 @@ local servers = {
     "eslint",
     "jdtls",
     "elixirls",
+    "angularls",
 }
 
 mason_lspconfig.setup({
     ensure_installed = servers,
 })
 
-mason_tool_installer.setup({
-    -- I'm using this tool for everything that's not an LSP
-    ensure_installed = {
-        "js-debug-adapter",
-        "delve",
-        "black",
-        "flake8",
-        "prettierd",
-        "stylua",
-        "codelldb",
-        "java-debug-adapter",
-        "java-test",
-        "gofumpt",
-        "goimports",
-    },
-    auto_update = true,
-    run_on_start = true,
-})
+local tools = {
+    "js-debug-adapter",
+    "delve",
+    "black",
+    "flake8",
+    "prettierd",
+    "stylua",
+    "codelldb",
+    "java-debug-adapter",
+    "java-test",
+    "gofumpt",
+    "goimports",
+}
+
+-- Install tools
+local mr = require("mason-registry")
+for _, tool in ipairs(tools) do
+    local p = mr.get_package(tool)
+    if not p:is_installed() then
+        p:install()
+    end
+end
 
 local opts = {}
 

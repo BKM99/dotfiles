@@ -17,7 +17,6 @@ vim.opt.hidden = true
 vim.opt.lazyredraw = true
 vim.opt.timeoutlen = 200
 vim.opt.laststatus = 3
-vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
 vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 vim.opt.undofile = true
@@ -36,8 +35,12 @@ vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.title = true
-vim.cmd([[filetype plugin indent on]])
-vim.cmd([[set nofoldenable]])
+
+-- Turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+    pattern = "*",
+    command = "set nopaste",
+})
 
 -- Some default color stuff
 vim.opt.termguicolors = true

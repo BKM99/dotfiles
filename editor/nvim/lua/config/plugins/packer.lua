@@ -45,7 +45,6 @@ return packer.startup(function(use)
     use({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "WhoIsSethDaniel/mason-tool-installer.nvim",
     })
     use({ "mfussenegger/nvim-jdtls", ft = "java" })
     use("b0o/SchemaStore.nvim")
