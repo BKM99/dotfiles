@@ -80,7 +80,7 @@ return packer.startup(function(use)
             vim.cmd([[ let g:rooter_silent_chdir = 1 ]])
         end,
     })
-    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } })
+    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { "nvim-lua/plenary.nvim" } })
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
     use({
         "nvim-lualine/lualine.nvim",
@@ -97,6 +97,13 @@ return packer.startup(function(use)
         run = "cd app && npm install",
         ft = { "markdown" },
         cmd = "MarkdownPreview",
+    })
+    use({
+        "nvim-pack/nvim-spectre",
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            vim.keymap.set("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
+        end,
     })
 
     -- Colorschemes

@@ -79,3 +79,10 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- Very magic
+vim.cmd([[
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
+]])
