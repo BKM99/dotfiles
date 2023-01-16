@@ -1,13 +1,18 @@
-local status_ok, trouble = pcall(require, "trouble")
-if not status_ok then
-    return
-end
+return {
+	"folke/trouble.nvim",
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.keymap.set
+	config = function()
+		local trouble = require("trouble")
+		local opts = { noremap = true, silent = true }
+		local keymap = vim.keymap.set
 
-keymap("n", "<leader>e", ":TroubleToggle<CR>", opts)
+		keymap("n", "<leader>e", ":TroubleToggle<CR>", opts)
 
-trouble.setup({
-    use_diagnostic_signs = true,
-})
+		trouble.setup({
+			use_diagnostic_signs = true,
+		})
+	end,
+}

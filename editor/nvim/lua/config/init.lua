@@ -1,2 +1,2 @@
-require("config.default")
-require("config.plugins")
+require("config.core")
+-- require("config.plugins")
