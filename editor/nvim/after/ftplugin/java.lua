@@ -85,8 +85,8 @@ local config = {
 		workspace_dir,
 	},
 
-	on_attach = require("config.plugins.lsp.lsp-handlers").on_attach,
-	capabilities = require("config.plugins.lsp.lsp-handlers").capabilities,
+	on_attach = require("config.lsp.handlers").on_attach,
+	capabilities = require("config.lsp.handlers").capabilities,
 
 	-- 💀
 	-- This is the default if not provided, you can remove it. Or adjust as needed.
