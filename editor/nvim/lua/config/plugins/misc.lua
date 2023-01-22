@@ -19,7 +19,6 @@ return {
 			vim.cmd([[ let g:rooter_silent_chdir = 1 ]])
 		end,
 	},
-	{ "andymass/vim-matchup" },
 	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",

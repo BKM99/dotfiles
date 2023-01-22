@@ -1,0 +1,11 @@
+alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && brew autoremove'
+alias brewdtree='brew deps --tree --installed'
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias cleands='find . -name ".DS_Store" -exec rm {} \;'
+
+update () {
+    plugin-update
+    brewall
+    # nvim -c "PackerSync"
+}
+

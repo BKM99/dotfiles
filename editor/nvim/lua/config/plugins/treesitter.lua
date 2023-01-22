@@ -1,8 +1,7 @@
 return {
-	{ "nvim-treesitter/nvim-treesitter-textobjects" },
-	{ "windwp/nvim-ts-autotag" },
 	{
 		"nvim-treesitter/nvim-treesitter",
+        build = "TSUpdate",
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 			configs.setup({
@@ -94,4 +93,7 @@ return {
 			})
 		end,
 	},
+	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	{ "windwp/nvim-ts-autotag" },
+	{ "andymass/vim-matchup" },
 }

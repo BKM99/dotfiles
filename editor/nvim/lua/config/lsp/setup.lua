@@ -28,8 +28,6 @@ local servers = {
 	"cssls",
 	"eslint",
 	"jdtls",
-	"elixirls",
-	"angularls",
 }
 
 mason_lspconfig.setup({
@@ -86,23 +84,23 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
 	end
 
-	-- if server == "pyright" then
-	--     local pyright_opts = {
-	--         settings = {
-	--             python = {
-	--                 analysis = {
-	--                     typeCheckingMode = "basic",
-	--                     diagnosticMode = "workspace",
-	--                     inlayHints = {
-	--                         variableTypes = true,
-	--                         functionReturnTypes = true,
-	--                     },
-	--                 },
-	--             },
-	--         },
-	--     }
-	--     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-	-- end
+	if server == "pyright" then
+	    local pyright_opts = {
+	        settings = {
+	            python = {
+	                analysis = {
+	                    typeCheckingMode = "basic",
+	                    diagnosticMode = "workspace",
+	                    inlayHints = {
+	                        variableTypes = true,
+	                        functionReturnTypes = true,
+	                    },
+	                },
+	            },
+	        },
+	    }
+	    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	end
 
 	if server == "jsonls" then
 		local jsonls_opts = {
@@ -124,20 +122,6 @@ for _, server in pairs(servers) do
 
 	if server == "jdtls" then
 		goto continue
-	end
-
-	if server == "elixirls" then
-		local elixirls_opts = {
-			cmd = { os.getenv("HOME") .. "/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
-			settings = {
-				elixirLS = {
-					dialyzerEnabled = false,
-					fetchDeps = false,
-				},
-			},
-		}
-
-		opts = vim.tbl_deep_extend("force", elixirls_opts, opts)
 	end
 
 	lspconfig[server].setup(opts)

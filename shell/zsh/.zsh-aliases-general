@@ -1,0 +1,70 @@
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    source ~/.zsh-aliases-mac
+fi
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias c='clear'
+# remove broken symlinks
+alias clsym="find -L . -name . -o -type d -prune -o -type l -exec rm {} +"
+
+if command -v jupyter &> /dev/null
+then
+    alias jn='jupyter notebook'
+fi
+
+
+# function to mkdir and cd into it
+function mkcd() {
+    mkdir -p $1
+    cd $1
+}
+
+if command -v tmux &> /dev/null
+then
+    alias t='tmux'
+    alias tks='tmux kill-session'
+fi
+
+if command -v lazydocker &> /dev/null
+then
+    alias ld=lazydocker
+fi
+
+if command -v lazygit &> /dev/null
+then
+    alias lg=lazygit
+fi
+
+if command -v nvim &> /dev/null
+then
+    alias vim=nvim
+fi
+
+if command -v bat &> /dev/null
+then
+    alias cat=bat
+fi
+
+if command -v exa &> /dev/null
+then
+    alias l='exa'
+    alias ls='exa'
+    alias ll='exa -ll'
+    alias la='exa -la'
+fi
+
+
+if [[ $TERM == "xterm-kitty" ]]; then
+    alias ssh="kitty +kitten ssh"
+fi
+
+
+if command -v fzf &> /dev/null
+then
+    function fe() {
+        IFS=$'\n' files=($(fzf --height 70% --preview='bat --color=always --style=numbers {}' --bind shift-up:preview-page-up,shift-down:preview-page-down))
+        [[ -n "$files" ]] && ${EDITOR} -O "${files[@]}" -p
+    }
+fi

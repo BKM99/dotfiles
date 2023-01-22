@@ -1,10 +1,11 @@
+# vim:ft=ruby
+
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 brew "bat"
 brew "btop"
-brew "elixir"
 brew "exa"
 brew "fd"
 brew "fzf"

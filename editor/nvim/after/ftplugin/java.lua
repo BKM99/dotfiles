@@ -14,7 +14,7 @@ elseif vim.fn.has("unix") == 1 then
 	WORKSPACE_PATH = home .. "/.cache/jdtls-workspace/"
 	CONFIG = "linux"
 else
-	print("Unsupported system")
+	print("Unsupported system for JDTLS!")
 end
 
 -- Find root of project

@@ -37,10 +37,10 @@ keymap("n", "[<space>", "O<down><ESC>", opts)
 keymap("n", "]<space>", "o<up><ESC>", opts)
 
 -- Resize with arrows
-keymap("n", "<m-Up>", ":resize -1<CR>", opts)
-keymap("n", "<m-Down>", ":resize +1<CR>", opts)
-keymap("n", "<m-Left>", ":vertical resize -1<CR>", opts)
-keymap("n", "<m-Right>", ":vertical resize +1<CR>", opts)
+keymap("n", "<A-Up>", ":resize -1<CR>", opts)
+keymap("n", "<A-Down>", ":resize +1<CR>", opts)
+keymap("n", "<A-Left>", ":vertical resize -1<CR>", opts)
+keymap("n", "<A-Right>", ":vertical resize +1<CR>", opts)
 
 -- Go between the last two buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)

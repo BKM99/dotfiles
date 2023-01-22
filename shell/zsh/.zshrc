@@ -5,7 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/.zsh-aliases
+source ~/.zsh-aliases-general
+source ~/.zsh-plugin-manager
 
 HISTSIZE=10000
 SAVEHIST=10000
@@ -39,32 +40,24 @@ plugin-load $plugins
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Less Colors for Man Pages
-export LESS_TERMCAP_mb=$'\e[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\e[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\e[0m'           # end mode
-export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+if command -v pyenv &> /dev/null
+then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 
-# pyenv
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+    # this causes the shell to be extremely slow, not sure why
+    # eval "$(pyenv virtualenv-init -)"
+fi
 
-# this causes the shell to be extremely slow, not sure why
-# eval "$(pyenv virtualenv-init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-eval "$(zoxide init zsh)"
-alias j=z
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
+if command -v zoxide &> /dev/null
+then
+    eval "$(zoxide init zsh)"
+    alias j=z
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

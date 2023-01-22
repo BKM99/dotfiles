@@ -8,19 +8,26 @@
 - link:
     # ~/.config/alacritty: terminals/alacritty
     ~/.config/kitty: terminals/kitty
+
     ~/.config/nvim: editor/nvim
     # ~/.vimrc: editor/vim/.vimrc
+
     ~/.gitconfig: tools/git/.gitconfig
     ~/.gitignore_global: tools/git/.gitignore_global
+
     ~/.tmux.conf: tools/tmux/.tmux_simple.conf
     # ~/.config/zk: tools/zk
     # ~/.config/conda: tools/conda
+
     ~/.p10k.zsh: shell/zsh/.p10k.zsh
     ~/.zshrc: shell/zsh/.zshrc
     ~/.zlogin: shell/zsh/.zlogin
     ~/.zshenv: shell/zsh/.zshenv
-    ~/.zsh-aliases: shell/zsh/.zsh-aliases
+    ~/.zsh-aliases-general: shell/zsh/.zsh-aliases-general
+    ~/.zsh-aliases-mac: shell/zsh/.zsh-aliases-mac
     ~/.zprofile: shell/zsh/.zprofile
+    ~/.zsh-plugin-manager: shell/zsh/.zsh-plugin-manager
+
     # ~/.bashrc: shell/bash/.bashrc
     # ~/.bash_profile: shell/bash/.bash_profile
 
