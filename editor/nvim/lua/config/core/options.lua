@@ -51,4 +51,4 @@ vim.opt.background = "dark"
 -- on apple silicon only python 3.9.1 or higher works
 vim.g.python3_host_prog = "~/.pyenv/versions/py3nvim/bin/python"
 -- vim.g.node_host_prog = "/usr/local/bin/neovim-node-host"
-vim.g.node_host_prog = "/opt/homebrew/bin/neovim-node-host"
+-- vim.g.node_host_prog = "/opt/homebrew/bin/neovim-node-host"
