@@ -1,3 +1,7 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+local _, neodev = pcall(require, "neodev")
+neodev.setup({})
+
 local lspconfig = require("lspconfig")
 
 local mason = require("mason")
@@ -85,21 +89,21 @@ for _, server in pairs(servers) do
 	end
 
 	if server == "pyright" then
-	    local pyright_opts = {
-	        settings = {
-	            python = {
-	                analysis = {
-	                    typeCheckingMode = "basic",
-	                    diagnosticMode = "workspace",
-	                    inlayHints = {
-	                        variableTypes = true,
-	                        functionReturnTypes = true,
-	                    },
-	                },
-	            },
-	        },
-	    }
-	    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+		local pyright_opts = {
+			settings = {
+				python = {
+					analysis = {
+						typeCheckingMode = "basic",
+						diagnosticMode = "workspace",
+						inlayHints = {
+							variableTypes = true,
+							functionReturnTypes = true,
+						},
+					},
+				},
+			},
+		}
+		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
 	if server == "jsonls" then

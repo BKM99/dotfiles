@@ -44,9 +44,6 @@ return {
 					enable = true,
 					disable = { "yaml", "rust", "python" },
 				},
-				autotag = {
-					enable = true,
-				},
 				autopairs = {
 					enable = true,
 				},
@@ -94,6 +91,5 @@ return {
 		end,
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects" },
-	{ "windwp/nvim-ts-autotag" },
 	{ "andymass/vim-matchup" },
 }
