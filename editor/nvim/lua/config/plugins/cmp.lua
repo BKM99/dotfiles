@@ -9,14 +9,14 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
-		"onsails/lspkind.nvim",
+		-- "onsails/lspkind.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
 
 		local luasnip = require("luasnip")
 
-		local lspkind = require("lspkind")
+		-- local lspkind = require("lspkind")
 
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
@@ -101,26 +101,26 @@ return {
 				ghost_text = false,
 				native_menu = false,
 			},
-			formatting = {
-				format = lspkind.cmp_format({
-					with_text = false,
-					mode = "symbol_text",
-					maxwidth = 50,
-					ellipsis_char = "...",
-
-					before = function(entry, vim_item)
-						vim_item.menu = ({
-							nvim_lsp = "[LSP]",
-							nvim_lua = "[Lua]",
-							luasnip = "[Snippet]",
-							buffer = "[Buffer]",
-							path = "[Path]",
-						})[entry.source.name]
-
-						return vim_item
-					end,
-				}),
-			},
+			-- formatting = {
+			-- 	format = lspkind.cmp_format({
+			-- 		with_text = false,
+			-- 		mode = "symbol_text",
+			-- 		maxwidth = 50,
+			-- 		ellipsis_char = "...",
+			--
+			-- 		before = function(entry, vim_item)
+			-- 			vim_item.menu = ({
+			-- 				nvim_lsp = "[LSP]",
+			-- 				nvim_lua = "[Lua]",
+			-- 				luasnip = "[Snippet]",
+			-- 				buffer = "[Buffer]",
+			-- 				path = "[Path]",
+			-- 			})[entry.source.name]
+			--
+			-- 			return vim_item
+			-- 		end,
+			-- 	}),
+			-- },
 		})
 
 		cmp.setup.cmdline("/", {

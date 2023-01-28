@@ -1,5 +1,4 @@
 return {
-	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
 	{
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
@@ -9,7 +8,7 @@ return {
 	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "mfussenegger/nvim-jdtls", ft = "java" },
+	-- { "mfussenegger/nvim-jdtls", ft = "java" },
 	{ "b0o/SchemaStore.nvim" },
 	{
 		"j-hui/fidget.nvim",
@@ -18,4 +17,5 @@ return {
 		end,
 	},
 	{ "folke/neodev.nvim" },
+	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
 }

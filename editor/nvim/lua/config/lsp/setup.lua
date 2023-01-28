@@ -27,11 +27,11 @@ local servers = {
 	"html",
 	"pyright",
 	"rust_analyzer",
-	"tailwindcss",
-	"yamlls",
+	-- "tailwindcss",
+	-- "yamlls",
 	"cssls",
 	"eslint",
-	"jdtls",
+	-- "jdtls",
 }
 
 mason_lspconfig.setup({
@@ -46,8 +46,8 @@ local tools = {
 	"prettierd",
 	"stylua",
 	"codelldb",
-	"java-debug-adapter",
-	"java-test",
+	-- "java-debug-adapter",
+	-- "java-test",
 	"gofumpt",
 	"goimports",
 }
@@ -124,9 +124,9 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
 	end
 
-	if server == "jdtls" then
-		goto continue
-	end
+	-- if server == "jdtls" then
+	-- 	goto continue
+	-- end
 
 	lspconfig[server].setup(opts)
 	::continue::

@@ -6,11 +6,9 @@ return {
 			autopairs.setup({})
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			local cmp_status_ok, cmp = pcall(require, "cmp")
-			if not cmp_status_ok then
-				return
+			if cmp_status_ok then
+				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 			end
-
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 	{
@@ -29,14 +27,14 @@ return {
 		"nvim-pack/nvim-spectre",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
-			vim.keymap.set("n", "<leader>sr", "<cmd>lua require('spectre').open()<CR>")
+			vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>")
 		end,
 	},
 	{
 		"folke/trouble.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
+		-- dependencies = {
+		-- 	"nvim-tree/nvim-web-devicons",
+		-- },
 
 		config = function()
 			local trouble = require("trouble")
