@@ -38,6 +38,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"git",
 		"query",
 		"tsplayground",
+		"netrw",
 	},
 	command = [[nnoremap <buffer><silent> q :close<CR>]],
 })

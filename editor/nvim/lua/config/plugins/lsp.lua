@@ -8,7 +8,7 @@ return {
 	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	-- { "mfussenegger/nvim-jdtls", ft = "java" },
+	{ "mfussenegger/nvim-jdtls", ft = "java" },
 	{ "b0o/SchemaStore.nvim" },
 	{
 		"j-hui/fidget.nvim",

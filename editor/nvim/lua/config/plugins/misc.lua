@@ -32,9 +32,9 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		-- dependencies = {
-		-- 	"nvim-tree/nvim-web-devicons",
-		-- },
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
 
 		config = function()
 			local trouble = require("trouble")
@@ -46,6 +46,26 @@ return {
 			trouble.setup({
 				use_diagnostic_signs = true,
 			})
+		end,
+	},
+	{
+		"mbbill/undotree",
+		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTreeToggle" } },
+		config = function()
+			vim.g.undotree_SetFocusWhenToggle = 1
+		end,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+		keys = { { "<leader>t", "<cmd>NeoTreeFocusToggle<cr>", desc = "NeoTree Toggle" } },
+		config = function()
+			vim.g.neo_tree_remove_legacy_commands = 1
 		end,
 	},
 }
