@@ -6,12 +6,13 @@ if vim.bo.filetype ~= "markdown" then
 	})
 end
 
+-- NOTE: using yanky to do this
 -- Highlights text on yank
-vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+-- 	callback = function()
+-- 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+-- 	end,
+-- })
 
 -- better commenting options
 vim.api.nvim_create_autocmd("BufEnter", {

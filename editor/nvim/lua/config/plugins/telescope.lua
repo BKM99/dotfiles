@@ -16,6 +16,7 @@ return {
 			},
 		})
 		telescope.load_extension("fzf")
+		telescope.load_extension("yank_history")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap.set
 
