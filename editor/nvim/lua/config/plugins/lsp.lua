@@ -18,4 +18,16 @@ return {
 	},
 	{ "folke/neodev.nvim" },
 	{ "jose-elias-alvarez/null-ls.nvim", event = "BufReadPre" },
+	{
+		"glepnir/lspsaga.nvim",
+		event = "BufRead",
+		config = function()
+			require("lspsaga").setup({
+				symbol_in_winbar = {
+					enable = false,
+				},
+			})
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
 }

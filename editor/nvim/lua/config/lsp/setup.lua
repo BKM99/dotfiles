@@ -20,18 +20,18 @@ mason.setup({
 
 local servers = {
 	"jsonls",
-	"sumneko_lua",
+	"lua_ls",
 	"clangd",
 	"tsserver",
 	"gopls",
 	"html",
 	"pyright",
 	"rust_analyzer",
-	-- "tailwindcss",
-	-- "yamlls",
+	"tailwindcss",
+	"yamlls",
 	"cssls",
 	"eslint",
-	-- "jdtls",
+	"jdtls",
 }
 
 mason_lspconfig.setup({
@@ -39,15 +39,15 @@ mason_lspconfig.setup({
 })
 
 local tools = {
-	"js-debug-adapter",
+	-- "js-debug-adapter",
 	"delve",
 	"black",
 	"flake8",
 	"prettierd",
 	"stylua",
 	"codelldb",
-	-- "java-debug-adapter",
-	-- "java-test",
+	"java-debug-adapter",
+	"java-test",
 	"gofumpt",
 	"goimports",
 }
@@ -69,7 +69,7 @@ for _, server in pairs(servers) do
 		capabilities = require("config.lsp.handlers").capabilities,
 	}
 
-	if server == "sumneko_lua" then
+	if server == "lua_ls" then
 		local sumneko_opts = {
 			settings = {
 				Lua = {
@@ -124,9 +124,9 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
 	end
 
-	-- if server == "jdtls" then
-	-- 	goto continue
-	-- end
+	if server == "jdtls" then
+		goto continue
+	end
 
 	lspconfig[server].setup(opts)
 	::continue::

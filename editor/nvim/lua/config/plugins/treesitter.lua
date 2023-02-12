@@ -44,12 +44,12 @@ return {
 					enable = true,
 					disable = { "yaml", "rust", "python" },
 				},
-				-- autopairs = {
-				-- 	enable = true,
-				-- },
-				-- matchup = {
-				-- 	enable = true,
-				-- },
+				autopairs = {
+					enable = true,
+				},
+				matchup = {
+					enable = true,
+				},
 				context_commentstring = {
 					enable = true,
 				},

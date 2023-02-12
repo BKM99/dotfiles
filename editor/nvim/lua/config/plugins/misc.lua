@@ -26,9 +26,15 @@ return {
 	{
 		"nvim-pack/nvim-spectre",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			vim.keymap.set("n", "<leader>S", "<cmd>lua require('spectre').open()<CR>")
-		end,
+		keys = {
+			{
+				"<leader>S",
+				function()
+					require("spectre").open()
+				end,
+				desc = "Replace in files (Spectre)",
+			},
+		},
 	},
 	{
 		"folke/trouble.nvim",
@@ -63,9 +69,19 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		keys = { { "<leader>t", "<cmd>NeoTreeFocusToggle<cr>", desc = "NeoTree Toggle" } },
+		keys = { { "<leader>t", "<cmd>NeoTreeRevealToggle<cr>", desc = "NeoTree Toggle" } },
 		config = function()
 			vim.g.neo_tree_remove_legacy_commands = 1
+			require("neo-tree").setup({
+				filesystem = {
+					filtered_items = {
+						hide_dotfiles = false,
+						hide_gitignored = true,
+						hide_by_name = { "node_modules" },
+						follow_current_file = true,
+					},
+				},
+			})
 		end,
 	},
 	{
@@ -82,6 +98,25 @@ return {
 			vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
 			vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
 			vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
+			vim.keymap.set("n", "<leader>yh", "<cmd>Telescope yank_history<cr>")
 		end,
 	},
+
+	{
+		"folke/todo-comments.nvim",
+		cmd = { "TodoTrouble", "TodoTelescope" },
+		event = { "BufReadPost", "BufNewFile" },
+		config = true,
+        -- stylua: ignore
+        -- TODO: fix the keymaps for this
+        keys = {
+            { "]t",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+            { "[t",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+            { "<leader>xt", "<cmd>TodoTrouble<cr>",                              desc = "Todo (Trouble)" },
+            { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",      desc = "Todo/Fix/Fixme (Trouble)" },
+            { "<leader>st", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
+        },
+	},
+
+	{ "andymass/vim-matchup" },
 }

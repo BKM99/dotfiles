@@ -57,3 +57,8 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_node_provider = 0
+
+-- options for 'f-person/git-blame.nvim'
+vim.g.gitblame_enabled = 0
+vim.g.gitblame_message_template = "<summary> • <date> • <author>"
+vim.g.gitblame_highlight_group = "LineNr"
