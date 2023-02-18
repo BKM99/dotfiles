@@ -9,6 +9,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 		-- "onsails/lspkind.nvim",
 	},
 	config = function()
@@ -51,7 +52,6 @@ return {
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-
 			mapping = cmp.mapping.preset.insert({
 				["<C-b>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -82,6 +82,7 @@ return {
 				{ name = "nvim_lua" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
+				{ name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 			},
 			{

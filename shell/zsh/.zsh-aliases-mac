@@ -5,7 +5,7 @@ alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 
 update () {
     plugin-update
+    brew upgrade neovim --fetch-HEAD
     brewall
-    # nvim -c "PackerSync"
 }
 

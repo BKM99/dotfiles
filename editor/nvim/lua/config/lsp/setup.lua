@@ -1,133 +1,88 @@
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-local _, neodev = pcall(require, "neodev")
-neodev.setup({})
+-- NOTE: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({})
 
 local lspconfig = require("lspconfig")
-
-local mason = require("mason")
-
-local mason_lspconfig = require("mason-lspconfig")
-
-mason.setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-})
-
-local servers = {
-	"jsonls",
-	"lua_ls",
-	"clangd",
-	"tsserver",
-	"gopls",
-	"html",
-	"pyright",
-	"rust_analyzer",
-	"tailwindcss",
-	"yamlls",
-	"cssls",
-	"eslint",
-	"jdtls",
-}
-
-mason_lspconfig.setup({
-	ensure_installed = servers,
+require("mason").setup({})
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        "lua_ls",
+        "tsserver",
+        "pyright",
+    },
 })
 
 local tools = {
-	-- "js-debug-adapter",
-	"delve",
-	"black",
-	"flake8",
-	"prettierd",
-	"stylua",
-	"codelldb",
-	"java-debug-adapter",
-	"java-test",
-	"gofumpt",
-	"goimports",
+    "stylua",
+    "eslint_d",
 }
 
 -- Install tools
 local mr = require("mason-registry")
 for _, tool in ipairs(tools) do
-	local p = mr.get_package(tool)
-	if not p:is_installed() then
-		p:install()
-	end
+    local p = mr.get_package(tool)
+    if not p:is_installed() then
+        p:install()
+    end
 end
 
-local opts = {}
+local capabilities = require("config.lsp.handlers").capabilities
+local on_attach = require("config.lsp.handlers").on_attach
 
-for _, server in pairs(servers) do
-	opts = {
-		on_attach = require("config.lsp.handlers").on_attach,
-		capabilities = require("config.lsp.handlers").capabilities,
-	}
+lspconfig.lua_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+})
 
-	if server == "lua_ls" then
-		local sumneko_opts = {
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
-					},
-				},
-			},
-		}
-		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-	end
+lspconfig.tsserver.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
-	if server == "pyright" then
-		local pyright_opts = {
-			settings = {
-				python = {
-					analysis = {
-						typeCheckingMode = "basic",
-						diagnosticMode = "workspace",
-						inlayHints = {
-							variableTypes = true,
-							functionReturnTypes = true,
-						},
-					},
-				},
-			},
-		}
-		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-	end
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
-	if server == "jsonls" then
-		local jsonls_opts = {
-			settings = {
-				json = {
-					schemas = require("schemastore").json.schemas(),
-				},
-			},
-		}
-		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-	end
+lspconfig.clangd.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
-	if server == "tailwindcss" then
-		local tailwindcss_opts = {
-			root_dir = require("lspconfig").util.root_pattern("tailwind.config.js"),
-		}
-		opts = vim.tbl_deep_extend("force", tailwindcss_opts, opts)
-	end
+lspconfig.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
-	if server == "jdtls" then
-		goto continue
-	end
+lspconfig.gopls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+})
 
-	lspconfig[server].setup(opts)
-	::continue::
-end
+lspconfig.eslint.setup({})
+
+lspconfig.jsonls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+        },
+    },
+})

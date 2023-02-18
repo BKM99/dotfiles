@@ -28,7 +28,7 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
 			{
-				"<leader>S",
+				"<leader>sr",
 				function()
 					require("spectre").open()
 				end,
@@ -55,13 +55,6 @@ return {
 		end,
 	},
 	{
-		"mbbill/undotree",
-		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTreeToggle" } },
-		config = function()
-			vim.g.undotree_SetFocusWhenToggle = 1
-		end,
-	},
-	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		dependencies = {
@@ -85,7 +78,7 @@ return {
 		end,
 	},
 	{
-		"/gbprod/yanky.nvim",
+		"gbprod/yanky.nvim",
 		config = function()
 			require("yanky").setup({
 				highlight = {
@@ -100,22 +93,6 @@ return {
 			vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 			vim.keymap.set("n", "<leader>yh", "<cmd>Telescope yank_history<cr>")
 		end,
-	},
-
-	{
-		"folke/todo-comments.nvim",
-		cmd = { "TodoTrouble", "TodoTelescope" },
-		event = { "BufReadPost", "BufNewFile" },
-		config = true,
-        -- stylua: ignore
-        -- TODO: fix the keymaps for this
-        keys = {
-            { "]t",         function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-            { "[t",         function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-            { "<leader>xt", "<cmd>TodoTrouble<cr>",                              desc = "Todo (Trouble)" },
-            { "<leader>xT", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>",      desc = "Todo/Fix/Fixme (Trouble)" },
-            { "<leader>st", "<cmd>TodoTelescope<cr>",                            desc = "Todo" },
-        },
 	},
 
 	{ "andymass/vim-matchup" },

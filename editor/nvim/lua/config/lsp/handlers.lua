@@ -48,14 +48,15 @@ M.setup = function()
 	})
 end
 
-local function lsp_keymaps(bufnr)
+M.on_attach = function(_, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufopts)
-	vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", bufopts)
+	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", bufopts)
 	vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, bufopts)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float, bufopts)
@@ -71,17 +72,6 @@ local function lsp_keymaps(bufnr)
 	vim.keymap.set("n", "<space>lf", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
-end
-
-M.on_attach = function(client, bufnr)
-	lsp_keymaps(bufnr)
-
-	if client.name == "jdtls" then
-		client.name = "jdtls"
-		vim.lsp.codelens.refresh()
-		require("jdtls").setup_dap({ hotcodereplace = "auto" })
-		require("jdtls.dap").setup_dap_main_class_configs()
-	end
 end
 
 return M
