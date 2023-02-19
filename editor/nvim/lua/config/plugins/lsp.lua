@@ -41,17 +41,4 @@ return {
 			})
 		end,
 	},
-	-- TODO: mayve get rid of this?
-	{
-		"glepnir/lspsaga.nvim",
-		event = "BufRead",
-		config = function()
-			require("lspsaga").setup({
-				symbol_in_winbar = {
-					enable = false,
-				},
-			})
-		end,
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
 }
