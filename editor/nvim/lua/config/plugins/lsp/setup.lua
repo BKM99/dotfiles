@@ -27,8 +27,8 @@ for _, tool in ipairs(tools) do
 	end
 end
 
-local capabilities = require("config.lsp.handlers").capabilities
-local on_attach = require("config.lsp.handlers").on_attach
+local capabilities = require("config.plugins.lsp.handlers").capabilities
+local on_attach = require("config.plugins.lsp.handlers").on_attach
 
 lspconfig.lua_ls.setup({
 	on_attach = on_attach,

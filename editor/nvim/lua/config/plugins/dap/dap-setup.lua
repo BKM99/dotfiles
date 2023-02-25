@@ -42,10 +42,3 @@ end
 if not pcall(load_launchjs) then
 	print("Failed to parse launch.json.")
 end
-
--- language specific dap setup
-require("config.dap.python")
-require("config.dap.javascript")
-require("config.dap.rust")
-require("config.dap.go")
-require("config.dap.cpp")

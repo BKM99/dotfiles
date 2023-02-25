@@ -63,13 +63,13 @@ local config = {
 		workspace_dir,
 	},
 	on_attach = function(client, bufnr)
-		require("config.lsp.handlers").on_attach(client, bufnr)
+		require("config.plugins.lsp.handlers").on_attach(client, bufnr)
 
 		vim.lsp.codelens.refresh()
 		jdtls.setup_dap({ hotcodereplace = "auto" })
 		require("jdtls.dap").setup_dap_main_class_configs()
 	end,
-	capabilities = require("config.lsp.handlers").capabilities,
+	capabilities = require("config.plugins.lsp.handlers").capabilities,
 	root_dir = root_dir,
 	-- Here you can configure eclipse.jdt.ls specific settings
 	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
