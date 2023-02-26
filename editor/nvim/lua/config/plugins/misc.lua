@@ -96,4 +96,6 @@ return {
 	},
 
 	{ "andymass/vim-matchup" },
+	{ "tpope/vim-sleuth", cmd = { "Sleuth" } },
+	{ "tpope/vim-repeat", event = "VeryLazy" },
 }

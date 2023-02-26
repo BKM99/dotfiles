@@ -3,8 +3,8 @@ return {
 		"neovim/nvim-lspconfig",
 		event = "BufReadPre",
 		config = function()
-            require("config.plugins.lsp.setup")
-            require("config.plugins.lsp.handlers").setup()
+			require("config.plugins.lsp.setup")
+			require("config.plugins.lsp.handlers").setup()
 		end,
 	},
 	{ "williamboman/mason.nvim" },
