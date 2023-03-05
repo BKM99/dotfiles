@@ -1,5 +1,18 @@
 return {
 	{
+		"nvim-pack/nvim-spectre",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{
+				"<leader>sr",
+				function()
+					require("spectre").open()
+				end,
+				desc = "Replace in files (Spectre)",
+			},
+		},
+	},
+	{
 		"windwp/nvim-autopairs",
 		config = function()
 			local autopairs = require("nvim-autopairs")
@@ -24,24 +37,10 @@ return {
 		cmd = "MarkdownPreview",
 	},
 	{
-		"nvim-pack/nvim-spectre",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		keys = {
-			{
-				"<leader>sr",
-				function()
-					require("spectre").open()
-				end,
-				desc = "Replace in files (Spectre)",
-			},
-		},
-	},
-	{
 		"folke/trouble.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-
 		config = function()
 			local trouble = require("trouble")
 			local opts = { noremap = true, silent = true }
@@ -54,48 +53,6 @@ return {
 			})
 		end,
 	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		keys = { { "<leader>t", "<cmd>NeoTreeRevealToggle<cr>", desc = "NeoTree Toggle" } },
-		config = function()
-			vim.g.neo_tree_remove_legacy_commands = 1
-			require("neo-tree").setup({
-				filesystem = {
-					filtered_items = {
-						hide_dotfiles = false,
-						hide_gitignored = true,
-						hide_by_name = { "node_modules" },
-						follow_current_file = true,
-					},
-				},
-			})
-		end,
-	},
-	{
-		"gbprod/yanky.nvim",
-		config = function()
-			require("yanky").setup({
-				highlight = {
-					on_put = true,
-					on_yank = true,
-					timer = 100,
-				},
-			})
-			vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-			vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-			vim.keymap.set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-			vim.keymap.set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-			vim.keymap.set("n", "<leader>yh", "<cmd>Telescope yank_history<cr>")
-		end,
-	},
-
-	{ "andymass/vim-matchup" },
+	{ "andymass/vim-matchup", event = "BufReadPost" },
 	{ "tpope/vim-sleuth", cmd = { "Sleuth" } },
-	{ "tpope/vim-repeat", event = "VeryLazy" },
 }

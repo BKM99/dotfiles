@@ -10,7 +10,7 @@ vim.opt.swapfile = false
 vim.opt.fileencoding = "utf-8"
 vim.opt.mouse = "a"
 vim.opt.wrap = false
-vim.opt.showmode = false
+vim.opt.showmode = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.hidden = true
@@ -21,7 +21,7 @@ vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
 vim.opt.undofile = true
 vim.opt.cursorline = true
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
 vim.opt.backup = false
 vim.opt.writebackup = false
@@ -38,14 +38,34 @@ vim.opt.title = true
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
+    pattern = "*",
+    command = "set nopaste",
 })
 
 -- Some default color stuff
 vim.opt.termguicolors = true
 vim.cmd([[syntax on]])
 vim.opt.background = "dark"
+
+local has = vim.fn.has
+local is_mac = has("macunix")
+local is_win = has("win32")
+local is_wsl = has("wsl")
+
+if is_mac then
+    vim.opt.clipboard:append({ "unnamedplus" })
+end
+if is_win then
+    vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
+end
+if is_wsl then
+    vim.cmd([[
+      augroup Yank
+      autocmd!
+      autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+      augroup END
+    ]])
+end
 
 -- https://neovim.io/doc/user/provider.html
 -- on apple silicon only python 3.9.1 or higher works

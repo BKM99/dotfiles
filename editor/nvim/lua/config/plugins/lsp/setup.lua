@@ -1,8 +1,3 @@
--- NOTE: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({
-	library = { plugins = { "neotest" }, types = true },
-})
-
 local lspconfig = require("lspconfig")
 require("mason").setup({})
 require("mason-lspconfig").setup({
@@ -81,10 +76,4 @@ lspconfig.eslint.setup({})
 lspconfig.jsonls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	settings = {
-		json = {
-			schemas = require("schemastore").json.schemas(),
-			validate = { enable = true },
-		},
-	},
 })

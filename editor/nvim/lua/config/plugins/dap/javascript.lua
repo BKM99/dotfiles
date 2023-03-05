@@ -3,7 +3,7 @@ local dap_utils = require("dap.utils")
 
 require("dap-vscode-js").setup({
 	node_path = "node",
-	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/lazy/vscode-js-debug",
+	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/js-debug-adapter",
 	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 })
 

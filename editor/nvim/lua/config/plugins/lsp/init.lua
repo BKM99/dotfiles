@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("config.plugins.lsp.setup")
 			require("config.plugins.lsp.handlers").setup()
@@ -10,34 +10,24 @@ return {
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "mfussenegger/nvim-jdtls", ft = "java" },
-	{ "b0o/SchemaStore.nvim" },
-	{
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup({})
-		end,
-	},
-	{ "folke/neodev.nvim" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "BufReadPre",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local null_ls = require("null-ls")
 
-			local formatting = null_ls.builtins.formatting
-			local diagnostics = null_ls.builtins.diagnostics
-
 			null_ls.setup({
-				debug = false,
 				sources = {
-					formatting.prettierd.with({
-						extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-					}),
-					formatting.black.with({ extra_args = { "--fast" } }),
-					diagnostics.flake8,
-					formatting.stylua,
-					formatting.goimports,
-					formatting.gofumpt,
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.diagnostics.eslint_d,
+					null_ls.builtins.formatting.eslint_d,
+					null_ls.builtins.formatting.isort,
+					null_ls.builtins.formatting.black,
+					null_ls.builtins.diagnostics.flake8,
+					null_ls.builtins.diagnostics.shellcheck,
+					null_ls.builtins.formatting.google_java_format,
+					null_ls.builtins.formatting.prettierd,
 				},
 			})
 		end,
