@@ -2,9 +2,9 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        event = { "BufReadPost", "BufNewFile" },
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         config = function()
+            -- pcall(require("nvim-treesitter.install").update({ with_sync = true }))
             local configs = require("nvim-treesitter.configs")
             configs.setup({
                 ensure_installed = {

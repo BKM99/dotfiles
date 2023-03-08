@@ -19,7 +19,7 @@
     # ~/.config/zk: tools/zk
     # ~/.config/conda: tools/conda
 
-    ~/.p10k.zsh: shell/zsh/.p10k.zsh
+    # ~/.p10k.zsh: shell/zsh/.p10k.zsh
     ~/.zshrc: shell/zsh/.zshrc
     ~/.zlogin: shell/zsh/.zlogin
     ~/.zshenv: shell/zsh/.zshenv

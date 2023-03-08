@@ -64,7 +64,7 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
 
 -- open file in the buffer's current path
-keymap("n", "<leader>o", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
+keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 
 -- move line by line
 keymap("n", "j", "gj", opts)

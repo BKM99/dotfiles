@@ -46,7 +46,7 @@ return {
 			local opts = { noremap = true, silent = true }
 			local keymap = vim.keymap.set
 
-			keymap("n", "<leader>e", ":TroubleToggle<CR>", opts)
+			keymap("n", "<leader>m", ":TroubleToggle<CR>", opts)
 
 			trouble.setup({
 				use_diagnostic_signs = true,

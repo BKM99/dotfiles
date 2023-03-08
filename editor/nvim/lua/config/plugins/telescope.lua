@@ -1,7 +1,14 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	version = "*",
 	dependencies = {
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+			cond = function()
+				return vim.fn.executable("make") == 1
+			end,
+		},
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
@@ -15,7 +22,7 @@ return {
 				},
 			},
 		})
-		telescope.load_extension("fzf")
+		pcall(telescope.load_extension, "fzf")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap.set
 
