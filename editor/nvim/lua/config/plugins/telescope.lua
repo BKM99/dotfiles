@@ -9,6 +9,7 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
+		{ "nvim-telescope/telescope-file-browser.nvim" },
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
@@ -23,6 +24,7 @@ return {
 			},
 		})
 		pcall(telescope.load_extension, "fzf")
+		pcall(telescope.load_extension, "file_browser")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap.set
 
@@ -41,5 +43,7 @@ return {
 			':lua require("telescope.builtin").find_files { prompt_title = "dotfiles", cwd = "~/.dotfiles/" } <CR>',
 			opts
 		)
+
+		keymap("n", "<leader>t", ":Telescope file_browser path=%:p:h select_buffer=true <CR>")
 	end,
 }
