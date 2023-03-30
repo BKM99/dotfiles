@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+		dependencies = { { "JoosepAlviste/nvim-ts-context-commentstring" }, { "windwp/nvim-ts-autotag" } },
 		config = function()
 			-- pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 			local configs = require("nvim-treesitter.configs")
@@ -33,15 +33,14 @@ return {
 					enable = true,
 					-- disable highlight for large files
 					disable = function(_, buf)
-						local max_filesize = 100 * 1024 -- 100 KB
-						local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-						if ok and stats and stats.size > max_filesize then
-							return true
-						end
+						return vim.api.nvim_buf_line_count(buf) > 2000
 					end,
 					additional_vim_regex_highlighting = false,
 				},
 				autopairs = {
+					enable = true,
+				},
+				autotag = {
 					enable = true,
 				},
 				matchup = {

@@ -21,6 +21,13 @@ function mkcd() {
     cd $1
 }
 
+# quick notes
+note() {
+    echo "date: $(date)" >> $HOME/Documents/quick-notes.txt
+    echo "$@" >> $HOME/Documents/quick-notes.txt
+    echo "" >> $HOME/Documents/quick-notes.txt
+}
+
 if command -v tmux &> /dev/null
 then
     alias t='tmux'

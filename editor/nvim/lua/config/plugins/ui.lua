@@ -18,4 +18,14 @@ return {
 			vim.g.undotree_SetFocusWhenToggle = 1
 		end,
 	},
+
+	{
+		"nvim-tree/nvim-tree.lua",
+		keys = { { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "NvimTreeToggle" } },
+		config = function()
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+			require("nvim-tree").setup()
+		end,
+	},
 }
