@@ -8,11 +8,4 @@ return {
 			vim.cmd([[ hi Comment guifg=#7d83ab]])
 		end,
 	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = true,
-		config = function()
-			-- vim.cmd([[colorscheme tokyonight-night]])
-		end,
-	},
 }

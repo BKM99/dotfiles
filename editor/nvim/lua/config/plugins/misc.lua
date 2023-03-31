@@ -54,5 +54,12 @@ return {
 		end,
 	},
 	{ "andymass/vim-matchup", event = "BufReadPost" },
-	{ "tpope/vim-sleuth", cmd = { "Sleuth" } },
+	{ "tpope/vim-repeat" },
+	{ "tpope/vim-surround" },
+	{
+		"tpope/vim-sleuth",
+		setup = function()
+			vim.g.sleuth_automatic = 0
+		end,
+	},
 }

@@ -41,6 +41,5 @@ return {
 			':lua require("telescope.builtin").find_files { prompt_title = "dotfiles", cwd = "~/.dotfiles/" } <CR>',
 			opts
 		)
-
 	end,
 }
