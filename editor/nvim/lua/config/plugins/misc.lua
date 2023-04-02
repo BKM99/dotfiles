@@ -59,7 +59,7 @@ return {
 	{
 		"tpope/vim-sleuth",
 		setup = function()
-			vim.g.sleuth_automatic = 0
+			vim.g.sleuth_automatic = 1
 		end,
 	},
 }
