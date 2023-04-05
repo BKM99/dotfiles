@@ -53,13 +53,15 @@ return {
 			})
 		end,
 	},
-	{ "andymass/vim-matchup", event = "BufReadPost" },
-	{ "tpope/vim-repeat" },
-	{ "tpope/vim-surround" },
 	{
-		"tpope/vim-sleuth",
-		setup = function()
-			vim.g.sleuth_automatic = 1
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
 		end,
 	},
+	{ "andymass/vim-matchup", event = "BufReadPost" },
+	{ "tpope/vim-repeat" },
+	{ "tpope/vim-sleuth" },
 }

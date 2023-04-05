@@ -31,7 +31,7 @@ return {
 					"toml",
 					"vim",
 					"yaml",
-					"help",
+					"vimdoc",
 				},
 				highlight = {
 					enable = true,
