@@ -1,7 +1,6 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("config.plugins.lsp.setup")
 			require("config.plugins.lsp.handlers").setup()
@@ -35,6 +34,7 @@ return {
 
 							"shellcheck",
 
+							"jdtls",
 							"java-debug-adapter",
 							"java-test",
 							"google-java-format",
@@ -50,7 +50,6 @@ return {
 	{ "mfussenegger/nvim-jdtls", ft = "java" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		event = "BufReadPre",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local null_ls = require("null-ls")

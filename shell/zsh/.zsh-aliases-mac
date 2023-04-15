@@ -4,8 +4,9 @@ alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 
 update () {
-    plugin-update
+    znap pull
     brew upgrade neovim --fetch-HEAD
     brewall
+    nvim --headless "+Lazy! sync" +qa
 }
 

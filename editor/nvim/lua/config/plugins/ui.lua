@@ -1,7 +1,6 @@
 return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			-- char = "▏",
 			char = "│",
@@ -21,13 +20,15 @@ return {
 
 	{
 		"nvim-tree/nvim-tree.lua",
-		keys = { { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "NvimTreeToggle" } },
+		-- keys = { { "<leader>t", "<cmd>NvimTreeToggle<cr>", desc = "NvimTreeToggle" } },
 		config = function()
 			vim.g.loaded_netrw = 1
 			vim.g.loaded_netrwPlugin = 1
 			require("nvim-tree").setup({
 				view = { relativenumber = true },
 			})
+
+			vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeToggle<cr>")
 		end,
 	},
 
