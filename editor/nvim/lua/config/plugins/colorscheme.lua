@@ -8,4 +8,6 @@ return {
 			vim.cmd([[ hi Comment guifg=#7d83ab]])
 		end,
 	},
+
+	{ "chriskempson/base16-vim" },
 }

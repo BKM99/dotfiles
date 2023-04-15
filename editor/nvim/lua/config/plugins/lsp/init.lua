@@ -7,8 +7,46 @@ return {
 			require("config.plugins.lsp.handlers").setup()
 		end,
 	},
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
+	{
+		"williamboman/mason.nvim",
+		dependencies = {
+			{
+				"WhoIsSethDaniel/mason-tool-installer.nvim",
+				config = function()
+					require("mason-tool-installer").setup({
+						ensure_installed = {
+							"lua-language-server",
+							"stylua",
+
+							"typescript-language-server",
+							"js-debug-adapter",
+							"eslint-lsp",
+							"prettier",
+
+							"rust-analyzer",
+
+							"clangd",
+
+							"pyright",
+							"black",
+							"flake8",
+
+							"gopls",
+
+							"shellcheck",
+
+							"java-debug-adapter",
+							"java-test",
+							"google-java-format",
+
+							"json-lsp",
+						},
+					})
+				end,
+			},
+			{ "williamboman/mason-lspconfig.nvim" },
+		},
+	},
 	{ "mfussenegger/nvim-jdtls", ft = "java" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -22,7 +60,6 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.eslint,
-					null_ls.builtins.formatting.isort,
 					null_ls.builtins.formatting.black,
 					null_ls.builtins.diagnostics.flake8,
 					null_ls.builtins.diagnostics.shellcheck,

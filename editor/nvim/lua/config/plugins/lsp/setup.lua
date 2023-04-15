@@ -1,26 +1,6 @@
 local lspconfig = require("lspconfig")
 require("mason").setup({})
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"lua_ls",
-		"tsserver",
-		"pyright",
-	},
-})
-
-local tools = {
-	"stylua",
-	"eslint_d",
-}
-
--- Install tools
-local mr = require("mason-registry")
-for _, tool in ipairs(tools) do
-	local p = mr.get_package(tool)
-	if not p:is_installed() then
-		p:install()
-	end
-end
+require("mason-lspconfig").setup()
 
 local capabilities = require("config.plugins.lsp.handlers").capabilities
 local on_attach = require("config.plugins.lsp.handlers").on_attach

@@ -56,6 +56,9 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
 keymap("n", "x", '"_x', opts)
 
+-- using delete without yank
+keymap({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yank" })
+
 -- Indent text without leaving
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -85,4 +88,22 @@ vim.cmd([[
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
+]])
+
+-- Search and replace in current word (case sensitive)
+keymap(
+	"n",
+	"<leader>s",
+	":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+	{ desc = "Replace current word (case sensitive)" }
+)
+keymap(
+	"v",
+	"<leader>s",
+	":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+	{ desc = "Replace current word (case sensitive)" }
+)
+
+vim.cmd([[
+nmap gx :!open <c-r><c-a>
 ]])
