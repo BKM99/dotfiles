@@ -17,6 +17,8 @@ return {
 							"lua-language-server",
 							"stylua",
 
+							"vim-language-server",
+
 							"typescript-language-server",
 							"js-debug-adapter",
 							"eslint-lsp",

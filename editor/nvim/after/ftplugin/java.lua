@@ -4,12 +4,13 @@ if not status then
 end
 
 -- Determine OS
+local path = "/.cache/jdtls-workspace/"
 local home = os.getenv("HOME")
 if vim.fn.has("mac") == 1 then
-	WORKSPACE_PATH = home .. "/.cache/jdtls-workspace/"
+	WORKSPACE_PATH = home .. path
 	CONFIG = "mac"
 elseif vim.fn.has("unix") == 1 then
-	WORKSPACE_PATH = home .. "/.cache/jdtls-workspace/"
+	WORKSPACE_PATH = home .. path
 	CONFIG = "linux"
 else
 	print("Unsupported system for JDTLS!")
