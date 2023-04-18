@@ -56,5 +56,10 @@ return {
 	{ "tpope/vim-surround" },
 	{ "andymass/vim-matchup", event = "BufReadPost" },
 	{ "tpope/vim-repeat" },
-	{ "tpope/vim-sleuth" },
+	{
+		"NMAC427/guess-indent.nvim",
+		config = function()
+			require("guess-indent").setup({})
+		end,
+	},
 }
