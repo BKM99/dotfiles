@@ -1,7 +1,7 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		event = "VeryLazy",
+		cmd = { "DapToggleBreakpoint", "DapContinue" },
 		config = function()
 			require("config.plugins.dap.dap-setup")
 			require("config.plugins.dap.go")
