@@ -10,14 +10,10 @@ return {
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
-		-- "onsails/lspkind.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
-
 		local luasnip = require("luasnip")
-
-		-- local lspkind = require("lspkind")
 
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
