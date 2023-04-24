@@ -33,28 +33,29 @@ return {
 	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
-		ft = { "markdown" },
-		cmd = "MarkdownPreview",
+		keys = {
+			{ "<leader>mp", ":MarkdownPreview<cr>", desc = "MarkdownPreview" },
+		},
 	},
 	{
 		"folke/trouble.nvim",
+		keys = { "<leader>m", ":TroubleToggle<CR>", desc = "TroubleToggle" },
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			local trouble = require("trouble")
-			local opts = { noremap = true, silent = true }
-			local keymap = vim.keymap.set
-
-			keymap("n", "<leader>m", ":TroubleToggle<CR>", opts)
-
-			trouble.setup({
+			require("trouble").setup({
 				use_diagnostic_signs = true,
 			})
 		end,
 	},
 	{ "tpope/vim-surround" },
-	{ "andymass/vim-matchup", event = "BufReadPost" },
+	{
+		"andymass/vim-matchup",
+		config = function()
+			vim.g.matchup_matchparen_offscreen = { method = "popup" }
+		end,
+	},
 	{ "tpope/vim-repeat" },
 	{
 		"NMAC427/guess-indent.nvim",

@@ -1,3 +1,8 @@
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+pcall(require("neodev").setup({
+	library = { plugins = { "neotest" }, types = true },
+}))
+
 local lspconfig = require("lspconfig")
 require("mason").setup({})
 require("mason-lspconfig").setup()

@@ -50,6 +50,7 @@ return {
 		},
 	},
 	{ "mfussenegger/nvim-jdtls", ft = "java" },
+	{ "folke/neodev.nvim" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },

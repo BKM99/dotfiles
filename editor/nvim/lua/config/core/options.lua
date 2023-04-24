@@ -53,16 +53,14 @@ local is_wsl = has("wsl")
 
 if is_mac then
 	vim.opt.clipboard:append({ "unnamedplus" })
-end
-if is_win then
+elseif is_win then
 	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
-end
-if is_wsl then
+elseif is_wsl then
 	vim.cmd([[
-      augroup Yank
-      autocmd!
-      autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-      augroup END
+        augroup Yank
+	    autocmd!
+		autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+		augroup END
     ]])
 end
 
