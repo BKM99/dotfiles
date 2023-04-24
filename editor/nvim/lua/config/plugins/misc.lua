@@ -33,9 +33,7 @@ return {
 	{
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install",
-		keys = {
-			{ "<leader>mp", ":MarkdownPreview<cr>", desc = "MarkdownPreview" },
-		},
+		ft = { "markdown" },
 	},
 	{
 		"folke/trouble.nvim",
