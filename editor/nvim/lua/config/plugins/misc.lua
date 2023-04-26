@@ -37,7 +37,6 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		keys = { "<leader>m", ":TroubleToggle<CR>", desc = "TroubleToggle" },
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
@@ -45,6 +44,7 @@ return {
 			require("trouble").setup({
 				use_diagnostic_signs = true,
 			})
+			vim.keymap.set("n", "<leader>m", "<cmd>TroubleToggle<cr>")
 		end,
 	},
 	{ "tpope/vim-surround" },
@@ -55,6 +55,7 @@ return {
 		end,
 	},
 	{ "tpope/vim-repeat" },
+	{ "tpope/vim-eunuch" },
 	{
 		"NMAC427/guess-indent.nvim",
 		config = function()

@@ -1,3 +1,4 @@
+-- TODO: still need to make DAP work better for typescript/javascript
 return {
 	{
 		"mfussenegger/nvim-dap",

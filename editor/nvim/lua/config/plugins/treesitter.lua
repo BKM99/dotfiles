@@ -37,7 +37,7 @@ return {
 					enable = true,
 					-- disable highlight for large files
 					disable = function(_, buf)
-						return vim.api.nvim_buf_line_count(buf) > 2000
+						return vim.api.nvim_buf_line_count(buf) > 5000
 					end,
 					additional_vim_regex_highlighting = false,
 				},

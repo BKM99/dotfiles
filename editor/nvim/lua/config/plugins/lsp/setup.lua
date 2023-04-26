@@ -61,9 +61,26 @@ lspconfig.gopls.setup({
 	capabilities = capabilities,
 })
 
-lspconfig.eslint.setup({})
+lspconfig.eslint.setup({
+	root_dir = lspconfig.util.root_pattern(".eslintrc", ".eslintrc.js", ".eslintrc.json"),
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+		client.server_capabilities.documentFormattingProvider = true
+	end,
+	capabilities = capabilities,
+	settings = {
+		format = {
+			enable = true,
+		},
+	},
+})
 
 lspconfig.jsonls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.bashls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })

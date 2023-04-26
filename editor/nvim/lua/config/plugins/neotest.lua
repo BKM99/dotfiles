@@ -9,7 +9,7 @@ return {
 			desc = "Test nearest",
 		},
 		{
-			"<leader>nc",
+			"<leader>nf",
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
@@ -36,6 +36,13 @@ return {
 			end,
 			desc = "Attach to test",
 		},
+		{
+			"<leader>no",
+			function()
+				require("neotest").output.open({ enter = true })
+			end,
+			desc = "Open test output",
+		},
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -44,6 +51,7 @@ return {
 		"mfussenegger/nvim-dap", -- needed for debugging test cases
 		{ "nvim-neotest/neotest-vim-test", dependencies = { "vim-test/vim-test" } },
 		"nvim-neotest/neotest-python",
+		"nvim-neotest/neotest-jest",
 	},
 	config = function()
 		require("neotest").setup({
@@ -51,6 +59,14 @@ return {
 				require("neotest-vim-test")({ ignore_file_types = { "python" } }),
 				require("neotest-python")({
 					dap = { justMyCode = false },
+				}),
+				require("neotest-jest")({
+					jestCommand = "npm test --",
+					jestConfigFile = "custom.jest.config.ts",
+					env = { CI = true },
+					cwd = function(_)
+						return vim.fn.getcwd()
+					end,
 				}),
 			},
 		})
