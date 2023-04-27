@@ -1,33 +1,10 @@
-local dap = require("dap")
-local dap_utils = require("dap.utils")
-
 require("dap-vscode-js").setup({
-	node_path = "node",
-	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/mason/packages/js-debug-adapter",
-	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/lazy/vscode-js-debug",
+	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
 })
 
-local exts = {
-	"javascript",
-	"typescript",
-	"javascriptreact",
-	"typescriptreact",
-	-- using pwa-chrome
-	"vue",
-	"svelte",
-}
-
-for _, ext in ipairs(exts) do
-	dap.configurations[ext] = {
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch Current File (pwa-node)",
-			cwd = vim.fn.getcwd(),
-			args = { "${file}" },
-			sourceMaps = true,
-			protocol = "inspector",
-		},
+for _, language in ipairs({ "typescript", "javascript" }) do
+	require("dap").configurations[language] = {
 		{
 			type = "pwa-node",
 			request = "launch",
@@ -47,81 +24,33 @@ for _, ext in ipairs(exts) do
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch Current File (pwa-node with deno)",
-			cwd = vim.fn.getcwd(),
-			runtimeArgs = { "run", "--inspect-brk", "--allow-all", "${file}" },
-			runtimeExecutable = "deno",
-			attachSimplePort = 9229,
+			name = "[pwa-node] Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			sourceMaps = true,
+			protocol = "inspector",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "[pwa-node] Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
 		},
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch Test Current File (pwa-node with jest)",
-			cwd = vim.fn.getcwd(),
-			runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest" },
+			name = "Debug Jest Tests",
+			-- trace = true, -- include debugger info
 			runtimeExecutable = "node",
-			args = { "${file}", "--coverage", "false" },
+			runtimeArgs = {
+				"./node_modules/jest/bin/jest.js",
+				"--runInBand",
+			},
 			rootPath = "${workspaceFolder}",
-			sourceMaps = true,
+			cwd = "${workspaceFolder}",
 			console = "integratedTerminal",
 			internalConsoleOptions = "neverOpen",
-			skipFiles = { "<node_internals>/**", "node_modules/**" },
-		},
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch Test Current File (pwa-node with vitest)",
-			cwd = vim.fn.getcwd(),
-			program = "${workspaceFolder}/node_modules/vitest/vitest.mjs",
-			args = { "--inspect-brk", "--threads", "false", "run", "${file}" },
-			autoAttachChildProcesses = true,
-			smartStep = true,
-			console = "integratedTerminal",
-			skipFiles = { "<node_internals>/**", "node_modules/**" },
-		},
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch Test Current File (pwa-node with deno)",
-			cwd = vim.fn.getcwd(),
-			runtimeArgs = { "test", "--inspect-brk", "--allow-all", "${file}" },
-			runtimeExecutable = "deno",
-			attachSimplePort = 9229,
-		},
-		{
-			type = "pwa-chrome",
-			request = "attach",
-			name = "Attach Program (pwa-chrome, select port)",
-			program = "${file}",
-			cwd = vim.fn.getcwd(),
-			sourceMaps = true,
-			port = function()
-				return vim.fn.input("Select port: ", 9222)
-			end,
-			webRoot = "${workspaceFolder}",
-		},
-		-- {
-		--   type = "node2",
-		--   request = "attach",
-		--   name = "Attach Program (Node2)",
-		--   processId = dap_utils.pick_process,
-		-- },
-		-- {
-		--   type = "node2",
-		--   request = "attach",
-		--   name = "Attach Program (Node2 with ts-node)",
-		--   cwd = vim.fn.getcwd(),
-		--   sourceMaps = true,
-		--   skipFiles = { "<node_internals>/**" },
-		--   port = 9229,
-		-- },
-		{
-			type = "pwa-node",
-			request = "attach",
-			name = "Attach Program (pwa-node, select pid)",
-			cwd = vim.fn.getcwd(),
-			processId = dap_utils.pick_process,
-			skipFiles = { "<node_internals>/**" },
 		},
 	}
 end

@@ -1,4 +1,3 @@
--- TODO: still need to make DAP work better for typescript/javascript
 return {
 	{
 		"mfussenegger/nvim-dap",
@@ -18,14 +17,14 @@ return {
 				":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
 				desc = "DAP logpoint message",
 			},
-			{ "<S-up>", "<cmd>lua require'dap'.continue()<cr>", desc = "DAP continue" },
-			{ "<S-right>", "<cmd>lua require'dap'.step_into()<cr>", desc = "DAP step into" },
-			{ "<S-left>", "<cmd>lua require'dap'.step_over()<cr>", desc = "DAP step over" },
-			{ "<S-down>", "<cmd>lua require'dap'.step_out()<cr>", desc = "DAP step out" },
+			{ "<S-up>",     "<cmd>lua require'dap'.continue()<cr>",    desc = "DAP continue" },
+			{ "<S-right>",  "<cmd>lua require'dap'.step_into()<cr>",   desc = "DAP step into" },
+			{ "<S-left>",   "<cmd>lua require'dap'.step_over()<cr>",   desc = "DAP step over" },
+			{ "<S-down>",   "<cmd>lua require'dap'.step_out()<cr>",    desc = "DAP step out" },
 			{ "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "DAP REPL toggle" },
-			{ "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", desc = "DAP run last" },
-			{ "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", desc = "DAP UI toggle" },
-			{ "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", desc = "DAP terminate" },
+			{ "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>",    desc = "DAP run last" },
+			{ "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>",    desc = "DAP UI toggle" },
+			{ "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>",   desc = "DAP terminate" },
 		},
 		config = function()
 			require("config.plugins.dap.dap-setup")
@@ -40,7 +39,17 @@ return {
 			"theHamsta/nvim-dap-virtual-text",
 			"mfussenegger/nvim-dap-python",
 			"leoluz/nvim-dap-go",
-			"mxsdev/nvim-dap-vscode-js",
+			{
+				"mxsdev/nvim-dap-vscode-js",
+				dependencies = {
+					{
+						"microsoft/vscode-js-debug",
+						tag = "v1.78.0",
+						lazy = true,
+						build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+					},
+				},
+			},
 		},
 	},
 }

@@ -3,7 +3,4 @@ if not dap_python_status_ok then
 	return
 end
 
--- NOTE: create a virtual environment and install debugpy
--- the virutal environment does not need to be active, just point to the install location
--- I liked having one python virtual environment specifically for Neovim
-dap_python.setup("~/.pyenv/versions/py3nvim/bin/python", {})
+dap_python.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python", {})

@@ -20,7 +20,6 @@ return {
 							"vim-language-server",
 
 							"typescript-language-server",
-							"js-debug-adapter",
 							"prettier",
 
 							"rust-analyzer",
@@ -31,6 +30,7 @@ return {
 							"pyright",
 							"black",
 							"flake8",
+							"debugpy",
 
 							"gopls",
 
