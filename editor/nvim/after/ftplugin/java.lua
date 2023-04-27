@@ -63,19 +63,7 @@ local config = {
 		"-data",
 		workspace_dir,
 	},
-	on_attach = function(client, bufnr)
-		require("config.plugins.lsp.handlers").on_attach(client, bufnr)
-
-		vim.lsp.codelens.refresh()
-		jdtls.setup_dap({ hotcodereplace = "auto" })
-		require("jdtls.dap").setup_dap_main_class_configs()
-	end,
-	capabilities = require("config.plugins.lsp.handlers").capabilities,
 	root_dir = root_dir,
-	-- Here you can configure eclipse.jdt.ls specific settings
-	-- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-	-- or https://github.com/redhat-developer/vscode-java#supported-vs-code-settings
-	-- for a list of options
 	settings = {
 		java = {
 			eclipse = {
@@ -136,15 +124,13 @@ local config = {
 	},
 }
 
--- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
--- 	pattern = { "*.java" },
--- 	callback = function()
--- 		vim.lsp.codelens.refresh()
--- 	end,
--- })
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	pattern = { "*.java" },
+	callback = function()
+		vim.lsp.codelens.refresh()
+	end,
+})
 
--- This starts a new client & server,
--- or attaches to an existing client & server depending on the `root_dir`.
 jdtls.start_or_attach(config)
 
 -- Silent keymap option
