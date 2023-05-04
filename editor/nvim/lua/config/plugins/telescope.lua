@@ -9,6 +9,7 @@ return {
 				return vim.fn.executable("make") == 1
 			end,
 		},
+		{ "nvim-telescope/telescope-dap.nvim" },
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
@@ -23,6 +24,7 @@ return {
 			},
 		})
 		pcall(telescope.load_extension, "fzf")
+		pcall(telescope.load_extension, "dap")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap.set
 

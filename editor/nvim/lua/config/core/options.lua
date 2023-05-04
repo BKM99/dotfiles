@@ -14,7 +14,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.hidden = true
 vim.opt.lazyredraw = true
-vim.opt.timeoutlen = 200
+vim.opt.timeoutlen = 300
 vim.opt.laststatus = 3
 vim.opt.cmdheight = 1
 vim.opt.updatetime = 50
@@ -33,7 +33,8 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.title = true
+-- vim.opt.title = true
+vim.opt.winbar = "%t %-m"
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {

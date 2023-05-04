@@ -11,4 +11,5 @@ return {
 			]])
 		end,
 	},
+	{ "RRethy/nvim-base16", lazy = true },
 }

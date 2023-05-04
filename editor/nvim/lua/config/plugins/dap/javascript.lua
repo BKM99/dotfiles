@@ -1,56 +1,58 @@
+-- TODO: stil needs work, also make ts-node work for debugging
+local dap = require("dap")
+
 require("dap-vscode-js").setup({
+	node_path = "node",
 	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/lazy/vscode-js-debug",
-	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" }, -- which adapters to register in nvim-dap
+	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 })
 
-for _, language in ipairs({ "typescript", "javascript" }) do
-	require("dap").configurations[language] = {
+for _, lang in ipairs({ "typescript", "javascript" }) do
+	dap.configurations[lang] = {
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch Current File (pwa-node with ts-node)",
-			cwd = vim.fn.getcwd(),
-			runtimeArgs = { "--loader", "ts-node/esm" },
-			runtimeExecutable = "node",
-			args = { "${file}" },
-			sourceMaps = true,
-			protocol = "inspector",
-			skipFiles = { "<node_internals>/**", "node_modules/**" },
-			resolveSourceMapLocations = {
-				"${workspaceFolder}/**",
-				"!**/node_modules/**",
-			},
-		},
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "[pwa-node] Launch file",
+			name = "Launch file",
 			program = "${file}",
 			cwd = "${workspaceFolder}",
-			sourceMaps = true,
+			skipFiles = { "<node_internals>/**" },
 			protocol = "inspector",
+			console = "integratedTerminal",
+			sourceMaps = true,
+			resolveSourceMapLocations = { "${workspaceFolder}/dist/**/*.js" },
+			runtimeExecutable = "ts-node",
 		},
 		{
 			type = "pwa-node",
 			request = "attach",
-			name = "[pwa-node] Attach",
+			name = "Attach",
 			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
+			skipFiles = { "<node_internals>/**" },
+			protocol = "inspector",
+			console = "integratedTerminal",
+			sourceMaps = true,
+			resolveSourceMapLocations = { "${workspaceFolder}/dist/**/*.js" },
+			runtimeExecutable = "ts-node",
+		},
+	}
+end
+
+for _, lang in ipairs({ "typescriptreact", "javascriptreact" }) do
+	dap.configurations[lang] = {
+		{
+			type = "pwa-chrome",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
 			cwd = "${workspaceFolder}",
 		},
 		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Debug Jest Tests",
-			-- trace = true, -- include debugger info
-			runtimeExecutable = "node",
-			runtimeArgs = {
-				"./node_modules/jest/bin/jest.js",
-				"--runInBand",
-			},
-			rootPath = "${workspaceFolder}",
+			type = "pwa-chrome",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
 			cwd = "${workspaceFolder}",
-			console = "integratedTerminal",
-			internalConsoleOptions = "neverOpen",
 		},
 	}
 end
