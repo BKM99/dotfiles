@@ -6,10 +6,14 @@
 source ~/.config/zsh/zsh-snap/znap.zsh  # Start Znap
 zstyle ':znap:*:*' git-maintenance off
 
-znap eval starship 'starship init zsh'
-znap prompt
-
 # `znap source` automatically downloads and starts your plugins.
-znap source zsh-users/zsh-autosuggestions
+# znap source jeffreytse/zsh-vi-mode
+znap source zdharma-continuum/fast-syntax-highlighting
 znap source zsh-users/zsh-syntax-highlighting
+znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-completions
+
+# make curosr always a block for zsh-vi-mode
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCk
