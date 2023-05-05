@@ -36,7 +36,7 @@ ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLOCk
 
 # ---------- Znap Plugin Stuff End -----------------
 
-source ~/.zsh-aliases-general
+source ~/.zsh-aliases
 
 HISTSIZE=10000
 SAVEHIST=10000
