@@ -1,15 +1,13 @@
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && brew autoremove'
-    alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-    alias cleands='find . -name ".DS_Store" -exec rm {} \;'
+alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && brew autoremove'
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 
-    update () {
-        znap pull
-        brew upgrade neovim --fetch-HEAD
-        brewall
-        nvim --headless "+Lazy! sync" +qa
-    }
-fi
+update () {
+    znap pull
+    brew upgrade neovim --fetch-HEAD
+    brewall
+    nvim --headless "+Lazy! sync" +qa
+}
 
 function mkcd() {
     mkdir -p $1
