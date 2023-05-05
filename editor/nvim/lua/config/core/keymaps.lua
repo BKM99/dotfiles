@@ -15,6 +15,9 @@ vim.g.mapleader = " "
 -- Faster saving
 keymap("n", "<leader>w", ":w<CR>", opts)
 
+-- Toggle netrw
+keymap("n", "<leader>t", ":Lexplore<CR>", opts)
+
 -- Faster window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
