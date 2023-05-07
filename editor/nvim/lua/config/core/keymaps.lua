@@ -93,13 +93,13 @@ cnoremap %s/ %sm/
 -- Search and replace in current word (case sensitive)
 keymap(
 	"n",
-	"<leader>s",
+	"<leader>rb",
 	":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
 	{ desc = "Replace current word (case sensitive)" }
 )
 keymap(
 	"v",
-	"<leader>s",
+	"<leader>rb",
 	":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
 	{ desc = "Replace current word (case sensitive)" }
 )
