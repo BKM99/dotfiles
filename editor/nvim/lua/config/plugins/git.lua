@@ -22,7 +22,7 @@ return {
 		"sindrets/diffview.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			{ "<leader>dvo", ":DiffviewOpen<cr>",  desc = "Open DiffView" },
+			{ "<leader>dvo", ":DiffviewOpen<cr>", desc = "Open DiffView" },
 			{ "<leader>dvc", ":DiffviewClose<cr>", desc = "Close DiffView" },
 		},
 	},

@@ -3,7 +3,8 @@ local dap = require("dap")
 
 require("dap-vscode-js").setup({
 	node_path = "node",
-	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/lazy/vscode-js-debug",
+	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
+	debugger_cmd = { "js-debug-adapter" },
 	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 })
 
@@ -12,15 +13,18 @@ for _, lang in ipairs({ "typescript", "javascript" }) do
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch file",
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			skipFiles = { "<node_internals>/**" },
-			protocol = "inspector",
-			console = "integratedTerminal",
+			name = "Launch Current File (pwa-node with ts-node)",
+			cwd = vim.fn.getcwd(),
+			runtimeArgs = { "--loader", "ts-node/esm" },
+			runtimeExecutable = "node",
+			args = { "${file}" },
 			sourceMaps = true,
-			resolveSourceMapLocations = { "${workspaceFolder}/dist/**/*.js" },
-			runtimeExecutable = "ts-node",
+			protocol = "inspector",
+			skipFiles = { "<node_internals>/**", "node_modules/**" },
+			resolveSourceMapLocations = {
+				"${workspaceFolder}/**",
+				"!**/node_modules/**",
+			},
 		},
 		{
 			type = "pwa-node",

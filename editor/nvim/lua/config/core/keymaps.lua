@@ -1,9 +1,6 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Remap space as leader key
-vim.g.mapleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",

@@ -7,8 +7,15 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
-		"L3MON4D3/LuaSnip",
-		"rafamadriz/friendly-snippets",
+		{
+			"L3MON4D3/LuaSnip",
+			dependencies = {
+				"rafamadriz/friendly-snippets",
+				config = function()
+					require("luasnip.loaders.from_vscode").lazy_load()
+				end,
+			},
+		},
 		"hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
@@ -16,8 +23,6 @@ return {
 		local luasnip = require("luasnip")
 
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
-		require("luasnip.loaders.from_vscode").lazy_load()
 
 		luasnip.config.set_config({
 			region_check_events = "InsertEnter",

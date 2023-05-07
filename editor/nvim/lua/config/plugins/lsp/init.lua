@@ -7,51 +7,107 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		dependencies = {
-			{
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				config = function()
-					require("mason-tool-installer").setup({
-						ensure_installed = {
-							"lua-language-server",
-							"stylua",
+		build = ":MasonUpdate",
+		opts = {
+			ensure_installed = {
+				"lua-language-server",
+				"stylua",
 
-							"vim-language-server",
+				"vim-language-server",
 
-							"typescript-language-server",
-							"prettier",
-							"eslint_d",
+				"typescript-language-server",
+				"prettier",
+				"eslint_d",
 
-							"rust-analyzer",
+				"rust-analyzer",
 
-							"clangd",
-							"clang-format",
+				"clangd",
+				"clang-format",
 
-							"pyright",
-							"black",
-							"flake8",
-							"debugpy",
+				"pyright",
+				"black",
+				"flake8",
+				"debugpy",
 
-							"gopls",
+				"gopls",
 
-							"shellcheck",
+				"shellcheck",
 
-							"jdtls",
-							"java-debug-adapter",
-							"java-test",
-							"google-java-format",
+				"jdtls",
+				"java-debug-adapter",
+				"java-test",
+				"google-java-format",
 
-							"json-lsp",
+				"json-lsp",
+				"yaml-language-server",
 
-							"bash-language-server",
-						},
-					})
-				end,
+				"bash-language-server",
 			},
+		},
+		config = function(_, opts)
+			require("mason").setup(opts)
+			local mr = require("mason-registry")
+			local function ensure_installed()
+				for _, tool in ipairs(opts.ensure_installed) do
+					local p = mr.get_package(tool)
+					if not p:is_installed() then
+						p:install()
+					end
+				end
+			end
+			if mr.refresh then
+				mr.refresh(ensure_installed)
+			else
+				ensure_installed()
+			end
+		end,
+		dependencies = {
+			-- {
+			-- 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+			-- 	config = function()
+			-- 		require("mason-tool-installer").setup({
+			-- 			ensure_installed = {
+			-- 				"lua-language-server",
+			-- 				"stylua",
+			--
+			-- 				"vim-language-server",
+			--
+			-- 				"typescript-language-server",
+			-- 				"prettier",
+			-- 				"eslint_d",
+			--
+			-- 				"rust-analyzer",
+			--
+			-- 				"clangd",
+			-- 				"clang-format",
+			--
+			-- 				"pyright",
+			-- 				"black",
+			-- 				"flake8",
+			-- 				"debugpy",
+			--
+			-- 				"gopls",
+			--
+			-- 				"shellcheck",
+			--
+			-- 				"jdtls",
+			-- 				"java-debug-adapter",
+			-- 				"java-test",
+			-- 				"google-java-format",
+			--
+			-- 				"json-lsp",
+			-- 				"yaml-language-server",
+			--
+			-- 				"bash-language-server",
+			-- 			},
+			-- 		})
+			-- 	end,
+			-- },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 	},
 	{ "mfussenegger/nvim-jdtls", ft = "java" },
+	{ "b0o/schemastore.nvim" },
 	{ "folke/neodev.nvim" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -66,7 +122,7 @@ return {
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.black,
 					null_ls.builtins.diagnostics.flake8,
-					null_ls.builtins.diagnostics.shellcheck,
+					-- null_ls.builtins.diagnostics.shellcheck,
 					null_ls.builtins.formatting.google_java_format,
 					null_ls.builtins.formatting.clang_format,
 				},
