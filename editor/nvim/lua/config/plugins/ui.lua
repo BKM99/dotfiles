@@ -17,23 +17,9 @@ return {
 			vim.g.undotree_SetFocusWhenToggle = 1
 		end,
 	},
-
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("todo-comments").setup({})
-			vim.keymap.set("n", "]t", function()
-				require("todo-comments").jump_next()
-			end, { desc = "Next todo comment" })
-
-			vim.keymap.set("n", "[t", function()
-				require("todo-comments").jump_prev()
-			end, { desc = "Previous todo comment" })
-		end,
-	},
-	{
-		"folke/todo-comments.nvim",
 		cmd = { "TodoTrouble", "TodoTelescope" },
 		event = { "BufReadPost", "BufNewFile" },
 		config = true,

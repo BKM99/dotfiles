@@ -1,19 +1,37 @@
--- TODO: stil needs work, also make ts-node work for debugging
 local dap = require("dap")
+local dap_utils = require("dap.utils")
 
 require("dap-vscode-js").setup({
 	node_path = "node",
-	debugger_path = vim.fn.stdpath("data") .. "/lazy/vscode-js-debug",
-	debugger_cmd = { "js-debug-adapter" },
+	debugger_path = os.getenv("HOME") .. "/.local/share/nvim/lazy/vscode-js-debug",
 	adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
 })
 
-for _, lang in ipairs({ "typescript", "javascript" }) do
-	dap.configurations[lang] = {
+local exts = {
+	"javascript",
+	"typescript",
+	"javascriptreact",
+	"typescriptreact",
+	-- using pwa-chrome
+	"vue",
+	"svelte",
+}
+
+for _, ext in ipairs(exts) do
+	dap.configurations[ext] = {
 		{
+			name = "Launch Current File (pwa-node)",
 			type = "pwa-node",
 			request = "launch",
+			cwd = vim.fn.getcwd(),
+			args = { "${file}" },
+			sourceMaps = true,
+			protocol = "inspector",
+		},
+		{
 			name = "Launch Current File (pwa-node with ts-node)",
+			type = "pwa-node",
+			request = "launch",
 			cwd = vim.fn.getcwd(),
 			runtimeArgs = { "--loader", "ts-node/esm" },
 			runtimeExecutable = "node",
@@ -27,36 +45,66 @@ for _, lang in ipairs({ "typescript", "javascript" }) do
 			},
 		},
 		{
+			name = "Launch Test Current File (pwa-node with jest)",
+			type = "pwa-node",
+			request = "launch",
+			cwd = vim.fn.getcwd(),
+			runtimeArgs = { "${workspaceFolder}/node_modules/.bin/jest" },
+			runtimeExecutable = "node",
+			args = { "${file}", "--coverage", "false" },
+			rootPath = "${workspaceFolder}",
+			sourceMaps = true,
+			console = "integratedTerminal",
+			internalConsoleOptions = "neverOpen",
+			skipFiles = { "<node_internals>/**", "node_modules/**" },
+		},
+		{
+			name = "Attach Program (pwa-chrome, select port)",
+			type = "pwa-chrome",
+			request = "attach",
+			program = "${file}",
+			cwd = vim.fn.getcwd(),
+			sourceMaps = true,
+			port = function()
+				return vim.fn.input("Select port: ", 9222)
+			end,
+			webRoot = "${workspaceFolder}",
+		},
+		{
+			name = "Attach Program (pwa-node, select pid)",
 			type = "pwa-node",
 			request = "attach",
-			name = "Attach",
-			processId = require("dap.utils").pick_process,
-			cwd = "${workspaceFolder}",
+			cwd = vim.fn.getcwd(),
+			processId = dap_utils.pick_process,
 			skipFiles = { "<node_internals>/**" },
-			protocol = "inspector",
-			console = "integratedTerminal",
-			sourceMaps = true,
-			resolveSourceMapLocations = { "${workspaceFolder}/dist/**/*.js" },
-			runtimeExecutable = "ts-node",
 		},
 	}
 end
 
-for _, lang in ipairs({ "typescriptreact", "javascriptreact" }) do
-	dap.configurations[lang] = {
-		{
-			type = "pwa-chrome",
-			request = "launch",
-			name = "Launch file",
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-		},
-		{
-			type = "pwa-chrome",
-			request = "attach",
-			name = "Attach",
-			processId = require("dap.utils").pick_process,
-			cwd = "${workspaceFolder}",
-		},
-	}
-end
+dap.configurations.javascriptreact = {
+	{
+		name = "chrome attach",
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
+}
+
+dap.configurations.typescriptreact = {
+	{
+		name = "chrome attach",
+		type = "chrome",
+		request = "attach",
+		program = "${file}",
+		cwd = vim.fn.getcwd(),
+		sourceMaps = true,
+		protocol = "inspector",
+		port = 9222,
+		webRoot = "${workspaceFolder}",
+	},
+}
