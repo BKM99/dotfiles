@@ -27,18 +27,18 @@ local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-
 local workspace_dir = WORKSPACE_PATH .. project_name
 
-local bundles = {
-	vim.fn.glob(
-		home
-			.. "/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"
-	),
-}
+-- Setup Testing and Debugging
+local bundles = {}
+local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
 vim.list_extend(
 	bundles,
-	vim.split(vim.fn.glob(home .. "/.local/share/nvim/mason/packages/java-test/extension/server/*.jar"), "\n")
+	vim.split(
+		vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+		"\n"
+	)
 )
 
 local config = {
@@ -102,6 +102,9 @@ local config = {
 			},
 		},
 		contentProvider = { preferred = "fernflower" },
+		format = {
+			enabled = false,
+		},
 		extendedClientCapabilities = extendedClientCapabilities,
 		sources = {
 			organizeImports = {
@@ -124,13 +127,21 @@ local config = {
 	},
 }
 
+config["on_attach"] = function(_, _)
+	local _, _ = pcall(vim.lsp.codelens.refresh)
+	require("jdtls").setup_dap({ hotcodereplace = "auto" })
+	local status_ok, jdtls_dap = pcall(require, "jdtls.dap")
+	if status_ok then
+		jdtls_dap.setup_dap_main_class_configs()
+	end
+end
+
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.java" },
 	callback = function()
-		vim.lsp.codelens.refresh()
+		local _, _ = pcall(vim.lsp.codelens.refresh)
 	end,
 })
-
 jdtls.start_or_attach(config)
 
 -- Silent keymap option

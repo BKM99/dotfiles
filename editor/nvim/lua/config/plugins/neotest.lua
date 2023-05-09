@@ -48,7 +48,6 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"antoinemadec/FixCursorHold.nvim",
-		"mfussenegger/nvim-dap", -- needed for debugging test cases
 		{ "nvim-neotest/neotest-vim-test", dependencies = { "vim-test/vim-test" } },
 		"nvim-neotest/neotest-python",
 		"nvim-neotest/neotest-jest",

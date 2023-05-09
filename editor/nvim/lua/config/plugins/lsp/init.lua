@@ -1,6 +1,17 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "mfussenegger/nvim-jdtls", ft = "java" },
+			{ "b0o/schemastore.nvim" },
+			{ "folke/neodev.nvim" },
+			{
+				"j-hui/fidget.nvim",
+				config = function()
+					require("fidget").setup({})
+				end,
+			},
+		},
 		config = function()
 			require("config.plugins.lsp.setup")
 		end,
@@ -62,53 +73,9 @@ return {
 			end
 		end,
 		dependencies = {
-			-- {
-			-- 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-			-- 	config = function()
-			-- 		require("mason-tool-installer").setup({
-			-- 			ensure_installed = {
-			-- 				"lua-language-server",
-			-- 				"stylua",
-			--
-			-- 				"vim-language-server",
-			--
-			-- 				"typescript-language-server",
-			-- 				"prettier",
-			-- 				"eslint_d",
-			--
-			-- 				"rust-analyzer",
-			--
-			-- 				"clangd",
-			-- 				"clang-format",
-			--
-			-- 				"pyright",
-			-- 				"black",
-			-- 				"flake8",
-			-- 				"debugpy",
-			--
-			-- 				"gopls",
-			--
-			-- 				"shellcheck",
-			--
-			-- 				"jdtls",
-			-- 				"java-debug-adapter",
-			-- 				"java-test",
-			-- 				"google-java-format",
-			--
-			-- 				"json-lsp",
-			-- 				"yaml-language-server",
-			--
-			-- 				"bash-language-server",
-			-- 			},
-			-- 		})
-			-- 	end,
-			-- },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
 	},
-	{ "mfussenegger/nvim-jdtls", ft = "java" },
-	{ "b0o/schemastore.nvim" },
-	{ "folke/neodev.nvim" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -127,12 +94,6 @@ return {
 					null_ls.builtins.formatting.clang_format,
 				},
 			})
-		end,
-	},
-	{
-		"j-hui/fidget.nvim",
-		config = function()
-			require("fidget").setup({})
 		end,
 	},
 }
