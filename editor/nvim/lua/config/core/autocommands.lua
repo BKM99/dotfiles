@@ -1,10 +1,8 @@
--- Removes whitespace at end of line, doesn't include markdown
-if vim.bo.filetype ~= "markdown" then
-	vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-		pattern = { "*" },
-		command = [[%s/\s\+$//e]],
-	})
-end
+-- Remove whitespace at end of lines
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
+})
 
 -- Highlights text on yank
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
@@ -22,25 +20,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
             set formatoptions+=n
             set formatoptions+=b
         ]],
-})
-
--- When opening a file go to last location
-vim.cmd([[ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif ]])
-
--- windows to close
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = {
-		"help",
-		"qf",
-		"lspinfo",
-		"vim",
-		"floggraph",
-		"git",
-		"query",
-		"tsplayground",
-		"netrw",
-	},
-	command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 
 -- create directories when needed, when saving a file

@@ -1,7 +1,5 @@
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-pcall(require("neodev").setup({
-	library = { plugins = { "neotest" }, types = true },
-}))
+pcall(require("neodev").setup({}))
 
 require("mason").setup({})
 require("mason-lspconfig").setup()
@@ -14,6 +12,7 @@ lsp_defaults.capabilities =
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),

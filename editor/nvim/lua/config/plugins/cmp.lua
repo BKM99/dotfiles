@@ -16,7 +16,6 @@ return {
 				end,
 			},
 		},
-		"hrsh7th/cmp-nvim-lsp-signature-help",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -83,7 +82,6 @@ return {
 				{ name = "nvim_lua" },
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 			},
 			{
@@ -103,26 +101,6 @@ return {
 				ghost_text = false,
 				native_menu = false,
 			},
-			-- formatting = {
-			-- 	format = lspkind.cmp_format({
-			-- 		with_text = false,
-			-- 		mode = "symbol_text",
-			-- 		maxwidth = 50,
-			-- 		ellipsis_char = "...",
-			--
-			-- 		before = function(entry, vim_item)
-			-- 			vim_item.menu = ({
-			-- 				nvim_lsp = "[LSP]",
-			-- 				nvim_lua = "[Lua]",
-			-- 				luasnip = "[Snippet]",
-			-- 				buffer = "[Buffer]",
-			-- 				path = "[Path]",
-			-- 			})[entry.source.name]
-			--
-			-- 			return vim_item
-			-- 		end,
-			-- 	}),
-			-- },
 		})
 
 		cmp.setup.cmdline("/", {

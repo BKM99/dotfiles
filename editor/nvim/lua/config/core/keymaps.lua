@@ -9,9 +9,6 @@ local keymap = vim.keymap.set
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Faster saving
-keymap("n", "<leader>w", ":w<CR>", opts)
-
 -- Toggle netrw
 keymap("n", "<leader>t", ":Lexplore<CR>", opts)
 
@@ -21,20 +18,13 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- Naviagate buffers
-keymap("n", "]b", ":bnext<CR>", opts)
-keymap("n", "[b", ":bprevious<CR>", opts)
-
--- open quickfix list
-keymap("n", "<leader>q", ":copen<CR>", opts)
-
 -- go through quickfix list
 keymap("n", "]q", ":cnext<CR>", opts)
 keymap("n", "[q", ":cprevious<CR>", opts)
 
--- create new space above and blow without going into insert mode
-keymap("n", "[<space>", "O<down><ESC>", opts)
-keymap("n", "]<space>", "o<up><ESC>", opts)
+-- go through location list
+keymap("n", "]l", ":cnext<CR>", opts)
+keymap("n", "[l", ":cprevious<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize -1<CR>", opts)
@@ -56,18 +46,12 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
 keymap("n", "x", '"_x', opts)
 
--- using delete without yank
-keymap({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yank" })
-
 -- Indent text without leaving
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
-
--- open file in the buffer's current path
-keymap("n", "<leader>e", ":e <C-R>=expand('%:p:h') . '/' <CR>", { noremap = true })
 
 -- move line by line
 keymap("n", "j", "gj", opts)
@@ -82,28 +66,3 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
-
--- Very magic
-vim.cmd([[
-nnoremap ? ?\v
-nnoremap / /\v
-cnoremap %s/ %sm/
-]])
-
--- Search and replace in current word (case sensitive)
-keymap(
-	"n",
-	"<leader>rb",
-	":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
-	{ desc = "Replace current word (case sensitive)" }
-)
-keymap(
-	"v",
-	"<leader>rb",
-	":s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
-	{ desc = "Replace current word (case sensitive)" }
-)
-
-vim.cmd([[
-nmap gx :!open <c-r><c-a>
-]])

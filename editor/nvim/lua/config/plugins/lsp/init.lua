@@ -5,12 +5,6 @@ return {
 			{ "mfussenegger/nvim-jdtls", ft = "java" },
 			{ "b0o/schemastore.nvim" },
 			{ "folke/neodev.nvim" },
-			{
-				"j-hui/fidget.nvim",
-				config = function()
-					require("fidget").setup({})
-				end,
-			},
 		},
 		config = function()
 			require("config.plugins.lsp.setup")
@@ -89,7 +83,6 @@ return {
 					null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.black,
 					null_ls.builtins.diagnostics.flake8,
-					-- null_ls.builtins.diagnostics.shellcheck,
 					null_ls.builtins.formatting.google_java_format,
 					null_ls.builtins.formatting.clang_format,
 				},

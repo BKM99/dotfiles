@@ -145,14 +145,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 jdtls.start_or_attach(config)
 
 -- Silent keymap option
-local opts = { silent = true }
-
-vim.keymap.set("n", "<leader>jo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
-vim.keymap.set("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
-vim.keymap.set("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
-vim.keymap.set("n", "<leader>jtm", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
-vim.keymap.set("n", "<leader>jtc", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
-vim.keymap.set("n", "<leader>ju", "<Cmd>JdtUpdateConfig<CR>", opts)
-vim.keymap.set("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
-vim.keymap.set("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
-vim.keymap.set("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)
+-- local opts = { silent = true }
+--
+-- vim.keymap.set("n", "<leader>jo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
+-- vim.keymap.set("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)
+-- vim.keymap.set("n", "<leader>jc", "<Cmd>lua require('jdtls').extract_constant()<CR>", opts)
+-- vim.keymap.set("n", "<leader>jtm", "<Cmd>lua require'jdtls'.test_nearest_method()<CR>", opts)
+-- vim.keymap.set("n", "<leader>jtc", "<Cmd>lua require'jdtls'.test_class()<CR>", opts)
+-- vim.keymap.set("n", "<leader>ju", "<Cmd>JdtUpdateConfig<CR>", opts)
+-- vim.keymap.set("v", "<leader>jv", "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", opts)
+-- vim.keymap.set("v", "<leader>jc", "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", opts)
+-- vim.keymap.set("v", "<leader>jm", "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", opts)

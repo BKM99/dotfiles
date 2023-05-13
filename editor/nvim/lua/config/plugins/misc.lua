@@ -1,16 +1,40 @@
 return {
 	{
+		"folke/trouble.nvim",
+		config = function()
+			require("trouble").setup({
+				use_diagnostic_signs = true,
+				icons = false,
+			})
+			vim.keymap.set("n", "<leader>m", "<cmd>TroubleToggle<cr>")
+		end,
+	},
+	{
 		"nvim-pack/nvim-spectre",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		keys = {
-			{
-				"<leader>sr",
-				function()
-					require("spectre").open()
-				end,
-				desc = "Replace in files (Spectre)",
-			},
-		},
+		config = function()
+			vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").open()<CR>', {
+				desc = "Open Spectre",
+			})
+			vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+				desc = "Search current word",
+			})
+			vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+				desc = "Search current word",
+			})
+			vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=false})<CR>', {
+				desc = "Search on current file",
+			})
+		end,
+		-- keys = {
+		-- 	{
+		-- 		"<leader>s",
+		-- 		function()
+		-- 			require("spectre").open()
+		-- 		end,
+		-- 		desc = "Replace in files (Spectre)",
+		-- 	},
+		-- },
 	},
 	{
 		"windwp/nvim-autopairs",
@@ -31,31 +55,11 @@ return {
 		end,
 	},
 	{
-		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install",
-		ft = { "markdown" },
-	},
-	{
-		"folke/trouble.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("trouble").setup({
-				use_diagnostic_signs = true,
-			})
-			vim.keymap.set("n", "<leader>m", "<cmd>TroubleToggle<cr>")
-		end,
-	},
-	{ "tpope/vim-surround" },
-	{
 		"andymass/vim-matchup",
 		config = function()
 			vim.g.matchup_matchparen_offscreen = { method = "popup" }
 		end,
 	},
-	{ "tpope/vim-repeat" },
-	{ "tpope/vim-eunuch" },
 	{
 		"NMAC427/guess-indent.nvim",
 		config = function()
