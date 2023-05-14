@@ -1,3 +1,5 @@
+PROMPT='%n: %F{blue}%3~ %(?.%F{green}.%F{red})%#%f '
+
 if [[ -f /opt/homebrew/bin/brew ]]; then
     # Homebrew exists at /opt/homebrew for arm64 macos
     eval $(/opt/homebrew/bin/brew shellenv)
