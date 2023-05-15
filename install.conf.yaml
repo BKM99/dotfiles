@@ -16,6 +16,8 @@
 
     ~/.tmux.conf: tools/tmux/.tmux.conf
 
+    ~/.condarc: tools/conda/.condarc
+
     ~/.zshrc: shell/zsh/.zshrc
     ~/.zshenv: shell/zsh/.zshenv
     ~/.zsh-aliases: shell/zsh/.zsh-aliases
