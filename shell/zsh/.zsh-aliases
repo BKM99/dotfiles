@@ -18,6 +18,10 @@ then
     alias ls='exa'
     alias ll='exa -ll'
     alias la='exa -la'
+else
+    alias l='ls'
+    alias ll='ls -ll'
+    alias la='ls -la'
 fi
 
 if [[ $TERM == "xterm-kitty" ]]; then
