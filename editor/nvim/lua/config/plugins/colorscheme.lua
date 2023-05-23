@@ -29,10 +29,21 @@ return {
 	-- 	end,
 	-- },
 
+	-- {
+	-- 	"kvrohit/mellow.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[colo mellow]])
+	-- 	end,
+	-- },
 	{
-		"kvrohit/mellow.nvim",
+		"Mofiqul/vscode.nvim",
 		config = function()
-			vim.cmd([[colo mellow]])
+			vim.cmd([[
+			colo vscode
+			hi Normal guibg=#161617
+			hi SignColumn guibg=#161617
+			hi LineNr guibg=#161617
+			]])
 		end,
 	},
 }
