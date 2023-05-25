@@ -4,7 +4,7 @@ return {
 		dependencies = {
 			{ "mfussenegger/nvim-jdtls", ft = "java" },
 			{ "b0o/schemastore.nvim" },
-			{ "folke/neodev.nvim" },
+			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
 			require("config.plugins.lsp.setup")

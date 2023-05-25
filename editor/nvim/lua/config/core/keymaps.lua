@@ -10,7 +10,7 @@ local keymap = vim.keymap.set
 --   command_mode = "c",
 
 -- Toggle netrw
-keymap("n", "<leader>t", ":Lexplore<CR>", opts)
+-- keymap("n", "<leader>t", ":Lexplore<CR>", opts)
 
 -- Faster window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)

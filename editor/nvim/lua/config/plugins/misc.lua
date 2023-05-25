@@ -1,5 +1,15 @@
 return {
 	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		config = function()
+			require("nvim-tree").setup({})
+		end,
+		keys = {
+			{ "<leader>t", ":NvimTreeToggle<cr>", desc = "toggle nvim tree" },
+		},
+	},
+	{
 		"folke/trouble.nvim",
 		config = function()
 			require("trouble").setup({
@@ -26,15 +36,6 @@ return {
 				desc = "Search on current file",
 			})
 		end,
-		-- keys = {
-		-- 	{
-		-- 		"<leader>s",
-		-- 		function()
-		-- 			require("spectre").open()
-		-- 		end,
-		-- 		desc = "Replace in files (Spectre)",
-		-- 	},
-		-- },
 	},
 	{
 		"windwp/nvim-autopairs",
@@ -64,6 +65,13 @@ return {
 		"NMAC427/guess-indent.nvim",
 		config = function()
 			require("guess-indent").setup({})
+		end,
+	},
+	{
+		"mbbill/undotree",
+		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTreeToggle" } },
+		config = function()
+			vim.g.undotree_SetFocusWhenToggle = 1
 		end,
 	},
 }

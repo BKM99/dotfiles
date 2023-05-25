@@ -46,4 +46,5 @@ return {
 			]])
 		end,
 	},
+	-- { "maxmx03/solarized.nvim" },
 }

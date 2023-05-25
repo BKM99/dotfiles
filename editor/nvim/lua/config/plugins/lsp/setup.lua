@@ -1,5 +1,5 @@
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-pcall(require("neodev").setup({}))
+require("neodev").setup({})
 
 require("mason").setup({})
 require("mason-lspconfig").setup()
@@ -20,8 +20,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-        local client = vim.lsp.get_client_by_id(ev.data.client_id)
-        client.server_capabilities.semanticTokensProvider = nil
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		client.server_capabilities.semanticTokensProvider = nil
 
 		local bufopts = { buffer = true }
 
@@ -48,17 +48,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
-			diagnostics = {
-				globals = { "vim" },
-			},
-			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-				enable = false,
+			completion = {
+				callSnippet = "Replace",
 			},
 		},
 	},

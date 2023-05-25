@@ -27,6 +27,10 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- use system clipboard
 if vim.fn.has("macunix") then
 	vim.opt.clipboard:append({ "unnamedplus" })

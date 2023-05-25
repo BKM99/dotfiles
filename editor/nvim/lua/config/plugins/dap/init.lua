@@ -41,12 +41,6 @@ return {
 		{ "leoluz/nvim-dap-go" },
 		{ "mfussenegger/nvim-dap-python" },
 		{ "mxsdev/nvim-dap-vscode-js" },
-		{
-			"microsoft/vscode-js-debug",
-			-- tag = "v1.78.0",
-			lazy = true,
-			build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-		},
 	},
 
 	keys = {
