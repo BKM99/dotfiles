@@ -40,7 +40,6 @@ return {
 
 		{ "leoluz/nvim-dap-go" },
 		{ "mfussenegger/nvim-dap-python" },
-		{ "mxsdev/nvim-dap-vscode-js" },
 	},
 
 	keys = {
