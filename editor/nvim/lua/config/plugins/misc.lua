@@ -16,26 +16,30 @@ return {
 				use_diagnostic_signs = true,
 				icons = false,
 			})
-			vim.keymap.set("n", "<leader>m", "<cmd>TroubleToggle<cr>")
 		end,
+		keys = {
+			{ "<leader>m", ":TroubleToggle<cr>", desc = "Toggle Trouble" },
+		},
 	},
 	{
 		"nvim-pack/nvim-spectre",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").open()<CR>', {
+		keys = {
+			{
+				"<leader>S",
+				function()
+					require("spectre").open()
+				end,
 				desc = "Open Spectre",
-			})
-			vim.keymap.set("n", "<leader>sw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-				desc = "Search current word",
-			})
-			vim.keymap.set("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-				desc = "Search current word",
-			})
-			vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=false})<CR>', {
-				desc = "Search on current file",
-			})
-		end,
+			},
+			{
+				"<leader>sw",
+				function()
+					require("spectre").open_visual({ select_word = true })
+				end,
+				desc = "Open current word in spectre",
+			},
+		},
 	},
 	{
 		"windwp/nvim-autopairs",
