@@ -35,16 +35,37 @@ return {
 	-- 		vim.cmd([[colo mellow]])
 	-- 	end,
 	-- },
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[
+	-- 		colo vscode
+	-- 		hi Normal guibg=#161617
+	-- 		hi SignColumn guibg=#161617
+	-- 		hi LineNr guibg=#161617
+	-- 		]])
+	-- 	end,
+	-- },
+	-- { "maxmx03/solarized.nvim" },
 	{
-		"Mofiqul/vscode.nvim",
+		-- "rose-pine/neovim",
+		"folke/tokyonight.nvim",
 		config = function()
-			vim.cmd([[
-			colo vscode
-			hi Normal guibg=#161617
-			hi SignColumn guibg=#161617
-			hi LineNr guibg=#161617
-			]])
+			require("tokyonight").setup({
+				transparent = true,
+				styles = {
+					sidebars = "transparent",
+					floats = "transparent",
+				},
+			})
+			function ColorMyPencils()
+				vim.cmd([[colo tokyonight]])
+				vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+				vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+			end
+
+			ColorMyPencils()
 		end,
 	},
-	-- { "maxmx03/solarized.nvim" },
+	-- { "folke/tokyonight.nvim" },
 }
