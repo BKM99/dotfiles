@@ -64,18 +64,18 @@ lspconfig.jsonls.setup({})
 lspconfig.bashls.setup({})
 
 lspconfig.jsonls.setup({
-	settings = {
-		json = {
-			schemas = require("schemastore").json.schemas(),
-			validate = { enable = true },
-		},
-	},
+	-- settings = {
+	-- 	json = {
+	-- 		schemas = require("schemastore").json.schemas(),
+	-- 		validate = { enable = true },
+	-- 	},
+	-- },
 })
 
 lspconfig.yamlls.setup({
-	settings = {
-		yaml = {
-			schemas = require("schemastore").yaml.schemas(),
-		},
-	},
+	-- settings = {
+	-- 	yaml = {
+	-- 		schemas = require("schemastore").yaml.schemas(),
+	-- 	},
+	-- },
 })

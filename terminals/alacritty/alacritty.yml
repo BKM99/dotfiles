@@ -27,15 +27,15 @@ font:
   glyph_offset:
     x: 0
     y: 0
-  use_thin_strokes: false
-  debug:
-    persistent_logging: false
+  # use_thin_strokes: false
+  # debug:
+  #   persistent_logging: false
 
 cursor:
   style:
     shape: Block
-    blinking: off
-    blink-interval: 750
+    # blinking: off
+    # blink-interval: 750
 
 # Reload Alacritty if the configuration changes
 live_config_reload: true
