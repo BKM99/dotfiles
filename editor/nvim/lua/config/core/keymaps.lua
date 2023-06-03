@@ -1,16 +1,8 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
 -- Toggle netrw
--- keymap("n", "<leader>t", ":Lexplore<CR>", opts)
+keymap("n", "<leader>t", ":Explore<CR>", opts)
 
 -- Faster window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -21,10 +13,6 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- go through quickfix list
 keymap("n", "]q", ":cnext<CR>", opts)
 keymap("n", "[q", ":cprevious<CR>", opts)
-
--- go through location list
-keymap("n", "]l", ":cnext<CR>", opts)
-keymap("n", "[l", ":cprevious<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize -1<CR>", opts)
@@ -66,3 +54,7 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- replace current word
+keymap("n", "<leader>s", ":%s/<c-r><c-w>//g<left><left>", {})
+keymap("v", "<leader>s", ":s/<c-r><c-w>//g<left><left>", {})

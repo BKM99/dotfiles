@@ -21,7 +21,7 @@ return {
 
 				"typescript-language-server",
 				"prettier",
-				"eslint_d",
+				-- "eslint_d",
 
 				"rust-analyzer",
 
@@ -30,7 +30,7 @@ return {
 
 				"pyright",
 				"black",
-				"flake8",
+				-- "flake8",
 				"debugpy",
 
 				"gopls",
@@ -79,9 +79,9 @@ return {
 				sources = {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettier,
-					null_ls.builtins.diagnostics.eslint_d,
+					-- null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.black,
-					null_ls.builtins.diagnostics.flake8,
+					-- null_ls.builtins.diagnostics.flake8,
 					null_ls.builtins.formatting.google_java_format,
 					null_ls.builtins.formatting.clang_format,
 				},
