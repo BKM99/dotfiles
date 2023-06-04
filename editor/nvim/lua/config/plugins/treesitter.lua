@@ -39,12 +39,9 @@ return {
 					end,
 					additional_vim_regex_highlighting = false,
 				},
-				autopairs = {
-					enable = true,
-				},
-				context_commentstring = {
-					enable = true,
-				},
+				indent = { enable = true },
+				autopairs = { enable = true },
+				context_commentstring = { enable = true },
 			})
 		end,
 	},

@@ -17,7 +17,6 @@ return {
 			defaults = {
 				file_ignore_patterns = {
 					".git/",
-					"dotbot/",
 					"node_modules/",
 				},
 			},
@@ -29,8 +28,5 @@ return {
 		keymap("n", "<leader>f", ":Telescope find_files hidden=true previewer=false theme=ivy <CR>", opts)
 		keymap("n", "<leader>gs", ":Telescope git_status theme=ivy <CR>", opts)
 		keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
-		keymap("n", "<leader>lg", function()
-			require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
-		end)
 	end,
 }
