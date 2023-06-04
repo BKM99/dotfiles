@@ -102,7 +102,7 @@ def main():
 
     links = {
         "./terminals/kitty": "~/.config/kitty",
-        "./terminals/alacritty/alacritty.yml": "~/.config/alacritty",
+        # "./terminals/alacritty/alacritty.yml": "~/.config/alacritty",
         "./editor/nvim": "~/.config/nvim",
         "./editor/vimrc": "~/.vimrc",
         "./tools/git/.gitconfig": "~/.gitconfig",
@@ -112,8 +112,8 @@ def main():
         "./shell/zsh/.zshrc": "~/.zshrc",
         "./shell/zsh/.zshenv": "~/.zshenv",
         "./shell/zsh/.zsh-aliases": "~/.zsh-aliases",
-        "./shell/bash/.bashrc": "~/.bashrc",
-        "./shell/bash/.bash_profile": "~/.bash_profile",
+        # "./shell/bash/.bashrc": "~/.bashrc",
+        # "./shell/bash/.bash_profile": "~/.bash_profile",
     }
 
     if args.cleanup:
