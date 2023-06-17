@@ -4,6 +4,7 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+			{ "windwp/nvim-ts-autotag" },
 		},
 		config = function()
 			-- pcall(require("nvim-treesitter.install").update({ with_sync = true }))
@@ -13,6 +14,7 @@ return {
 					"c",
 					"cpp",
 					"css",
+					"c_sharp",
 					"go",
 					"html",
 					"java",
@@ -42,6 +44,7 @@ return {
 				indent = { enable = true },
 				autopairs = { enable = true },
 				context_commentstring = { enable = true },
+				autotag = { enable = true },
 			})
 		end,
 	},

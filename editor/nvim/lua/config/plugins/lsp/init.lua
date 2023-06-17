@@ -3,6 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			{ "mfussenegger/nvim-jdtls", ft = "java" },
+			{ "Hoffs/omnisharp-extended-lsp.nvim" },
 			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()

@@ -64,4 +64,10 @@ lspconfig.jsonls.setup({})
 lspconfig.bashls.setup({})
 lspconfig.jsonls.setup({})
 lspconfig.yamlls.setup({})
-lspconfig.omnisharp.setup({})
+lspconfig.omnisharp.setup({
+	organize_imports_on_format = true,
+	enable_import_completion = true,
+	handlers = {
+		["textDocument/definition"] = require("omnisharp_extended").handler,
+	},
+})
