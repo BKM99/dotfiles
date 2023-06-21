@@ -6,6 +6,7 @@ return {
 		require("config.plugins.dap.python")
 		require("config.plugins.dap.cpp")
 		require("config.plugins.dap.typescript")
+		require("config.plugins.dap.csharp")
 	end,
 
 	dependencies = {
