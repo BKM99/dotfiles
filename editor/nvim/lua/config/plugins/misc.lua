@@ -45,4 +45,14 @@ return {
 			{ "<leader>hm", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon toggle quick menu" },
 		},
 	},
+	{
+		"stevearc/oil.nvim",
+		config = function()
+			require("oil").setup()
+		end,
+		-- stylua: ignore
+		keys = {
+			{ "-", function() require("oil").open() end, desc = "Open parent directory" },
+		},
+	},
 }
