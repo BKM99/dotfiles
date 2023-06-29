@@ -2,7 +2,7 @@ local dap = require("dap")
 
 dap.adapters.coreclr = {
 	type = "executable",
-	command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/netcoredbg",
+	command = vim.fn.stdpath("data") .. "/mason/bin/netcoredbg",
 	args = { "--interpreter=vscode" },
 }
 

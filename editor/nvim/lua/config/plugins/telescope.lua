@@ -25,7 +25,7 @@ return {
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap.set
 
-		keymap("n", "<leader>f", ":Telescope find_files hidden=true previewer=false theme=ivy <CR>", opts)
+		keymap("n", "<leader>f", ":Telescope find_files hidden=true theme=ivy <CR>", opts)
 		keymap("n", "<leader>gs", ":Telescope git_status theme=ivy <CR>", opts)
 		keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
 		keymap("n", "<leader>b", ":Telescope buffers <CR>", opts)

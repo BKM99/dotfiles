@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Toggle netrw
+-- Open netrw
 keymap("n", "<leader>t", ":Explore<CR>", opts)
 
 -- Faster window navigation
@@ -34,16 +34,17 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
 keymap("n", "x", '"_x', opts)
 
+-- This is needed for this https://github.com/L3MON4D3/LuaSnip/issues/748
+keymap("s", "p", function()
+	vim.api.nvim_feedkeys("p", "n", false)
+end, { silent = true, remap = false, desc = "Don't paste in select mode" })
+
 -- Indent text without leaving
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
-
--- move line by line
-keymap("n", "j", "gj", opts)
-keymap("n", "k", "gk", opts)
 
 -- Center things
 keymap("n", "n", "nzz", opts)
@@ -54,7 +55,3 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
-
--- replace current word
-keymap("n", "<leader>s", ":%s/<c-r><c-w>//g<left><left>", {})
-keymap("v", "<leader>s", ":s/<c-r><c-w>//g<left><left>", {})
