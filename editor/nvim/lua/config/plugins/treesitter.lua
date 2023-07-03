@@ -2,8 +2,9 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
-			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+			{ "JoosepAlviste/nvim-ts-context-commentstring", lazy = true },
 			{ "windwp/nvim-ts-autotag" },
 		},
 		config = function()
