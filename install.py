@@ -115,6 +115,7 @@ def main():
         "./shell/zsh/.zsh-aliases": "~/.zsh-aliases",
         # "./shell/bash/.bashrc": "~/.bashrc",
         # "./shell/bash/.bash_profile": "~/.bash_profile",
+        "./tools/karabiner": "~/.config/karabiner"
     }
 
     if args.cleanup:
