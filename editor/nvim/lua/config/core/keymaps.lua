@@ -11,8 +11,8 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- go through quickfix list
-keymap("n", "]q", ":cnext<CR>", opts)
-keymap("n", "[q", ":cprevious<CR>", opts)
+keymap("n", "]q", ":cnext<CR>zz", opts)
+keymap("n", "[q", ":cprevious<CR>zz", opts)
 
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize -1<CR>", opts)
@@ -38,10 +38,6 @@ keymap("n", "x", '"_x', opts)
 keymap("s", "p", function()
 	vim.api.nvim_feedkeys("p", "n", false)
 end, { silent = true, remap = false, desc = "Don't paste in select mode" })
-
--- Indent text without leaving
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
 
 -- Cancel search highlighting with ESC
 keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)

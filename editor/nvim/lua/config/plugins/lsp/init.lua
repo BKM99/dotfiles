@@ -1,11 +1,6 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "mfussenegger/nvim-jdtls", ft = "java" },
-			{ "Hoffs/omnisharp-extended-lsp.nvim" },
-			{ "folke/neodev.nvim", opts = {} },
-		},
 		config = function()
 			require("config.plugins.lsp.setup")
 		end,
@@ -39,9 +34,9 @@ return {
 				"shellcheck",
 
 				"jdtls",
-				"java-debug-adapter",
-				"java-test",
-				"google-java-format",
+				-- "java-debug-adapter",
+				-- "java-test",
+				-- "google-java-format",
 
 				"json-lsp",
 				"yaml-language-server",
@@ -83,7 +78,7 @@ return {
 					-- null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.black,
 					-- null_ls.builtins.diagnostics.flake8,
-					null_ls.builtins.formatting.google_java_format,
+					-- null_ls.builtins.formatting.google_java_format,
 					null_ls.builtins.formatting.clang_format,
 				},
 			})

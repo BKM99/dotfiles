@@ -1,6 +1,3 @@
--- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({})
-
 require("mason").setup({})
 require("mason-lspconfig").setup()
 local lspconfig = require("lspconfig")
@@ -38,7 +35,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
-		vim.keymap.set("n", "gr", ":Telescope lsp_references<cr>", bufopts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 		vim.keymap.set("n", "gf", function()
 			vim.lsp.buf.format({ async = true })
 		end, bufopts)
@@ -50,6 +47,9 @@ lspconfig.lua_ls.setup({
 		Lua = {
 			completion = {
 				callSnippet = "Replace",
+			},
+			diagnostics = {
+				globals = { "vim" },
 			},
 		},
 	},
@@ -67,8 +67,6 @@ lspconfig.yamlls.setup({})
 lspconfig.omnisharp.setup({
 	organize_imports_on_format = true,
 	enable_import_completion = true,
-	handlers = {
-		["textDocument/definition"] = require("omnisharp_extended").handler,
-	},
 })
 lspconfig.emmet_ls.setup({})
+lspconfig.jdtls.setup({})

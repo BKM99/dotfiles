@@ -32,15 +32,26 @@ if vim.fn.has("termguicolors") == 1 then
 end
 
 -- use system clipboard
-if vim.fn.has("macunix") then
-	vim.opt.clipboard:append({ "unnamedplus" })
-elseif vim.fn.has("win32") then
-	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
-elseif vim.fn.has("wsl") then
-	vim.cmd([[
-        augroup Yank
-	    autocmd!
-		autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
-		augroup END
-    ]])
+local has = vim.fn.has
+local is_mac = has "macunix"
+local is_linux = has "unix"
+local is_win = has "win32"
+local is_wsl = has "wsl"
+
+if is_mac == 1 then
+	vim.opt.clipboard:append { 'unnamedplus' }
+end
+if is_linux == 1 then
+	vim.opt.clipboard:append { 'unnamedplus' }
+end
+if is_win == 1 then
+	vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
+end
+if is_wsl == 1 then
+	vim.cmd [[
+		 augroup Yank
+   		 autocmd!
+   		 autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+   		 augroup END
+	]]
 end
