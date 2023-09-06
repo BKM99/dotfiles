@@ -1,9 +1,12 @@
 return {
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	lazy = false,
-	-- 	name = "catppuccin",
-	-- },
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		name = "catppuccin",
+		config = function ()
+			vim.cmd[[ colo catppuccin-mocha ]]
+		end
+	},
 	-- { "RRethy/nvim-base16", lazy = true },
 	-- {
 	-- 	"chriskempson/base16-vim",
@@ -35,17 +38,17 @@ return {
 	-- 		vim.cmd([[colo mellow]])
 	-- 	end,
 	-- },
-	{
-		"Mofiqul/vscode.nvim",
-		config = function()
-			vim.cmd([[
-			colo vscode
-			hi Normal guibg=#161617
-			hi SignColumn guibg=#161617
-			hi LineNr guibg=#161617
-			]])
-		end,
-	},
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[
+	-- 		colo vscode
+	-- 		hi Normal guibg=#161617
+	-- 		hi SignColumn guibg=#161617
+	-- 		hi LineNr guibg=#161617
+	-- 		]])
+	-- 	end,
+	-- },
 	-- { "maxmx03/solarized.nvim" },
 	-- {
 	-- 	-- "rose-pine/neovim",
@@ -63,5 +66,13 @@ return {
 	-- 		-- ColorMyPencils()
 	-- 	end,
 	-- },
-	-- { "folke/tokyonight.nvim" },
+	-- { "folke/tokyonight.nvim", config = function ()
+	-- 	vim.cmd([[ colorscheme tokyonight-night ]])
+	-- end },
+	-- { "Mofiqul/dracula.nvim", config = function ()
+	-- 	vim.cmd([[
+	-- 		colorscheme dracula-soft
+	-- 	]])
+	--
+	-- end },
 }

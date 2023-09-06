@@ -27,6 +27,8 @@ set path+=**
 set incsearch
 set hlsearch
 set laststatus=2
+
+let mapleader = " "
 " move faster between windows
 nnoremap <C-H> <C-W>h
 nnoremap <C-J> <C-W>j
@@ -39,3 +41,4 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> <C-d> <C-d>zz
 nnoremap <silent> <C-u> <C-u>zz
+nnoremap <leader>f :find *
