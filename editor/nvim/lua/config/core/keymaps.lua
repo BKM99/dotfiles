@@ -34,14 +34,6 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "P", '"_dP', opts)
 keymap("n", "x", '"_x', opts)
 
--- This is needed for this https://github.com/L3MON4D3/LuaSnip/issues/748
-keymap("s", "p", function()
-	vim.api.nvim_feedkeys("p", "n", false)
-end, { silent = true, remap = false, desc = "Don't paste in select mode" })
-
--- Cancel search highlighting with ESC
-keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
-
 -- Center things
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)

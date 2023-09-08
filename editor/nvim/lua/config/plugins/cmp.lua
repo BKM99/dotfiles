@@ -20,6 +20,11 @@ return {
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 
+		-- This is needed for this https://github.com/L3MON4D3/LuaSnip/issues/748
+		vim.keymap.set("s", "p", function()
+			vim.api.nvim_feedkeys("p", "n", false)
+		end, { silent = true, remap = false, desc = "Don't paste in select mode (LuaSnip)" })
+
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 		luasnip.config.set_config({
