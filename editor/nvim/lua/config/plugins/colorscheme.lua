@@ -77,6 +77,5 @@ return {
 	-- end },
 	{ "ellisonleao/gruvbox.nvim", config = function ()
 		vim.cmd([[ colo gruvbox ]])
-
 	end },
 }

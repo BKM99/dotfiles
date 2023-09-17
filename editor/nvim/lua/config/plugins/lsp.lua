@@ -11,7 +11,7 @@ return {
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float)
-			vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist)
+			vim.keymap.set("n", "<leader>dq", vim.diagnostic.setqflist)
 
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -62,10 +62,6 @@ return {
 			lspconfig.clangd.setup({})
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.gopls.setup({})
-			lspconfig.omnisharp.setup({
-				organize_imports_on_format = true,
-				enable_import_completion = true,
-			})
 		end,
 	},
 	{
@@ -80,7 +76,7 @@ return {
 
 				"typescript-language-server",
 				"prettier",
-				-- "eslint_d",
+				"eslint-lsp",
 
 				"rust-analyzer",
 
@@ -89,17 +85,11 @@ return {
 
 				"pyright",
 				"black",
-				-- "flake8",
-				-- "debugpy",
+				"flake8",
 
 				"gopls",
 
 				-- "shellcheck",
-
-				-- "jdtls",
-				-- "java-debug-adapter",
-				-- "java-test",
-				-- "google-java-format",
 
 				-- "json-lsp",
 				-- "yaml-language-server",
@@ -137,12 +127,10 @@ return {
 			null_ls.setup({
 				sources = {
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.prettier,
-					-- null_ls.builtins.diagnostics.eslint_d,
+					-- null_ls.builtins.formatting.prettier,
+					-- null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.black,
-					-- null_ls.builtins.diagnostics.flake8,
-					-- null_ls.builtins.formatting.google_java_format,
-					null_ls.builtins.formatting.clang_format,
+					null_ls.builtins.diagnostics.flake8,
 				},
 			})
 		end,

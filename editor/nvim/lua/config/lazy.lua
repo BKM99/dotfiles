@@ -1,5 +1,3 @@
-require("config.core")
-
 local use_plugins = true
 
 if use_plugins then
