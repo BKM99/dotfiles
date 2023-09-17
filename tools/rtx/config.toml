@@ -1,9 +1,7 @@
 [tools]
 node = "20.1.0"
-java = "latest"
 python = "3.9"
 rust = "latest"
 go = "latest"
-dotnet = "latest"
 dotnet-core = "latest"
-opam = "latest"
+java = "17"

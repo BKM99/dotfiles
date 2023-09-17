@@ -46,6 +46,3 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(direnv hook zsh)"
-
-# opam configuration
-[[ ! -r /Users/brandonmorimoto/.opam/opam-init/init.zsh ]] || source /Users/brandonmorimoto/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
