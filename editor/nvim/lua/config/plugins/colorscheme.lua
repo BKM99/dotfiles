@@ -1,12 +1,12 @@
 return {
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	lazy = false,
-	-- 	name = "catppuccin",
-	-- 	config = function()
-	-- 		vim.cmd([[ colo catppuccin-mocha ]])
-	-- 	end,
-	-- },
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		name = "catppuccin",
+		config = function()
+			vim.cmd([[ colo catppuccin-mocha ]])
+		end,
+	},
 	-- { "RRethy/nvim-base16", lazy = true },
 	-- {
 	-- 	"chriskempson/base16-vim",
@@ -22,7 +22,7 @@ return {
 	-- 		if os.getenv("COLORTERM") == "truecolor" then
 	-- 			vim.cmd([[
 	-- 				colo kanagawa
-	-- 				" hi Comment guifg=#7d83ab
+	-- 				hi Comment guifg=#7d83ab
 	-- 				" hi LineNr guifg=#7d83ab
 	-- 				hi VertSplit guifg=#FFA500
 	-- 			]])
@@ -75,7 +75,9 @@ return {
 	-- 	]])
 	--
 	-- end },
-	{ "ellisonleao/gruvbox.nvim", config = function ()
-		vim.cmd([[ colo gruvbox ]])
-	end },
+	-- { "ellisonleao/gruvbox.nvim", config = function ()
+	-- 	vim.cmd([[ colo gruvbox ]])
+	-- end },
+
+	-- {"ramojus/mellifluous.nvim"}
 }

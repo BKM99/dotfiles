@@ -249,9 +249,10 @@ return {
 			{
 				"leoluz/nvim-dap-go",
 				config = function()
+					local path = require("mason-registry").get_package("delve"):get_install_path()
 					require("dap-go").setup({
 						delve = {
-							path = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/dlv",
+							path = path .. "/dlv"
 						},
 					})
 				end,
