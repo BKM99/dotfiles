@@ -43,3 +43,6 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
+
+-- Turn off search highlight
+keymap("n", "<leader>s", ":noh<CR>", opts)

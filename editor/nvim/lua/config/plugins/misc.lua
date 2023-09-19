@@ -44,4 +44,16 @@ return {
 		end,
 	},
 	{ "tpope/vim-eunuch" },
+	{
+		"linux-cultist/venv-selector.nvim",
+		cmd = "VenvSelect",
+		opts = {
+			name = {
+				"venv",
+				".venv",
+				"env",
+				".env",
+			},
+		},
+	},
 }

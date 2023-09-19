@@ -1,6 +1,9 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "mfussenegger/nvim-jdtls", ft = "java" },
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
 			local lsp_defaults = lspconfig.util.default_config
@@ -95,6 +98,12 @@ return {
 				-- "yaml-language-server",
 
 				-- "bash-language-server",
+				"delve",
+				"debugpy",
+				"js-debug-adapter",
+				"codelldb",
+				"java-debug-adapter",
+				"java-test",
 			},
 		},
 		config = function(_, opts)
@@ -130,7 +139,7 @@ return {
 					-- null_ls.builtins.formatting.prettier,
 					-- null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.black,
-					null_ls.builtins.diagnostics.flake8,
+					-- null_ls.builtins.diagnostics.flake8,
 				},
 			})
 		end,
