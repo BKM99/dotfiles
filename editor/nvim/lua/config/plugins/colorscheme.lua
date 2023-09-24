@@ -11,7 +11,7 @@ return {
 		"RRethy/nvim-base16",
 		config = function()
 			vim.cmd([[colo base16-gruvbox-dark-hard]])
-			vim.cmd([[highlight Comment guifg=#8f8c8c]])
+			-- vim.cmd([[highlight Comment guifg=#8f8c8c]])
 		end,
 	},
 	-- {
@@ -19,7 +19,7 @@ return {
 	-- 	config = function()
 	-- 		vim.cmd([[colo base16-gruvbox-dark-hard]])
 	-- 		vim.cmd([[highlight Comment guifg=#8f8c8c]])
-	-- 		-- vim.cmd([[hi Normal ctermbg=NONE]])
+	-- 		vim.cmd([[hi Normal ctermbg=NONE]])
 	-- 	end,
 	-- },
 	-- {

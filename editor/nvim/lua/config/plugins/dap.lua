@@ -2,69 +2,24 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		keys = {
-			{
-				"<leader>db",
-				"<cmd>lua require'dap'.toggle_breakpoint()<cr>",
-				desc = "DAP set breakpoint",
-			},
-			{
-				"<leader>dbc",
-				":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>",
-				desc = "DAP breakpoint condition",
-			},
-			{
-				"<leader>dlp",
-				":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>",
-				desc = "DAP logpoint message",
-			},
-			{
-				"<S-up>",
-				"<cmd>lua require'dap'.continue()<cr>",
-				desc = "DAP continue",
-			},
-			{
-				"<S-right>",
-				"<cmd>lua require'dap'.step_into()<cr>",
-				desc = "DAP step into",
-			},
-			{
-				"<S-left>",
-				"<cmd>lua require'dap'.step_over()<cr>",
-				desc = "DAP step over",
-			},
-			{
-				"<S-down>",
-				"<cmd>lua require'dap'.step_out()<cr>",
-				desc = "DAP step out",
-			},
-			{
-				"<leader>dr",
-				"<cmd>lua require'dap'.repl.toggle()<cr>",
-				desc = "DAP REPL toggle",
-			},
-			{
-				"<leader>dl",
-				"<cmd>lua require'dap'.run_last()<cr>",
-				desc = "DAP run last",
-			},
-			{
-				"<leader>dt",
-				"<cmd>lua require'dap'.terminate()<cr>",
-				desc = "DAP terminate",
-			},
+			{ "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "DAP set breakpoint", },
+			{ "<leader>dbc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", desc = "DAP breakpoint condition", },
+			{ "<leader>dlp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", desc = "DAP logpoint message", },
+			{ "<S-up>", "<cmd>lua require'dap'.continue()<cr>", desc = "DAP continue", },
+			{ "<S-right>", "<cmd>lua require'dap'.step_into()<cr>", desc = "DAP step into", },
+			{ "<S-left>", "<cmd>lua require'dap'.step_over()<cr>", desc = "DAP step over", },
+			{ "<S-down>", "<cmd>lua require'dap'.step_out()<cr>", desc = "DAP step out", },
+			{ "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "DAP REPL toggle", },
+			{ "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", desc = "DAP run last", },
+			{ "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", desc = "DAP terminate", },
 		},
 
 		config = function()
 			vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
 			vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
 
-			local load_launchjs = function()
-				require("dap.ext.vscode").load_launchjs()
-			end
-
-			if not pcall(load_launchjs) then
-				print("Failed to parse launch.json.")
-			end
+			local load_launchjs = function() require("dap.ext.vscode").load_launchjs() end
+			if not pcall(load_launchjs) then print("Failed to parse launch.json.") end
 
 			--[[
 				debug js and ts like this:

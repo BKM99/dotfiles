@@ -8,9 +8,12 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local lsp_defaults = lspconfig.util.default_config
+			local cmp_nvim_lsp_success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-			lsp_defaults.capabilities =
-				vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+			if cmp_nvim_lsp_success then
+				lsp_defaults.capabilities =
+					vim.tbl_deep_extend("force", lsp_defaults.capabilities, cmp_nvim_lsp.default_capabilities())
+			end
 
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
@@ -66,10 +69,12 @@ return {
 			lspconfig.clangd.setup({})
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.gopls.setup({})
+
+
 			lspconfig.omnisharp.setup({
-				-- cmd = { "dotnet", "/Users/brandonmorimoto/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
 				cmd = {
-					"/Users/brandonmorimoto/.local/share/nvim/mason/packages/omnisharp/omnisharp",
+					-- "/Users/brandonmorimoto/.local/share/nvim/mason/packages/omnisharp/omnisharp",
+					os.getenv("HOME") .. "/.local/share/nvim/mason/packages/omnisharp/omnisharp",
 					"--languageserver",
 					"--hostPID",
 					tostring(vim.fn.getpid()),
