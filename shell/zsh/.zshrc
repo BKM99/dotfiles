@@ -28,8 +28,6 @@ autoload -Uz colors && colors
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(/opt/homebrew/bin/rtx activate zsh)"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -46,3 +44,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(direnv hook zsh)"
+eval "$(/opt/homebrew/bin/rtx activate zsh)"

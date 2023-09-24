@@ -2,7 +2,8 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "mfussenegger/nvim-jdtls", ft = "java" },
+			{ "mfussenegger/nvim-jdtls" },
+			{ "Hoffs/omnisharp-extended-lsp.nvim" },
 		},
 		config = function()
 			local lspconfig = require("lspconfig")
@@ -65,6 +66,18 @@ return {
 			lspconfig.clangd.setup({})
 			lspconfig.rust_analyzer.setup({})
 			lspconfig.gopls.setup({})
+			lspconfig.omnisharp.setup({
+				-- cmd = { "dotnet", "/Users/brandonmorimoto/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+				cmd = {
+					"/Users/brandonmorimoto/.local/share/nvim/mason/packages/omnisharp/omnisharp",
+					"--languageserver",
+					"--hostPID",
+					tostring(vim.fn.getpid()),
+				},
+				handlers = {
+					["textDocument/definition"] = require("omnisharp_extended").handler,
+				},
+			})
 		end,
 	},
 	{
@@ -91,6 +104,7 @@ return {
 				"flake8",
 
 				"gopls",
+				"omnisharp",
 
 				-- "shellcheck",
 

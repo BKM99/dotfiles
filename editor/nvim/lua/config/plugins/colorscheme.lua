@@ -1,13 +1,19 @@
 return {
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	lazy = false,
+	-- 	name = "catppuccin",
+	-- 	config = function()
+	-- 		vim.cmd([[ colo catppuccin-mocha ]])
+	-- 	end,
+	-- },
 	{
-		"catppuccin/nvim",
-		lazy = false,
-		name = "catppuccin",
+		"RRethy/nvim-base16",
 		config = function()
-			vim.cmd([[ colo catppuccin-mocha ]])
+			vim.cmd([[colo base16-gruvbox-dark-hard]])
+			vim.cmd([[highlight Comment guifg=#8f8c8c]])
 		end,
 	},
-	-- { "RRethy/nvim-base16", lazy = true },
 	-- {
 	-- 	"chriskempson/base16-vim",
 	-- 	config = function()
@@ -69,12 +75,14 @@ return {
 	-- { "folke/tokyonight.nvim", config = function ()
 	-- 	vim.cmd([[ colorscheme tokyonight-night ]])
 	-- end },
-	-- { "Mofiqul/dracula.nvim", config = function ()
-	-- 	vim.cmd([[
+	-- {
+	-- 	"Mofiqul/dracula.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[
 	-- 		colorscheme dracula-soft
 	-- 	]])
-	--
-	-- end },
+	-- 	end,
+	-- },
 	-- { "ellisonleao/gruvbox.nvim", config = function ()
 	-- 	vim.cmd([[ colo gruvbox ]])
 	-- end },

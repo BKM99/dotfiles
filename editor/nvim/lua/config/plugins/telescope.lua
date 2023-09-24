@@ -19,7 +19,7 @@ return {
 				file_ignore_patterns = {
 					".git/",
 					"node_modules/",
-					".venv/"
+					".venv/",
 				},
 			},
 		})
@@ -33,6 +33,11 @@ return {
 		keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
 		keymap("n", "<leader>b", ":Telescope buffers <CR>", opts)
 		-- keymap("n", "<leader>lg", ":Telescope live_grep theme=dropdown <CR>", opts)
-		keymap("n", "<leader>lg", ":lua require('telescope').extensions.live_grep_args.live_grep_args() theme=dropdown<CR>", opts)
+		keymap(
+			"n",
+			"<leader>lg",
+			":lua require('telescope').extensions.live_grep_args.live_grep_args() theme=dropdown<CR>",
+			opts
+		)
 	end,
 }

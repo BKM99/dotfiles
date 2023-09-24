@@ -93,7 +93,7 @@ return {
 						command = "node",
 						args = {
 							require("mason-registry").get_package("js-debug-adapter"):get_install_path()
-								.. "/js-debug/src/dapDebugServer.js",
+							.. "/js-debug/src/dapDebugServer.js",
 							"${port}",
 						},
 					},
@@ -156,6 +156,24 @@ return {
 
 			dap.configurations.c = dap.configurations.cpp
 			dap.configurations.rust = dap.configurations.cpp
+
+			dap.adapters.coreclr = {
+				type = "executable",
+				command = require("mason-registry").get_package("netcoredbg"):get_install_path() .. "/netcoredbg",
+				args = { "--interpreter=vscode" },
+			}
+
+			dap.configurations.cs = {
+				{
+					type = "coreclr",
+					name = "launch - netcoredbg",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
+					end,
+				},
+			}
+			dap.configurations.fsharp = dap.configurations.cs
 		end,
 
 		dependencies = {
@@ -252,7 +270,7 @@ return {
 					local path = require("mason-registry").get_package("delve"):get_install_path()
 					require("dap-go").setup({
 						delve = {
-							path = path .. "/dlv"
+							path = path .. "/dlv",
 						},
 					})
 				end,
