@@ -34,15 +34,6 @@ return {
 		end,
 	},
 	{
-		"NMAC427/guess-indent.nvim",
-		config = function()
-			require("guess-indent").setup({
-				auto_cmd = true,
-			})
-		end,
-	},
-	{ "tpope/vim-eunuch" },
-	{
 		"linux-cultist/venv-selector.nvim",
 		cmd = "VenvSelect",
 		opts = {
@@ -51,5 +42,23 @@ return {
 				".venv",
 			},
 		},
+	},
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		config = function(_, opts)
+			require("oil").setup({
+				-- Set to false if you still want to use netrw.
+				default_file_explorer = true,
+				columns = {
+					-- "icon",
+					-- "permissions",
+					-- "size",
+					-- "mtime",
+				},
+			})
+			vim.keymap.set("n", "<leader>t", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })
+		end,
+		-- dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 }

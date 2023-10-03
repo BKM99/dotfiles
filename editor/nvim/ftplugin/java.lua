@@ -18,18 +18,18 @@ end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = WORKSPACE_PATH .. project_name
--- local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 
 -- Setup Testing and Debugging
 local bundles = {}
--- vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
--- vim.list_extend(
--- 	bundles,
--- 	vim.split(
--- 		vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
--- 		"\n"
--- 	)
--- )
+vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. "packages/java-test/extension/server/*.jar"), "\n"))
+vim.list_extend(
+	bundles,
+	vim.split(
+		vim.fn.glob(mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),
+		"\n"
+	)
+)
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -39,6 +39,8 @@ local config = {
 		-- "java", -- or '/path/to/java17_or_newer/bin/java'
 		-- depends on if `java` is in your $PATH env variable and if it points to the right version.
 		home .. "/.local/share/rtx/installs/java/17.0.2/bin/java",
+		-- home .. ".local/share/rtx/installs/java/openjdk-21/bin/java",
+		-- home .. "/.local/share/rtx/installs/java/openjdk-17/bin/java",
 
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
@@ -91,5 +93,24 @@ local config = {
 		bundles = bundles,
 	},
 }
+
+-- config["init_options"] = {
+-- 	bundles = {
+-- 		vim.fn.glob(
+-- 			mason_path .. "packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+-- 			1
+-- 		),
+-- 	},
+-- }
+
+-- config["on_attach"] = function(client, bufnr)
+-- 	-- local _, _ = pcall(vim.lsp.codelens.refresh)
+-- 	require("jdtls").setup_dap({ hotcodereplace = "auto" })
+-- 	-- require("lvim.lsp").on_attach(client, bufnr)
+-- 	local status_ok, jdtls_dap = pcall(require, "jdtls.dap")
+-- 	if status_ok then
+-- 		jdtls_dap.setup_dap_main_class_configs()
+-- 	end
+-- end
 
 jdtls.start_or_attach(config)

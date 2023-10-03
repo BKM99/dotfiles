@@ -2,8 +2,8 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-nvim-lsp-signature-help",
-		"hrsh7th/cmp-buffer",
+		-- "hrsh7th/cmp-nvim-lsp-signature-help",
+		-- "hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
@@ -27,6 +27,19 @@ return {
 		end, { silent = true, remap = false, desc = "Don't paste in select mode (LuaSnip)" })
 
 		vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+		local function border(hl_name)
+			return {
+				{ "╭", hl_name },
+				{ "─", hl_name },
+				{ "╮", hl_name },
+				{ "│", hl_name },
+				{ "╯", hl_name },
+				{ "─", hl_name },
+				{ "╰", hl_name },
+				{ "│", hl_name },
+			}
+		end
 
 		luasnip.config.set_config({
 			region_check_events = "InsertEnter",
@@ -59,24 +72,21 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = {
-				{ name = "nvim_lua" },
 				{ name = "nvim_lsp" },
-				{ name = "nvim_lsp_signature_help" },
 				{ name = "luasnip" },
+				{ name = "nvim_lua" },
+				-- { name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 			},
-			{
-				{ name = "buffer", keyword_length = 5 },
-			},
-			confirm_opts = {
-				behavior = cmp.ConfirmBehavior.Replace,
-				select = false,
-			},
+			-- {
+			-- 	{ name = "buffer", keyword_length = 5 },
+			-- },
 			window = {
-				documentation = vim.tbl_deep_extend("force", cmp.config.window.bordered(), {
-					max_height = 15,
-					max_width = 60,
-				}),
+				completion = cmp.config.window.bordered(),
+				documentation = {
+					border = border("CmpDocBorder"),
+					winhighlight = "Normal:CmpDoc",
+				},
 			},
 			experimental = {
 				ghost_text = false,

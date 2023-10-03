@@ -7,13 +7,13 @@ return {
 	-- 		vim.cmd([[ colo catppuccin-mocha ]])
 	-- 	end,
 	-- },
-	{
-		"RRethy/nvim-base16",
-		config = function()
-			vim.cmd([[colo base16-gruvbox-dark-hard]])
-			-- vim.cmd([[highlight Comment guifg=#8f8c8c]])
-		end,
-	},
+	-- {
+	-- 	"RRethy/nvim-base16",
+	-- 	config = function()
+	-- 		vim.cmd([[colo base16-gruvbox-dark-hard]])
+	-- 		-- vim.cmd([[highlight Comment guifg=#8f8c8c]])
+	-- 	end,
+	-- },
 	-- {
 	-- 	"chriskempson/base16-vim",
 	-- 	config = function()
@@ -22,21 +22,22 @@ return {
 	-- 		vim.cmd([[hi Normal ctermbg=NONE]])
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		if os.getenv("COLORTERM") == "truecolor" then
-	-- 			vim.cmd([[
-	-- 				colo kanagawa
-	-- 				hi Comment guifg=#7d83ab
-	-- 				" hi LineNr guifg=#7d83ab
-	-- 				hi VertSplit guifg=#FFA500
-	-- 			]])
-	-- 		else
-	-- 			vim.cmd([[colo sorbet]])
-	-- 		end
-	-- 	end,
-	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			vim.cmd([[colo kanagawa-wave]])
+			-- if os.getenv("COLORTERM") == "truecolor" then
+			-- 	vim.cmd([[
+			-- 		colo kanagawa
+			-- 		hi Comment guifg=#7d83ab
+			-- 		" hi LineNr guifg=#7d83ab
+			-- 		hi VertSplit guifg=#FFA500
+			-- 	]])
+			-- else
+			-- 	vim.cmd([[colo sorbet]])
+			-- end
+		end,
+	},
 
 	-- {
 	-- 	"kvrohit/mellow.nvim",

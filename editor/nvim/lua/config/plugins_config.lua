@@ -17,7 +17,14 @@ if use_plugins then
 
 	require("lazy").setup({
 		spec = {
-			{ import = "config.plugins" },
+            { import = "config.plugins.mason" },
+			{ import = "config.plugins.lsp" },
+			{ import = "config.plugins.dap" },
+            { import = "config.plugins.cmp" },
+            { import = "config.plugins.treesitter" },
+			{ import = "config.plugins.colorscheme" },
+            { import = "config.plugins.telescope" },
+			{ import = "config.plugins.misc" },
 		},
 	}, {
 		ui = {

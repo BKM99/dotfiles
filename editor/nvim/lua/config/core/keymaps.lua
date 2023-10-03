@@ -1,8 +1,8 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Open netrw
-keymap("n", "<leader>t", ":Explore<CR>", opts)
+-- Open netrw, using Oil for now
+-- keymap("n", "<leader>t", ":Explore<CR>", opts)
 
 -- Faster window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -45,4 +45,10 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Turn off search highlight
-keymap("n", "<leader>s", ":noh<CR>", opts)
+keymap("n", "<leader>nh", ":noh<CR>", opts)
+
+-- replace word under cursor
+keymap("n", "<leader>sw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- open nvim config
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/editor/nvim/init.lua <CR>", opts);

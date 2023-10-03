@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -34,25 +34,30 @@ end
 
 -- use system clipboard
 local has = vim.fn.has
-local is_mac = has "macunix"
-local is_linux = has "unix"
-local is_win = has "win32"
-local is_wsl = has "wsl"
+local is_mac = has("macunix")
+local is_linux = has("unix")
+local is_win = has("win32")
+local is_wsl = has("wsl")
 
 if is_mac == 1 then
-	vim.opt.clipboard:append { 'unnamedplus' }
+	vim.opt.clipboard:append({ "unnamedplus" })
 end
 if is_linux == 1 then
-	vim.opt.clipboard:append { 'unnamedplus' }
+	vim.opt.clipboard:append({ "unnamedplus" })
 end
 if is_win == 1 then
-	vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
+	vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 end
 if is_wsl == 1 then
-	vim.cmd [[
+	vim.cmd([[
 		 augroup Yank
    		 autocmd!
    		 autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
    		 augroup END
-	]]
+	]])
+end
+
+-- disable some default providers
+for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
+	vim.g["loaded_" .. provider .. "_provider"] = 0
 end
