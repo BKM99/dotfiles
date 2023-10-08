@@ -1,21 +1,16 @@
+export SHELL=/bin/zsh
+export XDG_CONFIG_HOME=$HOME/.config/
+
 PROMPT='%n: %F{blue}%3~ %(?.%F{green}.%F{red})%#%f '
 
-if [[ -f /opt/homebrew/bin/brew ]]; then
-    # Homebrew exists at /opt/homebrew for arm64 macos
-    eval $(/opt/homebrew/bin/brew shellenv)
-elif [[ -f /usr/local/bin/brew ]]; then
-    # or at /usr/local for intel macos
-    eval $(/usr/local/bin/brew shellenv)
-elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-    # or from linuxbrew
-    test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-    test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+eval $(/opt/homebrew/bin/brew shellenv)
+eval "$(/opt/homebrew/bin/rtx activate zsh)"
+eval "$(direnv hook zsh)"
 
 source ~/.zsh-aliases
 
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTSIZE=100000000
+export SAVEHIST=$HISTSIZE
 
 zle_highlight=('paste:none')
 
@@ -27,6 +22,32 @@ _comp_options+=(globdots)
 autoload -Uz colors && colors
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -d /usr/local/go/bin/ ]; then
+    export GOPATH=~/go
+    export GOBIN="$GOPATH/bin"
+    export PATH="/usr/local/go/bin:$GOBIN:$PATH"
+elif [ -d ~/.go/bin/ ]; then
+    export GOPATH=$HOME/.go
+    export GOROOT="$HOME/.go"
+    export GOBIN=$GOPATH/bin
+    export PATH="$GOPATH/bin:$PATH"
+    # export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
+if [[ -d "$HOME/.dotnet/" ]]; then
+    export PATH="$HOME/.dotnet/:$PATH"
+fi
+# export PATH="$PATH:$HOME/.dotnet/tools"
+
+# Check if nvim is installed
+if command -v nvim &> /dev/null; then
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+else
+    export EDITOR="vim"
+    export VISUAL="vim"
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -42,6 +63,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-eval "$(direnv hook zsh)"
-eval "$(/opt/homebrew/bin/rtx activate zsh)"

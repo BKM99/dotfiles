@@ -11,8 +11,16 @@ return {
 		},
 	},
 	{
-		"echasnovski/mini.pairs",
+		"windwp/nvim-autopairs",
 		opts = {},
+		config = function(_, opts)
+			require("nvim-autopairs").setup(opts)
+			local ok, cmp = pcall(require, "cmp")
+			if ok then
+				local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			end
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -45,20 +53,15 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
-		opts = {},
+		opts = {
+			default_file_explorer = true,
+			view_options = {
+				show_hidden = true,
+			},
+		},
 		config = function(_, opts)
-			require("oil").setup({
-				-- Set to false if you still want to use netrw.
-				default_file_explorer = true,
-				columns = {
-					-- "icon",
-					-- "permissions",
-					-- "size",
-					-- "mtime",
-				},
-			})
+			require("oil").setup(opts)
 			vim.keymap.set("n", "<leader>t", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })
 		end,
-		-- dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 }

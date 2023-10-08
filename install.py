@@ -101,17 +101,17 @@ def main():
     args = parser.parse_args()
 
     links = {
-        "./terminals/kitty": "~/.config/kitty",
         # "./terminals/alacritty/alacritty.yml": "~/.config/alacritty",
+        "./terminals/kitty": "~/.config/kitty",
+        # "./terminals/wezterm/": "~/.config/wezterm",
         "./editor/nvim": "~/.config/nvim",
         "./editor/vimrc": "~/.vimrc",
-        "./tools/git/.gitconfig": "~/.gitconfig",
-        "./tools/git/.gitignore_global": "~/.gitignore_global",
+        "./tools/gitconfig/.gitconfig": "~/.gitconfig",
+        "./tools/gitconfig/.gitignore_global": "~/.gitignore_global",
         "./tools/tmux/.tmux.conf": "~/.tmux.conf",
         "./tools/conda/.condarc": "~/.condarc",
         "./tools/rtx": "~/.config/rtx",
         "./shell/zsh/.zshrc": "~/.zshrc",
-        "./shell/zsh/.zshenv": "~/.zshenv",
         "./shell/zsh/.zsh-aliases": "~/.zsh-aliases",
         # "./shell/bash/.bashrc": "~/.bashrc",
         # "./shell/bash/.bash_profile": "~/.bash_profile",

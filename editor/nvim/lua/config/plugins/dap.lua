@@ -3,14 +3,10 @@ return {
         "mfussenegger/nvim-dap",
         keys = {
             { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "DAP set breakpoint" },
-            { "<leader>dbc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", desc = "DAP breakpoint condition", },
-            { "<leader>dlp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", desc = "DAP logpoint message", },
             { "<S-up>",     "<cmd>lua require'dap'.continue()<cr>",          desc = "DAP continue" },
             { "<S-right>",  "<cmd>lua require'dap'.step_into()<cr>",         desc = "DAP step into" },
             { "<S-left>",   "<cmd>lua require'dap'.step_over()<cr>",         desc = "DAP step over" },
             { "<S-down>",   "<cmd>lua require'dap'.step_out()<cr>",          desc = "DAP step out" },
-            { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>",       desc = "DAP REPL toggle" },
-            { "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>",          desc = "DAP run last" },
             { "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>",         desc = "DAP terminate" },
         },
 
@@ -28,7 +24,6 @@ return {
 
         dependencies = {
             { "williamboman/mason.nvim" },
-            { "jay-babu/mason-nvim-dap.nvim" },
             {
                 "rcarriga/nvim-dap-ui",
                 -- stylua: ignore
@@ -40,19 +35,6 @@ return {
                     local dap = require("dap")
                     local dapui = require("dapui")
                     dapui.setup({
-                        controls = {
-                            icons = {
-                                disconnect = "",
-                                pause = "",
-                                play = "",
-                                run_last = "",
-                                step_back = "",
-                                step_into = "",
-                                step_out = "",
-                                step_over = "",
-                                terminate = "",
-                            },
-                        },
                         layouts = {
                             {
                                 elements = {
@@ -112,17 +94,15 @@ return {
             {
                 "mfussenegger/nvim-dap-python",
                 config = function()
-                    local path = require("mason-registry").get_package("debugpy"):get_install_path()
-                    require("dap-python").setup(path .. "/venv/bin/python")
+                    require("dap-python").setup(require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python")
                 end,
             },
             {
                 "leoluz/nvim-dap-go",
                 config = function()
-                    local path = require("mason-registry").get_package("delve"):get_install_path()
                     require("dap-go").setup({
                         delve = {
-                            path = path .. "/dlv",
+                            path = require("mason-registry").get_package("delve"):get_install_path() .. "/dlv",
                         },
                     })
                 end,
