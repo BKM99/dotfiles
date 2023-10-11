@@ -20,6 +20,9 @@ return {
             if not pcall(load_launchjs) then
                 print("Failed to parse launch.json.")
             end
+
+            local dap = require("dap")
+
         end,
 
         dependencies = {
@@ -94,7 +97,9 @@ return {
             {
                 "mfussenegger/nvim-dap-python",
                 config = function()
-                    require("dap-python").setup(require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python")
+                    require("dap-python").setup(
+                        require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
+                    )
                 end,
             },
             {

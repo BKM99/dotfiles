@@ -9,6 +9,9 @@ eval "$(direnv hook zsh)"
 
 source ~/.zsh-aliases
 
+# Enable Vi mode
+bindkey -v
+
 export HISTSIZE=100000000
 export SAVEHIST=$HISTSIZE
 
@@ -38,7 +41,10 @@ fi
 if [[ -d "$HOME/.dotnet/" ]]; then
     export PATH="$HOME/.dotnet/:$PATH"
 fi
-# export PATH="$PATH:$HOME/.dotnet/tools"
+
+if [[ -d "$HOME/.dotnet/tools/"]]; then
+    export PATH="$PATH:$HOME/.dotnet/tools"
+fi
 
 # Check if nvim is installed
 if command -v nvim &> /dev/null; then

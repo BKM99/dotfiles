@@ -45,10 +45,16 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Turn off search highlight
-keymap("n", "<leader>nh", ":noh<CR>", opts)
+keymap("n", "<leader>ns", ":noh<CR>", opts)
 
 -- replace word under cursor
 keymap("n", "<leader>sw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- open nvim config
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/editor/nvim/init.lua <CR>", opts);
+
+-- possible use this instead of autotag
+-- vim.cmd([[
+--   imap ,> ><Esc>?<[a-z]<CR>lyiwh/[^%]><CR>la</<C-r>"><Esc>:nohlsearch<cr>F>i<Space>
+--   imap ,/ /><Esc>hi<space>
+-- ]])
