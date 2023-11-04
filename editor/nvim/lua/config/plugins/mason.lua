@@ -8,32 +8,23 @@ return {
 			ensure_installed = {
 				"lua-language-server",
 				"stylua",
-
 				"vim-language-server",
-
 				"typescript-language-server",
 				"prettier",
-				"eslint-lsp",
-
+				"eslint_d",
 				"rust-analyzer",
-
 				"clangd",
 				"clang-format",
-
 				"pyright",
 				"black",
 				"flake8",
-
 				"gopls",
 				"omnisharp",
 				"jdtls",
-
-				-- "shellcheck",
-
-				-- "json-lsp",
-				-- "yaml-language-server",
-
-				-- "bash-language-server",
+				"shellcheck",
+				"json-lsp",
+				"yaml-language-server",
+				"bash-language-server",
 				"delve",
 				"debugpy",
 				"js-debug-adapter",

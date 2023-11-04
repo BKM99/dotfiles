@@ -42,7 +42,7 @@ if [[ -d "$HOME/.dotnet/" ]]; then
     export PATH="$HOME/.dotnet/:$PATH"
 fi
 
-if [[ -d "$HOME/.dotnet/tools/"]]; then
+if [[ -d "$HOME/.dotnet/tools/" ]]; then
     export PATH="$PATH:$HOME/.dotnet/tools"
 fi
 
