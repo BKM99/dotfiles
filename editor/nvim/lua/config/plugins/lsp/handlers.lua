@@ -65,7 +65,7 @@ end
 
 M.custom_on_attach = function(client, bufnr)
 	lsp_keymaps(bufnr)
-	client.server_capabilities.semanticTokensProvider = nil
+	-- client.server_capabilities.semanticTokensProvider = nil
 end
 
 M.custom_capabilities = capabilities()
