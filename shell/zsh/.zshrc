@@ -4,7 +4,7 @@ export XDG_CONFIG_HOME=$HOME/.config/
 PROMPT='%n: %F{blue}%3~ %(?.%F{green}.%F{red})%#%f '
 
 eval $(/opt/homebrew/bin/brew shellenv)
-eval "$(/opt/homebrew/bin/rtx activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(direnv hook zsh)"
 
 source ~/.zsh-aliases

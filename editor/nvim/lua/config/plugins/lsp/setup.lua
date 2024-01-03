@@ -19,7 +19,5 @@ return {
 			require("lsp_signature").setup(opts)
 		end,
 	},
-	{ "mfussenegger/nvim-jdtls", ft = "java" },
-	{ "Hoffs/omnisharp-extended-lsp.nvim", ft = "cs" },
 	{ "b0o/SchemaStore.nvim" },
 }

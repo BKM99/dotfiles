@@ -50,15 +50,6 @@ lspconfig.gopls.setup({
 lspconfig.omnisharp.setup({
 	on_attach = handlers.custom_on_attach,
 	capabilities = handlers.custom_capabilities,
-	cmd = {
-		os.getenv("HOME") .. "/.local/share/nvim/mason/packages/omnisharp/omnisharp",
-		"--languageserver",
-		"--hostPID",
-		tostring(vim.fn.getpid()),
-	},
-	handlers = {
-		["textDocument/definition"] = require("omnisharp_extended").handler,
-	},
 })
 
 lspconfig.jsonls.setup({

@@ -42,16 +42,6 @@ return {
 		end,
 	},
 	{
-		"linux-cultist/venv-selector.nvim",
-		cmd = "VenvSelect",
-		opts = {
-			name = {
-				"venv",
-				".venv",
-			},
-		},
-	},
-	{
 		"stevearc/oil.nvim",
 		opts = {
 			default_file_explorer = true,

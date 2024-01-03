@@ -110,7 +110,7 @@ def main():
         "./tools/gitconfig/.gitignore_global": "~/.gitignore_global",
         "./tools/tmux/.tmux.conf": "~/.tmux.conf",
         "./tools/conda/.condarc": "~/.condarc",
-        "./tools/rtx": "~/.config/rtx",
+        "./tools/mise": "~/.config/mise",
         "./shell/zsh/.zshrc": "~/.zshrc",
         "./shell/zsh/.zsh-aliases": "~/.zsh-aliases",
         # "./shell/bash/.bashrc": "~/.bashrc",
