@@ -20,7 +20,6 @@ M.use_plugins = function(enable_plugins)
 			spec = {
 				{ import = "config.plugins.mason" },
 				{ import = "config.plugins.lsp.setup" },
-				{ import = "config.plugins.dap" },
 				{ import = "config.plugins.cmp" },
 				{ import = "config.plugins.treesitter" },
 				{ import = "config.plugins.colorscheme" },

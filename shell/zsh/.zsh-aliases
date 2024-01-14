@@ -13,12 +13,12 @@ function mkcd() {
     cd $1
 }
 
-if command -v exa &> /dev/null
+if command -v eza &> /dev/null
 then
-    alias l='exa'
-    alias ls='exa'
-    alias ll='exa -ll'
-    alias la='exa -la'
+    alias l='eza'
+    alias ls='eza'
+    alias ll='eza -ll'
+    alias la='eza -la'
 else
     alias l='ls'
     alias ll='ls -ll'
