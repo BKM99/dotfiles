@@ -11,7 +11,6 @@ return {
 				"vim-language-server",
 				"typescript-language-server",
 				"prettier",
-				"eslint_d",
 				"rust-analyzer",
 				"clangd",
 				"clang-format",

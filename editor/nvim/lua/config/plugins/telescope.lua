@@ -10,7 +10,6 @@ return {
             end,
         },
         { "nvim-lua/plenary.nvim" },
-        -- { "nvim-tree/nvim-web-devicons" },
     },
     config = function()
         local telescope = require("telescope")
@@ -24,7 +23,6 @@ return {
             },
         })
         pcall(telescope.load_extension, "fzf")
-        -- pcall(telescope.load_extension, "live_grep_args")
         local opts = { noremap = true, silent = true }
         local keymap = vim.keymap.set
 
@@ -32,6 +30,6 @@ return {
         keymap("n", "<leader>gs", ":Telescope git_status theme=ivy <CR>", opts)
         keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
         keymap("n", "<leader>b", ":Telescope buffers <CR>", opts)
-        keymap("n", "<leader>lg", ":Telescope live_grep theme=dropdown <CR>", opts)
+        keymap("n", "<leader>lg", ":Telescope live_grep <CR>", opts)
     end,
 }

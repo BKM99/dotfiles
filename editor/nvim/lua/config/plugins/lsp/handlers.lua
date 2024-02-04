@@ -20,9 +20,9 @@ local function lsp_keymaps(bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename)
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action)
 	vim.keymap.set("n", "gr", vim.lsp.buf.references)
-	-- vim.keymap.set("n", "<space>lf", function()
-	-- 	vim.lsp.buf.format({ async = true })
-	-- end)
+	vim.keymap.set("n", "<space>lf", function()
+		vim.lsp.buf.format({ async = true })
+	end)
 end
 
 local function capabilities()

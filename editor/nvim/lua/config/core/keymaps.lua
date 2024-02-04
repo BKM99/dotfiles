@@ -44,8 +44,5 @@ keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
--- replace word under cursor
-keymap("n", "<leader>sw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 -- open nvim config
 vim.keymap.set("n", "<leader>nco", "<cmd>e ~/.dotfiles/editor/nvim/init.lua <CR>", opts)

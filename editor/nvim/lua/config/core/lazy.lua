@@ -20,13 +20,12 @@ M.use_plugins = function(enable_plugins)
 			spec = {
 				{ import = "config.plugins.mason" },
 				{ import = "config.plugins.lsp.setup" },
+				{ import = "config.plugins.null_ls" },
 				{ import = "config.plugins.cmp" },
 				{ import = "config.plugins.treesitter" },
 				{ import = "config.plugins.colorscheme" },
 				{ import = "config.plugins.telescope" },
 				{ import = "config.plugins.misc" },
-				{ import = "config.plugins.format" },
-				{ import = "config.plugins.lint" },
 			},
 		})
 	end
