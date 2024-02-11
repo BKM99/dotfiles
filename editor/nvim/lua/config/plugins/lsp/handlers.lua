@@ -5,6 +5,7 @@ local function lsp_keymaps(bufnr)
 	vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 	vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 	vim.keymap.set("n", "<leader>qd", vim.diagnostic.setqflist)
+	vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist)
 
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 	vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<CR>zz")
