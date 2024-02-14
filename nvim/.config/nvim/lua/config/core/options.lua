@@ -34,9 +34,9 @@ vim.opt.wildignorecase = true
 -- vim.o.wildmode = "longest,list,full"
 
 -- true color support
-if vim.fn.has("termguicolors") == 1 then
-	vim.opt.termguicolors = true
-end
+-- if vim.fn.has("termguicolors") == 1 then
+-- 	vim.opt.termguicolors = true
+-- end
 
 if vim.fn.has("nvim-0.10") == 1 then
 	vim.opt.smoothscroll = true

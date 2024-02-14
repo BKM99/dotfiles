@@ -2,10 +2,6 @@ set nocompatible
 set number
 set relativenumber
 
-if has("termguicolors")
-    set termguicolors
-endif
-
 syntax enable
 filetype plugin indent on
 set hidden

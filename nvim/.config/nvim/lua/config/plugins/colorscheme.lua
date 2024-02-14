@@ -45,17 +45,17 @@ return {
 	-- 		vim.cmd([[colo mellow]])
 	-- 	end,
 	-- },
-	-- {
-	-- 	"Mofiqul/vscode.nvim",
-	-- 	config = function()
-	-- 		vim.cmd([[
-	-- 		colo vscode
-	-- 		hi Normal guibg=#161617
-	-- 		hi SignColumn guibg=#161617
-	-- 		hi LineNr guibg=#161617
-	-- 		]])
-	-- 	end,
-	-- },
+	{
+		"Mofiqul/vscode.nvim",
+		config = function()
+			vim.cmd([[
+			colo vscode
+			hi Normal guibg=#161617
+			hi SignColumn guibg=#161617
+			hi LineNr guibg=#161617
+			]])
+		end,
+	},
 	-- { "maxmx03/solarized.nvim" },
 	-- {
 	-- 	-- "rose-pine/neovim",
@@ -89,10 +89,10 @@ return {
 	-- end },
 
 	-- {"ramojus/mellifluous.nvim"},
-	{
-		"EdenEast/nightfox.nvim",
-		config = function()
-			vim.cmd([[ colo carbonfox ]])
-		end,
-	},
+	-- {
+	-- 	"EdenEast/nightfox.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[ colo carbonfox ]])
+	-- 	end,
+	-- },
 }
