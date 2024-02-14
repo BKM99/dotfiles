@@ -26,11 +26,11 @@ keymap("n", "]q", ":cnext<CR>zz", opts)
 keymap("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
--- Resize windos with arrow keys
-keymap("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-keymap("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-keymap("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-keymap("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+-- Resize windows with arrow keys
+keymap("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+keymap("n", "<A-Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+keymap("n", "<A-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+keymap("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Go between the last two buffers
 keymap("n", "<leader><leader>", "<c-^>", opts)
