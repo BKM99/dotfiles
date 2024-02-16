@@ -1,8 +1,9 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
--- Open netrw, using Oil for now
--- keymap("n", "<leader>t", ":Explore<CR>", opts)
+-- Open netrw
+-- keymap("n", "<leader>t", ":Ex %:p:h<CR>", opts)
+-- keymap("n", "<leader>t", ":Ex <CR>", opts)
 
 keymap({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -22,6 +23,7 @@ keymap("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 keymap("n", "[q", ":cprevious<CR>zz", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 
+-- TODO: conflicting with treesitter text objects
 -- go through buffers
 keymap("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
@@ -65,4 +67,4 @@ keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hl
 keymap("n", "<leader>si", ":set invlist<cr>", opts)
 
 -- open nvim config
-vim.keymap.set("n", "<leader>nco", "<cmd>e ~/.dotfiles/editor/nvim/init.lua <CR>", opts)
+vim.keymap.set("n", "<leader>nco", "<cmd>e ~/.config//nvim/init.lua <CR>", opts)

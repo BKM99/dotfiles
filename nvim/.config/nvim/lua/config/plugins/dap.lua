@@ -20,8 +20,6 @@ return {
 			if not pcall(load_launchjs) then
 				print("Failed to parse launch.json.")
 			end
-
-			local dap = require("dap")
 		end,
 
 		dependencies = {

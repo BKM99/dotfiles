@@ -89,3 +89,9 @@ elseif vim.fn.finddir(".git", ".;") ~= "" then
 else
 	vim.o.grepprg = "grep -nIR $* /dev/null"
 end
+
+-- some netrw stuff
+-- vim.cmd[[
+-- let g:netrw_liststyle = 3
+-- let g:netrw_fastbrowse = 0
+-- ]]
