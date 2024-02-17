@@ -23,10 +23,9 @@ keymap("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
 keymap("n", "[q", ":cprevious<CR>zz", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 
--- TODO: conflicting with treesitter text objects
 -- go through buffers
-keymap("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-keymap("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap("n", "<Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap("n", "<S-Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- Resize windows with arrow keys
 keymap("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
@@ -62,9 +61,3 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Clear search with <esc>
 keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-
--- toggle invisible chars
-keymap("n", "<leader>si", ":set invlist<cr>", opts)
-
--- open nvim config
-vim.keymap.set("n", "<leader>nco", "<cmd>e ~/.config//nvim/init.lua <CR>", opts)

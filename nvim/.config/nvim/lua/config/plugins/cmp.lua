@@ -3,7 +3,6 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
-		-- "hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-nvim-lua",
 		"saadparwaiz1/cmp_luasnip",
@@ -78,9 +77,6 @@ return {
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "path" },
 			},
-			-- {
-			-- 	{ name = "buffer", keyword_length = 5 },
-			-- },
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = {

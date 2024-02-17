@@ -46,8 +46,7 @@ return {
     {
         "stevearc/oil.nvim",
         opts = {
-            -- still want to use netrw for simple tree view
-            default_file_explorer = false,
+            default_file_explorer = true,
             -- use_default_keymaps = true,
             view_options = {
                 show_hidden = true,
@@ -55,7 +54,7 @@ return {
         },
         config = function(_, opts)
             require("oil").setup(opts)
-            vim.keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })
+            vim.keymap.set("n", "<leader>t", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })
         end,
     },
     {
@@ -65,7 +64,7 @@ return {
         opts = { open_cmd = "noswapfile vnew" },
         -- stylua: ignore
         keys = {
-            { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+            { "<leader>s", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
         },
     },
     {
@@ -107,7 +106,7 @@ return {
             vim.keymap.set("n", "<leader>a", function()
                 harpoon:list():append()
             end)
-            vim.keymap.set("n", "<leader>hm", function()
+            vim.keymap.set("n", "<leader>0", function()
                 harpoon.ui:toggle_quick_menu(harpoon:list())
             end)
 

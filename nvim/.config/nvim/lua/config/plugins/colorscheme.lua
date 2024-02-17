@@ -11,7 +11,7 @@ return {
 	-- 	"RRethy/nvim-base16",
 	-- 	config = function()
 	-- 		vim.cmd([[colo base16-gruvbox-dark-hard]])
-	-- 		-- vim.cmd([[highlight Comment guifg=#8f8c8c]])
+	-- 		vim.cmd([[highlight Comment guifg=#8f8c8c]])
 	-- 	end,
 	-- },
 	-- {
@@ -22,40 +22,39 @@ return {
 	-- 		vim.cmd([[hi Normal ctermbg=NONE]])
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	config = function()
-	-- 		vim.cmd([[colo kanagawa-wave]])
-	-- 		-- if os.getenv("COLORTERM") == "truecolor" then
-	-- 		-- 	vim.cmd([[
-	-- 		-- 		colo kanagawa
-	-- 		-- 		hi Comment guifg=#7d83ab
-	-- 		-- 		" hi LineNr guifg=#7d83ab
-	-- 		-- 		hi VertSplit guifg=#FFA500
-	-- 		-- 	]])
-	-- 		-- else
-	-- 		-- 	vim.cmd([[colo sorbet]])
-	-- 		-- end
-	-- 	end,
-	-- },
-
+	{
+		"rebelot/kanagawa.nvim",
+		config = function()
+			vim.cmd([[colo kanagawa-wave]])
+			-- if os.getenv("COLORTERM") == "truecolor" then
+			-- 	vim.cmd([[
+			-- 		colo kanagawa
+			-- 		hi Comment guifg=#7d83ab
+			-- 		" hi LineNr guifg=#7d83ab
+			-- 		hi VertSplit guifg=#FFA500
+			-- 	]])
+			-- else
+			-- 	vim.cmd([[colo sorbet]])
+			-- end
+		end,
+	},
 	-- {
 	-- 	"kvrohit/mellow.nvim",
 	-- 	config = function()
 	-- 		vim.cmd([[colo mellow]])
 	-- 	end,
 	-- },
-	{
-		"Mofiqul/vscode.nvim",
-		config = function()
-			vim.cmd([[
-			colo vscode
-			hi Normal guibg=#161617
-			hi SignColumn guibg=#161617
-			hi LineNr guibg=#161617
-			]])
-		end,
-	},
+	--  {
+	--      "Mofiqul/vscode.nvim",
+	--      config = function()
+	--          vim.cmd([[
+	-- colo vscode
+	-- hi Normal guibg=#161617
+	-- hi SignColumn guibg=#161617
+	-- hi LineNr guibg=#161617
+	-- ]])
+	--      end,
+	--  },
 	-- { "maxmx03/solarized.nvim" },
 	-- {
 	-- 	-- "rose-pine/neovim",
@@ -83,7 +82,7 @@ return {
 	-- 		colorscheme dracula-soft
 	-- 	]])
 	-- 	end,
-	-- -- },
+	-- },
 	-- { "ellisonleao/gruvbox.nvim", config = function ()
 	-- 	vim.cmd([[ colo gruvbox ]])
 	-- end },
@@ -95,4 +94,5 @@ return {
 	-- 		vim.cmd([[ colo carbonfox ]])
 	-- 	end,
 	-- },
+	-- { "blazkowolf/gruber-darker.nvim" },
 }

@@ -25,6 +25,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.termguicolors = true
 vim.opt.path = "**"
 vim.opt.wildignorecase = true
 -- vim.opt.wildignore:append(
@@ -32,11 +33,6 @@ vim.opt.wildignorecase = true
 -- )
 -- vim.o.wildmenu = true
 -- vim.o.wildmode = "longest,list,full"
-
--- true color support
--- if vim.fn.has("termguicolors") == 1 then
--- 	vim.opt.termguicolors = true
--- end
 
 if vim.fn.has("nvim-0.10") == 1 then
 	vim.opt.smoothscroll = true

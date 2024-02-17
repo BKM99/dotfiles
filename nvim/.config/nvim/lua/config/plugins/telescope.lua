@@ -29,7 +29,7 @@ return {
 		keymap("n", "<leader>f", ":Telescope find_files hidden=true theme=ivy <CR>", opts)
 		keymap("n", "<leader>gs", ":Telescope git_status theme=ivy <CR>", opts)
 		keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
-		keymap("n", "<leader>,", ":Telescope buffers theme=ivy <CR>", opts)
+		keymap("n", "<leader>,", "<cmd>Telescope buffers sort_mru=true sort_lastused=true theme=ivy <cr>", opts)
 		keymap("n", "<leader>lg", ":Telescope live_grep <CR>", opts)
 	end,
 }

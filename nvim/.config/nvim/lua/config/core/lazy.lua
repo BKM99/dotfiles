@@ -19,7 +19,7 @@ M.use_plugins = function(enable_plugins)
         require("lazy").setup({
             spec = {
                 { import = "config.plugins.mason" },
-                { import = "config.plugins.lsp.setup" },
+                { import = "config.plugins.lspconfig" },
                 { import = "config.plugins.null_ls" },
                 { import = "config.plugins.cmp" },
                 { import = "config.plugins.treesitter" },
