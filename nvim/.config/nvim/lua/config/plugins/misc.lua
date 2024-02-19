@@ -79,13 +79,13 @@ return {
             require("nvim-rooter").setup()
         end,
     },
-    {
-        "ggandor/leap.nvim",
-        config = function()
-            require("leap").create_default_mappings()
-        end,
-    },
-    { "tpope/vim-repeat",      event = "VeryLazy" },
+    -- {
+    --     "ggandor/leap.nvim",
+    --     config = function()
+    --         require("leap").create_default_mappings()
+    --     end,
+    -- },
+    -- { "tpope/vim-repeat",      event = "VeryLazy" },
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
