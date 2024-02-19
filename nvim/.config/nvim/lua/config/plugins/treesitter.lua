@@ -23,6 +23,7 @@ return {
 					"c_sharp",
 					"go",
 					"javascript",
+					"java",
 					"lua",
 					"typescript",
 					"tsx",
