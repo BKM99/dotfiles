@@ -24,8 +24,8 @@ keymap("n", "[q", ":cprevious<CR>zz", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 
 -- go through buffers
-keymap("n", "<Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-keymap("n", "<S-Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- keymap("n", "<Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- keymap("n", "<S-Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- Resize windows with arrow keys
 keymap("n", "<A-Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })

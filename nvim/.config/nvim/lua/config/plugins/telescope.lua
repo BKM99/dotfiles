@@ -2,13 +2,13 @@ return {
 	"nvim-telescope/telescope.nvim",
 	version = false, -- telescope did only one release, so use HEAD for now
 	dependencies = {
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			cond = function()
-				return vim.fn.executable("make") == 1
-			end,
-		},
+		-- {
+		-- 	"nvim-telescope/telescope-fzf-native.nvim",
+		-- 	build = "make",
+		-- 	cond = function()
+		-- 		return vim.fn.executable("make") == 1
+		-- 	end,
+		-- },
 		{ "nvim-lua/plenary.nvim" },
 	},
 	config = function()
@@ -22,11 +22,12 @@ return {
 				},
 			},
 		})
-		pcall(telescope.load_extension, "fzf")
+		-- pcall(telescope.load_extension, "fzf")
 		local opts = { noremap = true, silent = true }
 		local keymap = vim.keymap.set
 
 		keymap("n", "<leader>f", ":Telescope find_files hidden=true theme=ivy <CR>", opts)
+		keymap("n", "<leader>gf", ":Telescope git_files hidden=true theme=ivy <CR>", opts)
 		keymap("n", "<leader>gs", ":Telescope git_status theme=ivy <CR>", opts)
 		keymap("n", "<leader>km", ":Telescope keymaps theme=ivy <CR>", opts)
 		keymap("n", "<leader>,", "<cmd>Telescope buffers sort_mru=true sort_lastused=true theme=ivy <cr>", opts)

@@ -17,6 +17,7 @@ M.use_plugins = function(enable_plugins)
         vim.opt.rtp:prepend(lazypath)
 
         require("lazy").setup({
+            change_detection = { notify = false },
             spec = {
                 { import = "config.plugins.mason" },
                 { import = "config.plugins.lspconfig" },

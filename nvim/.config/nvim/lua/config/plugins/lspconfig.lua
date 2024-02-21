@@ -4,32 +4,54 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{
-				"nvim-java/nvim-java",
-				dependencies = {
-					"nvim-java/lua-async-await",
-					"nvim-java/nvim-java-core",
-					"nvim-java/nvim-java-test",
-					"nvim-java/nvim-java-dap",
-					"MunifTanjim/nui.nvim",
-					"neovim/nvim-lspconfig",
-					"mfussenegger/nvim-dap",
-					{
-						"williamboman/mason.nvim",
-						opts = {
-							registries = {
-								"github:nvim-java/mason-registry",
-								"github:mason-org/mason-registry",
-							},
-						},
-					},
-				},
-			},
+			-- {
+			-- 	"nvim-java/nvim-java",
+			-- 	dependencies = {
+			-- 		"nvim-java/lua-async-await",
+			-- 		"nvim-java/nvim-java-core",
+			-- 		"nvim-java/nvim-java-test",
+			-- 		"nvim-java/nvim-java-dap",
+			-- 		"MunifTanjim/nui.nvim",
+			-- 		"neovim/nvim-lspconfig",
+			-- 		"mfussenegger/nvim-dap",
+			-- 		{
+			-- 			"williamboman/mason.nvim",
+			-- 			opts = {
+			-- 				registries = {
+			-- 					"github:nvim-java/mason-registry",
+			-- 					"github:mason-org/mason-registry",
+			-- 				},
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+			-- {
+			-- 	"iabdelkareem/csharp.nvim",
+			-- 	dependencies = {
+			-- 		"williamboman/mason.nvim", -- Required, automatically installs omnisharp
+			-- 		"mfussenegger/nvim-dap",
+			-- 		"Tastyep/structlog.nvim", -- Optional, but highly recommended for debugging
+			-- 	},
+			-- 	config = function()
+			-- 		require("mason").setup() -- Mason setup must run before csharp
+			-- 		require("csharp").setup()
+			-- 	end,
+			-- },
 		},
 		config = function()
-			require('java').setup()
+			-- require('java').setup()
 			local lspconfig = require("lspconfig")
 			require("lspconfig.ui.windows").default_options.border = "single"
+
+            -- TODO: need to set this part up
+			-- local cmp_ok, cmp = pcall(require, "cmp")
+			-- local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+			-- local capabilities = vim.tbl_deep_extend(
+			-- 	"force",
+			-- 	{},
+			-- 	vim.lsp.protocol.make_client_capabilities(),
+			-- 	cmp_lsp.default_capabilities()
+			-- )
 
 			lspconfig.lua_ls.setup({
 				settings = {
