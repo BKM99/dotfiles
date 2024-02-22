@@ -1,114 +1,68 @@
 return {
-    {
-        "mfussenegger/nvim-dap",
-        keys = {
-            { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "DAP set breakpoint" },
-            { "<leader>dc",     "<cmd>lua require'dap'.continue()<cr>",          desc = "DAP continue" },
-            { "<S-right>",  "<cmd>lua require'dap'.step_into()<cr>",         desc = "DAP step into" },
-            { "<S-up>",   "<cmd>lua require'dap'.step_over()<cr>",         desc = "DAP step over" },
-            { "<S-down>",   "<cmd>lua require'dap'.step_out()<cr>",          desc = "DAP step out" },
-            { "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>",         desc = "DAP terminate" },
-        },
+	"mfussenegger/nvim-dap",
+	dependencies = {
+		"rcarriga/nvim-dap-ui",
+		{
+			"williamboman/mason.nvim",
+			opts = function(_, opts)
+				if type(opts.ensure_installed) == "table" then
+					vim.list_extend(opts.ensure_installed, { "delve", "debugpy" })
+				end
+			end,
+		},
+		"jay-babu/mason-nvim-dap.nvim",
+		"leoluz/nvim-dap-go",
+		"mfussenegger/nvim-dap-python",
+	},
+	config = function()
+		local dap = require("dap")
+		local dapui = require("dapui")
 
-        config = function()
-            vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
-            vim.fn.sign_define("DapBreakpointRejected", { text = "🟦", texthl = "", linehl = "", numhl = "" })
+		require("mason-nvim-dap").setup({
+			automatic_setup = { exclude = { "python", "delve" } },
+			handlers = {},
+		})
 
-            local load_launchjs = function()
-                require("dap.ext.vscode").load_launchjs()
-            end
-            if not pcall(load_launchjs) then
-                print("Failed to parse launch.json.")
-            end
-        end,
+		vim.keymap.set("n", "<F4>", dap.continue, { desc = "Debug: Start/Continue" })
+		vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug: Step Into" })
+		vim.keymap.set("n", "<F2>", dap.step_over, { desc = "Debug: Step Over" })
+		vim.keymap.set("n", "<F3>", dap.step_out, { desc = "Debug: Step Out" })
+		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+		vim.keymap.set("n", "<leader>dB", function()
+			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+		end, { desc = "Debug: Set Breakpoint" })
+		-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
+		vim.keymap.set("n", "<F5>", dapui.toggle, { desc = "Debug: See last session result." })
 
-        dependencies = {
-            { "williamboman/mason.nvim" },
-            {
-                "rcarriga/nvim-dap-ui",
-                -- stylua: ignore
-                keys = {
-                    { "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", desc = "DAP UI toggle" },
-                    { "<leader>de", function() require("dapui").eval() end, desc = "Eval",         mode = { "n", "v" }, },
-                },
-                config = function()
-                    local dap = require("dap")
-                    local dapui = require("dapui")
-                    dapui.setup({
-                        layouts = {
-                            {
-                                elements = {
-                                    {
-                                        id = "scopes",
-                                        size = 0.25,
-                                    },
-                                    {
-                                        id = "breakpoints",
-                                        size = 0.25,
-                                    },
-                                    {
-                                        id = "stacks",
-                                        size = 0.25,
-                                    },
-                                    {
-                                        id = "watches",
-                                        size = 0.25,
-                                    },
-                                },
-                                position = "right",
-                                size = 80,
-                            },
-                            {
-                                elements = {
-                                    {
-                                        id = "repl",
-                                        size = 0.5,
-                                    },
-                                    {
-                                        id = "console",
-                                        size = 0.5,
-                                    },
-                                },
-                                position = "bottom",
-                                size = 25,
-                            },
-                        },
-                    })
-                    dap.listeners.after.event_initialized["dapui_config"] = function()
-                        dapui.open({})
-                    end
-                    dap.listeners.before.event_terminated["dapui_config"] = function()
-                        dapui.close({})
-                    end
-                    dap.listeners.before.event_exited["dapui_config"] = function()
-                        dapui.close({})
-                    end
-                end,
-            },
-            {
-                "theHamsta/nvim-dap-virtual-text",
-                config = function()
-                    require("nvim-dap-virtual-text").setup()
-                end,
-            },
-            {
-                "mfussenegger/nvim-dap-python",
-                config = function()
-                    require("dap-python").setup(
-                        require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
-                    )
-                end,
-            },
-            {
-                "leoluz/nvim-dap-go",
-                config = function()
-                    require("dap-go").setup({
-                        delve = {
-                            path = require("mason-registry").get_package("delve"):get_install_path() .. "/dlv",
-                        },
-                    })
-                end,
-            },
-        },
-    },
+		dapui.setup({
+			icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
+			controls = {
+				icons = {
+					pause = "⏸",
+					play = "▶",
+					step_into = "⏎",
+					step_over = "⏭",
+					step_out = "⏮",
+					step_back = "b",
+					run_last = "▶▶",
+					terminate = "⏹",
+					disconnect = "⏏",
+				},
+			},
+		})
+
+		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+		dap.listeners.before.event_exited["dapui_config"] = dapui.close
+
+		require("dap-python").setup(
+			require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
+		)
+
+		require("dap-go").setup({
+			delve = {
+				path = require("mason-registry").get_package("delve"):get_install_path() .. "/dlv",
+			},
+		})
+	end,
 }
