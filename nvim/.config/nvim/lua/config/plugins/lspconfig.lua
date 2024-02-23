@@ -66,7 +66,7 @@ return {
 					vim.lsp.buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
 				end, "[C]ode [A]ction")
 				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-				nmap("<C-k", vim.lsp.buf.signature_help, "Signature Documentation")
+				nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 				nmap("<leader>lf", function()
 					vim.lsp.buf.format({ async = true })
 				end, "Format")
@@ -74,7 +74,10 @@ return {
 		})
 
 		local capabilities_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+		local capabilities
+		if capabilities_ok then
+			capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+		end
 
 		local servers = {
 			clangd = {},

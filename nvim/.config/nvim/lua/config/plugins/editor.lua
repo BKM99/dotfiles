@@ -1,7 +1,9 @@
 return {
-	"folke/trouble.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	opts = {},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {},
+	},
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -12,7 +14,7 @@ return {
 	{
 		"stevearc/oil.nvim",
 		opts = {
-			default_file_explorer = true,
+			default_file_explorer = false,
 			columns = {
 				-- "icon",
 				-- "permissions",
