@@ -4,17 +4,12 @@ return {
 		opts = function(_, opts)
 			if type(opts.ensure_installed) == "table" then
 				vim.list_extend(opts.ensure_installed, {
-					-- formatters
 					"prettier",
 					"clang-format",
 					"stylua",
 					"black",
 					"gofumpt",
 					"goimports",
-
-					-- linters
-					-- "flake8",
-					-- "shellcheck",
 				})
 			end
 		end,
@@ -31,8 +26,8 @@ return {
 				lua = { "stylua" },
 				go = { "gofumpt", "goimports" },
 				python = { "black" },
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
+				-- javascript = { { "prettierd", "prettier" } },
+				-- typescript = { { "prettierd", "prettier" } },
 			},
 			linters = {
 				-- -- Example of using selene only when a selene.toml file is present
@@ -45,17 +40,5 @@ return {
 				-- },
 			},
 		},
-	},
-	{
-		"mfussenegger/nvim-lint",
-		event = "VeryLazy",
-		config = function()
-			require("lint").linters_by_ft = {}
-			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-				callback = function()
-					require("lint").try_lint()
-				end,
-			})
-		end,
 	},
 }

@@ -4,7 +4,6 @@ return {
 		opts = function(_, opts)
 			if type(opts.ensure_installed) == "table" then
 				vim.list_extend(opts.ensure_installed, {
-					-- linters
 					"flake8",
 					"shellcheck",
 					-- "eslint_d",
@@ -14,7 +13,7 @@ return {
 	},
 	{
 		"mfussenegger/nvim-lint",
-		event = "VeryLazy",
+		-- event = "VeryLazy",
 		config = function()
 			require("lint").linters_by_ft = {
 				python = { "flake8" },
@@ -24,6 +23,11 @@ return {
 				-- javascriptreact = { "eslint_d" },
 				-- typescriptreact = { "eslint_d" },
 			}
+			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
 
 			vim.keymap.set("n", "<leader>ll", function()
 				require("lint").try_lint()
