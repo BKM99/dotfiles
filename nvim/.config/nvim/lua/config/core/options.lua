@@ -31,11 +31,11 @@ vim.opt.expandtab = true
 vim.opt.termguicolors = true
 vim.opt.path = "**"
 vim.opt.wildignorecase = true
--- vim.opt.wildignore:append(
---     "*.png,*.jpg,*.jpeg,*.gif,*.wav,*.aiff,*.dll,*.pdb,*.mdb,*.so,*.swp,*.zip,*.gz,*.bz2,*.meta,*.svg,*.cache,*/.git/*"
--- )
--- vim.o.wildmenu = true
--- vim.o.wildmode = "longest,list,full"
+vim.g.netrw_liststyle = 3
+vim.g.netrw_fastbrowse = 0
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 
 if vim.fn.has("nvim-0.10") == 1 then
 	vim.opt.smoothscroll = true
@@ -66,9 +66,6 @@ if is_wsl == 1 then
 	]])
 end
 
--- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
-
 -- disable some default providers
 for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
 	vim.g["loaded_" .. provider .. "_provider"] = 0
@@ -88,12 +85,3 @@ elseif vim.fn.finddir(".git", ".;") ~= "" then
 else
 	vim.o.grepprg = "grep -nIR $* /dev/null"
 end
-
--- some netrw stuff
--- vim.cmd[[
--- let g:netrw_liststyle = 3
--- let g:netrw_fastbrowse = 0
--- vim.g.netrw_browse_split = 0
--- vim.g.netrw_banner = 0
--- vim.g.netrw_winsize = 25
--- ]]
