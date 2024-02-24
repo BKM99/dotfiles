@@ -41,8 +41,8 @@ keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- delete to black hole register
-keymap("v", "p", '"_dP', opts)
-keymap("v", "P", '"_dP', opts)
+keymap("x", "p", '"_dP', opts)
+keymap("x", "P", '"_dP', opts)
 keymap("n", "x", '"_x', opts)
 
 -- Center things

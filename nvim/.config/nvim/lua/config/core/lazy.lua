@@ -23,7 +23,6 @@ require("lazy").setup({
 		{ import = "config.plugins.coding" },
 		{ import = "config.plugins.editor" },
 		{ import = "config.plugins.format" },
-		{ import = "config.plugins.linting" },
 		{ import = "config.plugins.dap" },
 	},
 

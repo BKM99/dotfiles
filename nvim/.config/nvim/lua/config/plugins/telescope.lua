@@ -15,6 +15,7 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
+		local trouble = require("trouble.providers.telescope")
 		telescope.setup({
 			pickers = {
 				find_files = {
@@ -28,6 +29,10 @@ return {
 				},
 			},
 			defaults = {
+				mappings = {
+					i = { ["<c-t>"] = trouble.open_with_trouble },
+					n = { ["<c-t>"] = trouble.open_with_trouble },
+				},
 				file_ignore_patterns = {
 					".git/",
 					"node_modules/",

@@ -1,15 +1,28 @@
 return {
 	{
 		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {},
-	},
-	{
-		"folke/todo-comments.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {
-			signs = false,
-		},
+		opts = { icons = false, use_diagnostic_signs = true },
+		config = function(_, opts)
+			require("trouble").setup(opts)
+			vim.keymap.set("n", "<leader>xx", function()
+				require("trouble").toggle()
+			end, { desc = "Trouble Toggle" })
+			vim.keymap.set("n", "<leader>xw", function()
+				require("trouble").toggle("workspace_diagnostics")
+			end, { desc = "Trouble Toggle Workspace Diagnostics" })
+			vim.keymap.set("n", "<leader>xd", function()
+				require("trouble").toggle("document_diagnostics")
+			end, { desc = "Trouble Toggle Document Diagnostics" })
+			vim.keymap.set("n", "<leader>xq", function()
+				require("trouble").toggle("quickfix")
+			end, { desc = "Trouble Toggle Quickfix" })
+			vim.keymap.set("n", "<leader>xl", function()
+				require("trouble").toggle("loclist")
+			end, { desc = "Trouble Toggle Location list" })
+			vim.keymap.set("n", "gR", function()
+				require("trouble").toggle("lsp_references")
+			end, { desc = "Trouble Toggle LSP refs" })
+		end,
 	},
 	{
 		"stevearc/oil.nvim",
@@ -59,12 +72,27 @@ return {
 		end,
 	},
 	{
+		"sindrets/diffview.nvim",
+		opts = { use_icons = false },
+		config = function(_, opts)
+			require("diffview").setup(opts)
+			vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "[D]iffview [O]pen" })
+			vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>", { desc = "[D]iffview [C]lose" })
+			vim.keymap.set("n", "<leader>dr", "<cmd>DiffviewRefresh<cr>", { desc = "[D]iffview [R]efresh" })
+			vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", { desc = "[D]iffview [F]ileHistory" })
+		end,
+	},
+	{
 		"NeogitOrg/neogit",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"sindrets/diffview.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
-		config = true,
+		opts = {},
+		config = function(_, opts)
+			require("neogit").setup(opts)
+			vim.keymap.set("n", "<leader>ng", "<cmd>Neogit<cr>", { desc = "Open [N]eo[G]it" })
+		end,
 	},
 }

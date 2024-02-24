@@ -10,18 +10,12 @@ return {
 				end
 			end,
 		},
-		"jay-babu/mason-nvim-dap.nvim",
 		"leoluz/nvim-dap-go",
 		"mfussenegger/nvim-dap-python",
 	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
-
-		require("mason-nvim-dap").setup({
-			automatic_setup = { exclude = { "python", "delve" } },
-			handlers = {},
-		})
 
 		vim.keymap.set("n", "<F4>", dap.continue, { desc = "Debug: Start/Continue" })
 		vim.keymap.set("n", "<F1>", dap.step_into, { desc = "Debug: Step Into" })

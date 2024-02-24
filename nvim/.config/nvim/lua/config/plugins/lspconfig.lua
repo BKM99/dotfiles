@@ -42,7 +42,6 @@ return {
 		},
 		"williamboman/mason-lspconfig.nvim",
 		"folke/neodev.nvim",
-		{ "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
 		require("neodev").setup()
@@ -66,7 +65,7 @@ return {
 					vim.lsp.buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
 				end, "[C]ode [A]ction")
 				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-				nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+				nmap("gS", vim.lsp.buf.signature_help, "Signature Documentation")
 				nmap("<leader>lf", function()
 					vim.lsp.buf.format({ async = true })
 				end, "Format")
@@ -94,8 +93,6 @@ return {
 								"${3rd}/luv/library",
 								unpack(vim.api.nvim_get_runtime_file("", true)),
 							},
-							-- If lua_ls is really slow on your computer, you can try this instead:
-							-- library = { vim.env.VIMRUNTIME },
 						},
 						diagnostics = { disable = { "missing-fields" } },
 					},
@@ -114,7 +111,7 @@ return {
 						filetypes = server.filetypes,
 						capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {}),
 						on_init = function(client, _)
-							client.server_capabilities.semanticTokensProvider = nil -- turn off semantic tokens
+							client.server_capabilities.semanticTokensProvider = nil
 						end,
 					})
 				end,
