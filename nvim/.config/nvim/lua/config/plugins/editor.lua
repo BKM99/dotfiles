@@ -44,18 +44,16 @@ return {
 		end,
 	},
 	{
-		-- on macos might need to install gnu-sed
 		"nvim-pack/nvim-spectre",
-		opts = { open_cmd = "noswapfile vnew" },
-		keys = {
-			{
-				"<leader>sr",
-				function()
-					require("spectre").open()
-				end,
-				desc = "[S]earch and [R]eplace (Spectre)",
-			},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
 		},
+		opts = { open_cmd = "noswapfile vnew" },
+		config = function(_, opts)
+			vim.keymap.set("n", "<leader>sr", function()
+				require("spectre").open()
+			end, { desc = "[S]earch and [R]eplace (Spectre)" })
+		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -82,17 +80,5 @@ return {
 			vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", { desc = "[D]iffview [F]ileHistory" })
 		end,
 	},
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-		opts = {},
-		config = function(_, opts)
-			require("neogit").setup(opts)
-			vim.keymap.set("n", "<leader>ng", "<cmd>Neogit<cr>", { desc = "Open [N]eo[G]it" })
-		end,
-	},
+	{ "tpope/vim-fugitive" },
 }

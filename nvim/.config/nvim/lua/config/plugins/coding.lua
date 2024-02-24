@@ -1,7 +1,6 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
@@ -56,20 +55,28 @@ return {
 			})
 		end,
 	},
-	{
-		"windwp/nvim-autopairs",
-		dependencies = { "hrsh7th/nvim-cmp" },
-		config = function()
-			require("nvim-autopairs").setup({})
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-		end,
-	},
+	{ "echasnovski/mini.pairs", opts = {}, version = "*" },
 	{
 		"numToStr/Comment.nvim",
 		opts = {
 			pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+		},
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			notify_on_error = false,
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
+			formatters_by_ft = {
+				lua = { "stylua" },
+				go = { "gofumpt", "goimports" },
+				python = { "black" },
+				-- javascript = { { "prettierd", "prettier" } },
+				-- typescript = { { "prettierd", "prettier" } },
+			},
 		},
 	},
 }

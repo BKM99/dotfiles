@@ -2,14 +2,6 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
-		{
-			"williamboman/mason.nvim",
-			opts = function(_, opts)
-				if type(opts.ensure_installed) == "table" then
-					vim.list_extend(opts.ensure_installed, { "delve", "debugpy" })
-				end
-			end,
-		},
 		"leoluz/nvim-dap-go",
 		"mfussenegger/nvim-dap-python",
 	},

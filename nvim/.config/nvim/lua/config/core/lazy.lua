@@ -15,14 +15,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	change_detection = { notify = false },
 	spec = {
+		{ import = "config.plugins.lspconfig" },
 		{ import = "config.plugins.colorscheme" },
 		{ import = "config.plugins.treesitter" },
-		{ import = "config.plugins.lspconfig" },
-		{ import = "config.plugins.misc" },
 		{ import = "config.plugins.telescope" },
 		{ import = "config.plugins.coding" },
 		{ import = "config.plugins.editor" },
-		{ import = "config.plugins.format" },
 		{ import = "config.plugins.dap" },
 	},
 

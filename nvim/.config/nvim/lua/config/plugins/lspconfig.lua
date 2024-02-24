@@ -3,10 +3,7 @@ return {
 	dependencies = {
 		{
 			"williamboman/mason.nvim",
-			build = ":MasonUpdate",
 			opts = {
-				PATH = "skip",
-				max_concurrent_installers = 10,
 				ensure_installed = {
 					"lua-language-server",
 					"vim-language-server",
@@ -16,6 +13,16 @@ return {
 					"clangd",
 					"pyright",
 					"bash-language-server",
+
+					"prettier",
+					"clang-format",
+					"stylua",
+					"black",
+					"gofumpt",
+					"goimports",
+
+					"delve",
+					"debugpy",
 				},
 			},
 			config = function(_, opts)
@@ -34,18 +41,11 @@ return {
 				else
 					ensure_installed()
 				end
-
-				-- add binaries installed by mason.nvim to path
-				local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-				vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
 			end,
 		},
 		"williamboman/mason-lspconfig.nvim",
-		"folke/neodev.nvim",
 	},
 	config = function()
-		require("neodev").setup()
-
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 			callback = function(event)
