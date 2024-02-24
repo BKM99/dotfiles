@@ -73,11 +73,8 @@ return {
 			end,
 		})
 
-		local capabilities_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-		local capabilities
-		if capabilities_ok then
-			capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
-		end
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		local servers = {
 			clangd = {},
@@ -90,8 +87,16 @@ return {
 			lua_ls = {
 				settings = {
 					Lua = {
-						workspace = { checkThirdParty = false },
-						telemetry = { enable = false },
+						runtime = { version = "LuaJIT" },
+						workspace = {
+							checkThirdParty = false,
+							library = {
+								"${3rd}/luv/library",
+								unpack(vim.api.nvim_get_runtime_file("", true)),
+							},
+							-- If lua_ls is really slow on your computer, you can try this instead:
+							-- library = { vim.env.VIMRUNTIME },
+						},
 						diagnostics = { disable = { "missing-fields" } },
 					},
 				},

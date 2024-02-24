@@ -4,13 +4,12 @@ vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
 vim.opt.mouse = "a"
 vim.opt.wrap = false
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.inccommand = "split"
+vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.scrolloff = 10
 vim.opt.smartcase = true
@@ -28,18 +27,10 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.opt.termguicolors = true
-vim.opt.path = "**"
-vim.opt.wildignorecase = true
 vim.g.netrw_liststyle = 3
 vim.g.netrw_fastbrowse = 0
 vim.g.netrw_browse_split = 0
--- vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-
-if vim.fn.has("nvim-0.10") == 1 then
-	vim.opt.smoothscroll = true
-end
 
 -- use system clipboard
 local has = vim.fn.has
@@ -48,10 +39,7 @@ local is_linux = has("unix")
 local is_win = has("win32")
 local is_wsl = has("wsl")
 
-if is_mac == 1 then
-	vim.opt.clipboard:append({ "unnamedplus" })
-end
-if is_linux == 1 then
+if is_mac == 1 or is_linux then
 	vim.opt.clipboard:append({ "unnamedplus" })
 end
 if is_win == 1 then

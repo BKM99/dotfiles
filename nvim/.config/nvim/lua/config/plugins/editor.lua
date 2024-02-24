@@ -48,8 +48,14 @@ return {
 		"lewis6991/gitsigns.nvim",
 		opts = {},
 		config = function(_, opts)
-			require("gitsigns").setup(opts)
-			vim.keymap.set("n", "<leader>bl", ":Gitsigns blame_line<CR>", { desc = "Git blame line" })
+			local gitsigns = require("gitsigns")
+			gitsigns.setup(opts)
+			vim.keymap.set("n", "<leader>bl", function()
+				gitsigns.blame_line({ full = false })
+			end, { desc = "Git blame line" })
+
+			vim.keymap.set("n", "]h", gitsigns.next_hunk, { desc = "Next Hunk" })
+			vim.keymap.set("n", "[h", gitsigns.prev_hunk, { desc = "Prev Hunk" })
 		end,
 	},
 	{

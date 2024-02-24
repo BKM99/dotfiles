@@ -7,13 +7,10 @@ keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Faster window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
-
--- keymap("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
--- keymap("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+keymap("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+keymap("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+keymap("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+keymap("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- go through quickfix list
 keymap("n", "[q", ":cprevious<CR>zz", opts)
@@ -59,4 +56,7 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Clear search with <esc>
-keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+keymap("v", "<leader>rw", [[:s/]])
+keymap("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
