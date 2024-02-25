@@ -50,6 +50,7 @@ return {
 		},
 		opts = { open_cmd = "noswapfile vnew" },
 		config = function(_, opts)
+			require("spectre").setup(opts)
 			vim.keymap.set("n", "<leader>sr", function()
 				require("spectre").open()
 			end, { desc = "[S]earch and [R]eplace (Spectre)" })
@@ -80,5 +81,13 @@ return {
 			vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", { desc = "[D]iffview [F]ileHistory" })
 		end,
 	},
-	{ "tpope/vim-fugitive" },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"sindrets/diffview.nvim",
+			"nvim-telescope/telescope.nvim",
+		},
+		config = true,
+	},
 }
