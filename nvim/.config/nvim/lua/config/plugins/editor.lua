@@ -51,7 +51,7 @@ return {
 		opts = { open_cmd = "noswapfile vnew" },
 		config = function(_, opts)
 			require("spectre").setup(opts)
-			vim.keymap.set("n", "<leader>sr", function()
+			vim.keymap.set("n", "<leader>S", function()
 				require("spectre").open()
 			end, { desc = "[S]earch and [R]eplace (Spectre)" })
 		end,

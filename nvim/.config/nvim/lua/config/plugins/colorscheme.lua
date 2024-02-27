@@ -2,9 +2,10 @@ return {
 	-- {
 	-- 	"catppuccin/nvim",
 	-- 	lazy = false,
+	-- 	priority = 1000,
 	-- 	name = "catppuccin",
 	-- 	config = function()
-	-- 		vim.cmd([[ colo catppuccin-mocha ]])
+	-- 		vim.cmd.colorscheme("")
 	-- 	end,
 	-- },
 	-- {
@@ -41,6 +42,7 @@ return {
 		priority = 1000,
 		config = function()
 			vim.cmd.colorscheme("kanagawa-wave")
+			vim.cmd([[highlight Comment guifg=#8f8c8c]])
 		end,
 	},
 	-- {

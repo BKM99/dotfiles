@@ -2,7 +2,6 @@ alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && bre
 alias cleands='find . -name ".DS_Store" -exec rm {} \;'
 
 update () {
-    # this is to update neovim nightly via brew
     # brew upgrade neovim --fetch-HEAD
     brewall
     nvim --headless "+Lazy! sync" +qa
@@ -13,18 +12,6 @@ function mkcd() {
     cd $1
 }
 
-if command -v eza &> /dev/null
-then
-    alias l='eza'
-    alias ls='eza'
-    alias ll='eza -ll'
-    alias la='eza -la'
-else
-    alias l='ls'
-    alias ll='ls -ll'
-    alias la='ls -la'
-fi
-
-if [[ $TERM == "xterm-kitty" ]]; then
-    alias ssh="kitty +kitten ssh"
-fi
+alias l='ls'
+alias ll='ls -ll'
+alias la='ls -la'

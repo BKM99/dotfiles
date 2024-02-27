@@ -12,4 +12,3 @@ Recommendations:
 - For neovim:
     - Install [ripgrep](https://github.com/BurntSushi/ripgrep), [fd](https://github.com/sharkdp/fd), and [fzf](https://github.com/junegunn/fzf). Some plugins/options use them.
 - I use [powerlevel10k](https://github.com/romkatv/powerlevel10k) as my ZSH prompt
-- Install [eza](https://github.com/eza-community/eza) for a modern ls replacement
