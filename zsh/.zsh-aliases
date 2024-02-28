@@ -1,5 +1,5 @@
 alias brewall='brew update && brew upgrade && brew doctor && brew cleanup && brew autoremove'
-alias cleands='find . -name ".DS_Store" -exec rm {} \;'
+alias cleands="find . -type f -name '*.DS_Store' -ls -delete"
 
 update () {
     # brew upgrade neovim --fetch-HEAD
@@ -8,10 +8,24 @@ update () {
 }
 
 function mkcd() {
-    mkdir -p $1
-    cd $1
+	mkdir -p "$@" && cd "$_";
 }
 
-alias l='ls'
-alias ll='ls -ll'
-alias la='ls -la'
+alias l='ls -F'
+alias ls='ls -F'
+alias ll='ls -llF'
+alias la='ls -laF'
+
+epath() {
+  if [ "$#" -eq 0 ]; then
+    echo $PATH | tr ":" "\n"
+  else
+    echo "$@" | tr ":" "\n"
+  fi
+}
+
+alias reload="exec ${SHELL} -l"
+
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}

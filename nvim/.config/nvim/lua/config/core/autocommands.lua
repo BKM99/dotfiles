@@ -1,7 +1,6 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
-		-- vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-		vim.highlight.on_yank()
+		vim.highlight.on_yank({ timeout = 150 })
 	end,
 	group = vim.api.nvim_create_augroup("YankHighlight", { clear = true }),
 	pattern = "*",
@@ -31,15 +30,15 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- jump to last edit position on opening file
--- vim.api.nvim_create_autocmd("BufReadPost", {
--- 	pattern = "*",
--- 	callback = function(ev)
--- 		if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
--- 			-- except for in git commit messages
--- 			-- https://stackoverflow.com/questions/31449496/vim-ignore-specifc-file-in-autocommand
--- 			if not vim.fn.expand("%:p"):find(".git", 1, true) then
--- 				vim.cmd('exe "normal! g\'\\""')
--- 			end
--- 		end
--- 	end,
--- })
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*",
+	callback = function(ev)
+		if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+			-- except for in git commit messages
+			-- https://stackoverflow.com/questions/31449496/vim-ignore-specifc-file-in-autocommand
+			if not vim.fn.expand("%:p"):find(".git", 1, true) then
+				vim.cmd('exe "normal! g\'\\""')
+			end
+		end
+	end,
+})

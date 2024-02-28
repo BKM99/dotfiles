@@ -25,9 +25,23 @@ return {
 		end,
 	},
 	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup({
+				view = { adaptive_size = true },
+			})
+			vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", { desc = "Toggle NvimTreeFindFile" })
+		end,
+	},
+	{
 		"stevearc/oil.nvim",
 		opts = {
-			default_file_explorer = false,
+			default_file_explorer = true,
 			columns = {
 				-- "icon",
 				-- "permissions",
@@ -40,7 +54,9 @@ return {
 		},
 		config = function(_, opts)
 			require("oil").setup(opts)
-			vim.keymap.set("n", "<leader>t", "<CMD>Oil<CR>", { desc = "Open parent directory (Oil)" })
+			vim.keymap.set("n", "<leader>t", function()
+				require("oil").toggle_float()
+			end, { desc = "Toggle Oil" })
 		end,
 	},
 	{
@@ -89,5 +105,46 @@ return {
 			"nvim-telescope/telescope.nvim",
 		},
 		config = true,
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local harpoon = require("harpoon")
+
+			harpoon:setup()
+
+			vim.keymap.set("n", "<leader>a", function()
+				harpoon:list():append()
+			end)
+			vim.keymap.set("n", "<leader>hm", function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end)
+
+			vim.keymap.set("n", "<leader>1", function()
+				harpoon:list():select(1)
+			end)
+			vim.keymap.set("n", "<leader>2", function()
+				harpoon:list():select(2)
+			end)
+			vim.keymap.set("n", "<leader>3", function()
+				harpoon:list():select(3)
+			end)
+			vim.keymap.set("n", "<leader>4", function()
+				harpoon:list():select(4)
+			end)
+			vim.keymap.set("n", "<leader>5", function()
+				harpoon:list():select(5)
+			end)
+		end,
+	},
+	{
+		"NMAC427/guess-indent.nvim",
+		opts = { auto_cmd = false },
+		config = function(_, opts)
+			require("guess-indent").setup(opts)
+			vim.keymap.set("n", "<leader>gi", ":GuessIndent<cr>", { desc = "[G]uess [I]ndent" })
+		end,
 	},
 }

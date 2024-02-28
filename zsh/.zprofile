@@ -11,3 +11,5 @@ else
     export EDITOR="vim"
     export VISUAL="vim"
 fi
+
+export MANPAGER='less -X';
