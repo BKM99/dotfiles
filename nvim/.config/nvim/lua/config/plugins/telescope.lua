@@ -20,11 +20,22 @@ return {
 				find_files = {
 					hidden = true,
 					follow = true,
+					disable_devicons = true,
 				},
 				live_grep = {
+					disable_devicons = true,
 					additional_args = function(_)
 						return { "--hidden" }
 					end,
+				},
+				git_files = {
+					disable_devicons = true,
+				},
+				old_files = {
+					disable_devicons = true,
+				},
+				buffers = {
+					disable_devicons = true,
 				},
 			},
 			defaults = {
@@ -36,25 +47,23 @@ return {
 					".git/",
 					"node_modules/",
 					".venv/",
+					"dist/",
 				},
 			},
 		})
-		pcall(require("telescope").load_extension, "fzf")
-		local opts = { noremap = true, silent = true }
+		pcall(telescope.load_extension, "fzf")
 		local keymap = vim.keymap.set
 
-		keymap("n", "<leader>gs", ":Telescope git_status theme=ivy <CR>", opts)
-
-		vim.keymap.set("n", "<leader>ht", builtin.help_tags, { desc = "Search [H]elp [T]ags" })
-		vim.keymap.set("n", "<leader>km", builtin.keymaps, { desc = "Search [K]ey[m]aps" })
-		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Search [F]iles" })
-		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-		vim.keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-		vim.keymap.set("n", "<leader>of", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-		vim.keymap.set("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
-		vim.keymap.set("n", "<leader>,", builtin.buffers, { desc = "[ ] Find existing buffers" })
+		keymap("n", "<leader>gs", builtin.git_status, { desc = "Telescope Git Status" })
+		keymap("n", "<leader>ht", builtin.help_tags, { desc = "Search [H]elp [T]ags" })
+		keymap("n", "<leader>km", builtin.keymaps, { desc = "Search [K]ey[m]aps" })
+		keymap("n", "<leader>f", builtin.find_files, { desc = "Search [F]iles" })
+		keymap("n", "<leader>lg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		keymap("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+		keymap("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+		keymap("n", "<leader>of", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+		keymap("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
+		keymap("n", "<leader>,", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 		vim.keymap.set("n", "<leader>/", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({

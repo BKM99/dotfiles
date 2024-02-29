@@ -3,24 +3,27 @@ return {
 		"folke/trouble.nvim",
 		opts = { icons = false, use_diagnostic_signs = true },
 		config = function(_, opts)
-			require("trouble").setup(opts)
-			vim.keymap.set("n", "<leader>xx", function()
-				require("trouble").toggle()
+			local trouble = require("trouble")
+			local keymap = vim.keymap.set
+
+			trouble.setup(opts)
+			keymap("n", "<leader>xx", function()
+				trouble.toggle()
 			end, { desc = "Trouble Toggle" })
-			vim.keymap.set("n", "<leader>xw", function()
-				require("trouble").toggle("workspace_diagnostics")
+			keymap("n", "<leader>xw", function()
+				trouble.toggle("workspace_diagnostics")
 			end, { desc = "Trouble Toggle Workspace Diagnostics" })
-			vim.keymap.set("n", "<leader>xd", function()
-				require("trouble").toggle("document_diagnostics")
+			keymap("n", "<leader>xd", function()
+				trouble.toggle("document_diagnostics")
 			end, { desc = "Trouble Toggle Document Diagnostics" })
-			vim.keymap.set("n", "<leader>xq", function()
-				require("trouble").toggle("quickfix")
+			keymap("n", "<leader>xq", function()
+				trouble.toggle("quickfix")
 			end, { desc = "Trouble Toggle Quickfix" })
-			vim.keymap.set("n", "<leader>xl", function()
-				require("trouble").toggle("loclist")
+			keymap("n", "<leader>xl", function()
+				trouble.toggle("loclist")
 			end, { desc = "Trouble Toggle Location list" })
-			vim.keymap.set("n", "gR", function()
-				require("trouble").toggle("lsp_references")
+			keymap("n", "gR", function()
+				trouble.toggle("lsp_references")
 			end, { desc = "Trouble Toggle LSP refs" })
 		end,
 	},
@@ -53,9 +56,10 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("oil").setup(opts)
+			local oil = require("oil")
+			oil.setup(opts)
 			vim.keymap.set("n", "<leader>t", function()
-				require("oil").toggle_float()
+				oil.toggle_float()
 			end, { desc = "Toggle Oil" })
 		end,
 	},

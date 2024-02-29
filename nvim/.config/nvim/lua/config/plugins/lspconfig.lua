@@ -49,25 +49,28 @@ return {
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 			callback = function(event)
+				local telescope_builtin = require("telescope.builtin")
 				local nmap = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				nmap("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-				nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				nmap("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-				nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-				nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-				nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-				nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-				nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				local vim_lsp_buf = vim.lsp.buf
+
+				nmap("gd", telescope_builtin.lsp_definitions, "[G]oto [D]efinition")
+				nmap("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
+				nmap("gI", telescope_builtin.lsp_implementations, "[G]oto [I]mplementation")
+				nmap("<leader>D", telescope_builtin.lsp_type_definitions, "Type [D]efinition")
+				nmap("<leader>ds", telescope_builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
+				nmap("<leader>ws", telescope_builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				nmap("gD", vim_lsp_buf.declaration, "[G]oto [D]eclaration")
+				nmap("<leader>rn", vim_lsp_buf.rename, "[R]e[n]ame")
 				nmap("<leader>ca", function()
-					vim.lsp.buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
+					vim_lsp_buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
 				end, "[C]ode [A]ction")
-				nmap("K", vim.lsp.buf.hover, "Hover Documentation")
-				nmap("gS", vim.lsp.buf.signature_help, "Signature Documentation")
+				nmap("K", vim_lsp_buf.hover, "Hover Documentation")
+				nmap("gS", vim_lsp_buf.signature_help, "Signature Documentation")
 				nmap("<leader>lf", function()
-					vim.lsp.buf.format({ async = true })
+					vim_lsp_buf.format({ async = true })
 				end, "Format")
 			end,
 		})

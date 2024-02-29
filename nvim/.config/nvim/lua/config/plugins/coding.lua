@@ -61,7 +61,7 @@ return {
 			})
 		end,
 	},
-	{ "echasnovski/mini.pairs", opts = {}, version = "*" },
+	{ "windwp/nvim-autopairs", config = true },
 	{
 		"numToStr/Comment.nvim",
 		opts = {
@@ -80,17 +80,8 @@ return {
 				lua = { "stylua" },
 				go = { "gofumpt", "goimports" },
 				python = { "black" },
-				-- javascript = { { "prettierd", "prettier" } },
-				-- typescript = { { "prettierd", "prettier" } },
 			},
 		},
 	},
-	{
-		"kylechui/nvim-surround",
-		version = "*",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup({})
-		end,
-	},
+	{ "kylechui/nvim-surround", version = "*", opts = {} },
 }

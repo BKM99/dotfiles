@@ -34,3 +34,7 @@ vim.g.netrw_winsize = 25
 vim.opt.clipboard:append({ "unnamedplus" })
 vim.o.grepprg = "rg --vimgrep --no-heading --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m,%f:%l:%m"
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
