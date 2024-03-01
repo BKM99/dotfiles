@@ -19,6 +19,7 @@ return {
 					"c",
 					"cpp",
 					"c_sharp",
+					"gitcommit",
 					"go",
 					"javascript",
 					"java",

@@ -1,51 +1,24 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{
-			"williamboman/mason.nvim",
-			opts = {
-				ensure_installed = {
-					"lua-language-server",
-					"vim-language-server",
-					"gopls",
-					"typescript-language-server",
-					"rust-analyzer",
-					"clangd",
-					"pyright",
-					"bash-language-server",
-
-					"prettier",
-					"clang-format",
-					"stylua",
-					"black",
-					"gofumpt",
-					"goimports",
-
-					"delve",
-					"debugpy",
-				},
-			},
-			config = function(_, opts)
-				require("mason").setup(opts)
-				local mr = require("mason-registry")
-				local function ensure_installed()
-					for _, tool in ipairs(opts.ensure_installed) do
-						local p = mr.get_package(tool)
-						if not p:is_installed() then
-							p:install()
-						end
-					end
-				end
-				if mr.refresh then
-					mr.refresh(ensure_installed)
-				else
-					ensure_installed()
-				end
-			end,
-		},
+		{ "williamboman/mason.nvim", opts = {} },
 		"williamboman/mason-lspconfig.nvim",
 	},
 	config = function()
+		-- Jump directly to the first available definition every time.
+		vim.lsp.handlers["textDocument/definition"] = function(_, result)
+			if not result or vim.tbl_isempty(result) then
+				print("[LSP] Could not find definition")
+				return
+			end
+
+			if vim.tbl_islist(result) then
+				vim.lsp.util.jump_to_location(result[1], "utf-8")
+			else
+				vim.lsp.util.jump_to_location(result, "utf-8")
+			end
+		end
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -56,10 +29,10 @@ return {
 
 				local vim_lsp_buf = vim.lsp.buf
 
-				nmap("gd", telescope_builtin.lsp_definitions, "[G]oto [D]efinition")
+				nmap("gd", vim_lsp_buf.definition, "[G]oto [D]efinition")
 				nmap("gr", telescope_builtin.lsp_references, "[G]oto [R]eferences")
-				nmap("gI", telescope_builtin.lsp_implementations, "[G]oto [I]mplementation")
-				nmap("<leader>D", telescope_builtin.lsp_type_definitions, "Type [D]efinition")
+				nmap("gI", vim_lsp_buf.implementation, "[G]oto [I]mplementation")
+				nmap("<leader>D", vim_lsp_buf.type_definition, "Type [D]efinition")
 				nmap("<leader>ds", telescope_builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
 				nmap("<leader>ws", telescope_builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 				nmap("gD", vim_lsp_buf.declaration, "[G]oto [D]eclaration")
@@ -86,7 +59,6 @@ return {
 			tsserver = {},
 			omnisharp = {
 				cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-				root_dir = vim.loop.cwd,
 			},
 			bashls = {},
 			vimls = {},

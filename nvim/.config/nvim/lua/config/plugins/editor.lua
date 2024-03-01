@@ -1,33 +1,5 @@
 return {
 	{
-		"folke/trouble.nvim",
-		opts = { icons = false, use_diagnostic_signs = true },
-		config = function(_, opts)
-			local trouble = require("trouble")
-			local keymap = vim.keymap.set
-
-			trouble.setup(opts)
-			keymap("n", "<leader>tt", function()
-				trouble.toggle()
-			end, { desc = "Trouble Toggle" })
-			keymap("n", "<leader>tw", function()
-				trouble.toggle("workspace_diagnostics")
-			end, { desc = "Trouble Toggle Workspace Diagnostics" })
-			keymap("n", "<leader>td", function()
-				trouble.toggle("document_diagnostics")
-			end, { desc = "Trouble Toggle Document Diagnostics" })
-			keymap("n", "<leader>tq", function()
-				trouble.toggle("quickfix")
-			end, { desc = "Trouble Toggle Quickfix" })
-			keymap("n", "]t", function()
-				trouble.next({ skip_groups = true, jump = true })
-			end)
-			keymap("n", "[t", function()
-				trouble.previous({ skip_groups = true, jump = true })
-			end)
-		end,
-	},
-	{
 		"stevearc/oil.nvim",
 		opts = {
 			default_file_explorer = true,
@@ -88,15 +60,7 @@ return {
 			vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", { desc = "[D]iffview [F]ileHistory" })
 		end,
 	},
-	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-		config = true,
-	},
+	{ "tpope/vim-fugitive" },
 	{
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
@@ -128,14 +92,6 @@ return {
 			vim.keymap.set("n", "<leader>5", function()
 				harpoon:list():select(5)
 			end)
-		end,
-	},
-	{
-		"NMAC427/guess-indent.nvim",
-		opts = { auto_cmd = false },
-		config = function(_, opts)
-			require("guess-indent").setup(opts)
-			vim.keymap.set("n", "<leader>gi", ":GuessIndent<cr>", { desc = "[G]uess [I]ndent" })
 		end,
 	},
 }

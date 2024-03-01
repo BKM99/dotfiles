@@ -14,7 +14,6 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
-		local trouble = require("trouble.providers.telescope")
 		telescope.setup({
 			pickers = {
 				find_files = {
@@ -39,10 +38,6 @@ return {
 				},
 			},
 			defaults = {
-				mappings = {
-					i = { ["<c-t>"] = trouble.open_with_trouble },
-					n = { ["<c-t>"] = trouble.open_with_trouble },
-				},
 				file_ignore_patterns = {
 					".git/",
 					"node_modules/",
@@ -70,18 +65,5 @@ return {
 				previewer = false,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
-
-		vim.keymap.set("n", "<leader>s/", function()
-			builtin.live_grep({
-				grep_open_files = true,
-				prompt_title = "Live Grep in Open Files",
-			})
-		end, { desc = "[S]earch [/] in Open Files" })
-
-		vim.keymap.set("n", "<leader>sn", function()
-			builtin.find_files({
-				cwd = vim.fn.stdpath("config"),
-			})
-		end, { desc = "[S]earch [N]eovim files" })
 	end,
 }
