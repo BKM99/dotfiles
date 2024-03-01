@@ -13,7 +13,7 @@ fi
 if [[ -n "$HOMEBREW_PREFIX" ]]; then
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 	eval "$($HOMEBREW_PREFIX/bin/mise activate zsh)"
-	source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+	source "$HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme"
 fi
 
 if command -v nvim &> /dev/null; then
