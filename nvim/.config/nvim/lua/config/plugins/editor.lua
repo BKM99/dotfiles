@@ -7,38 +7,24 @@ return {
 			local keymap = vim.keymap.set
 
 			trouble.setup(opts)
-			keymap("n", "<leader>xx", function()
+			keymap("n", "<leader>tt", function()
 				trouble.toggle()
 			end, { desc = "Trouble Toggle" })
-			keymap("n", "<leader>xw", function()
+			keymap("n", "<leader>tw", function()
 				trouble.toggle("workspace_diagnostics")
 			end, { desc = "Trouble Toggle Workspace Diagnostics" })
-			keymap("n", "<leader>xd", function()
+			keymap("n", "<leader>td", function()
 				trouble.toggle("document_diagnostics")
 			end, { desc = "Trouble Toggle Document Diagnostics" })
-			keymap("n", "<leader>xq", function()
+			keymap("n", "<leader>tq", function()
 				trouble.toggle("quickfix")
 			end, { desc = "Trouble Toggle Quickfix" })
-			keymap("n", "<leader>xl", function()
-				trouble.toggle("loclist")
-			end, { desc = "Trouble Toggle Location list" })
-			keymap("n", "gR", function()
-				trouble.toggle("lsp_references")
-			end, { desc = "Trouble Toggle LSP refs" })
-		end,
-	},
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("nvim-tree").setup({
-				view = { adaptive_size = true },
-			})
-			vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", { desc = "Toggle NvimTreeFindFile" })
+			keymap("n", "]t", function()
+				trouble.next({ skip_groups = true, jump = true })
+			end)
+			keymap("n", "[t", function()
+				trouble.previous({ skip_groups = true, jump = true })
+			end)
 		end,
 	},
 	{
@@ -58,7 +44,7 @@ return {
 		config = function(_, opts)
 			local oil = require("oil")
 			oil.setup(opts)
-			vim.keymap.set("n", "<leader>t", function()
+			vim.keymap.set("n", "<leader>e", function()
 				oil.toggle_float()
 			end, { desc = "Toggle Oil" })
 		end,
@@ -70,9 +56,10 @@ return {
 		},
 		opts = { open_cmd = "noswapfile vnew" },
 		config = function(_, opts)
-			require("spectre").setup(opts)
+			local spectre = require("spectre")
+			spectre.setup(opts)
 			vim.keymap.set("n", "<leader>S", function()
-				require("spectre").open()
+				spectre.open()
 			end, { desc = "[S]earch and [R]eplace (Spectre)" })
 		end,
 	},

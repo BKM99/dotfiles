@@ -21,7 +21,7 @@ require("lazy").setup({
 		{ import = "config.plugins.telescope" },
 		{ import = "config.plugins.coding" },
 		{ import = "config.plugins.editor" },
-		{ import = "config.plugins.dap" },
+		-- { import = "config.plugins.dap" },
 	},
 
 	performance = {

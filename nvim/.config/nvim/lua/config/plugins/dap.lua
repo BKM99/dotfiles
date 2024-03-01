@@ -1,3 +1,4 @@
+-- NOTE: not using dap for now
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {

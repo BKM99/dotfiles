@@ -84,6 +84,10 @@ return {
 			pyright = {},
 			rust_analyzer = {},
 			tsserver = {},
+			omnisharp = {
+				cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+				root_dir = vim.loop.cwd,
+			},
 			bashls = {},
 			vimls = {},
 			lua_ls = {
