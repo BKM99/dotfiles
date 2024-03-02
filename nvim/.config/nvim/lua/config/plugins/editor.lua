@@ -41,12 +41,17 @@ return {
 		config = function(_, opts)
 			local gitsigns = require("gitsigns")
 			gitsigns.setup(opts)
-			vim.keymap.set("n", "<leader>bl", function()
-				gitsigns.blame_line({ full = false })
+			local keymap = vim.keymap.set
+			keymap("n", "<leader>bl", function()
+				gitsigns.blame_line({ full = true })
 			end, { desc = "Git blame line" })
-
-			vim.keymap.set("n", "]h", gitsigns.next_hunk, { desc = "Next Hunk" })
-			vim.keymap.set("n", "[h", gitsigns.prev_hunk, { desc = "Prev Hunk" })
+			keymap("n", "]h", gitsigns.next_hunk, { desc = "Next Hunk" })
+			keymap("n", "[h", gitsigns.prev_hunk, { desc = "Prev Hunk" })
+			keymap("n", "<leader>bl", ":Gitsigns blame_line<CR>", { desc = "Git Blame line" })
+			keymap({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", { desc = "Git Stage hunk" })
+			keymap({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", { desc = "Git reset hunk" })
+			keymap("n", "<leader>ghu", ":Gitsigns undo_stage_hunk<CR>", { desc = "Git Undo stage hunk" })
+			keymap("n", "<leader>ghd", ":Gitsigns diffthis<CR>", { desc = "Git diffthis" })
 		end,
 	},
 	{
