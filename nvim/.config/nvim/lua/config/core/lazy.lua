@@ -23,16 +23,4 @@ require("lazy").setup({
 		{ import = "config.plugins.editor" },
 		{ import = "config.plugins.dap" },
 	},
-
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"matchit",
-				"matchparen",
-				"netrwPlugin",
-				"tohtml",
-				"tutor",
-			},
-		},
-	},
 })
