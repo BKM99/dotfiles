@@ -21,6 +21,7 @@ return {
 					follow = true,
 					disable_devicons = true,
 					previewer = false,
+					theme = "ivy",
 				},
 				live_grep = {
 					disable_devicons = true,
@@ -36,6 +37,16 @@ return {
 				},
 				buffers = {
 					disable_devicons = true,
+				},
+				keymaps = {
+					layout_config = {
+						prompt_position = "top",
+					},
+				},
+				git_status = {
+					layout_config = {
+						prompt_position = "top",
+					},
 				},
 			},
 			defaults = {
@@ -57,14 +68,7 @@ return {
 		keymap("n", "<leader>lg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		keymap("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		keymap("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-		keymap("n", "<leader>of", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		keymap("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		keymap("n", "<leader>,", builtin.buffers, { desc = "[ ] Find existing buffers" })
-
-		vim.keymap.set("n", "<leader>/", function()
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				previewer = false,
-			}))
-		end, { desc = "[/] Fuzzily search in current buffer" })
 	end,
 }

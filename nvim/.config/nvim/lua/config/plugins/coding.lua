@@ -1,9 +1,40 @@
+local icons = {
+	Text = "",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "󰜢",
+	Variable = "󰀫",
+	Class = "󰠱",
+	Interface = "",
+	Module = "",
+	Property = "󰜢",
+	Unit = "󰑭",
+	Value = "󰎠",
+	Enum = "",
+	Keyword = "󰌋",
+	Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+	Reference = "󰈇",
+	Folder = "󰉋",
+	EnumMember = "",
+	Constant = "󰏿",
+	Struct = "󰙅",
+	Event = "",
+	Operator = "󰆕",
+	TypeParameter = "",
+}
+
 return {
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
+				dependencies = {
+					"rafamadriz/friendly-snippets",
+				},
 				build = (function()
 					if vim.fn.has("win32") == 1 then
 						return
@@ -14,7 +45,7 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
-			"rafamadriz/friendly-snippets",
+			"hrsh7th/cmp-buffer",
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -53,10 +84,26 @@ return {
 						end
 					end, { "i", "s" }),
 				}),
+				formatting = {
+					fields = { "abbr", "kind", "menu" },
+					format = function(entry, vim_item)
+						vim_item.kind = (icons[vim_item.kind] or "Foo") .. "\t" .. vim_item.kind
+						-- vim_item.menu = ({
+						-- 	nvim_lsp = "[LSP]",
+						-- 	nvim_lua = "[Lua]",
+						-- 	luasnip = "[Snippet]",
+						-- 	buffer = "[Buffer]",
+						-- 	path = "[Path]",
+						-- 	emoji = "[Emoji]",
+						-- })[entry.source.name]
+						return vim_item
+					end,
+				},
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "buffer", keyword_length = 3 },
 				},
 			})
 		end,
@@ -64,9 +111,16 @@ return {
 	{ "echasnovski/mini.pairs", version = "*", opts = {} },
 	{
 		"numToStr/Comment.nvim",
-		opts = {
-			pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
 		},
+		opts = function(_, opts)
+			require("ts_context_commentstring").setup({
+				enable_autocmd = false,
+			})
+			opts.ignore = "^$"
+			opts.pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+		end,
 	},
 	{
 		"stevearc/conform.nvim",
@@ -83,6 +137,7 @@ return {
 			},
 		},
 	},
+	{ "windwp/nvim-ts-autotag", opts = {} },
 	{ "kylechui/nvim-surround", version = "*", opts = {} },
 	{ "wellle/targets.vim" },
 }

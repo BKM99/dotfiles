@@ -37,7 +37,10 @@ return {
 		priority = 1000,
 		config = function()
 			vim.cmd.colorscheme("kanagawa-wave")
-			vim.cmd([[highlight Comment guifg=#8f8c8c]])
+			vim.cmd([[
+			highlight Comment guifg=#8f8c8c
+			highlight WinSeparator guifg=#fff guibg=#fff]
+			]])
 		end,
 	},
 	-- {
