@@ -20,6 +20,7 @@ return {
 					hidden = true,
 					follow = true,
 					disable_devicons = true,
+					previewer = false,
 				},
 				live_grep = {
 					disable_devicons = true,

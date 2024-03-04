@@ -6,7 +6,10 @@ config.audible_bell = "Disabled"
 config.colors = {
 	foreground = "white",
 	background = "#161617",
+	-- cursor_border = "#AAAA00",
+	cursor_bg = "9E9E9E",
 }
+config.underline_thickness = "1.2pt"
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.font_size = 13

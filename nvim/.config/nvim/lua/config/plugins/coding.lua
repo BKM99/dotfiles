@@ -61,7 +61,7 @@ return {
 			})
 		end,
 	},
-	{ "windwp/nvim-autopairs", config = true },
+	{ "echasnovski/mini.pairs", version = "*", opts = {} },
 	{
 		"numToStr/Comment.nvim",
 		opts = {
@@ -84,4 +84,5 @@ return {
 		},
 	},
 	{ "kylechui/nvim-surround", version = "*", opts = {} },
+	{ "wellle/targets.vim" },
 }

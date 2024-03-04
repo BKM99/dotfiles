@@ -10,7 +10,7 @@ return {
 					enable_autocmd = false,
 				},
 			},
-			{ "windwp/nvim-ts-autotag" },
+			{ "windwp/nvim-ts-autotag", opts = {} },
 			{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		},
 		config = function()
