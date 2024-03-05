@@ -51,6 +51,8 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 
+			local MAX_INDEX_FILE_SIZE = 4000
+
 			-- enable html snipperts in jsx, tsx, js
 			luasnip.filetype_extend("javascript", { "html" })
 			luasnip.filetype_extend("javascriptreact", { "html" })
@@ -103,7 +105,25 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
-					{ name = "buffer", keyword_length = 3 },
+					{
+						name = "buffer",
+						keyword_length = 4,
+						options = {
+							get_bufnrs = function()
+								local bufs = {}
+								for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+									-- Don't index giant files
+									if
+										vim.api.nvim_buf_is_loaded(bufnr)
+										and vim.api.nvim_buf_line_count(bufnr) < MAX_INDEX_FILE_SIZE
+									then
+										table.insert(bufs, bufnr)
+									end
+								end
+								return bufs
+							end,
+						},
+					},
 				},
 			})
 		end,
@@ -123,21 +143,26 @@ return {
 		end,
 	},
 	{
-		"stevearc/conform.nvim",
-		opts = {
-			notify_on_error = false,
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
-			},
-			formatters_by_ft = {
-				lua = { "stylua" },
-				go = { "gofumpt", "goimports" },
-				python = { "black" },
-			},
-		},
+		"nvimtools/none-ls.nvim",
+		opts = function(_, opts)
+			opts.root_dir = opts.root_dir or require("null-ls.utils").root_pattern(".null-ls-root", "Makefile", ".git")
+			opts.sources = vim.list_extend(opts.sources or {}, {})
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+			opts.on_attach = function(client, bufnr)
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						group = augroup,
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ async = false })
+						end,
+					})
+				end
+			end
+		end,
 	},
 	{ "windwp/nvim-ts-autotag", opts = {} },
-	{ "kylechui/nvim-surround", version = "*", opts = {} },
+	{ "tpope/vim-surround" },
 	{ "wellle/targets.vim" },
 }

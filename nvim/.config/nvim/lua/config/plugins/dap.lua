@@ -2,13 +2,19 @@ return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
-		"leoluz/nvim-dap-go",
-		"mfussenegger/nvim-dap-python",
 	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
 		local keymap = vim.keymap.set
+
+		vim.fn.sign_define("DapBreakpoint", { text = "•", texthl = "DiagnosticError", linehl = "", numhl = "" })
+		vim.fn.sign_define(
+			"DapBreakpointCondition",
+			{ text = "?", texthl = "DiagnosticError", linehl = "", numhl = "" }
+		)
+		vim.fn.sign_define("DapLogPoint", { text = "⁋", texthl = "", linehl = "", numhl = "" })
+		vim.fn.sign_define("DapStopped", { text = " ", texthl = "DiagnosticInfo", linehl = "", numhl = "" })
 
 		keymap("n", "<S-down>", dap.continue, { desc = "Debug: Start/Continue" })
 		keymap("n", "<S-right>", dap.step_into, { desc = "Debug: Step Into" })
@@ -25,15 +31,5 @@ return {
 		dap.listeners.after.event_initialized["dapui_config"] = dapui.open
 		dap.listeners.before.event_terminated["dapui_config"] = dapui.close
 		dap.listeners.before.event_exited["dapui_config"] = dapui.close
-
-		require("dap-python").setup(
-			require("mason-registry").get_package("debugpy"):get_install_path() .. "/venv/bin/python"
-		)
-
-		require("dap-go").setup({
-			delve = {
-				path = require("mason-registry").get_package("delve"):get_install_path() .. "/dlv",
-			},
-		})
 	end,
 }

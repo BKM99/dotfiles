@@ -1,11 +1,14 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "williamboman/mason.nvim", opts = {} },
+		"hrsh7th/cmp-nvim-lsp",
+		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},
-	config = function()
-		-- Jump directly to the first available definition every time.
+	opts = {
+		servers = {},
+	},
+	config = function(_, opts)
 		vim.lsp.handlers["textDocument/definition"] = function(_, result)
 			if not result or vim.tbl_isempty(result) then
 				print("[LSP] Could not find definition")
@@ -18,6 +21,10 @@ return {
 				vim.lsp.util.jump_to_location(result, "utf-8")
 			end
 		end
+
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+		vim.lsp.handlers["textDocument/signatureHelp"] =
+			vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
@@ -38,12 +45,18 @@ return {
 				nmap("gD", vim_lsp_buf.declaration, "[G]oto [D]eclaration")
 				nmap("<leader>rn", vim_lsp_buf.rename, "[R]e[n]ame")
 				nmap("<leader>ca", function()
-					vim_lsp_buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
+					vim_lsp_buf.code_action()
 				end, "[C]ode [A]ction")
 				nmap("K", vim_lsp_buf.hover, "Hover Documentation")
 				nmap("gS", vim_lsp_buf.signature_help, "Signature Documentation")
 				nmap("<leader>lf", function()
-					vim_lsp_buf.format({ async = true })
+					vim_lsp_buf.format({
+						bufnr = event.buf,
+						async = false,
+						-- filter = function(client)
+						-- 	return client.name == "null-ls"
+						-- end,
+					})
 				end, "Format")
 			end,
 		})
@@ -51,44 +64,16 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-		local servers = {
-			clangd = {},
-			gopls = {},
-			pyright = {},
-			rust_analyzer = {},
-			tsserver = {},
-			omnisharp = {
-				cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-			},
-			bashls = {},
-			vimls = {},
-			lua_ls = {
-				settings = {
-					Lua = {
-						runtime = { version = "LuaJIT" },
-						workspace = {
-							checkThirdParty = false,
-							library = {
-								"${3rd}/luv/library",
-								unpack(vim.api.nvim_get_runtime_file("", true)),
-							},
-						},
-						diagnostics = { disable = { "missing-fields" } },
-					},
-				},
-			},
-		}
-
-		require("mason").setup()
 		require("mason-lspconfig").setup({
 			handlers = {
 				function(server_name)
-					local server = servers[server_name] or {}
+					local server = opts.servers[server_name] or {}
 					require("lspconfig")[server_name].setup({
 						cmd = server.cmd,
 						settings = server.settings,
 						filetypes = server.filetypes,
 						capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {}),
+						-- handlers = server.handlers or {},
 						on_init = function(client, _)
 							client.server_capabilities.semanticTokensProvider = nil
 						end,

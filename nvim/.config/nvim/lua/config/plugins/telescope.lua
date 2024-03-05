@@ -30,6 +30,7 @@ return {
 					end,
 				},
 				git_files = {
+					show_untracked = true,
 					disable_devicons = true,
 				},
 				old_files = {
@@ -40,12 +41,10 @@ return {
 				},
 				keymaps = {
 					layout_config = {
-						prompt_position = "top",
 					},
 				},
 				git_status = {
 					layout_config = {
-						prompt_position = "top",
 					},
 				},
 			},
@@ -55,6 +54,22 @@ return {
 					"node_modules/",
 					".venv/",
 					"dist/",
+					".*%.png$",
+					".*%.jpg$",
+					".*%.jpeg$",
+					".*%.gif$",
+					".*%.wav$",
+					".*%.aiff$",
+					".*%.dll$",
+					".*%.pdb$",
+					".*%.mdb$",
+					".*%.so$",
+					".*%.swp$",
+					".*%.zip$",
+					".*%.gz$",
+					".*%.bz2$",
+					".*%.meta",
+					".*%.cache",
 				},
 			},
 		})

@@ -2,6 +2,8 @@ return {
 	{
 		"stevearc/oil.nvim",
 		opts = {
+			skip_confirm_for_simple_edits = true,
+			delete_to_trash = true,
 			default_file_explorer = true,
 			columns = {
 				-- "icon",
@@ -56,7 +58,10 @@ return {
 	},
 	{
 		"sindrets/diffview.nvim",
-		opts = { use_icons = false },
+		opts = {
+			enhanced_diff_hl = true,
+			use_icons = false,
+		},
 		config = function(_, opts)
 			require("diffview").setup(opts)
 			vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "[D]iffview [O]pen" })
