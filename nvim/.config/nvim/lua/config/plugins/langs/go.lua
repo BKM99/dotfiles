@@ -11,19 +11,19 @@ return {
 		end,
 	},
 	{
+		"williamboman/mason.nvim",
+		opts = function(_, opts)
+			opts.ensure_installed = opts.ensure_installed or {}
+			vim.list_extend(opts.ensure_installed, { "gopls", "goimports", "gofumpt", "gomodifytags", "impl", "delve" })
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			servers = {
 				gopls = {},
 			},
 		},
-	},
-	{
-		"williamboman/mason.nvim",
-		opts = function(_, opts)
-			opts.ensure_installed = opts.ensure_installed or {}
-			vim.list_extend(opts.ensure_installed, { "goimports", "gofumpt", "gomodifytags", "impl", "delve" })
-		end,
 	},
 	{
 		"nvimtools/none-ls.nvim",
@@ -44,5 +44,17 @@ return {
 		dependencies = {
 			{ "leoluz/nvim-dap-go", config = true },
 		},
+	},
+	{
+		"nvim-neotest/neotest",
+		optional = true,
+		dependencies = {
+			"nvim-neotest/neotest-go",
+		},
+		opts = function(_, opts)
+			opts.adapters["neotest-vim-test"] = opts.adapters["neotest-vim-test"] or {}
+			vim.list_extend(opts.adapters["neotest-vim-test"], { "go" })
+			opts.adapters["neotest-go"] = {}
+		end,
 	},
 }

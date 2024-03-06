@@ -8,14 +8,6 @@ return {
 		end,
 	},
 	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			servers = {
-				clangd = {},
-			},
-		},
-	},
-	{
 		"williamboman/mason.nvim",
 		optional = true,
 		opts = function(_, opts)
@@ -23,6 +15,18 @@ return {
 				vim.list_extend(opts.ensure_installed, { "codelldb", "clangd" })
 			end
 		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			servers = {
+				clangd = {
+					on_init = function(client, _)
+						client.server_capabilities.semanticTokensProvider = nil
+					end,
+				},
+			},
+		},
 	},
 	{
 		"mfussenegger/nvim-dap",

@@ -154,8 +154,13 @@ return {
 					vim.api.nvim_create_autocmd("BufWritePre", {
 						group = augroup,
 						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({ async = false })
+						callback = function(c)
+							vim.lsp.buf.format({
+								async = false,
+								filter = function(c)
+									return c.name == "null-ls"
+								end,
+							})
 						end,
 					})
 				end
