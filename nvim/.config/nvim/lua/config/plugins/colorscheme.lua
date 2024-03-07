@@ -36,9 +36,26 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
+			require("kanagawa").setup({
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none",
+							},
+						},
+					},
+				},
+				overrides = function(colors)
+					-- local theme = colors.theme
+					return {
+						Comment = { fg = "#8f8c8c" },
+					}
+				end,
+			})
 			vim.cmd.colorscheme("kanagawa-wave")
 			vim.cmd([[
-			highlight Comment guifg=#8f8c8c
+			" highlight Comment guifg=#8f8c8c
 			highlight WinSeparator guifg=#fff guibg=#fff]
 			]])
 		end,

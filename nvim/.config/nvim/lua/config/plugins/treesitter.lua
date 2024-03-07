@@ -17,8 +17,9 @@ return {
 			ensure_installed = {
 				"git_rebase",
 				"gitcommit",
+				"json",
 			},
-			auto_install = true,
+			auto_install = false,
 			highlight = {
 				enable = true,
 				disable = disable,
