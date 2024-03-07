@@ -29,13 +29,9 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		opts = { open_cmd = "noswapfile vnew" },
-		config = function(_, opts)
-			local spectre = require("spectre")
-			spectre.setup(opts)
-			vim.keymap.set("n", "<leader>S", function()
-				spectre.open()
-			end, { desc = "[S]earch and [R]eplace (Spectre)" })
-		end,
+		keys = {
+			{ "<leader>S", "<cmd>Spectre<cr>", "[S]earch and [R]eplace (Spectre)" },
+		},
 	},
 	{
 		"lewis6991/gitsigns.nvim",
@@ -62,13 +58,12 @@ return {
 			enhanced_diff_hl = true,
 			use_icons = false,
 		},
-		config = function(_, opts)
-			require("diffview").setup(opts)
-			vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<cr>", { desc = "[D]iffview [O]pen" })
-			vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>", { desc = "[D]iffview [C]lose" })
-			vim.keymap.set("n", "<leader>dr", "<cmd>DiffviewRefresh<cr>", { desc = "[D]iffview [R]efresh" })
-			vim.keymap.set("n", "<leader>dh", "<cmd>DiffviewFileHistory<cr>", { desc = "[D]iffview [F]ileHistory" })
-		end,
+		keys = {
+			{ "<leader>do", "<cmd>DiffviewOpen<cr>", desc = "[D]iffview [O]pen" },
+			{ "<leader>dc", "<cmd>DiffviewClose<cr>", desc = "[D]iffview [C]lose" },
+			{ "<leader>dr", "<cmd>DiffviewRefresh<cr>", desc = "[D]iffview [R]efresh" },
+			{ "<leader>dh", "<cmd>DiffviewFileHistory<cr>", desc = "[D]iffview [F]ileHistory" },
+		},
 	},
 	{
 		"NeogitOrg/neogit",

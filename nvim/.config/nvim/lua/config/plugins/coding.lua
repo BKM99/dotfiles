@@ -29,6 +29,8 @@ local icons = {
 return {
 	{
 		"hrsh7th/nvim-cmp",
+		version = false,
+		event = "InsertEnter",
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
@@ -128,7 +130,7 @@ return {
 			})
 		end,
 	},
-	{ "echasnovski/mini.pairs", version = "*", opts = {} },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
 	{
 		"numToStr/Comment.nvim",
 		dependencies = {
