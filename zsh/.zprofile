@@ -1,5 +1,6 @@
 export SHELL=/bin/zsh
 export XDG_CONFIG_HOME=$HOME/.config/
+export PATH="$HOME/.local/scripts/:$PATH"
 export MANPAGER='less -X';
 
 if [[ -f /opt/homebrew/bin/brew ]]; then

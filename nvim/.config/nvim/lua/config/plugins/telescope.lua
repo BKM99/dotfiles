@@ -40,12 +40,10 @@ return {
 					disable_devicons = true,
 				},
 				keymaps = {
-					layout_config = {
-					},
+					layout_config = {},
 				},
 				git_status = {
-					layout_config = {
-					},
+					layout_config = {},
 				},
 			},
 			defaults = {

@@ -35,3 +35,19 @@ function cleannvim() {
 	rm -rf ~/.local/state/nvim/
 	rm -rf ~/.cache/nvim/
 }
+
+
+function fzfChangeDir() {
+    directories="$HOME/dotfiles $HOME/Documents $HOME/Documents/Playground $HOME $HOME/Desktop $HOME/.config $HOME/.local"
+    if command -v fd &> /dev/null; then
+        selected=$(fd . $(echo $directories) --type d --max-depth 1 -H | fzf --reverse)
+    else
+        selected=$(find $(echo $directories) -mindepth 1 -maxdepth 1 -type d | fzf --reverse)
+    fi
+
+    if [[ -n $selected ]]; then
+        cd "$selected" || return
+    fi
+}
+
+bindkey -s ^p "fzfChangeDir\n"
