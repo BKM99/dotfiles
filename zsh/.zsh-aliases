@@ -40,9 +40,9 @@ function cleannvim() {
 function fzfChangeDir() {
     directories="$HOME/dotfiles $HOME/Documents $HOME/Documents/Playground $HOME $HOME/Desktop $HOME/.config $HOME/.local"
     if command -v fd &> /dev/null; then
-        selected=$(fd . $(echo $directories) --type d --max-depth 1 -H | fzf --reverse)
+        selected=$(fd . $(echo $directories) --type d --max-depth 1 -H | fzf --reverse --height '50%')
     else
-        selected=$(find $(echo $directories) -mindepth 1 -maxdepth 1 -type d | fzf --reverse)
+        selected=$(find $(echo $directories) -mindepth 1 -maxdepth 1 -type d | fzf --reverse --height '50%')
     fi
 
     if [[ -n $selected ]]; then

@@ -1,6 +1,15 @@
 return {
 	{
 		"stevearc/oil.nvim",
+		keys = {
+			{
+				"<leader>e",
+				function()
+					require("oil").toggle_float()
+				end,
+				desc = "Toggle Oil",
+			},
+		},
 		opts = {
 			skip_confirm_for_simple_edits = true,
 			delete_to_trash = true,
@@ -15,13 +24,6 @@ return {
 				show_hidden = true,
 			},
 		},
-		config = function(_, opts)
-			local oil = require("oil")
-			oil.setup(opts)
-			vim.keymap.set("n", "<leader>e", function()
-				oil.toggle_float()
-			end, { desc = "Toggle Oil" })
-		end,
 	},
 	{
 		"nvim-pack/nvim-spectre",

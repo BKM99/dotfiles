@@ -50,7 +50,6 @@ return {
 				group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 				callback = function(event)
 					-- local client = vim.lsp.get_client_by_id(event.data.client_id)
-					local telescope_builtin = require("telescope.builtin")
 					local nmap = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
@@ -61,8 +60,6 @@ return {
 					nmap("gr", vim_lsp_buf.references, "[G]oto [R]eferences")
 					nmap("gI", vim_lsp_buf.implementation, "[G]oto [I]mplementation")
 					nmap("<leader>D", vim_lsp_buf.type_definition, "Type [D]efinition")
-					nmap("<leader>ds", telescope_builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
-					nmap("<leader>ws", telescope_builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 					nmap("gD", vim_lsp_buf.declaration, "[G]oto [D]eclaration")
 					nmap("<leader>rn", vim_lsp_buf.rename, "[R]e[n]ame")
 					vim.keymap.set({ "n", "v" }, "<leader>ca", function()

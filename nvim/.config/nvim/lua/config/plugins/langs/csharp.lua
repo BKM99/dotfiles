@@ -1,5 +1,5 @@
 return {
-	{ "Hoffs/omnisharp-extended-lsp.nvim" },
+	{ "Hoffs/omnisharp-extended-lsp.nvim", lazy = true },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = function(_, opts)
