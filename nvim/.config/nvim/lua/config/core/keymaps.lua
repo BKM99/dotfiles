@@ -55,6 +55,3 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- Clear search with <esc>
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
--- replace word
-keymap("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

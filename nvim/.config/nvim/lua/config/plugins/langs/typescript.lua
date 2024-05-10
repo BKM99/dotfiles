@@ -76,5 +76,4 @@ return {
 			end
 		end,
 	},
-	{ "dmmulroy/tsc.nvim", opts = {}, cmd = "TSC" },
 }
