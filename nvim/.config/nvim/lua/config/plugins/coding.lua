@@ -171,5 +171,4 @@ return {
 	},
 	{ "windwp/nvim-ts-autotag", opts = {} },
 	{ "tpope/vim-surround" },
-	{ "wellle/targets.vim" },
 }

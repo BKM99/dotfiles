@@ -31,52 +31,52 @@ return {
 	-- 		vim.cmd.colorscheme("tokyonight-night")
 	-- 	end,
 	-- },
-	{
-		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("kanagawa").setup({
-				colors = {
-					theme = {
-						all = {
-							ui = {
-								bg_gutter = "none",
-							},
-						},
-					},
-				},
-				overrides = function(colors)
-					-- local theme = colors.theme
-					return {
-						Comment = { fg = "#8f8c8c" },
-					}
-				end,
-			})
-			vim.cmd.colorscheme("kanagawa-wave")
-			vim.cmd([[
-			" highlight Comment guifg=#8f8c8c
-			highlight WinSeparator guifg=#fff guibg=#fff]
-			]])
-		end,
-	},
+	-- {
+	-- 	"rebelot/kanagawa.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("kanagawa").setup({
+	-- 			colors = {
+	-- 				theme = {
+	-- 					all = {
+	-- 						ui = {
+	-- 							bg_gutter = "none",
+	-- 						},
+	-- 					},
+	-- 				},
+	-- 			},
+	-- 			overrides = function(colors)
+	-- 				-- local theme = colors.theme
+	-- 				return {
+	-- 					Comment = { fg = "#8f8c8c" },
+	-- 				}
+	-- 			end,
+	-- 		})
+	-- 		vim.cmd.colorscheme("kanagawa-wave")
+	-- 		vim.cmd([[
+	-- 		" highlight Comment guifg=#8f8c8c
+	-- 		highlight WinSeparator guifg=#fff guibg=#fff]
+	-- 		]])
+	-- 	end,
+	-- },
 	-- {
 	-- 	"kvrohit/mellow.nvim",
 	-- 	config = function()
 	-- 		vim.cmd([[colo mellow]])
 	-- 	end,
 	-- },
-	--  {
-	--      "Mofiqul/vscode.nvim",
-	--      config = function()
-	--          vim.cmd([[
-	-- colo vscode
-	-- hi Normal guibg=#161617
-	-- hi SignColumn guibg=#161617
-	-- hi LineNr guibg=#161617
-	-- ]])
-	--      end,
-	--  },
+	{
+		"Mofiqul/vscode.nvim",
+		config = function()
+			vim.cmd([[
+	colo vscode
+	hi Normal guibg=#161617
+	hi SignColumn guibg=#161617
+	hi LineNr guibg=#161617
+	]])
+		end,
+	},
 	-- { "maxmx03/solarized.nvim" },
 	-- {
 	-- 	-- "rose-pine/neovim",
@@ -120,4 +120,9 @@ return {
 	-- 	end,
 	-- },
 	-- { "blazkowolf/gruber-darker.nvim" },
+	-- {
+	-- 	"dgox16/oldworld.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
 }
