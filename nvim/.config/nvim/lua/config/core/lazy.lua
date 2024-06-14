@@ -27,12 +27,13 @@ require("lazy").setup({
 		{ import = "config.plugins.langs.go" },
 		{ import = "config.plugins.langs.typescript" },
 		{ import = "config.plugins.langs.python" },
-		{ import = "config.plugins.langs.rust" },
+		-- { import = "config.plugins.langs.rust" },
 		-- { import = "config.plugins.langs.cpp" },
 		-- { import = "config.plugins.langs.csharp" },
 		-- { import = "config.plugins.langs.java" },
 		{ import = "config.plugins.langs.markdown" },
 		{ import = "config.plugins.langs.docker" },
+		{ import = "config.plugins.testing" },
 	},
 	performance = {
 		rtp = {

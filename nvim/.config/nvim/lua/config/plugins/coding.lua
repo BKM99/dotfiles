@@ -169,6 +169,9 @@ return {
 			end
 		end,
 	},
-	{ "windwp/nvim-ts-autotag", opts = {} },
-	{ "tpope/vim-surround" },
+	{
+		"windwp/nvim-ts-autotag",
+		opts = {},
+	},
+	-- { "tpope/vim-surround" },
 }

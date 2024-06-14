@@ -1,84 +1,84 @@
 return {
-	{
-		"echasnovski/mini.files",
-		opts = {
-			windows = {
-				preview = false,
-				width_focus = 30,
-				width_preview = 30,
-			},
-			options = {
-				use_as_default_explorer = false,
-			},
-		},
-		keys = {
-			{
-				"<leader>e",
-				function()
-					require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-				end,
-				desc = "Open mini.files (Directory of Current File)",
-			},
-			{
-				"-",
-				function()
-					require("mini.files").open(vim.uv.cwd(), true)
-				end,
-				desc = "Open mini.files (cwd)",
-			},
-		},
-		config = function(_, opts)
-			require("mini.files").setup(opts)
-
-			local show_dotfiles = true
-			local filter_show = function(fs_entry)
-				return true
-			end
-			local filter_hide = function(fs_entry)
-				return not vim.startswith(fs_entry.name, ".")
-			end
-
-			local toggle_dotfiles = function()
-				show_dotfiles = not show_dotfiles
-				local new_filter = show_dotfiles and filter_show or filter_hide
-				require("mini.files").refresh({ content = { filter = new_filter } })
-			end
-
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "MiniFilesBufferCreate",
-				callback = function(args)
-					local buf_id = args.data.buf_id
-					vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
-				end,
-			})
-		end,
-	},
 	-- {
-	-- 	"stevearc/oil.nvim",
+	-- 	"echasnovski/mini.files",
+	-- 	opts = {
+	-- 		windows = {
+	-- 			preview = false,
+	-- 			width_focus = 30,
+	-- 			width_preview = 30,
+	-- 		},
+	-- 		options = {
+	-- 			use_as_default_explorer = false,
+	-- 		},
+	-- 	},
 	-- 	keys = {
 	-- 		{
 	-- 			"<leader>e",
 	-- 			function()
-	-- 				require("oil").toggle_float()
+	-- 				require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
 	-- 			end,
-	-- 			desc = "Toggle Oil",
+	-- 			desc = "Open mini.files (Directory of Current File)",
+	-- 		},
+	-- 		{
+	-- 			"-",
+	-- 			function()
+	-- 				require("mini.files").open(vim.uv.cwd(), true)
+	-- 			end,
+	-- 			desc = "Open mini.files (cwd)",
 	-- 		},
 	-- 	},
-	-- 	opts = {
-	-- 		skip_confirm_for_simple_edits = true,
-	-- 		delete_to_trash = true,
-	-- 		default_file_explorer = true,
-	-- 		columns = {
-	-- 			-- "icon",
-	-- 			-- "permissions",
-	-- 			-- "size",
-	-- 			-- "mtime",
-	-- 		},
-	-- 		view_options = {
-	-- 			show_hidden = true,
-	-- 		},
-	-- 	},
+	-- 	config = function(_, opts)
+	-- 		require("mini.files").setup(opts)
+
+	-- 		local show_dotfiles = true
+	-- 		local filter_show = function(fs_entry)
+	-- 			return true
+	-- 		end
+	-- 		local filter_hide = function(fs_entry)
+	-- 			return not vim.startswith(fs_entry.name, ".")
+	-- 		end
+
+	-- 		local toggle_dotfiles = function()
+	-- 			show_dotfiles = not show_dotfiles
+	-- 			local new_filter = show_dotfiles and filter_show or filter_hide
+	-- 			require("mini.files").refresh({ content = { filter = new_filter } })
+	-- 		end
+
+	-- 		vim.api.nvim_create_autocmd("User", {
+	-- 			pattern = "MiniFilesBufferCreate",
+	-- 			callback = function(args)
+	-- 				local buf_id = args.data.buf_id
+	-- 				vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
+	-- 			end,
+	-- 		})
+	-- 	end,
 	-- },
+	{
+		"stevearc/oil.nvim",
+		keys = {
+			{
+				"<leader>e",
+				function()
+					require("oil").toggle_float()
+				end,
+				desc = "Toggle Oil",
+			},
+		},
+		opts = {
+			skip_confirm_for_simple_edits = true,
+			delete_to_trash = true,
+			default_file_explorer = true,
+			columns = {
+				-- "icon",
+				-- "permissions",
+				-- "size",
+				-- "mtime",
+			},
+			view_options = {
+				show_hidden = true,
+			},
+		},
+	},
 	{
 		"nvim-pack/nvim-spectre",
 		dependencies = {
@@ -90,6 +90,7 @@ return {
 		},
 	},
 	{
+
 		"lewis6991/gitsigns.nvim",
 		opts = {},
 		config = function(_, opts)

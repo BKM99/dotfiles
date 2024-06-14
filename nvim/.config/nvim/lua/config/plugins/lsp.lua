@@ -35,7 +35,7 @@ return {
 					return
 				end
 
-				if vim.tbl_islist(result) then
+				if vim.islist()(result) then
 					vim.lsp.util.jump_to_location(result[1], "utf-8")
 				else
 					vim.lsp.util.jump_to_location(result, "utf-8")

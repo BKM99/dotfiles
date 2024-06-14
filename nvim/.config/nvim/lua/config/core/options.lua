@@ -1,6 +1,7 @@
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.opt.termguicolors = true
 -- vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.number = true
@@ -27,6 +28,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.netrw_liststyle = 3
 vim.g.netrw_fastbrowse = 0
 vim.g.netrw_browse_split = 0

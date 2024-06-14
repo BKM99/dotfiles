@@ -14,6 +14,13 @@ keymap("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 keymap("n", "[q", ":cprevious<CR>zz", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 
+-- go through buffers
+keymap("n", "[b", ":bprev<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", opts)
+
+-- delete buffer
+keymap("n", "<leader>bd", ":bd<CR>", opts)
+
 -- diagnostic keymaps
 keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
