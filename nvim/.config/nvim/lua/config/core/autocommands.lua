@@ -1,3 +1,7 @@
+local function augroup(name)
+	return vim.api.nvim_create_augroup("myaugroup" .. name, { clear = true })
+end
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
 		vim.highlight.on_yank({ timeout = 150 })
@@ -43,17 +47,34 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
-	group = vim.api.nvim_create_augroup("close_filetype_with_q", { clear = true }),
+	group = augroup("close_with_q"),
 	pattern = {
+		"PlenaryTestPopup",
 		"help",
 		"lspinfo",
-		"man",
+		"notify",
 		"qf",
 		"spectre_panel",
 		"startuptime",
+		"tsplayground",
+		"neotest-output",
+		"checkhealth",
+		"neotest-summary",
+		"neotest-output-panel",
+		"dbout",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+	end,
+})
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+	group = augroup("wrap_spell"),
+	pattern = { "*.txt", "*.tex", "*.typ", "gitcommit", "markdown" },
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.spell = true
 	end,
 })

@@ -122,16 +122,17 @@ return {
 			{ "<leader>dh", "<cmd>DiffviewFileHistory<cr>", desc = "[D]iffview [F]ileHistory" },
 		},
 	},
-	{
-		"NeogitOrg/neogit",
-		keys = {
-			{ "<leader>go", "<cmd>Neogit<cr>", desc = "Open Neogit" },
-		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"sindrets/diffview.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-		config = true,
-	},
+	{ "tpope/vim-fugitive" },
+	-- {
+	-- 	"NeogitOrg/neogit",
+	-- 	keys = {
+	-- 		{ "<leader>go", "<cmd>Neogit<cr>", desc = "Open Neogit" },
+	-- 	},
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"sindrets/diffview.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 	},
+	-- 	config = true,
+	-- },
 }
