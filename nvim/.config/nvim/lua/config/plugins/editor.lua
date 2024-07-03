@@ -1,58 +1,17 @@
 return {
-	-- {
-	-- 	"echasnovski/mini.files",
-	-- 	opts = {
-	-- 		windows = {
-	-- 			preview = false,
-	-- 			width_focus = 30,
-	-- 			width_preview = 30,
-	-- 		},
-	-- 		options = {
-	-- 			use_as_default_explorer = false,
-	-- 		},
-	-- 	},
-	-- 	keys = {
-	-- 		{
-	-- 			"<leader>e",
-	-- 			function()
-	-- 				require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-	-- 			end,
-	-- 			desc = "Open mini.files (Directory of Current File)",
-	-- 		},
-	-- 		{
-	-- 			"-",
-	-- 			function()
-	-- 				require("mini.files").open(vim.uv.cwd(), true)
-	-- 			end,
-	-- 			desc = "Open mini.files (cwd)",
-	-- 		},
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("mini.files").setup(opts)
+	{
+		"nvim-tree/nvim-tree.lua",
+		config = function()
+			require("nvim-tree").setup()
+			vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", {
+				noremap = true,
+			})
 
-	-- 		local show_dotfiles = true
-	-- 		local filter_show = function(fs_entry)
-	-- 			return true
-	-- 		end
-	-- 		local filter_hide = function(fs_entry)
-	-- 			return not vim.startswith(fs_entry.name, ".")
-	-- 		end
-
-	-- 		local toggle_dotfiles = function()
-	-- 			show_dotfiles = not show_dotfiles
-	-- 			local new_filter = show_dotfiles and filter_show or filter_hide
-	-- 			require("mini.files").refresh({ content = { filter = new_filter } })
-	-- 		end
-
-	-- 		vim.api.nvim_create_autocmd("User", {
-	-- 			pattern = "MiniFilesBufferCreate",
-	-- 			callback = function(args)
-	-- 				local buf_id = args.data.buf_id
-	-- 				vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
-	-- 			end,
-	-- 		})
-	-- 	end,
-	-- },
+			vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFileToggle<CR>", {
+				noremap = true,
+			})
+		end,
+	},
 	{
 		"stevearc/oil.nvim",
 		keys = {
@@ -78,6 +37,48 @@ return {
 				show_hidden = true,
 			},
 		},
+	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		opts = {
+			menu = {
+				width = vim.api.nvim_win_get_width(0) - 4,
+			},
+			settings = {
+				save_on_toggle = true,
+			},
+		},
+		keys = function()
+			local keys = {
+				{
+					"<leader>a",
+					function()
+						require("harpoon"):list():add()
+					end,
+					desc = "Harpoon File",
+				},
+				{
+					"<leader>he",
+					function()
+						local harpoon = require("harpoon")
+						harpoon.ui:toggle_quick_menu(harpoon:list())
+					end,
+					desc = "Harpoon Quick Menu",
+				},
+			}
+
+			for i = 1, 9 do
+				table.insert(keys, {
+					"<leader>" .. i,
+					function()
+						require("harpoon"):list():select(i)
+					end,
+					desc = "Harpoon to File " .. i,
+				})
+			end
+			return keys
+		end,
 	},
 	{
 		"nvim-pack/nvim-spectre",
@@ -123,16 +124,4 @@ return {
 		},
 	},
 	{ "tpope/vim-fugitive" },
-	-- {
-	-- 	"NeogitOrg/neogit",
-	-- 	keys = {
-	-- 		{ "<leader>go", "<cmd>Neogit<cr>", desc = "Open Neogit" },
-	-- 	},
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"sindrets/diffview.nvim",
-	-- 		"nvim-telescope/telescope.nvim",
-	-- 	},
-	-- 	config = true,
-	-- },
 }

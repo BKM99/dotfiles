@@ -53,6 +53,8 @@ return {
 					disable_devicons = true,
 				},
 				buffers = {
+					sort_mru = true,
+					ignore_current_buffer = true,
 					disable_devicons = true,
 				},
 				keymaps = {

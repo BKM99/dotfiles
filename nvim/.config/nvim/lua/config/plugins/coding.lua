@@ -130,7 +130,22 @@ return {
 			})
 		end,
 	},
-	{ "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+	{
+		"echasnovski/mini.pairs",
+		event = "VeryLazy",
+		opts = {
+			modes = { insert = true, command = true, terminal = false },
+			-- skip autopair when next character is one of these
+			skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+			-- skip autopair when the cursor is inside these treesitter nodes
+			skip_ts = { "string" },
+			-- skip autopair when next character is closing pair
+			-- and there are more closing pairs than opening pairs
+			skip_unbalanced = true,
+			-- better deal with markdown code blocks
+			markdown = true,
+		},
+	},
 	{
 		"numToStr/Comment.nvim",
 		dependencies = {
@@ -173,5 +188,30 @@ return {
 		"windwp/nvim-ts-autotag",
 		opts = {},
 	},
-	-- { "tpope/vim-surround" },
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+	},
+	{
+		"ggandor/leap.nvim",
+		enabled = true,
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, desc = "Leap Forward to" },
+			{ "S", mode = { "n", "x", "o" }, desc = "Leap Backward to" },
+			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
+		},
+		config = function(_, opts)
+			local leap = require("leap")
+			for k, v in pairs(opts) do
+				leap.opts[k] = v
+			end
+			leap.add_default_mappings(true)
+			vim.keymap.del({ "x", "o" }, "x")
+			vim.keymap.del({ "x", "o" }, "X")
+		end,
+	},
 }

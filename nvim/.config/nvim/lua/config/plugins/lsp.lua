@@ -1,5 +1,4 @@
 return {
-	-- { "j-hui/fidget.nvim", opts = {} },
 	{
 		"williamboman/mason.nvim",
 		build = ":MasonUpdate",
@@ -29,19 +28,6 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function(_, opts)
-			vim.lsp.handlers["textDocument/definition"] = function(_, result)
-				if not result or vim.tbl_isempty(result) then
-					print("[LSP] Could not find definition")
-					return
-				end
-
-				if vim.islist()(result) then
-					vim.lsp.util.jump_to_location(result[1], "utf-8")
-				else
-					vim.lsp.util.jump_to_location(result, "utf-8")
-				end
-			end
-
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 			vim.lsp.handlers["textDocument/signatureHelp"] =
 				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
