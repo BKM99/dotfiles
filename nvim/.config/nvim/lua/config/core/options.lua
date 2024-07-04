@@ -1,6 +1,3 @@
-vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 vim.opt.termguicolors = true
 -- vim.opt.guicursor = ""
 vim.opt.cursorline = true
