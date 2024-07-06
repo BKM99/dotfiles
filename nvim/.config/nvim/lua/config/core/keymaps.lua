@@ -15,8 +15,10 @@ keymap("n", "[q", ":cprevious<CR>zz", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 
 -- go through buffers
-keymap("n", "[b", ":bprev<CR>", opts)
-keymap("n", "]b", ":bnext<CR>", opts)
+-- keymap("n", "[b", ":bprev<CR>", opts)
+-- keymap("n", "]b", ":bnext<CR>", opts)
+keymap("n", "<S-Tab>", ":bprev<CR>", opts)
+keymap("n", "<Tab>", ":bnext<CR>", opts)
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)
@@ -51,7 +53,7 @@ keymap("n", "<A-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window
 keymap("n", "<A-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
 -- Go between the last two buffers
-keymap("n", "<leader><leader>", "<c-^>", opts)
+keymap("n", "<space><space>", "<c-^>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })

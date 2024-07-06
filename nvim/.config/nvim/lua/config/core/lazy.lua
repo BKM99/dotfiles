@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 
 require("lazy").setup({
 	change_detection = { notify = false },
@@ -27,7 +27,7 @@ require("lazy").setup({
 		{ import = "config.plugins.telescope" },
 		{ import = "config.plugins.coding" },
 		{ import = "config.plugins.dap" },
-		-- { import = "config.plugins.neotest" },
+		{ import = "config.plugins.neotest" },
 		{ import = "config.plugins.testing" },
 		{ import = "config.plugins.langs.lua" },
 		{ import = "config.plugins.langs.go" },
@@ -36,7 +36,7 @@ require("lazy").setup({
 		{ import = "config.plugins.langs.rust" },
 		{ import = "config.plugins.langs.cpp" },
 		{ import = "config.plugins.langs.csharp" },
-		-- { import = "config.plugins.langs.java" },
+		{ import = "config.plugins.langs.java" },
 		{ import = "config.plugins.langs.markdown" },
 		{ import = "config.plugins.langs.docker" },
 	},
