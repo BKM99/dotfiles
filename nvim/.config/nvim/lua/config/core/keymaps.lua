@@ -15,10 +15,10 @@ keymap("n", "[q", ":cprevious<CR>zz", opts)
 keymap("n", "]q", ":cnext<CR>zz", opts)
 
 -- go through buffers
--- keymap("n", "[b", ":bprev<CR>", opts)
--- keymap("n", "]b", ":bnext<CR>", opts)
-keymap("n", "<S-Tab>", ":bprev<CR>", opts)
-keymap("n", "<Tab>", ":bnext<CR>", opts)
+keymap("n", "[b", ":bprev<CR>", opts)
+keymap("n", "]b", ":bnext<CR>", opts)
+-- keymap("n", "<S-Tab>", ":bprev<CR>", opts)
+-- keymap("n", "<Tab>", ":bnext<CR>", opts)
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)

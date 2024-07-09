@@ -1,0 +1,146 @@
+{
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "workbench.startupEditor": "none",
+  "editor.lineNumbers": "relative",
+  "vim.leader": "<Space>",
+  "vim.timeout": 250,
+  "vim.useCtrlKeys": true,
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.duration": 100,
+  "vim.hlsearch": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<C-l>"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      "before": ["[", "b"],
+      "commands": [":bprev"]
+    },
+    {
+      "before": ["]", "b"],
+      "commands": [":bnext"]
+    },
+    {
+      "before": ["<leader>", "b", "d"],
+      "commands": [":bd"]
+    },
+    {
+      "before": ["<A-Up>"],
+      "commands": [":resize +2"]
+    },
+    {
+      "before": ["<A-Down>"],
+      "commands": [":resize -2"]
+    },
+    {
+      "before": ["<A-Left>"],
+      "commands": [":vertical resize -2"]
+    },
+    {
+      "before": ["<A-Right>"],
+      "commands": [":vertical resize +2"]
+    },
+    {
+      "before": ["<space>", "<space>"],
+      "after": ["<C-^>"]
+    },
+    {
+      "before": ["<A-j>"],
+      "commands": [":m .+1", "=="]
+    },
+    {
+      "before": ["<A-k>"],
+      "commands": [":m .-2", "=="]
+    },
+    {
+      "before": ["x"],
+      "after": ["\"_x"]
+    },
+    {
+      "before": ["n"],
+      "after": ["n", "z", "z"]
+    },
+    {
+      "before": ["N"],
+      "after": ["N", "z", "z"]
+    },
+    {
+      "before": ["*"],
+      "after": ["*", "z", "z"]
+    },
+    {
+      "before": ["#"],
+      "after": ["#", "z", "z"]
+    },
+    {
+      "before": ["g", "*"],
+      "after": ["g", "*", "z", "z"]
+    },
+    {
+      "before": ["g", "#"],
+      "after": ["g", "#", "z", "z"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<Esc>"],
+      "commands": [":nohlsearch"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<A-j>"],
+      "commands": [":m '>+1", "gv=gv"]
+    },
+    {
+      "before": ["<A-k>"],
+      "commands": [":m '<-2", "gv=gv"]
+    },
+    {
+      "before": ["p"],
+      "after": ["\"_dP"]
+    },
+    {
+      "before": ["P"],
+      "after": ["\"_dP"]
+    }
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<A-j>"],
+      "commands": ["<Esc>:m .+1<CR>==gi"]
+    },
+    {
+      "before": ["<A-k>"],
+      "commands": ["<Esc>:m .-2<CR>==gi"]
+    }
+  ]
+}
