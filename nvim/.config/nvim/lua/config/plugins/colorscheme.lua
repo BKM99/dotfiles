@@ -19,8 +19,8 @@ return {
 	-- 	"chriskempson/base16-vim",
 	-- 	config = function()
 	-- 		vim.cmd([[colo base16-gruvbox-dark-hard]])
-	-- 		vim.cmd([[highlight Comment guifg=#8f8c8c]])
-	-- 		vim.cmd([[hi Normal ctermbg=NONE]])
+	-- 		-- vim.cmd([[highlight Comment guifg=#8f8c8c]])
+	-- 		-- vim.cmd([[hi Normal ctermbg=NONE]])
 	-- 	end,
 	-- },
 	-- {
@@ -31,52 +31,52 @@ return {
 	-- 		vim.cmd.colorscheme("tokyonight-night")
 	-- 	end,
 	-- },
-	-- {
-	-- 	"rebelot/kanagawa.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("kanagawa").setup({
-	-- 			colors = {
-	-- 				theme = {
-	-- 					all = {
-	-- 						ui = {
-	-- 							bg_gutter = "none",
-	-- 						},
-	-- 					},
-	-- 				},
-	-- 			},
-	-- 			overrides = function(colors)
-	-- 				-- local theme = colors.theme
-	-- 				return {
-	-- 					Comment = { fg = "#8f8c8c" },
-	-- 				}
-	-- 			end,
-	-- 		})
-	-- 		vim.cmd.colorscheme("kanagawa-wave")
-	-- 		vim.cmd([[
-	-- 		" highlight Comment guifg=#8f8c8c
-	-- 		highlight WinSeparator guifg=#fff guibg=#fff]
-	-- 		]])
-	-- 	end,
-	-- },
+	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("kanagawa").setup({
+				colors = {
+					theme = {
+						all = {
+							ui = {
+								bg_gutter = "none",
+							},
+						},
+					},
+				},
+				overrides = function(colors)
+					-- local theme = colors.theme
+					return {
+						Comment = { fg = "#8f8c8c" },
+					}
+				end,
+			})
+			vim.cmd.colorscheme("kanagawa-wave")
+			vim.cmd([[
+			" highlight Comment guifg=#8f8c8c
+			highlight WinSeparator guifg=#fff guibg=#fff]
+			]])
+		end,
+	},
 	-- {
 	-- 	"kvrohit/mellow.nvim",
 	-- 	config = function()
 	-- 		vim.cmd([[colo mellow]])
 	-- 	end,
 	-- },
-	{
-		"Mofiqul/vscode.nvim",
-		config = function()
-			vim.cmd([[
-				colo vscode
-				hi Normal guibg=#161617
-				hi SignColumn guibg=#161617
-				hi LineNr guibg=#161617
-			]])
-		end,
-	},
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	config = function()
+	-- 		vim.cmd([[
+	-- 			colo vscode
+	-- 			hi Normal guibg=#161617
+	-- 			hi SignColumn guibg=#161617
+	-- 			hi LineNr guibg=#161617
+	-- 		]])
+	-- 	end,
+	-- },
 	-- { "maxmx03/solarized.nvim" },
 	-- {
 	-- 	-- "rose-pine/neovim",

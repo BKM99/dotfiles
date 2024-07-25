@@ -1,5 +1,5 @@
 vim.opt.termguicolors = true
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -10,7 +10,7 @@ vim.opt.ignorecase = true
 vim.opt.inccommand = "split"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 350
-vim.opt.scrolloff = 999
+vim.opt.scrolloff = 9
 vim.opt.smartcase = true
 vim.opt.hidden = true
 vim.opt.signcolumn = "yes"

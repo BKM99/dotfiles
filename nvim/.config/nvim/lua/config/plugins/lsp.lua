@@ -36,26 +36,55 @@ return {
 				group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 				callback = function(event)
 					-- local client = vim.lsp.get_client_by_id(event.data.client_id)
-					local nmap = function(keys, func, desc)
+					local map = function(keys, func, desc)
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
 					local vim_lsp_buf = vim.lsp.buf
 
-					nmap("gd", vim_lsp_buf.definition, "[G]oto [D]efinition")
-					nmap("gr", vim_lsp_buf.references, "[G]oto [R]eferences")
-					nmap("gI", vim_lsp_buf.implementation, "[G]oto [I]mplementation")
-					nmap("<leader>D", vim_lsp_buf.type_definition, "Type [D]efinition")
-					nmap("gD", vim_lsp_buf.declaration, "[G]oto [D]eclaration")
-					nmap("<leader>rn", vim_lsp_buf.rename, "[R]e[n]ame")
+					map("gd", vim_lsp_buf.definition, "[G]oto [D]efinition")
+					map("gr", vim_lsp_buf.references, "[G]oto [R]eferences")
+					map("gI", vim_lsp_buf.implementation, "[G]oto [I]mplementation")
+					map("<leader>D", vim_lsp_buf.type_definition, "Type [D]efinition")
+					map("gD", vim_lsp_buf.declaration, "[G]oto [D]eclaration")
+					map("<leader>rn", vim_lsp_buf.rename, "[R]e[n]ame")
 					vim.keymap.set({ "n", "v" }, "<leader>ca", function()
 						vim_lsp_buf.code_action()
 					end, { desc = "LSP Code Actions" })
-					nmap("K", vim_lsp_buf.hover, "Hover Documentation")
-					nmap("gS", vim_lsp_buf.signature_help, "Signature Documentation")
+					map("K", vim_lsp_buf.hover, "Hover Documentation")
+					map("gS", vim_lsp_buf.signature_help, "Signature Documentation")
 					vim.keymap.set({ "n", "v" }, "<leader>lf", function()
 						vim_lsp_buf.format({ async = false })
 					end, { desc = "LSP Format" })
+
+					-- The following two autocommands are used to highlight references of the
+					-- word under your cursor when your cursor rests there for a little while.
+					--    See `:help CursorHold` for information about when this is executed
+					--
+					-- When you move your cursor, the highlights will be cleared (the second autocommand).
+					local client = vim.lsp.get_client_by_id(event.data.client_id)
+					if client and client.server_capabilities.documentHighlightProvider then
+						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = event.buf,
+							group = highlight_augroup,
+							callback = vim.lsp.buf.document_highlight,
+						})
+
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = event.buf,
+							group = highlight_augroup,
+							callback = vim.lsp.buf.clear_references,
+						})
+
+						vim.api.nvim_create_autocmd("LspDetach", {
+							group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
+							callback = function(event2)
+								vim.lsp.buf.clear_references()
+								vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+							end,
+						})
+					end
 				end,
 			})
 

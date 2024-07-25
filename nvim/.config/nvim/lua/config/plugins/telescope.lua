@@ -96,7 +96,7 @@ return {
 		keymap("n", "<leader>gs", builtin.git_status, { desc = "Telescope Git Status" })
 		keymap("n", "<leader>ht", builtin.help_tags, { desc = "Search [H]elp [T]ags" })
 		keymap("n", "<leader>km", builtin.keymaps, { desc = "Search [K]ey[m]aps" })
-		-- keymap("n", "<leader>f", builtin.find_files, { desc = "Search [F]iles" })
+		keymap("n", "<leader>f", builtin.find_files, { desc = "Search [F]iles" })
 		keymap("n", "<leader>lg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		keymap("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		keymap("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
