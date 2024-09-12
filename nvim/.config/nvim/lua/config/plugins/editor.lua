@@ -81,13 +81,25 @@ return {
 		end,
 	},
 	{
-		"nvim-pack/nvim-spectre",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		opts = { open_cmd = "noswapfile vnew" },
+		"MagicDuck/grug-far.nvim",
+		opts = { headerMaxWidth = 80 },
+		cmd = "GrugFar",
 		keys = {
-			{ "<leader>S", "<cmd>Spectre<cr>", "[S]earch and [R]eplace (Spectre)" },
+			{
+				"<leader>S",
+				function()
+					local grug = require("grug-far")
+					local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+					grug.grug_far({
+						transient = true,
+						prefills = {
+							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+						},
+					})
+				end,
+				mode = { "n", "v" },
+				desc = "Search and Replace",
+			},
 		},
 	},
 	{
@@ -117,9 +129,9 @@ return {
 			use_icons = false,
 		},
 		keys = {
-			{ "<leader>do", "<cmd>DiffviewOpen<cr>", desc = "[D]iffview [O]pen" },
-			{ "<leader>dc", "<cmd>DiffviewClose<cr>", desc = "[D]iffview [C]lose" },
-			{ "<leader>dr", "<cmd>DiffviewRefresh<cr>", desc = "[D]iffview [R]efresh" },
+			{ "<leader>do", "<cmd>DiffviewOpen<cr>",        desc = "[D]iffview [O]pen" },
+			{ "<leader>dc", "<cmd>DiffviewClose<cr>",       desc = "[D]iffview [C]lose" },
+			{ "<leader>dr", "<cmd>DiffviewRefresh<cr>",     desc = "[D]iffview [R]efresh" },
 			{ "<leader>dh", "<cmd>DiffviewFileHistory<cr>", desc = "[D]iffview [F]ileHistory" },
 		},
 	},
