@@ -129,9 +129,9 @@ return {
 			use_icons = false,
 		},
 		keys = {
-			{ "<leader>do", "<cmd>DiffviewOpen<cr>",        desc = "[D]iffview [O]pen" },
-			{ "<leader>dc", "<cmd>DiffviewClose<cr>",       desc = "[D]iffview [C]lose" },
-			{ "<leader>dr", "<cmd>DiffviewRefresh<cr>",     desc = "[D]iffview [R]efresh" },
+			{ "<leader>do", "<cmd>DiffviewOpen<cr>", desc = "[D]iffview [O]pen" },
+			{ "<leader>dc", "<cmd>DiffviewClose<cr>", desc = "[D]iffview [C]lose" },
+			{ "<leader>dr", "<cmd>DiffviewRefresh<cr>", desc = "[D]iffview [R]efresh" },
 			{ "<leader>dh", "<cmd>DiffviewFileHistory<cr>", desc = "[D]iffview [F]ileHistory" },
 		},
 	},

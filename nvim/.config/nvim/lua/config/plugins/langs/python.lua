@@ -11,7 +11,7 @@ return {
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
 			opts.ensure_installed = opts.ensure_installed or {}
-			vim.list_extend(opts.ensure_installed, { "pyright", "ruff-lsp", "debugpy" })
+			vim.list_extend(opts.ensure_installed, { "pyright", "ruff", "debugpy" })
 		end,
 	},
 	{
@@ -23,7 +23,7 @@ return {
 						client.server_capabilities.semanticTokensProvider = nil
 					end,
 				},
-				ruff_lsp = {},
+				ruff = {},
 			},
 		},
 	},
