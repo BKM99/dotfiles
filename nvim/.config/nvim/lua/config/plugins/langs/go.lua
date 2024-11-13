@@ -38,23 +38,23 @@ return {
 			})
 		end,
 	},
-	{
-		"mfussenegger/nvim-dap",
-		optional = true,
-		dependencies = {
-			{ "leoluz/nvim-dap-go", config = true },
-		},
-	},
-	{
-		"nvim-neotest/neotest",
-		optional = true,
-		dependencies = {
-			"nvim-neotest/neotest-go",
-		},
-		opts = function(_, opts)
-			opts.adapters["neotest-vim-test"] = opts.adapters["neotest-vim-test"] or {}
-			vim.list_extend(opts.adapters["neotest-vim-test"], { "go" })
-			opts.adapters["neotest-go"] = {}
-		end,
-	},
+	-- {
+	-- 	"mfussenegger/nvim-dap",
+	-- 	optional = true,
+	-- 	dependencies = {
+	-- 		{ "leoluz/nvim-dap-go", config = true },
+	-- 	},
+	-- },
+	-- {
+	-- 	"nvim-neotest/neotest",
+	-- 	optional = true,
+	-- 	dependencies = {
+	-- 		"nvim-neotest/neotest-go",
+	-- 	},
+	-- 	opts = function(_, opts)
+	-- 		opts.adapters["neotest-vim-test"] = opts.adapters["neotest-vim-test"] or {}
+	-- 		vim.list_extend(opts.adapters["neotest-vim-test"], { "go" })
+	-- 		opts.adapters["neotest-go"] = {}
+	-- 	end,
+	-- },
 }
