@@ -2,7 +2,6 @@ return {
 	"nvim-telescope/telescope.nvim",
 	version = false,
 	dependencies = {
-		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -15,20 +14,10 @@ return {
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
-		local lga_actions = require("telescope-live-grep-args.actions")
 		telescope.setup({
 			extensions = {
 				live_grep_args = {
 					auto_quoting = true, -- enable/disable auto-quoting
-					-- define mappings, e.g.
-					mappings = { -- extend mappings
-						i = {
-							["<C-k>"] = lga_actions.quote_prompt(),
-							["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-							-- freeze the current list and start a fuzzy search in the frozen list
-							["<C-space>"] = lga_actions.to_fuzzy_refine,
-						},
-					},
 				},
 			},
 			pickers = {
@@ -38,12 +27,6 @@ return {
 					disable_devicons = true,
 					previewer = false,
 					theme = "ivy",
-				},
-				live_grep = {
-					disable_devicons = true,
-					additional_args = function(_)
-						return { "--hidden" }
-					end,
 				},
 				git_files = {
 					show_untracked = true,
@@ -90,7 +73,6 @@ return {
 			},
 		})
 		pcall(telescope.load_extension, "fzf")
-		pcall(telescope.load_extension, "live_grep_args")
 		local keymap = vim.keymap.set
 
 		keymap("n", "<leader>gs", builtin.git_status, { desc = "Telescope Git Status" })
@@ -102,11 +84,5 @@ return {
 		keymap("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		keymap("n", "<leader>gf", builtin.git_files, { desc = "Search [G]it [F]iles" })
 		keymap("n", "<leader>,", builtin.buffers, { desc = "[ ] Find existing buffers" })
-		keymap(
-			"n",
-			"<leader>ga",
-			":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-			{ desc = "Telescope live grep args" }
-		)
 	end,
 }

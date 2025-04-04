@@ -1,5 +1,5 @@
 vim.opt.termguicolors = true
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.number = true
 vim.opt.relativenumber = true

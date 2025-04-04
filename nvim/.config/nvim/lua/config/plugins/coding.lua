@@ -1,134 +1,35 @@
-local icons = {
-	Text = "",
-	Method = "󰆧",
-	Function = "󰊕",
-	Constructor = "",
-	Field = "󰜢",
-	Variable = "󰀫",
-	Class = "󰠱",
-	Interface = "",
-	Module = "",
-	Property = "󰜢",
-	Unit = "󰑭",
-	Value = "󰎠",
-	Enum = "",
-	Keyword = "󰌋",
-	Snippet = "",
-	Color = "󰏘",
-	File = "󰈙",
-	Reference = "󰈇",
-	Folder = "󰉋",
-	EnumMember = "",
-	Constant = "󰏿",
-	Struct = "󰙅",
-	Event = "",
-	Operator = "󰆕",
-	TypeParameter = "",
-}
-
 return {
 	{
-		"hrsh7th/nvim-cmp",
-		version = false,
-		event = "InsertEnter",
-		dependencies = {
-			{
-				"L3MON4D3/LuaSnip",
-				dependencies = {
-					"rafamadriz/friendly-snippets",
-				},
-				build = (function()
-					if vim.fn.has("win32") == 1 then
-						return
-					end
-					return "make install_jsregexp"
-				end)(),
+		"saghen/blink.cmp",
+		-- dependencies = { "rafamadriz/friendly-snippets" },
+		version = "1.*",
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			-- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+			-- 'super-tab' for mappings similar to vscode (tab to accept)
+			-- 'enter' for enter to accept
+			-- 'none' for no mappings
+			--
+			-- All presets have the following mappings:
+			-- C-space: Open menu or open docs if already open
+			-- C-n/C-p or Up/Down: Select next/previous item
+			-- C-e: Hide menu
+			-- C-k: Toggle signature help (if signature.enabled = true)
+			--
+			-- See :h blink-cmp-config-keymap for defining your own keymap
+			keymap = { preset = "super-tab" },
+
+			appearance = {
+				nerd_font_variant = "mono",
 			},
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-buffer",
+			completion = { documentation = { auto_show = false } },
+			sources = {
+				default = { "lsp", "path" },
+			},
+			fuzzy = { implementation = "prefer_rust_with_warning" },
 		},
-		config = function()
-			local cmp = require("cmp")
-			local luasnip = require("luasnip")
-
-			local MAX_INDEX_FILE_SIZE = 4000
-
-			-- enable html snipperts in jsx, tsx, js
-			luasnip.filetype_extend("javascript", { "html" })
-			luasnip.filetype_extend("javascriptreact", { "html" })
-			luasnip.filetype_extend("typescriptreact", { "html" })
-
-			require("luasnip.loaders.from_vscode").lazy_load()
-			luasnip.config.setup({})
-
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				completion = {
-					completeopt = "menu,menuone,noinsert,noselect",
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-n>"] = cmp.mapping.select_next_item(),
-					["<C-p>"] = cmp.mapping.select_prev_item(),
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
-					["<C-Space>"] = cmp.mapping.complete({}),
-					["<C-l>"] = cmp.mapping(function()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						end
-					end, { "i", "s" }),
-					["<C-h>"] = cmp.mapping(function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
-						end
-					end, { "i", "s" }),
-				}),
-				formatting = {
-					fields = { "abbr", "kind", "menu" },
-					format = function(entry, vim_item)
-						vim_item.kind = (icons[vim_item.kind] or "Foo") .. "\t" .. vim_item.kind
-						-- vim_item.menu = ({
-						-- 	nvim_lsp = "[LSP]",
-						-- 	nvim_lua = "[Lua]",
-						-- 	luasnip = "[Snippet]",
-						-- 	buffer = "[Buffer]",
-						-- 	path = "[Path]",
-						-- 	emoji = "[Emoji]",
-						-- })[entry.source.name]
-						return vim_item
-					end,
-				},
-				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
-					{
-						name = "buffer",
-						keyword_length = 4,
-						options = {
-							get_bufnrs = function()
-								local bufs = {}
-								for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-									-- Don't index giant files
-									if
-										vim.api.nvim_buf_is_loaded(bufnr)
-										and vim.api.nvim_buf_line_count(bufnr) < MAX_INDEX_FILE_SIZE
-									then
-										table.insert(bufs, bufnr)
-									end
-								end
-								return bufs
-							end,
-						},
-					},
-				},
-			})
-		end,
+		opts_extend = { "sources.default" },
 	},
 	{
 		"echasnovski/mini.pairs",
@@ -187,24 +88,6 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("nvim-surround").setup({})
-		end,
-	},
-	{
-		"ggandor/leap.nvim",
-		enabled = true,
-		keys = {
-			{ "s", mode = { "n", "x", "o" }, desc = "Leap Forward to" },
-			{ "S", mode = { "n", "x", "o" }, desc = "Leap Backward to" },
-			{ "gs", mode = { "n", "x", "o" }, desc = "Leap from Windows" },
-		},
-		config = function(_, opts)
-			local leap = require("leap")
-			for k, v in pairs(opts) do
-				leap.opts[k] = v
-			end
-			leap.add_default_mappings(true)
-			vim.keymap.del({ "x", "o" }, "x")
-			vim.keymap.del({ "x", "o" }, "X")
 		end,
 	},
 }

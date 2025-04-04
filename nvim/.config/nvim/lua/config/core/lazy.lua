@@ -20,25 +20,8 @@ vim.g.maplocalleader = " "
 require("lazy").setup({
 	change_detection = { notify = false },
 	spec = {
-		{ import = "config.plugins.colorscheme" },
-		{ import = "config.plugins.treesitter" },
-		{ import = "config.plugins.editor" },
-		{ import = "config.plugins.lsp" },
-		{ import = "config.plugins.telescope" },
-		{ import = "config.plugins.coding" },
-		-- { import = "config.plugins.dap" },
-		-- { import = "config.plugins.neotest" },
-		-- { import = "config.plugins.testing" },
-		{ import = "config.plugins.langs.lua" },
-		{ import = "config.plugins.langs.go" },
-		{ import = "config.plugins.langs.typescript" },
-		{ import = "config.plugins.langs.python" },
-		{ import = "config.plugins.langs.rust" },
-		{ import = "config.plugins.langs.cpp" },
-		-- { import = "config.plugins.langs.csharp" },
-		-- { import = "config.plugins.langs.java" },
-		-- { import = "config.plugins.langs.markdown" },
-		-- { import = "config.plugins.langs.docker" },
+		{ import = "config.plugins/" },
+		{ import = "config.plugins.langs/" },
 	},
 	performance = {
 		rtp = {
