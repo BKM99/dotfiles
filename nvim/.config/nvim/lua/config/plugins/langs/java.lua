@@ -1,10 +1,5 @@
 return {
 	-- {
-	-- 	"folke/neoconf.nvim",
-	-- 	cmd = "Neoconf",
-	-- 	opts = {},
-	-- },
-	-- {
 	-- 	"nvim-treesitter/nvim-treesitter",
 	-- 	opts = function(_, opts)
 	-- 		if type(opts.ensure_installed) == "table" then
@@ -14,6 +9,7 @@ return {
 	-- },
 	-- {
 	-- 	"nvim-java/nvim-java",
+	-- 	ft = "java",
 	-- 	config = false,
 	-- 	dependencies = {
 	-- 		{

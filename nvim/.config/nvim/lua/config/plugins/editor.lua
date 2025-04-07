@@ -1,28 +1,32 @@
 return {
 	{
-		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require("nvim-tree").setup()
-			vim.keymap.set("n", "<leader>nt", ":NvimTreeToggle<CR>", {
-				noremap = true,
-			})
-
-			vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFileToggle<CR>", {
-				noremap = true,
-			})
-		end,
+		"folke/snacks.nvim",
+		opts = {
+			picker = {},
+			explorer = {},
+		},
+		-- stylua: ignore
+		keys = {
+			{ "<leader>,",  function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+			{ "<leader>/",  function() Snacks.picker.grep() end,                                    desc = "Grep" },
+			{ "<leader>:",  function() Snacks.picker.command_history() end,                         desc = "Command History" },
+			{ "<leader>nt", function() Snacks.explorer() end,                                       desc = "File Explorer" },
+			-- find
+			{ "<leader>f",  function() Snacks.picker.files() end,                                   desc = "Find Files" },
+			{ "<leader>sc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+			{ "<leader>sg", function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
+			-- search
+			{ "<leader>sC", function() Snacks.picker.commands() end,                                desc = "Commands" },
+			{ "<leader>sh", function() Snacks.picker.help() end,                                    desc = "Help Pages" },
+			{ "<leader>sk", function() Snacks.picker.keymaps() end,                                 desc = "Keymaps" },
+			{ "<leader>sm", function() Snacks.picker.marks() end,                                   desc = "Marks" },
+			{ "<leader>sq", function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
+			{ "<leader>su", function() Snacks.picker.undo() end,                                    desc = "Undo History" },
+			{ "<leader>uC", function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
+		},
 	},
 	{
 		"stevearc/oil.nvim",
-		keys = {
-			{
-				"<leader>e",
-				function()
-					require("oil").toggle_float()
-				end,
-				desc = "Toggle Oil",
-			},
-		},
 		opts = {
 			skip_confirm_for_simple_edits = true,
 			delete_to_trash = true,
@@ -37,70 +41,17 @@ return {
 				show_hidden = true,
 			},
 		},
-	},
-	{
-		"ThePrimeagen/harpoon",
-		branch = "harpoon2",
-		opts = {
-			menu = {
-				width = vim.api.nvim_win_get_width(0) - 4,
-			},
-			settings = {
-				save_on_toggle = true,
-			},
-		},
-		keys = function()
-			local keys = {
-				{
-					"<leader>a",
-					function()
-						require("harpoon"):list():add()
-					end,
-					desc = "Harpoon File",
-				},
-				{
-					"<leader>he",
-					function()
-						local harpoon = require("harpoon")
-						harpoon.ui:toggle_quick_menu(harpoon:list())
-					end,
-					desc = "Harpoon Quick Menu",
-				},
-			}
-
-			for i = 1, 9 do
-				table.insert(keys, {
-					"<leader>" .. i,
-					function()
-						require("harpoon"):list():select(i)
-					end,
-					desc = "Harpoon to File " .. i,
-				})
-			end
-			return keys
+		config = function(_, opts)
+			require("oil").setup(opts)
+			vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 		end,
 	},
 	{
 		"MagicDuck/grug-far.nvim",
-		opts = { headerMaxWidth = 80 },
-		cmd = "GrugFar",
-		keys = {
-			{
-				"<leader>S",
-				function()
-					local grug = require("grug-far")
-					local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
-					grug.open({
-						transient = true,
-						prefills = {
-							filesFilter = ext and ext ~= "" and "*." .. ext or nil,
-						},
-					})
-				end,
-				mode = { "n", "v" },
-				desc = "Search and Replace",
-			},
-		},
+		config = function()
+			require("grug-far").setup({})
+			vim.keymap.set("n", "<leader>sr", "<CMD>GrugFar<CR>", { desc = "Open Search and Replace (GrugFar)" })
+		end,
 	},
 	{
 
