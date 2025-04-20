@@ -25,16 +25,57 @@ set hlsearch
 set laststatus=2
 
 let mapleader = " "
-" move faster between windows
-nnoremap <C-H> <C-W>h
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-L> <C-W>l
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-nnoremap <silent> <C-d> <C-d>zz
-nnoremap <silent> <C-u> <C-u>zz
 nnoremap <leader>f :find *
+
+" Better up/down movement with wrapped lines
+nnoremap <silent> <expr> k v:count == 0 ? 'gk' : 'k'
+nnoremap <silent> <expr> j v:count == 0 ? 'gj' : 'j'
+
+" Faster window navigation
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+
+" Quickfix navigation
+nnoremap <silent> [q :cprevious<CR>zz
+nnoremap <silent> ]q :cnext<CR>zz
+
+" Buffer navigation
+nnoremap <silent> [b :bprev<CR>
+nnoremap <silent> ]b :bnext<CR>
+
+" Resize windows with Alt + arrows
+nnoremap <A-Up>    :resize +2<CR>
+nnoremap <A-Down>  :resize -2<CR>
+nnoremap <A-Left>  :vertical resize -2<CR>
+nnoremap <A-Right> :vertical resize +2<CR>
+
+" Switch between last two buffers
+nnoremap <silent> <space><space> <C-^>
+
+" Move lines up/down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Delete to black hole register
+xnoremap p "_dP
+xnoremap P "_dP
+nnoremap x "_x
+
+" Center cursor after movements
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" Clear search highlight
+nnoremap <Esc> :nohlsearch<CR>
