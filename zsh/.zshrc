@@ -9,6 +9,8 @@ fi
 
 # Enable Vi mode
 bindkey -v
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
 
 zle_highlight=('paste:none')
 
