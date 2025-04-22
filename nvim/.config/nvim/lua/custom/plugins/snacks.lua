@@ -2,7 +2,14 @@ return {
 	{
 		"folke/snacks.nvim",
 		opts = {
-			picker = {},
+			picker = {
+				ignored = true,
+				sources = {
+					files = {
+						hidden = true,
+					},
+				},
+			},
 			explorer = {},
 		},
 		-- stylua: ignore

@@ -45,7 +45,7 @@ local function on_attach(client, bufnr)
 	-- Misc
 	keymap("n", "grn", vim.lsp.buf.rename, "LSP: [R]e[n]ame")
 	keymap("n", "K", vim.lsp.buf.hover, "LSP: Hover Documentation")
-	keymap("n", "gs", vim.lsp.buf.signature_help, "LSP: Signature Documentation")
+	keymap("n", "grs", vim.lsp.buf.signature_help, "LSP: Signature Documentation")
 	keymap({ "n", "x" }, "gra", function()
 		vim.lsp.buf.code_action()
 	end, "LSP: Code Actions")
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.diagnostic.config({
 			virtual_text = true,
 		})
-
+		client.server_capabilities.semanticTokensProvider = nil
 		on_attach(client, args.buf)
 	end,
 })
