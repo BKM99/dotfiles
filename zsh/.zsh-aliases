@@ -26,16 +26,11 @@ epath() {
 
 alias reload="exec ${SHELL} -l"
 
-function tre() {
-	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
-}
-
 function cleannvim() {
 	rm -rf ~/.local/share/nvim/
 	rm -rf ~/.local/state/nvim/
 	rm -rf ~/.cache/nvim/
 }
-
 
 function fzfChangeDir() {
     directories="$HOME/dotfiles $HOME/Documents $HOME/Documents/Playground $HOME $HOME/Desktop $HOME/.config $HOME/.local"

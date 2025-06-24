@@ -6,7 +6,7 @@ return {
 			delete_to_trash = true,
 			default_file_explorer = true,
 			columns = {
-				-- "icon",
+				"icon",
 				-- "permissions",
 				-- "size",
 				-- "mtime",

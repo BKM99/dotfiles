@@ -22,6 +22,16 @@
             ],
             "name": "Default profile",
             "selected": true,
+            "simple_modifications": [
+                {
+                    "from": { "key_code": "caps_lock" },
+                    "to": [{ "key_code": "escape" }]
+                },
+                {
+                    "from": { "key_code": "escape" },
+                    "to": [{ "key_code": "caps_lock" }]
+                }
+            ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "keyboard_type_v2": "ansi"

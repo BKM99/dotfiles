@@ -102,7 +102,7 @@ return {
 		{ "Hoffs/omnisharp-extended-lsp.nvim" },
 		{ "b0o/SchemaStore.nvim", lazy = true },
 		{
-			"williamboman/mason.nvim",
+			"mason-org/mason.nvim",
 			build = ":MasonUpdate",
 			opts = {
 				ensure_installed = ensure_installed_all,
