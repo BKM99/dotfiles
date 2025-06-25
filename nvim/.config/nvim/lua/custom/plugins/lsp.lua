@@ -1,39 +1,7 @@
-local ensure_installed_all = {
-	"lua-language-server",
-	"clangd",
-	"pyright",
-	"bash-language-server",
-	"gopls",
-	"rust-analyzer",
-	"vtsls",
-	"omnisharp",
-	"json-lsp",
-	"yaml-language-server",
-	"stylua",
-	"debugpy",
-}
-
-local function on_attach(client, bufnr)
+local function setup_lsp_keymaps(client, bufnr)
 	local function keymap(mode, lhs, rhs, desc)
 		vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 	end
-
-	-- Diagnostics
-	keymap("n", "[d", function()
-		vim.diagnostic.jump({ count = -1 })
-	end, "Previous diagnostic")
-
-	keymap("n", "]d", function()
-		vim.diagnostic.jump({ count = 1 })
-	end, "Next diagnostic")
-
-	keymap("n", "[e", function()
-		vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
-	end, "Previous error")
-
-	keymap("n", "]e", function()
-		vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
-	end, "Next error")
 
 	-- LSP Navigation
 	keymap("n", "gd", vim.lsp.buf.definition, "LSP: [G]oto [D]efinition")
@@ -78,52 +46,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			virtual_text = true,
 		})
 		client.server_capabilities.semanticTokensProvider = nil
-		on_attach(client, args.buf)
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
-	once = true,
-	callback = function()
-		local lsp_dir = vim.fn.stdpath("config") .. "/lsp"
-		local server_configs = vim.iter(vim.fn.glob(lsp_dir .. "/*.lua", false, true))
-			:map(function(file)
-				return vim.fn.fnamemodify(file, ":t:r")
-			end)
-			:totable()
-
-		vim.lsp.enable(server_configs)
+		setup_lsp_keymaps(client, args.buf)
 	end,
 })
 
 return {
-	"neovim/nvim-lspconfig",
-	dependencies = {
-		{ "Hoffs/omnisharp-extended-lsp.nvim" },
-		{ "b0o/SchemaStore.nvim", lazy = true },
-		{
-			"mason-org/mason.nvim",
-			build = ":MasonUpdate",
-			opts = {
-				ensure_installed = ensure_installed_all,
-			},
-			config = function(_, opts)
-				require("mason").setup(opts)
-				local mr = require("mason-registry")
-				local function ensure_installed()
-					for _, tool in ipairs(opts.ensure_installed) do
-						local p = mr.get_package(tool)
-						if not p:is_installed() then
-							p:install()
-						end
-					end
-				end
-				if mr.refresh then
-					mr.refresh(ensure_installed)
-				else
-					ensure_installed()
-				end
-			end,
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			{ "neovim/nvim-lspconfig" },
+			{ "b0o/SchemaStore.nvim", lazy = true },
+			{ "Hoffs/omnisharp-extended-lsp.nvim", lazy = true },
 		},
 	},
 }
