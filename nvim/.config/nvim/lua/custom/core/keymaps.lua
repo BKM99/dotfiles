@@ -35,24 +35,7 @@ keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 
-keymap("n", "<leader>h", "<cmd>nohlsearch<CR>")
+keymap("n", "<leader>nh", "<cmd>nohlsearch<CR>")
 
 keymap("n", "<leader>ru", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Replace word under the cursor" })
 keymap("n", "<leader>ra", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Append Text after cursor" })
-
--- Diagnostics
-keymap("n", "[d", function()
-	vim.diagnostic.jump({ count = -1 })
-end, { noremap = true, silent = true, desc = "Previous diagnostic" })
-
-keymap("n", "]d", function()
-	vim.diagnostic.jump({ count = 1 })
-end, { noremap = true, silent = true, desc = "Next diagnostic" })
-
-keymap("n", "[e", function()
-	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
-end, { noremap = true, silent = true, desc = "Previous error" })
-
-keymap("n", "]e", function()
-	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
-end, { noremap = true, silent = true, desc = "Next error" })

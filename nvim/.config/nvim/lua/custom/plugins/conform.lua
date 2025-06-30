@@ -25,16 +25,16 @@ return {
 			},
 		},
 	},
-	{
-		"nvimtools/none-ls.nvim",
-		config = function(_, _)
-			local nls = require("null-ls")
-
-			nls.setup({
-				sources = {
-					nls.builtins.code_actions.gomodifytags,
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"nvimtools/none-ls.nvim",
+	-- 	config = function(_, _)
+	-- 		local nls = require("null-ls")
+	--
+	-- 		nls.setup({
+	-- 			sources = {
+	-- 				nls.builtins.code_actions.gomodifytags,
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 }
